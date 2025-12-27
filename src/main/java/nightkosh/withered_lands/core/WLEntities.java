@@ -27,6 +27,8 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("vampire_bat",
                     () -> EntityType.Builder.of(VampireBat::new, MobCategory.MONSTER)
                             .sized(0.5F, 0.9F)
+                            .eyeHeight(0.45F)
+                            .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "vampire_bat"))));
@@ -35,7 +37,9 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("blazing_bat",
                     () -> EntityType.Builder.of(BlazingBat::new, MobCategory.MONSTER)
                             .sized(0.5F, 0.9F)
+                            .eyeHeight(0.45F)
                             .fireImmune()
+                            .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "blazing_bat"))));
@@ -44,7 +48,9 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("withered_bat",
                     () -> EntityType.Builder.of(WitheredBat::new, MobCategory.MONSTER)
                             .sized(0.5F, 0.9F)
+                            .eyeHeight(0.45F)
                             .fireImmune()
+                            .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "withered_bat"))));
@@ -53,7 +59,9 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("volatile_bat",
                     () -> EntityType.Builder.of(VolatileBat::new, MobCategory.MONSTER)
                             .sized(0.5F, 0.9F)
+                            .eyeHeight(0.45F)
                             .fireImmune()
+                            .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "volatile_bat"))));
@@ -62,7 +70,8 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("chorus_bat",
                     () -> EntityType.Builder.of(ChorusBat::new, MobCategory.MONSTER)
                             .sized(0.5F, 0.9F)
-                            .fireImmune()
+                            .eyeHeight(0.45F)
+                            .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "chorus_bat"))));
