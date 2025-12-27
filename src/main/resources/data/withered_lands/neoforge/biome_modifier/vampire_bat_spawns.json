@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#minecraft:is_overworld",
+  "spawners": [
+    {
+      "type": "withered_lands:vampire_bat",
+      "weight": 30,
+      "minCount": 2,
+      "maxCount": 5
+    }
+  ]
+}

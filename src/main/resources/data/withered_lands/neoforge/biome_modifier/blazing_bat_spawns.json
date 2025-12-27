@@ -1,0 +1,16 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:nether_wastes",
+    "minecraft:crimson_forest",
+    "minecraft:warped_forest"
+  ],
+  "spawners": [
+    {
+      "type": "withered_lands:blazing_bat",
+      "weight": 30,
+      "minCount": 2,
+      "maxCount": 5
+    }
+  ]
+}

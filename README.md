@@ -26,3 +26,33 @@
     ```
 
 For more information, look at "minecraft NeoForge" README.txt file (it's not included to this repository) or [this link](https://docs.neoforged.net/)
+
+## Useful commands
+
+1. Kill all
+    ```
+        /kill @e[type=!minecraft:player]
+    ```
+
+### Bats spawn:
+1. Vampire bat
+    ```
+        /summon withered_lands:vampire_bat
+    ```
+2. Blazing bat
+    ```
+        /summon withered_lands:blazing_bat
+    ```
+3. Withered bat
+    ```
+        /summon withered_lands:withered_bat
+    ```
+4. Blazing bat
+    ```
+        /summon withered_lands:volatile_bat
+    ```
+5. Chorus bat
+    ```
+        /summon withered_lands:chorus_bat
+    ```
+   
