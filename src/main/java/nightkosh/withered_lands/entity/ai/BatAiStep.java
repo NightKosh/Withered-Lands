@@ -1,9 +1,9 @@
 package nightkosh.withered_lands.entity.ai;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import nightkosh.withered_lands.entity.bat.HostileBat;
 
 /**
@@ -12,54 +12,33 @@ import nightkosh.withered_lands.entity.bat.HostileBat;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class BatFlyGoal extends Goal {
+public class BatAiStep {
 
-    private final HostileBat bat;
-    private final RandomSource random;
+    private static final TargetingConditions BAT_RESTING_TARGETING = TargetingConditions
+            .forNonCombat()
+            .range(4.0);
 
-    public BatFlyGoal(HostileBat bat) {
-        this.bat = bat;
-        random = bat.getRandom();
-    }
-
-    @Override
-    public boolean canUse() {
-        return true;
-    }
-
-    @Override
-    public boolean canContinueToUse() {
-        return true;
-    }
-
-    @Override
-    public void start() {
-        super.start();
-    }
-
-    @Override
-    public void stop() {
-        super.stop();
-    }
-
-    @Override
-    public void tick() {
-        var level = bat.level();
+    public static void step(ServerLevel level, HostileBat bat) {
         var pos = bat.blockPosition();
         var upPos = pos.above();
         if (bat.isResting()) {
+            boolean flag = bat.isSilent();
             if (level.getBlockState(upPos).isRedstoneConductor(level, pos)) {
-                if (this.random.nextInt(200) == 0) {
+                if (level.random.nextInt(200) == 0) {
                     bat.yHeadRot = level.random.nextInt(360);
                 }
 
-                if (bat.getTarget() != null) {
+                if (bat.getTarget() != null || level.getNearestPlayer(BAT_RESTING_TARGETING, bat) != null) {
                     bat.setResting(false);
-                    level.levelEvent(null, 1025, pos, 0);
+                    if (!flag) {
+                        level.levelEvent(null, 1025, pos, 0);
+                    }
                 }
             } else {
                 bat.setResting(false);
-                level.levelEvent(null, 1025, pos, 0);
+                if (!flag) {
+                    level.levelEvent(null, 1025, pos, 0);
+                }
             }
         } else {
             if (bat.getTargetPosition() != null &&
@@ -70,12 +49,12 @@ public class BatFlyGoal extends Goal {
             if (bat.getTarget() != null) {
                 bat.setTargetPosition(bat.getTarget().blockPosition().above());
             } else if (bat.getTargetPosition() == null ||
-                    this.random.nextInt(30) == 0 ||
+                    level.random.nextInt(30) == 0 ||
                     bat.getTargetPosition().closerToCenterThan(bat.position(), 2)) {
                 bat.setTargetPosition(BlockPos.containing(
-                        bat.getX() + this.random.nextInt(7) - this.random.nextInt(7),
-                        bat.getY() + this.random.nextInt(6) - 2,
-                        bat.getZ() + this.random.nextInt(7) - this.random.nextInt(7)));
+                        bat.getX() + level.random.nextInt(7) - level.random.nextInt(7),
+                        bat.getY() + level.random.nextInt(6) - 2,
+                        bat.getZ() + level.random.nextInt(7) - level.random.nextInt(7)));
             }
 
             double d0 = bat.getTargetPosition().getX() + 0.5 - bat.getX();
@@ -94,12 +73,10 @@ public class BatFlyGoal extends Goal {
             bat.zza = 0.5F;
             bat.setYRot(bat.getYRot() + f1);
 
-            if (this.random.nextInt(100) == 0 && level.getBlockState(upPos).isRedstoneConductor(level, upPos)) {
+            if (level.random.nextInt(100) == 0 && level.getBlockState(upPos).isRedstoneConductor(level, upPos)) {
                 bat.setResting(true);
             }
         }
-
-        super.tick();
     }
 
 }

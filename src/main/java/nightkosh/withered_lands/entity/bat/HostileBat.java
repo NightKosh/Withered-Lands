@@ -32,7 +32,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
-import nightkosh.withered_lands.entity.ai.BatFlyGoal;
+import nightkosh.withered_lands.entity.ai.BatAiStep;
 
 import javax.annotation.Nullable;
 
@@ -51,8 +51,6 @@ public abstract class HostileBat extends Monster {
     public final AnimationState restAnimationState = new AnimationState();
     private @Nullable BlockPos targetPosition;
 
-    protected BlockPos spawnPosition;
-
     public HostileBat(EntityType<? extends HostileBat> entityType, Level level) {
         super(entityType, level);
         if (!level.isClientSide()) {
@@ -60,11 +58,11 @@ public abstract class HostileBat extends Monster {
         }
     }
 
+    BatAiStep fg ;
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, false));
-        this.goalSelector.addGoal(2, new BatFlyGoal(this));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
+        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         this.addBehaviourGoals();
     }
@@ -78,6 +76,11 @@ public abstract class HostileBat extends Monster {
     protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
         return level.getDifficulty() != Difficulty.PEACEFUL &&
                 isDarkEnoughToSpawn(level, pos, random);
+    }
+    @Override
+    protected void customServerAiStep(ServerLevel level) {
+        super.customServerAiStep(level);
+        BatAiStep.step(level, this);
     }
 
     @Override
