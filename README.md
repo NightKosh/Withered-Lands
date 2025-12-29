@@ -30,7 +30,7 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 ## Useful commands
 
 1. Kill all
-    ```
+    ```[gradle.properties](../Sophisticated-wolves/gradle.properties)
         /kill @e[type=!minecraft:player]
     ```
 
@@ -57,7 +57,11 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
 
 ### Wolves spawn:
-1. Barghest
+1. Skeleton dog
+    ```
+        /summon withered_lands:skeleton_dog
+   
+2. Barghest
     ```
         /summon withered_lands:barghest
     ```
