@@ -7,6 +7,7 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import nightkosh.withered_lands.item.BatWing;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
@@ -22,6 +23,12 @@ public class WLItems {
             DeferredRegister.create(Registries.ITEM, ModInfo.ID);
 
     // bats
+    public static final DeferredHolder<Item, Item> BAT_WING = ITEMS_REGISTER.register(
+            "bat_wing",
+            () -> new BatWing(new Item.Properties()
+                    .stacksTo(64)
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
+
     public static final DeferredHolder<Item, Item> VAMPIRE_BAT_EGG = ITEMS_REGISTER.register(
             "vampire_bat_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()

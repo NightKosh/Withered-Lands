@@ -1,0 +1,16 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "group" : "leather",
+  "category": "misc",
+  "pattern": [
+    "ww",
+    "ww"
+  ],
+  "key": {
+    "w": "withered_lands:bat_wing"
+  },
+  "result" : {
+    "id": "minecraft:leather",
+    "count" : 1
+  }
+}

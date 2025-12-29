@@ -24,6 +24,11 @@ public class WLTabs {
                     .icon(() -> new ItemStack(WLItems.VAMPIRE_BAT_EGG))
                     .title(Component.translatable("itemGroup." + ModInfo.ID))
                     .displayItems((parameters, output) -> {
+
+                        output.accept(WLItems.BAT_WING.get());
+
+                        // ---------- eggs ----------
+
                         // bats
                         output.accept(WLItems.VAMPIRE_BAT_EGG.get());
                         output.accept(WLItems.BLAZING_BAT_EGG.get());

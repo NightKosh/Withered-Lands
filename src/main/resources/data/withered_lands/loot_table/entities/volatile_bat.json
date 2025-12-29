@@ -5,6 +5,22 @@
       "rolls": 1,
       "entries": [
         {
+          "weight": 30,
+          "type": "item",
+          "name": "withered_lands:bat_wing",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        },
+        {
+          "weight": 10,
           "type": "minecraft:item",
           "name": "minecraft:gunpowder",
           "functions": [
