@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.wolf.Barghest;
+import nightkosh.withered_lands.entity.wolf.SkeletonDog;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
@@ -79,6 +80,16 @@ public class WLEntities {
                                     fromNamespaceAndPath(ModInfo.ID, "chorus_bat"))));
 
     // wolves
+    public static final DeferredHolder<EntityType<?>, EntityType<SkeletonDog>> SKELETON_DOG =
+            ENTITY_TYPES_REGISTER.register("skeleton_dog",
+                    () -> EntityType.Builder.of(SkeletonDog::new, MobCategory.MONSTER)
+                            .sized(0.6F, 0.85F)
+                            .eyeHeight(0.68F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "skeleton_dog"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<Barghest>> BARGHEST =
             ENTITY_TYPES_REGISTER.register("barghest",
                     () -> EntityType.Builder.of(Barghest::new, MobCategory.MONSTER)

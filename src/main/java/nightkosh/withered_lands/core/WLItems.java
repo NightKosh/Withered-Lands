@@ -60,6 +60,12 @@ public class WLItems {
                     .spawnEgg(WLEntities.CHORUS_BAT.get())));
 
     // wolves
+    public static final DeferredHolder<Item, Item> SKELETON_DOG_EGG = ITEMS_REGISTER.register(
+            "skeleton_dog_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_dog_spawn_egg")))
+                    .spawnEgg(WLEntities.SKELETON_DOG.get())));
+
     public static final DeferredHolder<Item, Item> BARGHEST_EGG = ITEMS_REGISTER.register(
             "barghest_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()

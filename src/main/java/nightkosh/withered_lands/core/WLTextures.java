@@ -19,6 +19,7 @@ public final class WLTextures {
     public static final Identifier VOLATILE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/volatile_bat.png");
     public static final Identifier CHORUS_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/chorus_bat.png");
     // wolves
+    public static final Identifier SKELETON_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/skeleton.png");
     public static final Identifier BARGHEST = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/barghest/barghest.png");
     public static final Identifier BARGHEST_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/barghest/eyes.png");
     public static final Identifier BARGHEST_INVISIBLE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/barghest/invisible.png");

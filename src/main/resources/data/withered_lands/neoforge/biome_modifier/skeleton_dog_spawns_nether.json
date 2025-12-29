@@ -1,0 +1,16 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:soul_sand_valley",
+    "minecraft:crimson_forest",
+    "minecraft:warped_forest"
+  ],
+  "spawners": [
+    {
+      "type": "withered_lands:skeleton_dog",
+      "weight": 40,
+      "minCount": 2,
+      "maxCount": 5
+    }
+  ]
+}

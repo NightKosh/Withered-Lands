@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "withered_lands:item/spawn_egg/barghest"
+    "model": "withered_lands:item/spawn_egg/wolf/barghest"
   }
 }

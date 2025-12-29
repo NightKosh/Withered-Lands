@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.resources.Identifier;
 import nightkosh.withered_lands.core.WLTextures;
 import nightkosh.withered_lands.entity.wolf.Barghest;
-import nightkosh.withered_lands.renderer.model.BarghestModel;
+import nightkosh.withered_lands.renderer.model.UndeadWolfModel;
 import nightkosh.withered_lands.renderer.render_sate.BarghestRenderState;
 import org.jspecify.annotations.Nullable;
 
@@ -21,10 +21,10 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class BarghestRenderer extends MobRenderer<Barghest, BarghestRenderState, BarghestModel<BarghestRenderState>> {
+public class BarghestRenderer extends MobRenderer<Barghest, BarghestRenderState, UndeadWolfModel<BarghestRenderState>> {
 
     public BarghestRenderer(EntityRendererProvider.Context context) {
-        super(context, new BarghestModel(context.bakeLayer(ModelLayers.WOLF)), 0.5F);
+        super(context, new UndeadWolfModel(context.bakeLayer(ModelLayers.WOLF)), 0.5F);
         this.addLayer(new BarghestEyesLayer(this));
     }
 

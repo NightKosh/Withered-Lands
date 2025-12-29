@@ -8,7 +8,7 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.util.Mth;
-import nightkosh.withered_lands.renderer.render_sate.BarghestRenderState;
+import nightkosh.withered_lands.renderer.render_sate.UndeadWolfRenderState;
 
 /**
  * Withered Lands
@@ -16,7 +16,7 @@ import nightkosh.withered_lands.renderer.render_sate.BarghestRenderState;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class BarghestModel<T extends BarghestRenderState> extends EntityModel<T> {
+public class UndeadWolfModel<T extends UndeadWolfRenderState> extends EntityModel<T> {
 
     private static final float H_PI = 1.5707963267948966192313216916398F;
 
@@ -31,7 +31,7 @@ public class BarghestModel<T extends BarghestRenderState> extends EntityModel<T>
     private final ModelPart realTail;
     private final ModelPart upperBody;
 
-    public BarghestModel(ModelPart modelPart) {
+    public UndeadWolfModel(ModelPart modelPart) {
         super(modelPart);
         this.head = modelPart.getChild("head");
         this.realHead = this.head.getChild("real_head");
