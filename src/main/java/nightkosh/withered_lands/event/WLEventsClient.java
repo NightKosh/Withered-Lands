@@ -8,6 +8,7 @@ import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.renderer.bat.*;
+import nightkosh.withered_lands.renderer.wolf.BarghestRenderer;
 
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
@@ -31,6 +32,8 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.WITHERED_BAT.get(), WitheredBatRenderer::new);
         event.registerEntityRenderer(WLEntities.VOLATILE_BAT.get(), VolatileBatRenderer::new);
         event.registerEntityRenderer(WLEntities.CHORUS_BAT.get(), ChorusBatRenderer::new);
+        // wolves
+        event.registerEntityRenderer(WLEntities.BARGHEST.get(), BarghestRenderer::new);
     }
 
 }

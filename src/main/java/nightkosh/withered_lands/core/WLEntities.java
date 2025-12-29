@@ -4,10 +4,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.wolf.Barghest;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
@@ -75,6 +77,18 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "chorus_bat"))));
+
+    // wolves
+    public static final DeferredHolder<EntityType<?>, EntityType<Barghest>> BARGHEST =
+            ENTITY_TYPES_REGISTER.register("barghest",
+                    () -> EntityType.Builder.of(Barghest::new, MobCategory.MONSTER)
+                            .sized(1.2F, 1.7F)
+                            .eyeHeight(1.36F)
+                            .notInPeaceful()
+                            .immuneTo(Blocks.WITHER_ROSE)
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "barghest"))));
 
 
     public static void register(IEventBus eventBus) {

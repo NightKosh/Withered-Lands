@@ -27,6 +27,7 @@ public class WitheredLandsMod {
         container.registerConfig(ModConfig.Type.COMMON, WLConfigs.SPEC, ModInfo.ID + ".toml");
 
         WLEntities.register(eventBus);
+        WLSounds.register(eventBus);
         WLItems.register(eventBus);
         WLTabs.register(eventBus);
     }

@@ -30,6 +30,8 @@ public class WLTabs {
                         output.accept(WLItems.WITHERED_BAT_EGG.get());
                         output.accept(WLItems.VOLATILE_BAT_EGG.get());
                         output.accept(WLItems.CHORUS_BAT_EGG.get());
+                        // wolves
+                        output.accept(WLItems.BARGHEST_EGG.get());
                     })
                     .build()
             );

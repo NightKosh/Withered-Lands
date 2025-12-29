@@ -9,6 +9,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.wolf.Barghest;
 
 
 /**
@@ -28,6 +29,8 @@ public class WLEventsEntity {
         event.put(WLEntities.WITHERED_BAT.get(), WitheredBat.createAttributeSupplier());
         event.put(WLEntities.VOLATILE_BAT.get(), VolatileBat.createAttributeSupplier());
         event.put(WLEntities.CHORUS_BAT.get(), ChorusBat.createAttributeSupplier());
+        // wolves
+        event.put(WLEntities.BARGHEST.get(), Barghest.createAttributeSupplier());
     }
 
     @SubscribeEvent
@@ -61,6 +64,13 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ChorusBat::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // wolves
+        event.register(WLEntities.BARGHEST.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Barghest::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
     }
 

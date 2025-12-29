@@ -55,4 +55,10 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:chorus_bat
     ```
-   
+
+### Wolves spawn:
+1. Barghest
+    ```
+        /summon withered_lands:barghest
+    ```
+

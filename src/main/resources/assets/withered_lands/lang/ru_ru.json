@@ -6,10 +6,12 @@
   "entity.withered_lands.blazing_bat": "Иссушённая летучая мышь",
   "entity.withered_lands.volatile_bat": "Нестабильная летучая мышь",
   "entity.withered_lands.chorus_bat": "Летучая мышь хоруса",
+  "entity.withered_lands.barghest": "Баргест",
 
   "item.withered_lands.vampire_bat_spawn_egg": "Яйцо призыва летучей мыши - вампира",
   "item.withered_lands.blazing_bat_spawn_egg": "Яйцо призыва пылающей летучей мыши",
   "item.withered_lands.withered_bat_spawn_egg": "Яйцо призыва иссушённой летучей мыши",
   "item.withered_lands.volatile_bat_spawn_egg": "Яйцо призыва нестабильной летучей мыши",
-  "item.withered_lands.chorus_bat_spawn_egg": "Яйцо призыва летучей мыши хоруса"
+  "item.withered_lands.chorus_bat_spawn_egg": "Яйцо призыва летучей мыши хоруса",
+  "item.withered_lands.barghest_spawn_egg": "Яйцо призыва Баргеста"
 }

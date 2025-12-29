@@ -1,0 +1,10 @@
+{
+    "barghest.growl" : {
+        "category": "hostile",
+        "subtitle": "barghest.growl",
+        "sounds" : [{
+            "name" : "withered_lands:hostile/barghest/growl",
+            "stream" : true
+        }]
+    }
+}
