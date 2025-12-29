@@ -74,6 +74,4 @@ public class ChorusBat extends HostileBat {
         return WLConfigs.CHORUS_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
     }
 
-    //TODO LootTable
-
 }

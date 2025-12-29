@@ -51,6 +51,4 @@ public class WitheredBat extends HostileBat {
         return WLConfigs.WITHERED_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
     }
 
-    //TODO LootTable
-
 }

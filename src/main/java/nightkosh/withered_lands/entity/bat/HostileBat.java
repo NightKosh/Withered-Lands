@@ -77,6 +77,7 @@ public abstract class HostileBat extends Monster {
         return level.getDifficulty() != Difficulty.PEACEFUL &&
                 isDarkEnoughToSpawn(level, pos, random);
     }
+
     @Override
     protected void customServerAiStep(ServerLevel level) {
         super.customServerAiStep(level);

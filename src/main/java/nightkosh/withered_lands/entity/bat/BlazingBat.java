@@ -49,6 +49,4 @@ public class BlazingBat extends HostileBat {
         return WLConfigs.BLAZING_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
     }
 
-    //TODO LootTable
-
 }

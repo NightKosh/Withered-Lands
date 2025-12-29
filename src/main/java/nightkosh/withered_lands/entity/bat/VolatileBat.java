@@ -71,6 +71,4 @@ public class VolatileBat extends HostileBat {
         return WLConfigs.VOLATILE_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
     }
 
-    //TODO LootTable
-
 }
