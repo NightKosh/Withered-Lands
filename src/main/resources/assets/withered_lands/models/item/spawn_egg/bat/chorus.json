@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "withered_lands:item/vampire_bat_spawn_egg"
+    "layer0": "withered_lands:item/spawn_egg/bat/chorus"
   }
 }
