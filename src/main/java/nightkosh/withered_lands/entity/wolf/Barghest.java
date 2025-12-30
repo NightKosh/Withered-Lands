@@ -37,7 +37,7 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class Barghest extends UndeadDog {
+public class Barghest extends AUndeadDog {
 
     private static final EntityDataAccessor<Boolean> INVISIBLE_ID = SynchedEntityData.defineId(Barghest.class, EntityDataSerializers.BOOLEAN);
 

@@ -1,21 +1,14 @@
 package nightkosh.withered_lands.renderer.wolf;
 
 
-import net.minecraft.client.model.ambient.BatModel;
 import net.minecraft.client.model.animal.wolf.WolfModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.WolfRenderer;
 import net.minecraft.client.renderer.entity.layers.WolfArmorLayer;
-import net.minecraft.client.renderer.entity.state.BatRenderState;
 import net.minecraft.client.renderer.entity.state.WolfRenderState;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.entity.animal.wolf.Wolf;
-import nightkosh.withered_lands.entity.bat.HostileBat;
-import nightkosh.withered_lands.entity.wolf.UndeadDog;
-
-import javax.annotation.Nullable;
+import nightkosh.withered_lands.entity.wolf.AUndeadDog;
 
 /**
  * Withered Lands
@@ -23,7 +16,7 @@ import javax.annotation.Nullable;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class UndeadDogRender<T extends UndeadDog> extends MobRenderer<UndeadDog, WolfRenderState, WolfModel> {
+public class UndeadDogRender<T extends AUndeadDog> extends MobRenderer<AUndeadDog, WolfRenderState, WolfModel> {
 
     public UndeadDogRender(EntityRendererProvider.Context context) {
         super(context, new WolfModel(context.bakeLayer(ModelLayers.WOLF)), 0.5F);

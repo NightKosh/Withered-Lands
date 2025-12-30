@@ -2,7 +2,7 @@ package nightkosh.withered_lands.entity.wolf;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import nightkosh.withered_lands.entity.UndeadPet;
+import nightkosh.withered_lands.entity.AUndeadPet;
 
 /**
  * Withered Lands
@@ -10,9 +10,9 @@ import nightkosh.withered_lands.entity.UndeadPet;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class UndeadDog extends UndeadPet {
+public abstract class AUndeadDog extends AUndeadPet {
 
-    public UndeadDog(EntityType<? extends UndeadDog> entityType, Level level) {
+    public AUndeadDog(EntityType<? extends AUndeadDog> entityType, Level level) {
         super(entityType, level);
     }
 

@@ -23,9 +23,9 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class UndeadPet extends Monster {
+public abstract class AUndeadPet extends Monster {
 
-    public UndeadPet(EntityType<? extends UndeadPet> entityType, Level level) {
+    public AUndeadPet(EntityType<? extends AUndeadPet> entityType, Level level) {
         super(entityType, level);
     }
 

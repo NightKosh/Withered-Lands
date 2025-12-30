@@ -25,7 +25,7 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class SkeletonDog extends UndeadDog {
+public class SkeletonDog extends AUndeadDog {
 
     public SkeletonDog(EntityType<? extends SkeletonDog> entityType, Level level) {
         super(entityType, level);
