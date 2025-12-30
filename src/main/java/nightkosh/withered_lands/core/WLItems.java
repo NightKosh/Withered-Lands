@@ -72,6 +72,13 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "barghest_spawn_egg")))
                     .spawnEgg(WLEntities.BARGHEST.get())));
 
+    // cats
+    public static final DeferredHolder<Item, Item> SKELETON_CAT_EGG = ITEMS_REGISTER.register(
+            "skeleton_cat_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_cat_spawn_egg")))
+                    .spawnEgg(WLEntities.SKELETON_CAT.get())));
+
     public static void register(IEventBus eventBus) {
         ITEMS_REGISTER.register(eventBus);
     }

@@ -60,9 +60,15 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 1. Skeleton dog
     ```
         /summon withered_lands:skeleton_dog
-   
+    ```
 2. Barghest
     ```
         /summon withered_lands:barghest
     ```
 
+### Cats spawn:
+1. Skeleton cat
+    ```
+        /summon withered_lands:skeleton_cat  
+    ``` 
+   

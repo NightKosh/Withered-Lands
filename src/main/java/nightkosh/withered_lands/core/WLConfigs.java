@@ -24,6 +24,9 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_DOG;
     public static ModConfigSpec.ConfigValue<Boolean> BARGHEST_SPAWN;
 
+    // cats
+    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_CAT;
+
     // other
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
@@ -40,6 +43,9 @@ public class WLConfigs {
         // wolves
         SKELETON_DOG = BUILDER.define("Skeleton Dogs Spawn", true);
         BARGHEST_SPAWN = BUILDER.define("Barghests Spawn", true);
+
+        // cats
+        SKELETON_CAT = BUILDER.define("Skeleton Cats Spawn", true);
 
         DEBUG_MODE = BUILDER.comment("Enable additional dev logs")
                 .define("Debug Mode", false);

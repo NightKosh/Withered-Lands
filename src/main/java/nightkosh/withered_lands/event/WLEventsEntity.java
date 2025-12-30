@@ -11,7 +11,7 @@ import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
-
+import nightkosh.withered_lands.entity.cat.SkeletonCat;
 
 /**
  * Withered Lands
@@ -33,6 +33,8 @@ public class WLEventsEntity {
         // wolves
         event.put(WLEntities.SKELETON_DOG.get(), SkeletonDog.createAttributeSupplier());
         event.put(WLEntities.BARGHEST.get(), Barghest.createAttributeSupplier());
+        // cats
+        event.put(WLEntities.SKELETON_CAT.get(), SkeletonCat.createAttributeSupplier());
     }
 
     @SubscribeEvent
@@ -79,6 +81,13 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Barghest::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // cats
+        event.register(WLEntities.SKELETON_CAT.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SkeletonCat::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
     }
 

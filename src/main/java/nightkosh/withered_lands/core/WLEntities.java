@@ -9,6 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
 
@@ -100,6 +101,17 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "barghest"))));
+
+    // cats
+    public static final DeferredHolder<EntityType<?>, EntityType<SkeletonCat>> SKELETON_CAT =
+            ENTITY_TYPES_REGISTER.register("skeleton_cat",
+                    () -> EntityType.Builder.of(SkeletonCat::new, MobCategory.MONSTER)
+                            .sized(0.6F, 0.7F)
+                            .eyeHeight(0.35F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "skeleton_cat"))));
 
 
     public static void register(IEventBus eventBus) {

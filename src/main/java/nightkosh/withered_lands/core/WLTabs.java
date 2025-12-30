@@ -38,6 +38,8 @@ public class WLTabs {
                         // wolves
                         output.accept(WLItems.SKELETON_DOG_EGG.get());
                         output.accept(WLItems.BARGHEST_EGG.get());
+                        // cats
+                        output.accept(WLItems.SKELETON_CAT_EGG.get());
                     })
                     .build()
             );
