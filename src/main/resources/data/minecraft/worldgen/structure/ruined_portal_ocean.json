@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:ruined_portal",
+  "biomes": "#minecraft:has_structure/ruined_portal_ocean",
+  "setups": [
+    {
+      "air_pocket_probability": 0.0,
+      "can_be_cold": true,
+      "mossiness": 0.8,
+      "overgrown": false,
+      "placement": "on_ocean_floor",
+      "replace_with_blackstone": false,
+      "vines": false,
+      "weight": 1.0
+    }
+  ],
+  "step": "surface_structures",
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "withered_lands:phantom_diver",
+          "weight": 70,
+          "minCount": 1,
+          "maxCount": 2
+        }
+      ]
+    }
+  }
+}
