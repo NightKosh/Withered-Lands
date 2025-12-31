@@ -30,7 +30,7 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 ## Useful commands
 
 1. Kill all
-    ```[gradle.properties](../Sophisticated-wolves/gradle.properties)
+    ```
         /kill @e[type=!minecraft:player]
     ```
 
