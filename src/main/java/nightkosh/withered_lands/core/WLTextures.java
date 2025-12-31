@@ -25,5 +25,8 @@ public final class WLTextures {
     public static final Identifier BARGHEST_INVISIBLE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/barghest/invisible.png");
     // cats
     public static final Identifier SKELETON_CAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/cat/skeleton.png");
+    // underwater mobs
+    public static final Identifier PHANTOM_DIVER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/phantom_diver/diver.png");
+    public static final Identifier PHANTOM_DIVER_FACE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/phantom_diver/face.png");
 
 }

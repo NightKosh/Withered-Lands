@@ -71,4 +71,10 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:skeleton_cat  
     ``` 
+
+### Water mobs spawn:
+1. Phantom diver
+    ```
+        /summon withered_lands:phantom_diver  
+    ``` 
    

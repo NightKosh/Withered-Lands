@@ -21,14 +21,19 @@ public class WLSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS_REGISTER =
             DeferredRegister.create(Registries.SOUND_EVENT, ModInfo.ID);
 
+    // Barghest
     public static final DeferredHolder<SoundEvent, SoundEvent> BARGHEST_GROWL =
             registerSoundEvent("barghest_growl", "barghest.growl");
-
     public static final DeferredHolder<SoundEvent, SoundEvent> BARGHEST_HURT =
             registerSoundEvent("barghest_hurt", parse("entity.wolf_angry.hurt"));
-
     public static final DeferredHolder<SoundEvent, SoundEvent> BARGHEST_DEATH =
             registerSoundEvent("barghest_death", parse("entity.wolf_big.death"));
+
+    // Drowned
+    public static final DeferredHolder<SoundEvent, SoundEvent> DROWNED_GROWL =
+            registerSoundEvent("drowned_growl", "entity.drowned.growl");
+    public static final DeferredHolder<SoundEvent, SoundEvent> DROWNED_BUBBLES =
+            registerSoundEvent("drowned_bubbles", "entity.drowned.bubbles");
 
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name, String path) {
         return registerSoundEvent(name, fromNamespaceAndPath(ModInfo.ID, path));

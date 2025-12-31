@@ -9,6 +9,8 @@ import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.renderer.bat.*;
 import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
+import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
+import nightkosh.withered_lands.renderer.water.PhantomDiverRenderer;
 import nightkosh.withered_lands.renderer.wolf.BarghestRenderer;
 import nightkosh.withered_lands.renderer.wolf.SkeletonDogRenderer;
 
@@ -24,7 +26,7 @@ import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 public class WLEventsClient {
 
     @SubscribeEvent
-    public static void entityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+    public static void onRegisterRenderers(EntityRenderersEvent.RegisterRenderers event) {
         if (WLConfigs.DEBUG_MODE.get()) {
             LOGGER.info("EntityRenderersEvent.RegisterRenderers event triggered");
         }
@@ -39,6 +41,17 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.BARGHEST.get(), BarghestRenderer::new);
         // cat
         event.registerEntityRenderer(WLEntities.SKELETON_CAT.get(), SkeletonCatRenderer::new);
+        // underwater mobs
+        event.registerEntityRenderer(WLEntities.PHANTOM_DIVER.get(), PhantomDiverRenderer::new);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        if (WLConfigs.DEBUG_MODE.get()) {
+            LOGGER.info("EntityRenderersEvent.RegisterLayerDefinitions event triggered");
+        }
+        // underwater mobs
+        event.registerLayerDefinition(PhantomDiverModel.LAYER, PhantomDiverModel::createBodyLayer);
     }
 
 }

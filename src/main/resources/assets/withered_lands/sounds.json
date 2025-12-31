@@ -1,10 +1,26 @@
 {
-    "barghest.growl" : {
-        "category": "hostile",
-        "subtitle": "barghest.growl",
-        "sounds" : [{
-            "name" : "withered_lands:hostile/barghest/growl",
-            "stream" : true
-        }]
-    }
+  "barghest.growl" : {
+    "category": "hostile",
+    "subtitle": "barghest.growl",
+    "sounds" : [{
+      "name" : "withered_lands:wolf/barghest/growl",
+      "stream" : true
+    }]
+  },
+  "entity.drowned.growl" : {
+    "category": "hostile",
+    "subtitle": "entity.drowned.growl",
+    "sounds" : [{
+      "name" : "withered_lands:water/drowned/growl",
+      "stream" : true
+    }]
+  },
+  "entity.drowned.bubbles" : {
+    "category": "hostile",
+    "subtitle": "entity.drowned.bubbles",
+    "sounds" : [{
+      "name" : "withered_lands:water/drowned/bubbles",
+      "stream" : true
+    }]
+  }
 }

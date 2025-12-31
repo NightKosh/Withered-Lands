@@ -9,6 +9,7 @@
   "entity.withered_lands.skeleton_dog": "Skeleton Dog",
   "entity.withered_lands.barghest": "Barghest",
   "entity.withered_lands.skeleton_cat": "Skeleton Cat",
+  "entity.withered_lands.phantom_diver": "Phantom Diver",
 
   "item.withered_lands.vampire_bat_spawn_egg": "Vampire Bat Spawn Egg",
   "item.withered_lands.blazing_bat_spawn_egg": "Blazing Bat Spawn Egg",
@@ -18,6 +19,7 @@
   "item.withered_lands.skeleton_dog_spawn_egg": "Skeleton Dog Spawn Egg",
   "item.withered_lands.barghest_spawn_egg": "Barghest Spawn Egg",
   "item.withered_lands.skeleton_cat_spawn_egg": "Skeleton Cat Spawn Egg",
+  "item.withered_lands.phantom_diver_spawn_egg": "Phantom Diver Spawn Egg",
 
   "item.withered_lands.bat_wing": "Bat Wing"
 }

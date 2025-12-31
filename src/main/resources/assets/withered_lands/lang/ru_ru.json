@@ -9,15 +9,17 @@
   "entity.withered_lands.skeleton_dog": "Пёс - скелет",
   "entity.withered_lands.barghest": "Баргест",
   "entity.withered_lands.skeleton_cat": "Кот - скелет",
+  "entity.withered_lands.phantom_diver": "Фантомный дайвер",
 
   "item.withered_lands.vampire_bat_spawn_egg": "Яйцо призыва летучей мыши - вампира",
   "item.withered_lands.blazing_bat_spawn_egg": "Яйцо призыва пылающей летучей мыши",
   "item.withered_lands.withered_bat_spawn_egg": "Яйцо призыва иссушённой летучей мыши",
   "item.withered_lands.volatile_bat_spawn_egg": "Яйцо призыва нестабильной летучей мыши",
   "item.withered_lands.chorus_bat_spawn_egg": "Яйцо призыва летучей мыши хоруса",
-  "item.withered_lands.skeleton_dog_spawn_egg": "Яйцо призыва Псa - скелетa",
-  "item.withered_lands.barghest_spawn_egg": "Яйцо призыва Баргеста",
-  "item.withered_lands.skeleton_cat_spawn_egg": "Яйцо призыва Кота - скелетa",
+  "item.withered_lands.skeleton_dog_spawn_egg": "Яйцо призыва псa - скелетa",
+  "item.withered_lands.barghest_spawn_egg": "Яйцо призыва баргеста",
+  "item.withered_lands.skeleton_cat_spawn_egg": "Яйцо призыва кота - скелетa",
+  "item.withered_lands.phantom_diver_spawn_egg": "Яйцо призыва фантомного дайвера",
 
   "item.withered_lands.bat_wing": "Крыло летучей мыши"
 }

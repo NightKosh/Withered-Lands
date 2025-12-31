@@ -27,6 +27,9 @@ public class WLConfigs {
     // cats
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_CAT;
 
+    // underwater mobs
+    public static ModConfigSpec.ConfigValue<Boolean> PHANTOM_DIVER;
+
     // other
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
@@ -46,6 +49,9 @@ public class WLConfigs {
 
         // cats
         SKELETON_CAT = BUILDER.define("Skeleton Cats Spawn", true);
+
+        // underwater mobs
+        PHANTOM_DIVER = BUILDER.define("Phantom Divers Spawn", true);
 
         DEBUG_MODE = BUILDER.comment("Enable additional dev logs")
                 .define("Debug Mode", false);

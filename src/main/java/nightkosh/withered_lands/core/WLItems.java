@@ -79,6 +79,13 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_cat_spawn_egg")))
                     .spawnEgg(WLEntities.SKELETON_CAT.get())));
 
+    // underwater mobs
+    public static final DeferredHolder<Item, Item> PHANTOM_DIVER_EGG = ITEMS_REGISTER.register(
+            "phantom_diver_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "phantom_diver_spawn_egg")))
+                    .spawnEgg(WLEntities.PHANTOM_DIVER.get())));
+
     public static void register(IEventBus eventBus) {
         ITEMS_REGISTER.register(eventBus);
     }
