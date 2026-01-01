@@ -9,6 +9,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
@@ -43,6 +44,8 @@ public class WLEventsEntity {
         event.put(WLEntities.DROWNED_SAILOR.get(), DrownedSailor.createAttributeSupplier());
         event.put(WLEntities.PHANTOM_DIVER.get(), PhantomDiver.createAttributeSupplier());
         event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
+        // desert
+        event.put(WLEntities.MUMMY.get(), Mummy.createAttributeSupplier());
     }
 
     @SubscribeEvent
@@ -121,6 +124,13 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 SwampThing::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // desert
+        event.register(WLEntities.MUMMY.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Mummy::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
     }
 

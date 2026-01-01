@@ -45,6 +45,8 @@ public class WLTabs {
                         output.accept(WLItems.DROWNED_SAILOR_EGG.get());
                         output.accept(WLItems.PHANTOM_DIVER_EGG.get());
                         output.accept(WLItems.SWAMP_THING_EGG.get());
+                        // desert
+                        output.accept(WLItems.MUMMY_EGG.get());
                     })
                     .build()
             );

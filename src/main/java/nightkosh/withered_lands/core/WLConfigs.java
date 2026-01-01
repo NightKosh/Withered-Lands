@@ -33,6 +33,9 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> PHANTOM_DIVER;
     public static ModConfigSpec.ConfigValue<Boolean> SWAMP_THING;
 
+    // desert
+    public static ModConfigSpec.ConfigValue<Boolean> MUMMY;
+
     // other
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
@@ -58,6 +61,9 @@ public class WLConfigs {
         DROWNED_SAILOR = BUILDER.define("Drowned Sailors Spawn", true);
         PHANTOM_DIVER = BUILDER.define("Phantom Divers Spawn", true);
         SWAMP_THING = BUILDER.define("Swamp Things Spawn", true);
+
+        // desert
+        MUMMY = BUILDER.define("Mummies Spawn", true);
 
         DEBUG_MODE = BUILDER.comment("Enable additional dev logs")
                 .define("Debug Mode", false);

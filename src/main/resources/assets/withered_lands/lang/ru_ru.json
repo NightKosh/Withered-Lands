@@ -13,6 +13,7 @@
   "entity.withered_lands.drowned_sailor": "Утонувший Моряк",
   "entity.withered_lands.phantom_diver": "Фантомный дайвер",
   "entity.withered_lands.swamp_thing": "Болотная тварь",
+  "entity.withered_lands.mummy": "Мумия",
 
   "item.withered_lands.vampire_bat_spawn_egg": "Яйцо призыва летучей мыши - вампира",
   "item.withered_lands.flying_fox_spawn_egg": "Яйцо призыва летучей лисицы",
@@ -26,6 +27,7 @@
   "item.withered_lands.drowned_sailor_spawn_egg": "Яйцо призыва утонувшего моряка",
   "item.withered_lands.phantom_diver_spawn_egg": "Яйцо призыва фантомного дайвера",
   "item.withered_lands.swamp_thing_spawn_egg": "Яйцо призыва Болотной твари",
+  "item.withered_lands.mummy_spawn_egg": "Яйцо призыва мумии",
 
   "item.withered_lands.bat_wing": "Крыло летучей мыши"
 }

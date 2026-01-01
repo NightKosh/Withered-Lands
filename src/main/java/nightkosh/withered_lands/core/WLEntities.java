@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
+import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
@@ -156,6 +157,17 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "swamp_thing"))));
+
+    // desert MUMMY
+    public static final DeferredHolder<EntityType<?>, EntityType<Mummy>> MUMMY =
+            ENTITY_TYPES_REGISTER.register("mummy",
+                    () -> EntityType.Builder.of(Mummy::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.95F)
+                            .eyeHeight(1.74F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "mummy"))));
 
 
     public static void register(IEventBus eventBus) {

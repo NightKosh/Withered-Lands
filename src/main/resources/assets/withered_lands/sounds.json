@@ -30,5 +30,21 @@
       "name" : "withered_lands:water/swamp_thing/growl",
       "stream" : true
     }]
+  },
+  "entity.mummy.ambient" : {
+    "category": "hostile",
+    "subtitle": "entity.mummy.ambient",
+    "sounds" : [{
+      "name" : "withered_lands:desert/mummy/ambient",
+      "stream" : true
+    }]
+  },
+  "entity.mummy.step" : {
+    "category": "hostile",
+    "subtitle": "entity.mummy.step",
+    "sounds" : [{
+      "name" : "withered_lands:desert/mummy/step",
+      "stream" : true
+    }]
   }
 }
