@@ -27,6 +27,7 @@ public class WLEventsEntity {
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         // bats
         event.put(WLEntities.VAMPIRE_BAT.get(), VampireBat.createAttributeSupplier());
+        event.put(WLEntities.FLYING_FOX.get(), FlyingFox.createAttributeSupplier());
         event.put(WLEntities.BLAZING_BAT.get(), BlazingBat.createAttributeSupplier());
         event.put(WLEntities.WITHERED_BAT.get(), WitheredBat.createAttributeSupplier());
         event.put(WLEntities.VOLATILE_BAT.get(), VolatileBat.createAttributeSupplier());
@@ -47,6 +48,12 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 VampireBat::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.FLYING_FOX.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                FlyingFox::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.BLAZING_BAT.get(),

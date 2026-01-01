@@ -3,6 +3,7 @@ package nightkosh.withered_lands.core;
 import net.minecraft.resources.Identifier;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
+import static net.minecraft.resources.Identifier.withDefaultNamespace;
 
 /**
  * Withered Lands
@@ -14,6 +15,7 @@ public final class WLTextures {
 
     // bats
     public static final Identifier VAMPIRE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire_bat.png");
+    public static final Identifier FLYING_FOX = withDefaultNamespace("textures/entity/bat.png");
     public static final Identifier BLAZING_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/blazing_bat.png");
     public static final Identifier WITHERED_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/withered_bat.png");
     public static final Identifier VOLATILE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/volatile_bat.png");

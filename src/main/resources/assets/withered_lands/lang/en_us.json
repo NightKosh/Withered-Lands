@@ -2,8 +2,9 @@
   "itemGroup.withered_lands": "Withered Lands",
 
   "entity.withered_lands.vampire_bat": "Vampire Bat",
-  "entity.withered_lands.withered_bat": "Blazing Bat",
+  "entity.withered_lands.flying_fox": "Flying Fox",
   "entity.withered_lands.blazing_bat": "Withered Bat",
+  "entity.withered_lands.withered_bat": "Blazing Bat",
   "entity.withered_lands.volatile_bat": "Volatile Bat",
   "entity.withered_lands.chorus_bat": "Chorus Bat",
   "entity.withered_lands.skeleton_dog": "Skeleton Dog",
@@ -12,6 +13,7 @@
   "entity.withered_lands.phantom_diver": "Phantom Diver",
 
   "item.withered_lands.vampire_bat_spawn_egg": "Vampire Bat Spawn Egg",
+  "item.withered_lands.flying_fox_spawn_egg": "Flying Fox Spawn Egg",
   "item.withered_lands.blazing_bat_spawn_egg": "Blazing Bat Spawn Egg",
   "item.withered_lands.withered_bat_spawn_egg": "Withered Bat Spawn Egg",
   "item.withered_lands.volatile_bat_spawn_egg": "Volatile Bat Spawn Egg",

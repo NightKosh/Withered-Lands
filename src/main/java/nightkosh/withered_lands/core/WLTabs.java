@@ -31,6 +31,7 @@ public class WLTabs {
 
                         // bats
                         output.accept(WLItems.VAMPIRE_BAT_EGG.get());
+                        output.accept(WLItems.FLYING_FOX_EGG.get());
                         output.accept(WLItems.BLAZING_BAT_EGG.get());
                         output.accept(WLItems.WITHERED_BAT_EGG.get());
                         output.accept(WLItems.VOLATILE_BAT_EGG.get());

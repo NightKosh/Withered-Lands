@@ -39,19 +39,23 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:vampire_bat ~ ~ ~ {NoAI:1b}
     ```
-2. Blazing bat
+2. Flying fox
+    ```
+        /summon withered_lands:flying_fox ~ ~ ~ {NoAI:1b}
+    ```
+3. Blazing bat
     ```
         /summon withered_lands:blazing_bat ~ ~ ~ {NoAI:1b}
     ```
-3. Withered bat
+4. Withered bat
     ```
         /summon withered_lands:withered_bat ~ ~ ~ {NoAI:1b}
     ```
-4. Blazing bat
+5. Blazing bat
     ```
         /summon withered_lands:volatile_bat ~ ~ ~ {NoAI:1b}
     ```
-5. Chorus bat
+6. Chorus bat
     ```
         /summon withered_lands:chorus_bat ~ ~ ~ {NoAI:1b}
     ```

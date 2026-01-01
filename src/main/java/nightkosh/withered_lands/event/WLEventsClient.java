@@ -32,6 +32,7 @@ public class WLEventsClient {
         }
         // bats
         event.registerEntityRenderer(WLEntities.VAMPIRE_BAT.get(), VampireBatRenderer::new);
+        event.registerEntityRenderer(WLEntities.FLYING_FOX.get(), FlyingFoxRenderer::new);
         event.registerEntityRenderer(WLEntities.BLAZING_BAT.get(), BlazingBatRenderer::new);
         event.registerEntityRenderer(WLEntities.WITHERED_BAT.get(), WitheredBatRenderer::new);
         event.registerEntityRenderer(WLEntities.VOLATILE_BAT.get(), VolatileBatRenderer::new);

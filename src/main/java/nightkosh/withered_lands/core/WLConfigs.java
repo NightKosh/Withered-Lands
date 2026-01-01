@@ -15,6 +15,7 @@ public class WLConfigs {
 
     // bats
     public static ModConfigSpec.ConfigValue<Boolean> VAMPIRE_BAT_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> FLYING_FOX_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> BLAZING_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> WITHERED_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> VOLATILE_BAT_SPAWN;
@@ -38,6 +39,7 @@ public class WLConfigs {
 
         // bats
         VAMPIRE_BAT_SPAWN = BUILDER.define("Vampire Bats Spawn", true);
+        FLYING_FOX_SPAWN = BUILDER.define("Flying Foxes Spawn", true);
         BLAZING_BAT_SPAWN = BUILDER.define("Blazing Bats Spawn", true);
         WITHERED_BAT_SPAWN = BUILDER.define("Withered Bats Spawn", true);
         VOLATILE_BAT_SPAWN = BUILDER.define("Volatile Bats Spawn", true);

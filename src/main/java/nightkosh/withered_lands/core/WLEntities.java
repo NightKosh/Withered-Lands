@@ -38,6 +38,16 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "vampire_bat"))));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<FlyingFox>> FLYING_FOX =
+            ENTITY_TYPES_REGISTER.register("flying_fox",
+                    () -> EntityType.Builder.of(FlyingFox::new, MobCategory.MONSTER)
+                            .sized(1F, 1.8F)
+                            .eyeHeight(0.9F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "flying_fox"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<BlazingBat>> BLAZING_BAT =
             ENTITY_TYPES_REGISTER.register("blazing_bat",
                     () -> EntityType.Builder.of(BlazingBat::new, MobCategory.MONSTER)
