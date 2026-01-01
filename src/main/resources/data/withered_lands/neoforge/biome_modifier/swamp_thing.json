@@ -7,9 +7,9 @@
   "spawners": [
     {
       "type": "withered_lands:swamp_thing",
-      "weight": 200,
-      "minCount": 10,
-      "maxCount": 20
+      "weight": 20,
+      "minCount": 1,
+      "maxCount": 2
     }
   ]
 }
