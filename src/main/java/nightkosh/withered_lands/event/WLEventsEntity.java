@@ -9,6 +9,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.wolf.Barghest;
@@ -39,6 +40,7 @@ public class WLEventsEntity {
         // cats
         event.put(WLEntities.SKELETON_CAT.get(), SkeletonCat.createAttributeSupplier());
         // underwater mobs
+        event.put(WLEntities.DROWNED_SAILOR.get(), DrownedSailor.createAttributeSupplier());
         event.put(WLEntities.PHANTOM_DIVER.get(), PhantomDiver.createAttributeSupplier());
         event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
     }
@@ -103,6 +105,12 @@ public class WLEventsEntity {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // underwater mobs
+        event.register(WLEntities.DROWNED_SAILOR.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                DrownedSailor::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
         event.register(WLEntities.PHANTOM_DIVER.get(),
                 SpawnPlacementTypes.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,

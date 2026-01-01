@@ -86,6 +86,12 @@ public class WLItems {
                     .spawnEgg(WLEntities.SKELETON_CAT.get())));
 
     // underwater mobs
+    public static final DeferredHolder<Item, Item> DROWNED_SAILOR_EGG = ITEMS_REGISTER.register(
+            "drowned_sailor_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "drowned_sailor_spawn_egg")))
+                    .spawnEgg(WLEntities.DROWNED_SAILOR.get())));
+
     public static final DeferredHolder<Item, Item> PHANTOM_DIVER_EGG = ITEMS_REGISTER.register(
             "phantom_diver_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()

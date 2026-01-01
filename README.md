@@ -77,11 +77,15 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ``` 
 
 ### Water mobs spawn:
-1. Phantom diver
+1. Drowned sailor
+    ```
+        /summon withered_lands:drowned_sailor ~ ~ ~ {NoAI:1b}
+    ``` 
+2. Phantom diver
     ```
         /summon withered_lands:phantom_diver ~ ~ ~ {NoAI:1b}
     ``` 
-2. Swamp thing
+3. Swamp thing
     ```
         /summon withered_lands:swamp_thing ~ ~ ~ {NoAI:1b}
     ``` 

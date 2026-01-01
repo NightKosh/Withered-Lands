@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
+import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.wolf.Barghest;
@@ -126,6 +127,16 @@ public class WLEntities {
                                     fromNamespaceAndPath(ModInfo.ID, "skeleton_cat"))));
 
     // underwater mobs
+    public static final DeferredHolder<EntityType<?>, EntityType<DrownedSailor>> DROWNED_SAILOR =
+            ENTITY_TYPES_REGISTER.register("drowned_sailor",
+                    () -> EntityType.Builder.of(DrownedSailor::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.95F)
+                            .eyeHeight(1.74F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "drowned_sailor"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<PhantomDiver>> PHANTOM_DIVER =
             ENTITY_TYPES_REGISTER.register("phantom_diver",
                     () -> EntityType.Builder.of(PhantomDiver::new, MobCategory.MONSTER)

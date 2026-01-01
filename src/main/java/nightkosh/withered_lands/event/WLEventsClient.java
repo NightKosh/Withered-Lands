@@ -10,6 +10,7 @@ import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.renderer.bat.*;
 import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
+import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
 import nightkosh.withered_lands.renderer.water.PhantomDiverRenderer;
 import nightkosh.withered_lands.renderer.water.SwampThingRenderer;
 import nightkosh.withered_lands.renderer.wolf.BarghestRenderer;
@@ -44,6 +45,7 @@ public class WLEventsClient {
         // cat
         event.registerEntityRenderer(WLEntities.SKELETON_CAT.get(), SkeletonCatRenderer::new);
         // underwater mobs
+        event.registerEntityRenderer(WLEntities.DROWNED_SAILOR.get(), DrownedSailorRenderer::new);
         event.registerEntityRenderer(WLEntities.PHANTOM_DIVER.get(), PhantomDiverRenderer::new);
         event.registerEntityRenderer(WLEntities.SWAMP_THING.get(), SwampThingRenderer::new);
     }

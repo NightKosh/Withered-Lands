@@ -29,6 +29,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_CAT;
 
     // underwater mobs
+    public static ModConfigSpec.ConfigValue<Boolean> DROWNED_SAILOR;
     public static ModConfigSpec.ConfigValue<Boolean> PHANTOM_DIVER;
     public static ModConfigSpec.ConfigValue<Boolean> SWAMP_THING;
 
@@ -54,6 +55,7 @@ public class WLConfigs {
         SKELETON_CAT = BUILDER.define("Skeleton Cats Spawn", true);
 
         // underwater mobs
+        DROWNED_SAILOR = BUILDER.define("Drowned Sailors Spawn", true);
         PHANTOM_DIVER = BUILDER.define("Phantom Divers Spawn", true);
         SWAMP_THING = BUILDER.define("Swamp Things Spawn", true);
 

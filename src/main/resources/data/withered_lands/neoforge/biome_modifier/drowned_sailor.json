@@ -3,8 +3,8 @@
   "biomes": "#minecraft:is_ocean",
   "spawners": [
     {
-      "type": "withered_lands:phantom_diver",
-      "weight": 10,
+      "type": "withered_lands:drowned_sailor",
+      "weight": 5,
       "minCount": 1,
       "maxCount": 1
     }

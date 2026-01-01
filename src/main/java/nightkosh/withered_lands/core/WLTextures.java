@@ -28,6 +28,7 @@ public final class WLTextures {
     // cats
     public static final Identifier SKELETON_CAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/cat/skeleton.png");
     // underwater mobs
+    public static final Identifier DROWNED_SAILOR = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/drowned_sailor.png");
     public static final Identifier PHANTOM_DIVER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/phantom_diver/diver.png");
     public static final Identifier PHANTOM_DIVER_FACE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/phantom_diver/face.png");
     public static final Identifier SWAMP_THING = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/swamp_thing/swamp_thing.png");
