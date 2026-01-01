@@ -92,6 +92,12 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "phantom_diver_spawn_egg")))
                     .spawnEgg(WLEntities.PHANTOM_DIVER.get())));
 
+    public static final DeferredHolder<Item, Item> SWAMP_THING_EGG = ITEMS_REGISTER.register(
+            "swamp_thing_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "swamp_thing_spawn_egg")))
+                    .spawnEgg(WLEntities.SWAMP_THING.get())));
+
     public static void register(IEventBus eventBus) {
         ITEMS_REGISTER.register(eventBus);
     }

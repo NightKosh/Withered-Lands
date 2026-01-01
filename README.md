@@ -81,4 +81,8 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:phantom_diver ~ ~ ~ {NoAI:1b}
     ``` 
+2. Swamp thing
+    ```
+        /summon withered_lands:swamp_thing ~ ~ ~ {NoAI:1b}
+    ``` 
    

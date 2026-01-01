@@ -22,5 +22,13 @@
       "name" : "withered_lands:water/drowned/bubbles",
       "stream" : true
     }]
+  },
+  "entity.swamp_thing.growl" : {
+    "category": "hostile",
+    "subtitle": "entity.swamp_thing.growl",
+    "sounds" : [{
+      "name" : "withered_lands:water/swamp_thing/growl",
+      "stream" : true
+    }]
   }
 }

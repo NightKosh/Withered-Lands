@@ -10,6 +10,7 @@ import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
+import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
@@ -39,6 +40,7 @@ public class WLEventsEntity {
         event.put(WLEntities.SKELETON_CAT.get(), SkeletonCat.createAttributeSupplier());
         // underwater mobs
         event.put(WLEntities.PHANTOM_DIVER.get(), PhantomDiver.createAttributeSupplier());
+        event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
     }
 
     @SubscribeEvent
@@ -105,6 +107,12 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PhantomDiver::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.SWAMP_THING.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SwampThing::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
     }
 

@@ -35,6 +35,9 @@ public class WLSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> DROWNED_BUBBLES =
             registerSoundEvent("drowned_bubbles", "entity.drowned.bubbles");
 
+    public static final DeferredHolder<SoundEvent, SoundEvent> SWAMP_THING_GROWL =
+            registerSoundEvent("swamp_thing_growl", "entity.swamp_thing.growl");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name, String path) {
         return registerSoundEvent(name, fromNamespaceAndPath(ModInfo.ID, path));
     }

@@ -62,7 +62,7 @@ public class PhantomDiverRenderer extends HumanoidMobRenderer<AWaterWalkingMob, 
 
     @Nonnull
     @Override
-    public Identifier getTextureLocation(ZombieRenderState p_368654_) {
+    public Identifier getTextureLocation(ZombieRenderState state) {
         return WLTextures.PHANTOM_DIVER;
     }
 

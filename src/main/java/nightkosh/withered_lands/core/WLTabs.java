@@ -43,6 +43,7 @@ public class WLTabs {
                         output.accept(WLItems.SKELETON_CAT_EGG.get());
                         // underwater mobs
                         output.accept(WLItems.PHANTOM_DIVER_EGG.get());
+                        output.accept(WLItems.SWAMP_THING_EGG.get());
                     })
                     .build()
             );

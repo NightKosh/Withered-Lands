@@ -43,11 +43,6 @@ public class PhantomDiver extends EntityDrowned {
         }
     }
 
-    @Override
-    public boolean isPushedByFluid() {
-        return false;
-    }
-
     public static boolean checkSpawnRules(
             EntityType<? extends PhantomDiver> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {

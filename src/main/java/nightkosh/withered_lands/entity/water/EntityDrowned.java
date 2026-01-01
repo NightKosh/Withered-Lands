@@ -4,7 +4,6 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -18,8 +17,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.ai.TridentAttackGoal;
-
-import javax.annotation.Nonnull;
 
 /**
  * Withered Lands
@@ -53,19 +50,6 @@ public class EntityDrowned extends AWaterWalkingMob implements RangedAttackMob {
         }
 
         super.tick();
-    }
-
-    @Override
-    public boolean doHurtTarget(@Nonnull ServerLevel level, @Nonnull Entity entity) {
-        if (!super.doHurtTarget(level, entity)) {
-            return false;
-        } else {
-            if (entity instanceof LivingEntity living) {
-                applyEffect(living);
-            }
-
-            return true;
-        }
     }
 
     protected void applyEffect(LivingEntity entity) {
