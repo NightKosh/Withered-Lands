@@ -34,6 +34,40 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /kill @e[type=!minecraft:player]
     ```
 
+### Slimes spawn:
+1. Verdant slime
+    ```
+        /summon withered_lands:verdant_slime ~ ~ ~ {NoAI:1b}
+    ```
+2. Sandy slime
+    ```
+        /summon withered_lands:sandy_slime ~ ~ ~ {NoAI:1b}
+    ```
+3. Frozen slime
+    ```
+        /summon withered_lands:frozen_slime ~ ~ ~ {NoAI:1b}
+    ```
+4. Mud slime
+    ```
+        /summon withered_lands:mud_slime ~ ~ ~ {NoAI:1b}
+    ```
+5. Jungle slime
+    ```
+        /summon withered_lands:jungle_slime ~ ~ ~ {NoAI:1b}
+    ```
+6. Cave slime
+    ```
+        /summon withered_lands:cave_slime ~ ~ ~ {NoAI:1b}
+    ```
+7. Abyssal slime
+    ```
+        /summon withered_lands:abyssal_slime ~ ~ ~ {NoAI:1b}
+    ```
+8. Molten slime
+    ```
+        /summon withered_lands:molten_slime ~ ~ ~ {NoAI:1b}
+    ```
+
 ### Bats spawn:
 1. Vampire bat
     ```

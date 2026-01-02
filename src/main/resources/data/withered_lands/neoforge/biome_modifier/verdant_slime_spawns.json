@@ -1,0 +1,41 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:beach",
+    "minecraft:river",
+    "minecraft:ocean",
+    "minecraft:deep_ocean",
+    "minecraft:warm_ocean",
+    "minecraft:lukewarm_ocean",
+    "minecraft:deep_lukewarm_ocean",
+    "minecraft:cold_ocean",
+    "minecraft:deep_cold_ocean",
+    "minecraft:plains",
+    "minecraft:forest",
+    "minecraft:flower_forest",
+    "minecraft:birch_forest",
+    "minecraft:old_growth_birch_forest",
+    "minecraft:dark_forest",
+    "minecraft:pale_garden",
+    "minecraft:mushroom_fields",
+    "minecraft:sunflower_plains",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau",
+    "minecraft:windswept_savanna",
+    "minecraft:windswept_hills",
+    "minecraft:windswept_gravelly_hills",
+    "minecraft:windswept_forest",
+    "minecraft:meadow",
+    "minecraft:cherry_grove",
+    "minecraft:stony_shore",
+    "minecraft:stony_peaks"
+  ],
+  "spawners": [
+    {
+      "type": "withered_lands:verdant_slime",
+      "weight": 100,
+      "minCount": 3,
+      "maxCount": 5
+    }
+  ]
+}

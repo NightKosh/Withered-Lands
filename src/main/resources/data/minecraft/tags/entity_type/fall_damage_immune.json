@@ -7,6 +7,14 @@
     "withered_lands:withered_bat",
     "withered_lands:volatile_bat",
     "withered_lands:chorus_bat",
-    "withered_lands:skeleton_cat"
+    "withered_lands:skeleton_cat",
+    "withered_lands:verdant_slime",
+    "withered_lands:sandy_slime",
+    "withered_lands:frozen_slime",
+    "withered_lands:mud_slime",
+    "withered_lands:jungle_slime",
+    "withered_lands:cave_slime",
+    "withered_lands:abyssal_slime",
+    "withered_lands:molten_slime"
   ]
 }

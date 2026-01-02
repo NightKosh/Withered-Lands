@@ -13,6 +13,16 @@ import static net.minecraft.resources.Identifier.withDefaultNamespace;
  */
 public final class WLTextures {
 
+    // slimes
+    public static final Identifier VERDANT_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/verdant.png");
+    public static final Identifier SANDY_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/sandy.png");
+    public static final Identifier FROZEN_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/frozen.png");
+    public static final Identifier MUD_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/mud.png");
+    public static final Identifier JUNGLE_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/jungle.png");
+    public static final Identifier CAVE_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/cave.png");
+    public static final Identifier ABYSSAL_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/abyssal.png");
+    public static final Identifier TOXIC_SLUDGE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/toxic_sludge/full.png");
+    public static final Identifier MOLTEN_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/molten.png");
     // bats
     public static final Identifier VAMPIRE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire_bat.png");
     public static final Identifier FLYING_FOX = withDefaultNamespace("textures/entity/bat.png");

@@ -1,0 +1,18 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:beach",
+    "minecraft:desert",
+    "minecraft:badlands",
+    "minecraft:wooded_badlands",
+    "minecraft:eroded_badlands"
+  ],
+  "spawners": [
+    {
+      "type": "withered_lands:sandy_slime",
+      "weight": 100,
+      "minCount": 3,
+      "maxCount": 5
+    }
+  ]
+}

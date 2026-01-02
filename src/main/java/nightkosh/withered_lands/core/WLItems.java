@@ -2,12 +2,14 @@ package nightkosh.withered_lands.core;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.item.BatWing;
+import nightkosh.withered_lands.item.SlimeGel;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
@@ -21,6 +23,65 @@ public class WLItems {
 
     public static final DeferredRegister<Item> ITEMS_REGISTER =
             DeferredRegister.create(Registries.ITEM, ModInfo.ID);
+
+    // slimes
+    public static final DeferredHolder<Item, Item> SLIME_GEL = ITEMS_REGISTER.register(
+            "slime_gel",
+            () -> new SlimeGel(new Item.Properties()
+                    .stacksTo(64)
+                    .food(new FoodProperties.Builder()
+                            .nutrition(1)
+                            .saturationModifier(0.2F)
+                            .build())
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel")))));
+
+    public static final DeferredHolder<Item, Item> VERDANT_SLIME_EGG = ITEMS_REGISTER.register(
+            "verdant_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "verdant_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.VERDANT_SLIME.get())));
+
+    public static final DeferredHolder<Item, Item> SANDY_SLIME_EGG = ITEMS_REGISTER.register(
+            "sandy_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "sandy_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.SANDY_SLIME.get())));
+
+    public static final DeferredHolder<Item, Item> FROZEN_SLIME_EGG = ITEMS_REGISTER.register(
+            "frozen_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "frozen_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.FROZEN_SLIME.get())));
+
+    public static final DeferredHolder<Item, Item> MUD_SLIME_EGG = ITEMS_REGISTER.register(
+            "mud_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "mud_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.MUD_SLIME.get())));
+
+    public static final DeferredHolder<Item, Item> JUNGLE_SLIME_EGG = ITEMS_REGISTER.register(
+            "jungle_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "jungle_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.JUNGLE_SLIME.get())));
+
+    public static final DeferredHolder<Item, Item> CAVE_SLIME_EGG = ITEMS_REGISTER.register(
+            "cave_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "cave_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.CAVE_SLIME.get())));
+
+    public static final DeferredHolder<Item, Item> ABYSSAL_SLIME_EGG = ITEMS_REGISTER.register(
+            "abyssal_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "abyssal_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.ABYSSAL_SLIME.get())));
+
+    public static final DeferredHolder<Item, Item> MOLTEN_SLIME_EGG = ITEMS_REGISTER.register(
+            "molten_slime_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "molten_slime_spawn_egg")))
+                    .spawnEgg(WLEntities.MOLTEN_SLIME.get())));
 
     // bats
     public static final DeferredHolder<Item, Item> BAT_WING = ITEMS_REGISTER.register(

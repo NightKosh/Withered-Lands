@@ -21,14 +21,24 @@ public class WLTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> WITHERED_LANDS =
             WL_TAB.register("withered_lands", () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(WLItems.VAMPIRE_BAT_EGG))
+                    .icon(() -> new ItemStack(WLItems.VERDANT_SLIME_EGG))
                     .title(Component.translatable("itemGroup." + ModInfo.ID))
                     .displayItems((parameters, output) -> {
 
+                        output.accept(WLItems.SLIME_GEL.get());
                         output.accept(WLItems.BAT_WING.get());
 
                         // ---------- eggs ----------
 
+                        // slimes
+                        output.accept(WLItems.VERDANT_SLIME_EGG.get());
+                        output.accept(WLItems.SANDY_SLIME_EGG.get());
+                        output.accept(WLItems.FROZEN_SLIME_EGG.get());
+                        output.accept(WLItems.MUD_SLIME_EGG.get());
+                        output.accept(WLItems.JUNGLE_SLIME_EGG.get());
+                        output.accept(WLItems.CAVE_SLIME_EGG.get());
+                        output.accept(WLItems.ABYSSAL_SLIME_EGG.get());
+                        output.accept(WLItems.MOLTEN_SLIME_EGG.get());
                         // bats
                         output.accept(WLItems.VAMPIRE_BAT_EGG.get());
                         output.accept(WLItems.FLYING_FOX_EGG.get());

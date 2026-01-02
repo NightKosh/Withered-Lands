@@ -11,6 +11,7 @@ import nightkosh.withered_lands.renderer.bat.*;
 import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.desert.MummyRenderer;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
+import nightkosh.withered_lands.renderer.slime.*;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
 import nightkosh.withered_lands.renderer.water.PhantomDiverRenderer;
 import nightkosh.withered_lands.renderer.water.SwampThingRenderer;
@@ -33,6 +34,15 @@ public class WLEventsClient {
         if (WLConfigs.DEBUG_MODE.get()) {
             LOGGER.info("EntityRenderersEvent.RegisterRenderers event triggered");
         }
+        // slimes
+        event.registerEntityRenderer(WLEntities.VERDANT_SLIME.get(), VerdantSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.SANDY_SLIME.get(), SandySlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.FROZEN_SLIME.get(), FrozenSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.MUD_SLIME.get(), MudSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.JUNGLE_SLIME.get(), JungleSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.CAVE_SLIME.get(), CaveSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.ABYSSAL_SLIME.get(), AbyssalSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.MOLTEN_SLIME.get(), MoltenSlimeRenderer::new);
         // bats
         event.registerEntityRenderer(WLEntities.VAMPIRE_BAT.get(), VampireBatRenderer::new);
         event.registerEntityRenderer(WLEntities.FLYING_FOX.get(), FlyingFoxRenderer::new);

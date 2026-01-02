@@ -1,0 +1,27 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:snowy_plains",
+    "minecraft:ice_spikes",
+    "minecraft:frozen_river",
+    "minecraft:taiga",
+    "minecraft:snowy_taiga",
+    "minecraft:old_growth_pine_taiga",
+    "minecraft:old_growth_spruce_taiga",
+    "minecraft:snowy_beach",
+    "minecraft:snowy_slopes",
+    "minecraft:grove",
+    "minecraft:frozen_peaks",
+    "minecraft:jagged_peaks",
+    "minecraft:deep_frozen_ocean",
+    "minecraft:frozen_ocean"
+  ],
+  "spawners": [
+    {
+      "type": "withered_lands:frozen_slime",
+      "weight": 100,
+      "minCount": 3,
+      "maxCount": 5
+    }
+  ]
+}

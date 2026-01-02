@@ -1,6 +1,14 @@
 {
   "itemGroup.withered_lands": "Withered Lands",
 
+  "entity.withered_lands.verdant_slime": "Зелёный слизень",
+  "entity.withered_lands.sandy_slime": "Песчаный слизень",
+  "entity.withered_lands.frozen_slime": "Морозный слизень",
+  "entity.withered_lands.mud_slime": "Болотный слизень",
+  "entity.withered_lands.jungle_slime": "Слизень джунглей",
+  "entity.withered_lands.cave_slime": "Пещерный слизень",
+  "entity.withered_lands.abyssal_slime": "Слизень бездны",
+  "entity.withered_lands.molten_slime": "Раскалённый слизень",
   "entity.withered_lands.vampire_bat": "Летучая мышь - вампир",
   "entity.withered_lands.flying_fox": "Летучая лисица",
   "entity.withered_lands.withered_bat": "Пылающая летучая мышь",
@@ -15,6 +23,14 @@
   "entity.withered_lands.swamp_thing": "Болотная тварь",
   "entity.withered_lands.mummy": "Мумия",
 
+  "item.withered_lands.verdant_slime_spawn_egg": "Яйцо призыва зелёного слизня",
+  "item.withered_lands.sandy_slime_spawn_egg": "Яйцо призыва песчаного слизня",
+  "item.withered_lands.frozen_slime_spawn_egg": "Яйцо призыва морозного слизня",
+  "item.withered_lands.mud_slime_spawn_egg": "Яйцо призыва болотного слизня",
+  "item.withered_lands.jungle_slime_spawn_egg": "Яйцо призыва слизня джунглей",
+  "item.withered_lands.cave_slime_spawn_egg": "Яйцо призыва пещерного слизня",
+  "item.withered_lands.abyssal_slime_spawn_egg": "Яйцо призыва слизня бездны",
+  "item.withered_lands.molten_slime_spawn_egg": "Яйцо призыва раскалённого слизня",
   "item.withered_lands.vampire_bat_spawn_egg": "Яйцо призыва летучей мыши - вампира",
   "item.withered_lands.flying_fox_spawn_egg": "Яйцо призыва летучей лисицы",
   "item.withered_lands.blazing_bat_spawn_egg": "Яйцо призыва пылающей летучей мыши",
@@ -29,5 +45,6 @@
   "item.withered_lands.swamp_thing_spawn_egg": "Яйцо призыва Болотной твари",
   "item.withered_lands.mummy_spawn_egg": "Яйцо призыва мумии",
 
+  "item.withered_lands.slime_gel": "Гель",
   "item.withered_lands.bat_wing": "Крыло летучей мыши"
 }
