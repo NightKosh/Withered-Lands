@@ -1,0 +1,17 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "group" : "torch",
+  "category": "misc",
+  "pattern": [
+    "gg",
+    "ss"
+  ],
+  "key": {
+    "g": "withered_lands:slime_gel",
+    "s": "minecraft:stick"
+  },
+  "result" : {
+    "id": "minecraft:torch",
+    "count" : 4
+  }
+}
