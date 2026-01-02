@@ -133,6 +133,12 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_dog_spawn_egg")))
                     .spawnEgg(WLEntities.SKELETON_DOG.get())));
 
+    public static final DeferredHolder<Item, Item> ZOMBIE_DOG_EGG = ITEMS_REGISTER.register(
+            "zombie_dog_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_dog_spawn_egg")))
+                    .spawnEgg(WLEntities.ZOMBIE_DOG.get())));
+
     public static final DeferredHolder<Item, Item> BARGHEST_EGG = ITEMS_REGISTER.register(
             "barghest_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()
@@ -145,6 +151,12 @@ public class WLItems {
             () -> new SpawnEggItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_cat_spawn_egg")))
                     .spawnEgg(WLEntities.SKELETON_CAT.get())));
+
+    public static final DeferredHolder<Item, Item> ZOMBIE_CAT_EGG = ITEMS_REGISTER.register(
+            "zombie_cat_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_cat_spawn_egg")))
+                    .spawnEgg(WLEntities.ZOMBIE_CAT.get())));
 
     // underwater mobs
     public static final DeferredHolder<Item, Item> DROWNED_SAILOR_EGG = ITEMS_REGISTER.register(

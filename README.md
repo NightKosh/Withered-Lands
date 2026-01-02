@@ -99,7 +99,11 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:skeleton_dog ~ ~ ~ {NoAI:1b}
     ```
-2. Barghest
+2. Zombie dog
+    ```
+        /summon withered_lands:zombie_dog ~ ~ ~ {NoAI:1b}
+    ```
+3. Barghest
     ```
         /summon withered_lands:barghest ~ ~ ~ {NoAI:1b}
     ```
@@ -108,6 +112,10 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 1. Skeleton cat
     ```
         /summon withered_lands:skeleton_cat ~ ~ ~ {NoAI:1b}
+    ``` 
+2. Zombie cat
+    ```
+        /summon withered_lands:zombie_cat ~ ~ ~ {NoAI:1b}
     ``` 
 
 ### Water mobs spawn:

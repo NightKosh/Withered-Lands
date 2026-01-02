@@ -2,8 +2,10 @@
   "replace": false,
   "values": [
     "withered_lands:skeleton_dog",
+    "withered_lands:zombie_dog",
     "withered_lands:barghest",
     "withered_lands:skeleton_cat",
+    "withered_lands:zombie_cat",
     "withered_lands:drowned_sailor",
     "withered_lands:phantom_diver",
     "withered_lands:mummy"

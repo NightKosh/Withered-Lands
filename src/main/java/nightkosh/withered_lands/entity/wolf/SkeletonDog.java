@@ -51,7 +51,7 @@ public class SkeletonDog extends AUndeadDog {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 8)
                 .add(Attributes.MOVEMENT_SPEED, 0.5)
-                .add(Attributes.ATTACK_DAMAGE, 4)
+                .add(Attributes.ATTACK_DAMAGE, 2)
                 .build();
     }
 

@@ -32,11 +32,13 @@ public final class WLTextures {
     public static final Identifier CHORUS_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/chorus_bat.png");
     // wolves
     public static final Identifier SKELETON_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/skeleton.png");
+    public static final Identifier ZOMBIE_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/zombie.png");
     public static final Identifier BARGHEST = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/barghest/barghest.png");
     public static final Identifier BARGHEST_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/barghest/eyes.png");
     public static final Identifier BARGHEST_INVISIBLE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/barghest/invisible.png");
     // cats
     public static final Identifier SKELETON_CAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/cat/skeleton.png");
+    public static final Identifier ZOMBIE_CAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/cat/zombie.png");
     // underwater mobs
     public static final Identifier DROWNED_SAILOR = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/drowned_sailor.png");
     public static final Identifier PHANTOM_DIVER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/phantom_diver/diver.png");

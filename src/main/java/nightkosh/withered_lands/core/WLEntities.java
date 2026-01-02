@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
+import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
@@ -17,6 +18,7 @@ import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
+import nightkosh.withered_lands.entity.wolf.ZombieDog;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
@@ -196,6 +198,16 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "skeleton_dog"))));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<ZombieDog>> ZOMBIE_DOG =
+            ENTITY_TYPES_REGISTER.register("zombie_dog",
+                    () -> EntityType.Builder.of(ZombieDog::new, MobCategory.MONSTER)
+                            .sized(0.6F, 0.85F)
+                            .eyeHeight(0.68F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "zombie_dog"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<Barghest>> BARGHEST =
             ENTITY_TYPES_REGISTER.register("barghest",
                     () -> EntityType.Builder.of(Barghest::new, MobCategory.MONSTER)
@@ -217,6 +229,16 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "skeleton_cat"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ZombieCat>> ZOMBIE_CAT =
+            ENTITY_TYPES_REGISTER.register("zombie_cat",
+                    () -> EntityType.Builder.of(ZombieCat::new, MobCategory.MONSTER)
+                            .sized(0.6F, 0.7F)
+                            .eyeHeight(0.35F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "zombie_cat"))));
 
     // underwater mobs
     public static final DeferredHolder<EntityType<?>, EntityType<DrownedSailor>> DROWNED_SAILOR =

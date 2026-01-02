@@ -33,10 +33,12 @@ public class WLConfigs {
 
     // wolves
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_DOG;
+    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_DOG;
     public static ModConfigSpec.ConfigValue<Boolean> BARGHEST_SPAWN;
 
     // cats
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_CAT;
+    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_CAT;
 
     // underwater mobs
     public static ModConfigSpec.ConfigValue<Boolean> DROWNED_SAILOR;
@@ -47,6 +49,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> MUMMY;
 
     // other
+    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_PETS_ATTACK_PETS;
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
     static {
@@ -72,10 +75,12 @@ public class WLConfigs {
 
         // wolves
         SKELETON_DOG = BUILDER.define("Skeleton Dogs Spawn", true);
+        ZOMBIE_DOG = BUILDER.define("Zombie Dogs Spawn", true);
         BARGHEST_SPAWN = BUILDER.define("Barghests Spawn", true);
 
         // cats
         SKELETON_CAT = BUILDER.define("Skeleton Cats Spawn", true);
+        ZOMBIE_CAT = BUILDER.define("Zombie Cats Spawn", true);
 
         // underwater mobs
         DROWNED_SAILOR = BUILDER.define("Drowned Sailors Spawn", true);
@@ -84,6 +89,9 @@ public class WLConfigs {
 
         // desert
         MUMMY = BUILDER.define("Mummies Spawn", true);
+
+        // other
+        ZOMBIE_PETS_ATTACK_PETS = BUILDER.define("Should zombie pets attack pets", true);
 
         DEBUG_MODE = BUILDER.comment("Enable additional dev logs")
                 .define("Debug Mode", false);

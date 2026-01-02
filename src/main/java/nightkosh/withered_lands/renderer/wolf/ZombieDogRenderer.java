@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.Identifier;
 import nightkosh.withered_lands.core.WLTextures;
-import nightkosh.withered_lands.entity.wolf.SkeletonDog;
+import nightkosh.withered_lands.entity.wolf.ZombieDog;
 import nightkosh.withered_lands.renderer.model.UndeadWolfModel;
 import nightkosh.withered_lands.renderer.render_sate.UndeadWolfRenderState;
 
@@ -17,9 +17,9 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class SkeletonDogRenderer extends MobRenderer<SkeletonDog, UndeadWolfRenderState, UndeadWolfModel<UndeadWolfRenderState>> {
+public class ZombieDogRenderer extends MobRenderer<ZombieDog, UndeadWolfRenderState, UndeadWolfModel<UndeadWolfRenderState>> {
 
-    public SkeletonDogRenderer(EntityRendererProvider.Context context) {
+    public ZombieDogRenderer(EntityRendererProvider.Context context) {
         super(context, new UndeadWolfModel(context.bakeLayer(ModelLayers.WOLF)), 0.5F);
     }
 
@@ -31,7 +31,7 @@ public class SkeletonDogRenderer extends MobRenderer<SkeletonDog, UndeadWolfRend
     @Nonnull
     @Override
     public Identifier getTextureLocation(UndeadWolfRenderState state) {
-        return WLTextures.SKELETON_DOG;
+        return WLTextures.ZOMBIE_DOG;
     }
 
 }

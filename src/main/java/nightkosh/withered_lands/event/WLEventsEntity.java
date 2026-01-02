@@ -12,6 +12,7 @@ import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
@@ -20,6 +21,7 @@ import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
+import nightkosh.withered_lands.entity.wolf.ZombieDog;
 
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
@@ -52,9 +54,11 @@ public class WLEventsEntity {
         event.put(WLEntities.CHORUS_BAT.get(), ChorusBat.createAttributeSupplier());
         // wolves
         event.put(WLEntities.SKELETON_DOG.get(), SkeletonDog.createAttributeSupplier());
+        event.put(WLEntities.ZOMBIE_DOG.get(), ZombieDog.createAttributeSupplier());
         event.put(WLEntities.BARGHEST.get(), Barghest.createAttributeSupplier());
         // cats
         event.put(WLEntities.SKELETON_CAT.get(), SkeletonCat.createAttributeSupplier());
+        event.put(WLEntities.ZOMBIE_CAT.get(), ZombieCat.createAttributeSupplier());
         // underwater mobs
         event.put(WLEntities.DROWNED_SAILOR.get(), DrownedSailor.createAttributeSupplier());
         event.put(WLEntities.PHANTOM_DIVER.get(), PhantomDiver.createAttributeSupplier());
@@ -158,6 +162,12 @@ public class WLEventsEntity {
                 SkeletonDog::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
+        event.register(WLEntities.ZOMBIE_DOG.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ZombieDog::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
         event.register(WLEntities.BARGHEST.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -169,6 +179,12 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 SkeletonCat::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.ZOMBIE_CAT.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ZombieCat::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // underwater mobs
