@@ -63,7 +63,7 @@ public abstract class ASlime extends Slime {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 150), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 500), this);
     }
 
     protected static boolean isUndergroundBlock(Block ground) {
