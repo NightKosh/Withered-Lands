@@ -74,32 +74,12 @@ public class ZombieDog extends AUndeadDog {
                 return flag;
             }
 
-            if (this.convertToZombie(level, wolf)) {
+            if (this.convertToZombie(level, wolf, WLEntities.ZOMBIE_DOG.get())) {
                 flag = false;
             }
         }
 
         return flag;
-    }
-
-    public boolean convertToZombie(ServerLevel level, Wolf pet) {
-        var zombie = pet.convertTo(
-                WLEntities.ZOMBIE_DOG.get(),
-                ConversionParams.single(pet, true, true),
-                outcome -> {
-                    outcome.finalizeSpawn(
-                            level,
-                            level.getCurrentDifficultyAt(outcome.blockPosition()),
-                            EntitySpawnReason.CONVERSION,
-                            new Zombie.ZombieGroupData(false, true)
-                    );
-                    EventHooks.onLivingConvert(pet, outcome);
-                    if (!this.isSilent()) {
-                        level.levelEvent(null, 1026, this.blockPosition(), 0);
-                    }
-                }
-        );
-        return zombie != null;
     }
 
     @Override

@@ -12,6 +12,8 @@ import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.desert.Mummy;
+import nightkosh.withered_lands.entity.horse.SkeletonHorse;
+import nightkosh.withered_lands.entity.horse.ZombieHorse;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
@@ -239,6 +241,29 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "zombie_cat"))));
+
+    // horses
+    public static final DeferredHolder<EntityType<?>, EntityType<SkeletonHorse>> SKELETON_HORSE =
+            ENTITY_TYPES_REGISTER.register("skeleton_horse",
+                    () -> EntityType.Builder.of(SkeletonHorse::new, MobCategory.MONSTER)
+                            .passengerAttachments(1.31875F)
+                            .sized(1.3964844F, 1.6F)
+                            .eyeHeight(1.52F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "skeleton_horse"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ZombieHorse>> ZOMBIE_HORSE =
+            ENTITY_TYPES_REGISTER.register("zombie_horse",
+                    () -> EntityType.Builder.of(ZombieHorse::new, MobCategory.MONSTER)
+                            .passengerAttachments(1.31875F)
+                            .sized(1.3964844F, 1.6F)
+                            .eyeHeight(1.52F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "zombie_horse"))));
 
     // underwater mobs
     public static final DeferredHolder<EntityType<?>, EntityType<DrownedSailor>> DROWNED_SAILOR =

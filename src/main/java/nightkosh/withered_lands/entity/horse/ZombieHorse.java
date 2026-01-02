@@ -1,4 +1,4 @@
-package nightkosh.withered_lands.entity.cat;
+package nightkosh.withered_lands.entity.horse;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -7,14 +7,18 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.feline.Cat;
+import net.minecraft.world.entity.animal.equine.AbstractHorse;
 import net.minecraft.world.entity.animal.golem.IronGolem;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombieVillager;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
@@ -22,10 +26,10 @@ import net.minecraft.world.entity.npc.villager.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.entity.wolf.ZombieDog;
 
 import javax.annotation.Nonnull;
 
@@ -35,9 +39,9 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class ZombieCat extends AUndeadCat {
+public class ZombieHorse extends AUndeadHorse {
 
-    public ZombieCat(EntityType<? extends ZombieCat> entityType, Level level) {
+    public ZombieHorse(EntityType<? extends AUndeadHorse> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -49,18 +53,17 @@ public class ZombieCat extends AUndeadCat {
         this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 1));
         this.goalSelector.addGoal(5, new MoveThroughVillageGoal(this, 1, true, 4, () -> false));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(7, new OcelotAttackGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this)
-                .setAlertOthers(Zombie.class, ZombifiedPiglin.class, ZombieVillager.class, ZombieCat.class));
+                .setAlertOthers(Zombie.class, ZombifiedPiglin.class, ZombieVillager.class, ZombieDog.class));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
 
         if (WLConfigs.ZOMBIE_PETS_ATTACK_PETS.get()) {
-            this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Cat.class, true));
+            this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, AbstractHorse.class, true));
         }
     }
 
@@ -68,13 +71,13 @@ public class ZombieCat extends AUndeadCat {
     public boolean killedEntity(@Nonnull ServerLevel level, @Nonnull LivingEntity entity, @Nonnull DamageSource damageSource) {
         boolean flag = super.killedEntity(level, entity, damageSource);
         if ((level.getDifficulty() == Difficulty.NORMAL || level.getDifficulty() == Difficulty.HARD) &&
-                entity instanceof Cat cat && EventHooks.canLivingConvert(entity, WLEntities.ZOMBIE_CAT.get(), (timer) -> {
+                entity instanceof AbstractHorse horse && EventHooks.canLivingConvert(entity, WLEntities.ZOMBIE_HORSE.get(), (timer) -> {
         })) {
             if (level.getDifficulty() != Difficulty.HARD && this.random.nextBoolean()) {
                 return flag;
             }
 
-            if (this.convertToZombie(level, cat, WLEntities.ZOMBIE_CAT.get())) {
+            if (this.convertToZombie(level, horse, WLEntities.ZOMBIE_HORSE.get())) {
                 flag = false;
             }
         }
@@ -83,39 +86,42 @@ public class ZombieCat extends AUndeadCat {
     }
 
     @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.CAT_STRAY_AMBIENT;
+    protected Monster getJockey(@Nonnull ServerLevelAccessor level) {
+        return EntityType.ZOMBIE.create(this.level(), EntitySpawnReason.JOCKEY);
     }
 
-    @Nonnull
     @Override
-    protected SoundEvent getHurtSound(@Nonnull DamageSource damageSource) {
-        return SoundEvents.CAT_HURT;
+    protected SoundEvent getAmbientSound() {
+        super.getAmbientSound();
+        return SoundEvents.ZOMBIE_HORSE_AMBIENT;
     }
 
     @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.CAT_DEATH;
+        super.getDeathSound();
+        return SoundEvents.ZOMBIE_HORSE_DEATH;
     }
 
     @Override
-    protected void playStepSound(@Nonnull BlockPos pos, @Nonnull BlockState state) {
-
+    @Nonnull
+    protected SoundEvent getHurtSound(@Nonnull DamageSource damageSource) {
+        super.getHurtSound(damageSource);
+        return SoundEvents.ZOMBIE_HORSE_HURT;
     }
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 10)
+                .add(Attributes.MAX_HEALTH, 25)
                 .add(Attributes.MOVEMENT_SPEED, 0.5)
-                .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.ATTACK_DAMAGE, 5)
                 .build();
     }
 
     public static boolean checkSpawnRules(
-            EntityType<? extends ZombieCat> entityType, ServerLevelAccessor level,
+            EntityType<? extends AUndeadHorse> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.ZOMBIE_CAT.get() &&
+        return WLConfigs.ZOMBIE_HORSE.get() &&
                 checkCommonSpawnRules(level, pos, random);
     }
 

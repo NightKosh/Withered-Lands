@@ -53,6 +53,9 @@ public class WLTabs {
                         // cats
                         output.accept(WLItems.SKELETON_CAT_EGG.get());
                         output.accept(WLItems.ZOMBIE_CAT_EGG.get());
+                        // horses
+                        output.accept(WLItems.SKELETON_HORSE_EGG.get());
+                        output.accept(WLItems.ZOMBIE_HORSE_EGG.get());
                         // underwater mobs
                         output.accept(WLItems.DROWNED_SAILOR_EGG.get());
                         output.accept(WLItems.PHANTOM_DIVER_EGG.get());

@@ -14,6 +14,8 @@ import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.desert.Mummy;
+import nightkosh.withered_lands.entity.horse.SkeletonHorse;
+import nightkosh.withered_lands.entity.horse.ZombieHorse;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
@@ -59,6 +61,9 @@ public class WLEventsEntity {
         // cats
         event.put(WLEntities.SKELETON_CAT.get(), SkeletonCat.createAttributeSupplier());
         event.put(WLEntities.ZOMBIE_CAT.get(), ZombieCat.createAttributeSupplier());
+        // horses
+        event.put(WLEntities.SKELETON_HORSE.get(), SkeletonHorse.createAttributeSupplier());
+        event.put(WLEntities.ZOMBIE_HORSE.get(), ZombieHorse.createAttributeSupplier());
         // underwater mobs
         event.put(WLEntities.DROWNED_SAILOR.get(), DrownedSailor.createAttributeSupplier());
         event.put(WLEntities.PHANTOM_DIVER.get(), PhantomDiver.createAttributeSupplier());
@@ -185,6 +190,19 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ZombieCat::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // horses
+        event.register(WLEntities.SKELETON_HORSE.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SkeletonHorse::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.ZOMBIE_HORSE.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ZombieHorse::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // underwater mobs

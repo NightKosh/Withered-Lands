@@ -40,6 +40,10 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_CAT;
     public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_CAT;
 
+    // horses
+    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_HORSE;
+    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_HORSE;
+
     // underwater mobs
     public static ModConfigSpec.ConfigValue<Boolean> DROWNED_SAILOR;
     public static ModConfigSpec.ConfigValue<Boolean> PHANTOM_DIVER;
@@ -81,6 +85,10 @@ public class WLConfigs {
         // cats
         SKELETON_CAT = BUILDER.define("Skeleton Cats Spawn", true);
         ZOMBIE_CAT = BUILDER.define("Zombie Cats Spawn", true);
+
+        // horses
+        SKELETON_HORSE = BUILDER.define("Skeleton Horses Spawn", true);
+        ZOMBIE_HORSE = BUILDER.define("Zombie Horses Spawn", true);
 
         // underwater mobs
         DROWNED_SAILOR = BUILDER.define("Drowned Sailors Spawn", true);

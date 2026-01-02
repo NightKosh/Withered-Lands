@@ -158,6 +158,19 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_cat_spawn_egg")))
                     .spawnEgg(WLEntities.ZOMBIE_CAT.get())));
 
+    // horses
+    public static final DeferredHolder<Item, Item> SKELETON_HORSE_EGG = ITEMS_REGISTER.register(
+            "skeleton_horse_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_horse_spawn_egg")))
+                    .spawnEgg(WLEntities.SKELETON_HORSE.get())));
+
+    public static final DeferredHolder<Item, Item> ZOMBIE_HORSE_EGG = ITEMS_REGISTER.register(
+            "zombie_horse_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_horse_spawn_egg")))
+                    .spawnEgg(WLEntities.ZOMBIE_HORSE.get())));
+
     // underwater mobs
     public static final DeferredHolder<Item, Item> DROWNED_SAILOR_EGG = ITEMS_REGISTER.register(
             "drowned_sailor_spawn_egg",

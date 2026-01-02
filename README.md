@@ -116,6 +116,16 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 2. Zombie cat
     ```
         /summon withered_lands:zombie_cat ~ ~ ~ {NoAI:1b}
+    ```
+
+### Horses spawn:
+1. Skeleton horse
+    ```
+        /summon withered_lands:skeleton_horse ~ ~ ~ {NoAI:1b}
+    ``` 
+2. Zombie horse
+    ```
+        /summon withered_lands:zombie_horse ~ ~ ~ {NoAI:1b}
     ``` 
 
 ### Water mobs spawn:

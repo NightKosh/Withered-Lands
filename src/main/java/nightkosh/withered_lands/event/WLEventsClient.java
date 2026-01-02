@@ -11,6 +11,8 @@ import nightkosh.withered_lands.renderer.bat.*;
 import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.cat.ZombieCatRenderer;
 import nightkosh.withered_lands.renderer.desert.MummyRenderer;
+import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
+import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
 import nightkosh.withered_lands.renderer.slime.*;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
@@ -56,9 +58,12 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.SKELETON_DOG.get(), SkeletonDogRenderer::new);
         event.registerEntityRenderer(WLEntities.ZOMBIE_DOG.get(), ZombieDogRenderer::new);
         event.registerEntityRenderer(WLEntities.BARGHEST.get(), BarghestRenderer::new);
-        // cat
+        // cats
         event.registerEntityRenderer(WLEntities.SKELETON_CAT.get(), SkeletonCatRenderer::new);
         event.registerEntityRenderer(WLEntities.ZOMBIE_CAT.get(), ZombieCatRenderer::new);
+        // horses
+        event.registerEntityRenderer(WLEntities.SKELETON_HORSE.get(), SkeletonHorseRenderer::new);
+        event.registerEntityRenderer(WLEntities.ZOMBIE_HORSE.get(), ZombieHorseRenderer::new);
         // underwater mobs
         event.registerEntityRenderer(WLEntities.DROWNED_SAILOR.get(), DrownedSailorRenderer::new);
         event.registerEntityRenderer(WLEntities.PHANTOM_DIVER.get(), PhantomDiverRenderer::new);
