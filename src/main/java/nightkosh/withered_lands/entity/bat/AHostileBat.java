@@ -12,6 +12,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -32,6 +33,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
+import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.ai.BatAiStep;
 
 import javax.annotation.Nullable;
@@ -42,23 +44,24 @@ import javax.annotation.Nullable;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class HostileBat extends Monster {
+public abstract class AHostileBat extends Monster {
 
     public static final float TICKS_PER_FLAP = 10;
 
-    private static final EntityDataAccessor<Byte> HANGING_FLAG = SynchedEntityData.defineId(HostileBat.class, EntityDataSerializers.BYTE);
+    private static final EntityDataAccessor<Byte> HANGING_FLAG = SynchedEntityData.defineId(AHostileBat.class, EntityDataSerializers.BYTE);
     public final AnimationState flyAnimationState = new AnimationState();
     public final AnimationState restAnimationState = new AnimationState();
     private @Nullable BlockPos targetPosition;
 
-    public HostileBat(EntityType<? extends HostileBat> entityType, Level level) {
+    public AHostileBat(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
         if (!level.isClientSide()) {
             this.setResting(true);
         }
     }
 
-    BatAiStep fg ;
+    BatAiStep fg;
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, false));
@@ -98,6 +101,7 @@ public abstract class HostileBat extends Monster {
     }
 
     protected void applyEffect(LivingEntity entity) {
+        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, 600), this);
     }
 
     @Override

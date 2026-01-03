@@ -17,12 +17,11 @@ import nightkosh.withered_lands.core.WLConfigs;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class FlyingFox extends HostileBat {
+public class FlyingFox extends AHostileBat {
 
-    public FlyingFox(EntityType<? extends HostileBat> entityType, Level level) {
+    public FlyingFox(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
     }
-
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
@@ -33,7 +32,7 @@ public class FlyingFox extends HostileBat {
     }
 
     public static boolean checkSpawnRules(
-            EntityType<? extends HostileBat> entityType, ServerLevelAccessor level,
+            EntityType<? extends AHostileBat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         return WLConfigs.VAMPIRE_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
     }

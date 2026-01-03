@@ -22,11 +22,11 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class VolatileBat extends HostileBat {
+public class VolatileBat extends AHostileBat {
 
     private static final float EXPLOSION_RADIUS = 0.5F;
 
-    public VolatileBat(EntityType<? extends HostileBat> entityType, Level level) {
+    public VolatileBat(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -66,7 +66,7 @@ public class VolatileBat extends HostileBat {
     }
 
     public static boolean checkSpawnRules(
-            EntityType<? extends HostileBat> entityType, ServerLevelAccessor level,
+            EntityType<? extends AHostileBat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         return WLConfigs.VOLATILE_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
     }

@@ -5,6 +5,7 @@ import net.minecraft.world.effect.MobEffect;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import nightkosh.withered_lands.mob_effect.BleedingEffect;
 import nightkosh.withered_lands.mob_effect.CallOfTheAbyssEffect;
 
 /**
@@ -17,6 +18,9 @@ public class WLMobEffects {
 
     public static final DeferredRegister<MobEffect> EFFECTS =
             DeferredRegister.create(Registries.MOB_EFFECT, ModInfo.ID);
+
+    public static final DeferredHolder<MobEffect, MobEffect> BLEEDING =
+            EFFECTS.register("bleeding", BleedingEffect::new);
 
     public static final DeferredHolder<MobEffect, MobEffect> CALL_OF_THE_ABYSS =
             EFFECTS.register("call_of_the_abyss", CallOfTheAbyssEffect::new);

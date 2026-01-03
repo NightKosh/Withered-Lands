@@ -14,11 +14,9 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
-import nightkosh.withered_lands.core.ModInfo;
-import nightkosh.withered_lands.core.WLConfigs;
-import nightkosh.withered_lands.core.WLEntities;
-import nightkosh.withered_lands.core.WLItems;
+import nightkosh.withered_lands.core.*;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
@@ -367,6 +365,16 @@ public class WLEventsEntity {
                     level.addFreshEntity(crawler);
                 }
             }
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void onLivingHealEvent(LivingHealEvent event) {
+        if (event.getEntity().hasEffect(WLMobEffects.BLEEDING)) {
+            if (WLConfigs.DEBUG_MODE.get()) {
+                LOGGER.info("LivingHealEvent event triggered. Going to cancel event due to bleeding effect");
+            }
+            event.setCanceled(true);
         }
     }
 

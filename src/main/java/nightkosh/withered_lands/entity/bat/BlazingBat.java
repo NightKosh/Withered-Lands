@@ -17,9 +17,9 @@ import nightkosh.withered_lands.core.WLConfigs;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class BlazingBat extends HostileBat {
+public class BlazingBat extends AHostileBat {
 
-    public BlazingBat(EntityType<? extends HostileBat> entityType, Level level) {
+    public BlazingBat(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -40,11 +40,12 @@ public class BlazingBat extends HostileBat {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
+        super.applyEffect(entity);
         entity.igniteForSeconds(3);
     }
 
     public static boolean checkSpawnRules(
-            EntityType<? extends HostileBat> entityType, ServerLevelAccessor level,
+            EntityType<? extends AHostileBat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         return WLConfigs.BLAZING_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
     }

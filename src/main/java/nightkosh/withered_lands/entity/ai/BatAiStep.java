@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
-import nightkosh.withered_lands.entity.bat.HostileBat;
+import nightkosh.withered_lands.entity.bat.AHostileBat;
 
 /**
  * Withered Lands
@@ -18,7 +18,7 @@ public class BatAiStep {
             .forNonCombat()
             .range(4.0);
 
-    public static void step(ServerLevel level, HostileBat bat) {
+    public static void step(ServerLevel level, AHostileBat bat) {
         var pos = bat.blockPosition();
         var upPos = pos.above();
         if (bat.isResting()) {
