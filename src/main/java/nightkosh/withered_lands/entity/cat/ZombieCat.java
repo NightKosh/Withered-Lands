@@ -115,7 +115,7 @@ public class ZombieCat extends AUndeadCat {
     public static boolean checkSpawnRules(
             EntityType<? extends ZombieCat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.ZOMBIE_CAT.get() &&
+        return WLConfigs.ZOMBIE_CAT_SPAWN.get() &&
                 checkCommonSpawnRules(level, pos, random);
     }
 

@@ -121,7 +121,7 @@ public class ZombieHorse extends AUndeadHorse {
     public static boolean checkSpawnRules(
             EntityType<? extends AUndeadHorse> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.ZOMBIE_HORSE.get() &&
+        return WLConfigs.ZOMBIE_HORSE_SPAWN.get() &&
                 checkCommonSpawnRules(level, pos, random);
     }
 

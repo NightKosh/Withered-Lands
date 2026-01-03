@@ -80,7 +80,7 @@ public class SkeletonDog extends AUndeadDog {
     public static boolean checkSpawnRules(
             EntityType<? extends SkeletonDog> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.SKELETON_DOG.get() &&
+        return WLConfigs.SKELETON_DOG_SPAWN.get() &&
                 checkCommonSpawnRules(level, pos, random);
     }
 

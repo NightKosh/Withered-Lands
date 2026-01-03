@@ -63,7 +63,7 @@ public class DrownedSailor extends AWaterWalkingMob {
     public static boolean checkSpawnRules(
             EntityType<? extends AWaterWalkingMob> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.DROWNED_SAILOR.get() &&
+        return WLConfigs.DROWNED_SAILOR_SPAWN.get() &&
                 checkCommonSpawnRules(levelAccessor, spawnReason, blockPos, random);
     }
 

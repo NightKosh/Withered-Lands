@@ -52,7 +52,7 @@ public class SwampThing extends AWaterWalkingMob {
     public static boolean checkSpawnRules(
             EntityType<? extends SwampThing> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.SWAMP_THING.get() &&
+        return WLConfigs.SWAMP_THING_SPAWN.get() &&
                 checkCommonSpawnRules(levelAccessor, spawnReason, blockPos, random);
     }
 

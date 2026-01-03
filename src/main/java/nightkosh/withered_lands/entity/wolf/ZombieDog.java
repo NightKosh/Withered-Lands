@@ -115,7 +115,7 @@ public class ZombieDog extends AUndeadDog {
     public static boolean checkSpawnRules(
             EntityType<? extends ZombieDog> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.ZOMBIE_DOG.get() &&
+        return WLConfigs.ZOMBIE_DOG_SPAWN.get() &&
                 checkCommonSpawnRules(level, pos, random);
     }
 

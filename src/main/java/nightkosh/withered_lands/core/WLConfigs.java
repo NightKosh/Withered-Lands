@@ -32,25 +32,25 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> CHORUS_BAT_SPAWN;
 
     // wolves
-    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_DOG;
-    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_DOG;
+    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_DOG_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_DOG_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> BARGHEST_SPAWN;
 
     // cats
-    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_CAT;
-    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_CAT;
+    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_CAT_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_CAT_SPAWN;
 
     // horses
-    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_HORSE;
-    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_HORSE;
+    public static ModConfigSpec.ConfigValue<Boolean> SKELETON_HORSE_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_HORSE_SPAWN;
 
     // underwater mobs
-    public static ModConfigSpec.ConfigValue<Boolean> DROWNED_SAILOR;
-    public static ModConfigSpec.ConfigValue<Boolean> PHANTOM_DIVER;
-    public static ModConfigSpec.ConfigValue<Boolean> SWAMP_THING;
+    public static ModConfigSpec.ConfigValue<Boolean> DROWNED_SAILOR_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> PHANTOM_DIVER_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> SWAMP_THING_SPAWN;
 
     // desert
-    public static ModConfigSpec.ConfigValue<Boolean> MUMMY;
+    public static ModConfigSpec.ConfigValue<Boolean> MUMMY_SPAWN;
 
     // other
     public static ModConfigSpec.ConfigValue<Boolean> SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN;
@@ -79,25 +79,25 @@ public class WLConfigs {
         CHORUS_BAT_SPAWN = BUILDER.define("Chorus Bats Spawn", true);
 
         // wolves
-        SKELETON_DOG = BUILDER.define("Skeleton Dogs Spawn", true);
-        ZOMBIE_DOG = BUILDER.define("Zombie Dogs Spawn", true);
+        SKELETON_DOG_SPAWN = BUILDER.define("Skeleton Dogs Spawn", true);
+        ZOMBIE_DOG_SPAWN = BUILDER.define("Zombie Dogs Spawn", true);
         BARGHEST_SPAWN = BUILDER.define("Barghests Spawn", true);
 
         // cats
-        SKELETON_CAT = BUILDER.define("Skeleton Cats Spawn", true);
-        ZOMBIE_CAT = BUILDER.define("Zombie Cats Spawn", true);
+        SKELETON_CAT_SPAWN = BUILDER.define("Skeleton Cats Spawn", true);
+        ZOMBIE_CAT_SPAWN = BUILDER.define("Zombie Cats Spawn", true);
 
         // horses
-        SKELETON_HORSE = BUILDER.define("Skeleton Horses Spawn", true);
-        ZOMBIE_HORSE = BUILDER.define("Zombie Horses Spawn", true);
+        SKELETON_HORSE_SPAWN = BUILDER.define("Skeleton Horses Spawn", true);
+        ZOMBIE_HORSE_SPAWN = BUILDER.define("Zombie Horses Spawn", true);
 
         // underwater mobs
-        DROWNED_SAILOR = BUILDER.define("Drowned Sailors Spawn", true);
-        PHANTOM_DIVER = BUILDER.define("Phantom Divers Spawn", true);
-        SWAMP_THING = BUILDER.define("Swamp Things Spawn", true);
+        DROWNED_SAILOR_SPAWN = BUILDER.define("Drowned Sailors Spawn", true);
+        PHANTOM_DIVER_SPAWN = BUILDER.define("Phantom Divers Spawn", true);
+        SWAMP_THING_SPAWN = BUILDER.define("Swamp Things Spawn", true);
 
         // desert
-        MUMMY = BUILDER.define("Mummies Spawn", true);
+        MUMMY_SPAWN = BUILDER.define("Mummies Spawn", true);
 
         // other
         SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN = BUILDER.define("Should spawn skull crawlers at mobs death", true);

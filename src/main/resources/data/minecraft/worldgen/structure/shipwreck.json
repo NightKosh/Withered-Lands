@@ -8,8 +8,14 @@
       "bounding_box": "piece",
       "spawns": [
         {
-          "type": "withered_lands:phantom_diver",
+          "type": "withered_lands:drowned_sailor",
           "weight": 70,
+          "minCount": 2,
+          "maxCount": 4
+        },
+        {
+          "type": "withered_lands:phantom_diver",
+          "weight": 35,
           "minCount": 1,
           "maxCount": 3
         }

@@ -81,7 +81,7 @@ public class SkeletonCat extends AUndeadCat {
     public static boolean checkSpawnRules(
             EntityType<? extends SkeletonCat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.SKELETON_CAT.get() &&
+        return WLConfigs.SKELETON_CAT_SPAWN.get() &&
                 checkCommonSpawnRules(level, pos, random);
     }
 

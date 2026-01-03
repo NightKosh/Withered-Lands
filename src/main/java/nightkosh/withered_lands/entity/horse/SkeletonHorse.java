@@ -90,7 +90,7 @@ public class SkeletonHorse extends AUndeadHorse {
     public static boolean checkSpawnRules(
             EntityType<? extends AUndeadHorse> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.SKELETON_HORSE.get() &&
+        return WLConfigs.SKELETON_HORSE_SPAWN.get() &&
                 checkCommonSpawnRules(level, pos, random);
     }
 

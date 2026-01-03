@@ -82,7 +82,7 @@ public class PhantomDiver extends DrownedSailor implements RangedAttackMob {
     public static boolean checkSpawnRules(
             EntityType<? extends AWaterWalkingMob> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.PHANTOM_DIVER.get() &&
+        return WLConfigs.PHANTOM_DIVER_SPAWN.get() &&
                 checkCommonSpawnRules(levelAccessor, spawnReason, blockPos, random);
     }
 

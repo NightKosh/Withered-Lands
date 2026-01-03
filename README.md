@@ -1,4 +1,5 @@
-# Withered Lands
+# 
+# [Withered Lands](https://www.curseforge.com/minecraft/mc-mods/withered-lands)  [![Curseforge](http://cf.way2muchnoise.eu/full_withered-lands_downloads.svg)](https://minecraft.curseforge.com/projects/withered-lands) [![Curseforge](http://cf.way2muchnoise.eu/versions/For%20MC_withered-lands_all.svg)](https://minecraft.curseforge.com/projects/withered-lands)
 
 ## Requirements
 1. [NeoForge](https://neoforged.net/) (check "build.gradle" file to know required NeoForge version)
@@ -92,6 +93,44 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 6. Chorus bat
     ```
         /summon withered_lands:chorus_bat ~ ~ ~ {NoAI:1b}
+    ```
+   
+### Skull crawlers spawn:
+1. skeleton skull crawler
+    ```
+        /summon withered_lands:skeleton_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+2. Stray skull crawler
+    ```
+        /summon withered_lands:stray_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+3. Bogged skull crawler
+    ```
+        /summon withered_lands:bogged_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+4. Parched skull crawler
+    ```
+        /summon withered_lands:parched_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+5. Wither skull crawler
+    ```
+        /summon withered_lands:wither_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+6. Zombie skull crawler
+    ```
+        /summon withered_lands:zombie_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+7. Husk skull crawler
+    ```
+        /summon withered_lands:husk_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+8. Drowned skull crawler
+    ```
+        /summon withered_lands:drowned_skull_crawler ~ ~ ~ {NoAI:1b}
+    ```
+9. Zombified Piglin skull crawler
+    ```
+        /summon withered_lands:piglin_skull_crawler ~ ~ ~ {NoAI:1b}
     ```
 
 ### Wolves spawn:

@@ -104,7 +104,7 @@ public class Mummy extends Monster {
     public static boolean checkSpawnRules(
             EntityType<? extends Mummy> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.MUMMY.get() &&
+        return WLConfigs.MUMMY_SPAWN.get() &&
                 checkCommonSpawnRules(levelAccessor, blockPos, random);
     }
 
