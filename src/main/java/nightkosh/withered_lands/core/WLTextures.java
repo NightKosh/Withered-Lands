@@ -38,6 +38,7 @@ public final class WLTextures {
     public static final Identifier WITHER_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/wither.png");
     public static final Identifier ZOMBIE_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/zombie.png");
     public static final Identifier HUSK_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/husk.png");
+    public static final Identifier DROWNED_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/drowned.png");
     public static final Identifier PIGLIN_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/piglin.png");
     // wolves
     public static final Identifier SKELETON_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/skeleton.png");

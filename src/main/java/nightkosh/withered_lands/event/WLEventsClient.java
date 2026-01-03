@@ -64,6 +64,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.WITHER_SKULL_CRAWLER.get(), WitherSkullCrawlerRenderer::new);
         event.registerEntityRenderer(WLEntities.ZOMBIE_SKULL_CRAWLER.get(), ZombieSkullCrawlerRenderer::new);
         event.registerEntityRenderer(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.DROWNED_SKULL_CRAWLER.get(), DrownedSkullCrawlerRenderer::new);
         event.registerEntityRenderer(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawlerRenderer::new);
         // wolves
         event.registerEntityRenderer(WLEntities.SKELETON_DOG.get(), SkeletonDogRenderer::new);

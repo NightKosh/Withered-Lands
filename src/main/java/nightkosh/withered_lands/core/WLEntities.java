@@ -264,6 +264,16 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "husk_skull_crawler"))));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<DrownedSkullCrawler>> DROWNED_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("drowned_skull_crawler",
+                    () -> EntityType.Builder.of(DrownedSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "drowned_skull_crawler"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<PiglinSkullCrawler>> PIGLIN_SKULL_CRAWLER =
             ENTITY_TYPES_REGISTER.register("piglin_skull_crawler",
                     () -> EntityType.Builder.of(PiglinSkullCrawler::new, MobCategory.MONSTER)

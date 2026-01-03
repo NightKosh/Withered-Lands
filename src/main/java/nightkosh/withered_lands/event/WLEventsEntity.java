@@ -3,6 +3,7 @@ package nightkosh.withered_lands.event;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.monster.skeleton.*;
+import net.minecraft.world.entity.monster.zombie.Drowned;
 import net.minecraft.world.entity.monster.zombie.Husk;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
@@ -70,6 +71,7 @@ public class WLEventsEntity {
         event.put(WLEntities.WITHER_SKULL_CRAWLER.get(), WitherSkullCrawler.createAttributeSupplier());
         event.put(WLEntities.ZOMBIE_SKULL_CRAWLER.get(), ZombieSkullCrawler.createAttributeSupplier());
         event.put(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.DROWNED_SKULL_CRAWLER.get(), DrownedSkullCrawler.createAttributeSupplier());
         event.put(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawler.createAttributeSupplier());
         // wolves
         event.put(WLEntities.SKELETON_DOG.get(), SkeletonDog.createAttributeSupplier());
@@ -220,6 +222,12 @@ public class WLEventsEntity {
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
+        event.register(WLEntities.DROWNED_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
         event.register(WLEntities.PIGLIN_SKULL_CRAWLER.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -338,6 +346,9 @@ public class WLEventsEntity {
                 } else if (entity instanceof Zombie zombie) {
                     if (zombie instanceof Husk) {
                         crawler = WLEntities.HUSK_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    } else if (entity instanceof Drowned) {
+                        crawler = WLEntities.DROWNED_SKULL_CRAWLER.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else if (entity instanceof ZombifiedPiglin) {
                         crawler = WLEntities.PIGLIN_SKULL_CRAWLER.get()

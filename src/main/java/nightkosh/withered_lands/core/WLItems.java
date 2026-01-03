@@ -169,6 +169,12 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "husk_skull_crawler_spawn_egg")))
                     .spawnEgg(WLEntities.HUSK_SKULL_CRAWLER.get())));
 
+    public static final DeferredHolder<Item, Item> DROWNED_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
+            "drowned_skull_crawler_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "drowned_skull_crawler_spawn_egg")))
+                    .spawnEgg(WLEntities.DROWNED_SKULL_CRAWLER.get())));
+
     public static final DeferredHolder<Item, Item> PIGLIN_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
             "piglin_skull_crawler_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()
