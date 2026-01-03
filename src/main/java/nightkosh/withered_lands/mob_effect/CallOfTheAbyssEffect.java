@@ -23,7 +23,7 @@ import javax.annotation.Nonnull;
 public class CallOfTheAbyssEffect extends MobEffect {
 
     public CallOfTheAbyssEffect() {
-        super(MobEffectCategory.HARMFUL, 0x2D6FFF);
+        super(MobEffectCategory.HARMFUL, 0x50999d);
     }
 
     @Override
