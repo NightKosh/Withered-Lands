@@ -5,6 +5,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.core.WLSounds;
 
 /**
@@ -44,9 +46,7 @@ public class DrownedSailor extends AWaterWalkingMob {
     }
 
     protected void applyEffect(LivingEntity entity) {
-//        entity.addEffect(new MobEffectInstance(MobEffects., 150), this);
-        // TODO
-//        ((EntityPlayer) entity).addPotionEffect(new PotionEffect(GSPotion.CHOKE, 400));
+        entity.addEffect(new MobEffectInstance(WLMobEffects.CALL_OF_THE_ABYSS, 400), this);
     }
 
     @Override

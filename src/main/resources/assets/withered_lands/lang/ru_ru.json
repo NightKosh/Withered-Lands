@@ -72,5 +72,7 @@
   "item.withered_lands.mummy_spawn_egg": "Яйцо призыва мумии",
 
   "item.withered_lands.slime_gel": "Гель",
-  "item.withered_lands.bat_wing": "Крыло летучей мыши"
+  "item.withered_lands.bat_wing": "Крыло летучей мыши",
+
+  "effect.withered_lands.call_of_the_abyss": "Зов Бездны"
 }

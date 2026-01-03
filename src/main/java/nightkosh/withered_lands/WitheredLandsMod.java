@@ -30,6 +30,7 @@ public class WitheredLandsMod {
         WLSounds.register(eventBus);
         WLItems.register(eventBus);
         WLTabs.register(eventBus);
+        WLMobEffects.register(eventBus);
     }
 
 }
