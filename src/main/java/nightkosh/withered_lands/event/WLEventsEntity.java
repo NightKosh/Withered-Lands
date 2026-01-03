@@ -15,9 +15,12 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
-import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
-import nightkosh.withered_lands.core.*;
+import nightkosh.withered_lands.core.ModInfo;
+import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
 import nightkosh.withered_lands.entity.desert.Mummy;
@@ -29,7 +32,6 @@ import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
-import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.wolf.ZombieDog;
 
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
@@ -302,16 +304,6 @@ public class WLEventsEntity {
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Mummy::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
-    }
-
-    @SubscribeEvent
-    public static void onFuelBurnTime(FurnaceFuelBurnTimeEvent event) {
-        if (WLConfigs.DEBUG_MODE.get()) {
-            LOGGER.info("FurnaceFuelBurnTimeEvent event triggered");
-        }
-        if (event.getItemStack().is(WLItems.SLIME_GEL.get())) {
-            event.setBurnTime(100);
-        }
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
