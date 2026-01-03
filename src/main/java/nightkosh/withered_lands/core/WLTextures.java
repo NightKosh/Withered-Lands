@@ -24,12 +24,12 @@ public final class WLTextures {
     public static final Identifier TOXIC_SLUDGE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/toxic_sludge/full.png");
     public static final Identifier MOLTEN_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/molten.png");
     // bats
-    public static final Identifier VAMPIRE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire_bat.png");
+    public static final Identifier VAMPIRE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire.png");
     public static final Identifier FLYING_FOX = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/fox.png");
-    public static final Identifier BLAZING_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/blazing_bat.png");
-    public static final Identifier WITHERED_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/withered_bat.png");
-    public static final Identifier VOLATILE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/volatile_bat.png");
-    public static final Identifier CHORUS_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/chorus_bat.png");
+    public static final Identifier BLAZING_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/blazing.png");
+    public static final Identifier WITHERED_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/withered.png");
+    public static final Identifier VOLATILE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/volatile.png");
+    public static final Identifier CHORUS_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/chorus.png");
     // crawlers
     public static final Identifier SKELETON_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/skeleton.png");
     public static final Identifier STRAY_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/stray.png");
