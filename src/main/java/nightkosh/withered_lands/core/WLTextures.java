@@ -30,6 +30,15 @@ public final class WLTextures {
     public static final Identifier WITHERED_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/withered_bat.png");
     public static final Identifier VOLATILE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/volatile_bat.png");
     public static final Identifier CHORUS_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/chorus_bat.png");
+    // crawlers
+    public static final Identifier SKELETON_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/skeleton.png");
+    public static final Identifier STRAY_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/stray.png");
+    public static final Identifier BOGGED_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/bogged.png");
+    public static final Identifier PARCHED_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/parched.png");
+    public static final Identifier WITHER_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/wither.png");
+    public static final Identifier ZOMBIE_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/zombie.png");
+    public static final Identifier HUSK_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/husk.png");
+    public static final Identifier PIGLIN_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/piglin.png");
     // wolves
     public static final Identifier SKELETON_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/skeleton.png");
     public static final Identifier ZOMBIE_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/zombie.png");

@@ -10,10 +10,12 @@ import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.renderer.bat.*;
 import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.cat.ZombieCatRenderer;
+import nightkosh.withered_lands.renderer.crawler.*;
 import nightkosh.withered_lands.renderer.desert.MummyRenderer;
 import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
 import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
+import nightkosh.withered_lands.renderer.model.SkullCrawlerModel;
 import nightkosh.withered_lands.renderer.slime.*;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
 import nightkosh.withered_lands.renderer.water.PhantomDiverRenderer;
@@ -54,6 +56,15 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.WITHERED_BAT.get(), WitheredBatRenderer::new);
         event.registerEntityRenderer(WLEntities.VOLATILE_BAT.get(), VolatileBatRenderer::new);
         event.registerEntityRenderer(WLEntities.CHORUS_BAT.get(), ChorusBatRenderer::new);
+        // crawlers
+        event.registerEntityRenderer(WLEntities.SKELETON_SKULL_CRAWLER.get(), SkeletonSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.STRAY_SKULL_CRAWLER.get(), StraySkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.BOGGED_SKULL_CRAWLER.get(), BoggedSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.PARCHED_SKULL_CRAWLER.get(), ParchedSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.WITHER_SKULL_CRAWLER.get(), WitherSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.ZOMBIE_SKULL_CRAWLER.get(), ZombieSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawlerRenderer::new);
         // wolves
         event.registerEntityRenderer(WLEntities.SKELETON_DOG.get(), SkeletonDogRenderer::new);
         event.registerEntityRenderer(WLEntities.ZOMBIE_DOG.get(), ZombieDogRenderer::new);
@@ -79,6 +90,7 @@ public class WLEventsClient {
         }
         // underwater mobs
         event.registerLayerDefinition(PhantomDiverModel.LAYER, PhantomDiverModel::createBodyLayer);
+        event.registerLayerDefinition(SkullCrawlerModel.LAYER, SkullCrawlerModel::createBodyLayer);
     }
 
 }

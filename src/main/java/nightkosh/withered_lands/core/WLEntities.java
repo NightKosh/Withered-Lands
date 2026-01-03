@@ -11,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
+import nightkosh.withered_lands.entity.crawler.*;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
 import nightkosh.withered_lands.entity.horse.ZombieHorse;
@@ -188,6 +189,91 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "chorus_bat"))));
+
+    // crawlers
+    public static final DeferredHolder<EntityType<?>, EntityType<SkeletonSkullCrawler>> SKELETON_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("skeleton_skull_crawler",
+                    () -> EntityType.Builder.of(SkeletonSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "skeleton_skull_crawler"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<StraySkullCrawler>> STRAY_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("stray_skull_crawler",
+                    () -> EntityType.Builder.of(StraySkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "stray_skull_crawler"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BoggedSkullCrawler>> BOGGED_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("bogged_skull_crawler",
+                    () -> EntityType.Builder.of(BoggedSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "bogged_skull_crawler"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ParchedSkullCrawler>> PARCHED_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("parched_skull_crawler",
+                    () -> EntityType.Builder.of(ParchedSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "parched_skull_crawler"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WitherSkullCrawler>> WITHER_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("wither_skull_crawler",
+                    () -> EntityType.Builder.of(WitherSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "wither_skull_crawler"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ZombieSkullCrawler>> ZOMBIE_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("zombie_skull_crawler",
+                    () -> EntityType.Builder.of(ZombieSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "zombie_skull_crawler"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<HuskSkullCrawler>> HUSK_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("husk_skull_crawler",
+                    () -> EntityType.Builder.of(HuskSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "husk_skull_crawler"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PiglinSkullCrawler>> PIGLIN_SKULL_CRAWLER =
+            ENTITY_TYPES_REGISTER.register("piglin_skull_crawler",
+                    () -> EntityType.Builder.of(PiglinSkullCrawler::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.5F)
+                            .notInPeaceful()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "piglin_skull_crawler"))));
 
     // wolves
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletonDog>> SKELETON_DOG =

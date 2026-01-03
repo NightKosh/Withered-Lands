@@ -1,11 +1,18 @@
 package nightkosh.withered_lands.event;
 
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.monster.skeleton.*;
+import net.minecraft.world.entity.monster.zombie.Husk;
+import net.minecraft.world.entity.monster.zombie.Zombie;
+import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -13,6 +20,7 @@ import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
+import nightkosh.withered_lands.entity.crawler.*;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
 import nightkosh.withered_lands.entity.horse.ZombieHorse;
@@ -54,6 +62,15 @@ public class WLEventsEntity {
         event.put(WLEntities.WITHERED_BAT.get(), WitheredBat.createAttributeSupplier());
         event.put(WLEntities.VOLATILE_BAT.get(), VolatileBat.createAttributeSupplier());
         event.put(WLEntities.CHORUS_BAT.get(), ChorusBat.createAttributeSupplier());
+        // crawlers
+        event.put(WLEntities.SKELETON_SKULL_CRAWLER.get(), SkeletonSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.STRAY_SKULL_CRAWLER.get(), StraySkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.BOGGED_SKULL_CRAWLER.get(), BoggedSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.PARCHED_SKULL_CRAWLER.get(), ParchedSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.WITHER_SKULL_CRAWLER.get(), WitherSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.ZOMBIE_SKULL_CRAWLER.get(), ZombieSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawler.createAttributeSupplier());
         // wolves
         event.put(WLEntities.SKELETON_DOG.get(), SkeletonDog.createAttributeSupplier());
         event.put(WLEntities.ZOMBIE_DOG.get(), ZombieDog.createAttributeSupplier());
@@ -160,6 +177,55 @@ public class WLEventsEntity {
                 ChorusBat::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
+        // crawlers
+        event.register(WLEntities.SKELETON_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.STRAY_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.BOGGED_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.PARCHED_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.WITHER_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.ZOMBIE_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.HUSK_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.PIGLIN_SKULL_CRAWLER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
         // wolves
         event.register(WLEntities.SKELETON_DOG.get(),
                 SpawnPlacementTypes.ON_GROUND,
@@ -239,6 +305,57 @@ public class WLEventsEntity {
         }
         if (event.getItemStack().is(WLItems.SLIME_GEL.get())) {
             event.setBurnTime(100);
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onLivingDeath(LivingDeathEvent event) {
+        if (WLConfigs.DEBUG_MODE.get()) {
+            LOGGER.info("LivingDeathEvent event triggered");
+        }
+        var entity = event.getEntity();
+        var level = entity.level();
+        if (!level.isClientSide()) {
+            if (WLConfigs.SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN.get() && entity.getRandom().nextInt(10) == 0) {
+                ASkullCrawler crawler = null;
+                if (entity instanceof AbstractSkeleton skeleton) {
+                    if (skeleton instanceof WitherSkeleton) {
+                        crawler = WLEntities.WITHER_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    } else if (skeleton instanceof Stray) {
+                        crawler = WLEntities.STRAY_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    } else if (skeleton instanceof Bogged) {
+                        crawler = WLEntities.BOGGED_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    } else if (skeleton instanceof Parched) {
+                        crawler = WLEntities.PARCHED_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    } else {
+                        crawler = WLEntities.SKELETON_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    }
+                } else if (entity instanceof Zombie zombie) {
+                    if (zombie instanceof Husk) {
+                        crawler = WLEntities.HUSK_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    } else if (entity instanceof ZombifiedPiglin) {
+                        crawler = WLEntities.PIGLIN_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    } else {
+                        crawler = WLEntities.ZOMBIE_SKULL_CRAWLER.get()
+                                .create(level, EntitySpawnReason.TRIGGERED);
+                    }
+                }
+                if (crawler != null) {
+                    if (WLConfigs.DEBUG_MODE.get()) {
+                        LOGGER.info("Going to spawn skull crawler at mob death");
+                    }
+                    crawler.snapTo(entity.getX(), entity.getY() + 1.5, entity.getZ(),
+                            entity.getYRot(), entity.getXRot());
+                    level.addFreshEntity(crawler);
+                }
+            }
         }
     }
 

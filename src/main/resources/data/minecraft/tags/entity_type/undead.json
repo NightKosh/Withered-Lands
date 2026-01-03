@@ -1,6 +1,14 @@
 {
   "replace": false,
   "values": [
+    "withered_lands:skeleton_skull_crawler",
+    "withered_lands:stray_skull_crawler",
+    "withered_lands:bogged_skull_crawler",
+    "withered_lands:parched_skull_crawler",
+    "withered_lands:wither_skull_crawler",
+    "withered_lands:zombie_skull_crawler",
+    "withered_lands:husk_skull_crawler",
+    "withered_lands:piglin_skull_crawler",
     "withered_lands:skeleton_dog",
     "withered_lands:zombie_dog",
     "withered_lands:barghest",

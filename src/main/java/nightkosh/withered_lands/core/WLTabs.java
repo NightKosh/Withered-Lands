@@ -46,6 +46,15 @@ public class WLTabs {
                         output.accept(WLItems.WITHERED_BAT_EGG.get());
                         output.accept(WLItems.VOLATILE_BAT_EGG.get());
                         output.accept(WLItems.CHORUS_BAT_EGG.get());
+                        // crawlers
+                        output.accept(WLItems.SKELETON_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.STRAY_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.BOGGED_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.PARCHED_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.WITHER_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.ZOMBIE_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.HUSK_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.PIGLIN_SKULL_CRAWLER_EGG.get());
                         // wolves
                         output.accept(WLItems.SKELETON_DOG_EGG.get());
                         output.accept(WLItems.ZOMBIE_DOG_EGG.get());
