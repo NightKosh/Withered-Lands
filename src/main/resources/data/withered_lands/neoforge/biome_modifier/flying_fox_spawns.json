@@ -8,9 +8,9 @@
   "spawners": [
     {
       "type": "withered_lands:flying_fox",
-      "weight": 30,
-      "minCount": 2,
-      "maxCount": 5
+      "weight": 50,
+      "minCount": 3,
+      "maxCount": 7
     }
   ]
 }
