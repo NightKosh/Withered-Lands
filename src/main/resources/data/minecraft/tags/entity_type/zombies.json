@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "withered_lands:zombie_skull_crawler",
+    "withered_lands:husk_skull_crawler",
+    "withered_lands:drowned_skull_crawler",
+    "withered_lands:piglin_skull_crawler",
+    "withered_lands:zombie_dog",
+    "withered_lands:zombie_cat",
+    "withered_lands:zombie_horse"
+  ]
+}
