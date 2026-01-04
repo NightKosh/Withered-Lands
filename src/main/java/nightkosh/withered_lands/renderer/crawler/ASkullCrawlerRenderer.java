@@ -15,7 +15,7 @@ import nightkosh.withered_lands.renderer.model.SkullCrawlerModel;
 public abstract class ASkullCrawlerRenderer<T extends ASkullCrawler> extends MobRenderer<T, LivingEntityRenderState, SkullCrawlerModel<LivingEntityRenderState>> {
 
     public ASkullCrawlerRenderer(EntityRendererProvider.Context context) {
-        super(context, new SkullCrawlerModel(context.bakeLayer(SkullCrawlerModel.LAYER)), 0.8F);
+        super(context, new SkullCrawlerModel(context.bakeLayer(SkullCrawlerModel.LAYER)), 0.3F);
     }
 
     @Override

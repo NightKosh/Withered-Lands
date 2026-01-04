@@ -64,7 +64,7 @@ public class Barghest extends AUndeadDog {
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 80)
+                .add(Attributes.MAX_HEALTH, 60)
                 .add(Attributes.FOLLOW_RANGE, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0.45)
                 .add(Attributes.ATTACK_DAMAGE, 5)

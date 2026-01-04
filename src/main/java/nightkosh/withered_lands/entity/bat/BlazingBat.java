@@ -26,7 +26,7 @@ public class BlazingBat extends AHostileBat {
     @Override
     public void tick() {
         if (this.level() instanceof ServerLevel server) {
-            server.sendParticles(ParticleTypes.FLAME,
+            server.sendParticles(ParticleTypes.SMALL_FLAME,
                     this.getX() + 0.25 - this.random.nextDouble() * 0.5,
                     this.getY() + 0.25 + this.random.nextDouble() * 0.5,
                     this.getZ() + 0.25 - this.random.nextDouble() * 0.5,
