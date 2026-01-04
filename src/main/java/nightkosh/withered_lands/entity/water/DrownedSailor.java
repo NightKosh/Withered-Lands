@@ -1,8 +1,6 @@
 package nightkosh.withered_lands.entity.water;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -28,21 +26,6 @@ public class DrownedSailor extends AWaterWalkingMob {
 
     public DrownedSailor(EntityType<? extends DrownedSailor> entityType, Level level) {
         super(entityType, level);
-    }
-
-    @Override
-    public void tick() {
-        if (this.level() instanceof ServerLevel server && this.isInWater()) {
-            server.sendParticles(ParticleTypes.BUBBLE,
-                    this.getX() + 0.5 - this.random.nextDouble(),
-                    this.getY() + 1.25 + this.random.nextDouble() * 1.5,
-                    this.getZ() + 0.5 - this.random.nextDouble(),
-                    2,
-                    0, 0, 0,
-                    0);
-        }
-
-        super.tick();
     }
 
     protected void applyEffect(LivingEntity entity) {

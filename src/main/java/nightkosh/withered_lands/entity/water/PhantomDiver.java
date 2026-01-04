@@ -1,6 +1,7 @@
 package nightkosh.withered_lands.entity.water;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -15,6 +16,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.entity.ai.TridentAttackGoal;
 import org.jspecify.annotations.Nullable;
@@ -77,6 +79,22 @@ public class PhantomDiver extends DrownedSailor implements RangedAttackMob {
 
         this.playSound(SoundEvents.DROWNED_SHOOT, 1, 1 / (this.getRandom().nextFloat() * 0.4F + 0.8F));
 
+    }
+
+    @Override
+    public void tick() {
+        if (this.level() instanceof ServerLevel server && this.isInWater() &&
+                level().getBlockState(this.blockPosition().above().above()).getBlock() == Blocks.WATER) {
+            server.sendParticles(ParticleTypes.BUBBLE,
+                    this.getX() + 0.5 - this.random.nextDouble(),
+                    this.getY() + 1.25 + this.random.nextDouble() * 1.5,
+                    this.getZ() + 0.5 - this.random.nextDouble(),
+                    2,
+                    0, 0, 0,
+                    0);
+        }
+
+        super.tick();
     }
 
     public static boolean checkSpawnRules(
