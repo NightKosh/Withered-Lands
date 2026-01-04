@@ -53,6 +53,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> MUMMY_SPAWN;
 
     // other
+    public static ModConfigSpec.ConfigValue<Boolean> POSSESSED_ARMOR_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_PETS_ATTACK_PETS;
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
@@ -100,6 +101,7 @@ public class WLConfigs {
         MUMMY_SPAWN = BUILDER.define("Mummies Spawn", true);
 
         // other
+        POSSESSED_ARMOR_SPAWN = BUILDER.define("Possessed Armors Spawn", true);
         SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN = BUILDER.define("Should spawn skull crawlers at mobs death", true);
         ZOMBIE_PETS_ATTACK_PETS = BUILDER.define("Should zombie pets attack pets", true);
 

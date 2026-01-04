@@ -61,5 +61,7 @@ public final class WLTextures {
     // desert
     public static final Identifier MUMMY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/mummy.png");
     public static final Identifier MUMMY_OVERLAY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/overlay.png");
+    // other
+    public static final Identifier POSSESSED_ARMOR = fromNamespaceAndPath(ModInfo.ID, "textures/entity/possessed_armor.png");
 
 }

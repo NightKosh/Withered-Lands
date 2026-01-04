@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
@@ -392,7 +393,7 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "swamp_thing"))));
 
-    // desert MUMMY
+    // desert
     public static final DeferredHolder<EntityType<?>, EntityType<Mummy>> MUMMY =
             ENTITY_TYPES_REGISTER.register("mummy",
                     () -> EntityType.Builder.of(Mummy::new, MobCategory.MONSTER)
@@ -403,6 +404,16 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "mummy"))));
 
+    // other
+    public static final DeferredHolder<EntityType<?>, EntityType<PossessedArmor>> POSSESSED_ARMOR =
+            ENTITY_TYPES_REGISTER.register("possessed_armor",
+                    () -> EntityType.Builder.of(PossessedArmor::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.95F)
+                            .eyeHeight(1.80F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "possessed_armor"))));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES_REGISTER.register(eventBus);

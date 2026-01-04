@@ -35,6 +35,7 @@
   "entity.withered_lands.phantom_diver": "Фантомный дайвер",
   "entity.withered_lands.swamp_thing": "Болотная тварь",
   "entity.withered_lands.mummy": "Мумия",
+  "entity.withered_lands.possessed_armor": "Одержимые доспехи",
 
   "item.withered_lands.verdant_slime_spawn_egg": "Яйцо призыва зелёного слизня",
   "item.withered_lands.sandy_slime_spawn_egg": "Яйцо призыва песчаного слизня",
@@ -70,10 +71,13 @@
   "item.withered_lands.phantom_diver_spawn_egg": "Яйцо призыва фантомного дайвера",
   "item.withered_lands.swamp_thing_spawn_egg": "Яйцо призыва Болотной твари",
   "item.withered_lands.mummy_spawn_egg": "Яйцо призыва мумии",
+  "item.withered_lands.possessed_armor_spawn_egg": "Яйцо призыва одержимых доспехов",
 
   "item.withered_lands.slime_gel": "Гель",
   "item.withered_lands.bat_wing": "Крыло летучей мыши",
 
   "effect.withered_lands.bleeding": "Кровотечение",
-  "effect.withered_lands.call_of_the_abyss": "Зов Бездны"
+  "effect.withered_lands.call_of_the_abyss": "Зов Бездны",
+
+  "enchantment.withered_lands.curse_of_starvation": "Проклятие истощения"
 }

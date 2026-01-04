@@ -7,6 +7,7 @@ import net.minecraft.world.entity.monster.zombie.Drowned;
 import net.minecraft.world.entity.monster.zombie.Husk;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,10 +16,13 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.core.WLMobEffects;
+import nightkosh.withered_lands.enchantment.WLEnchantmentHelper;
+import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
@@ -89,6 +93,8 @@ public class WLEventsEntity {
         event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
         // desert
         event.put(WLEntities.MUMMY.get(), Mummy.createAttributeSupplier());
+        // other
+        event.put(WLEntities.POSSESSED_ARMOR.get(), PossessedArmor.createAttributeSupplier());
     }
 
     @SubscribeEvent
@@ -304,6 +310,13 @@ public class WLEventsEntity {
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Mummy::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // other
+        event.register(WLEntities.POSSESSED_ARMOR.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                PossessedArmor::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -367,6 +380,18 @@ public class WLEventsEntity {
                 LOGGER.info("LivingHealEvent event triggered. Going to cancel event due to bleeding effect");
             }
             event.setCanceled(true);
+        }
+    }
+
+    @SubscribeEvent
+    public static void onLivingTick(EntityTickEvent.Post event) {
+        if (event.getEntity() instanceof Player player && !player.level().isClientSide()) {
+            if ((player.tickCount % 20) == 0) {
+                if (WLConfigs.DEBUG_MODE.get()) {
+                    LOGGER.info("EntityTickEvent.Post event triggered. Going to check player starvation curse.");
+                }
+                WLEnchantmentHelper.applyCurseEffect(player);
+            }
         }
     }
 

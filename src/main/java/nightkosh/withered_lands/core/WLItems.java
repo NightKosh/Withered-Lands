@@ -252,6 +252,13 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "mummy_spawn_egg")))
                     .spawnEgg(WLEntities.MUMMY.get())));
 
+    // other
+    public static final DeferredHolder<Item, Item> POSSESSED_ARMOR_EGG = ITEMS_REGISTER.register(
+            "possessed_armor_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "possessed_armor_spawn_egg")))
+                    .spawnEgg(WLEntities.POSSESSED_ARMOR.get())));
+
     public static void register(IEventBus eventBus) {
         ITEMS_REGISTER.register(eventBus);
     }

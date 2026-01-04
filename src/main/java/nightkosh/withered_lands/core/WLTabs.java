@@ -72,6 +72,8 @@ public class WLTabs {
                         output.accept(WLItems.SWAMP_THING_EGG.get());
                         // desert
                         output.accept(WLItems.MUMMY_EGG.get());
+                        // other
+                        output.accept(WLItems.POSSESSED_ARMOR_EGG.get());
                     })
                     .build()
             );

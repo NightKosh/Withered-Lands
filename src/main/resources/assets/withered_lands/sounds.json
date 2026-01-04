@@ -46,5 +46,26 @@
       "name" : "withered_lands:desert/mummy/step",
       "stream" : true
     }]
+  },
+  "entity.possessed_armor.step" : {
+    "category": "hostile",
+    "subtitle": "entity.possessed_armor.step",
+    "sounds" : [
+      {
+        "name" : "withered_lands:entity/other/possessed_armor/step1",
+        "stream" : true
+      },
+      {
+        "name" : "withered_lands:entity/other/possessed_armor/step2",
+        "stream" : true
+      }]
+  },
+  "entity.possessed_armor.hurt" : {
+    "category": "hostile",
+    "subtitle": "entity.possessed_armor.hurt",
+    "sounds" : [{
+      "name" : "withered_lands:entity/other/possessed_armor/hurt",
+      "stream" : true
+    }]
   }
 }

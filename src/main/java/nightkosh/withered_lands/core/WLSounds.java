@@ -45,6 +45,12 @@ public class WLSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> MUMMY_STEP =
             registerSoundEvent("mummy_step", "entity.mummy.step");
 
+    // Possessed Armor
+    public static final DeferredHolder<SoundEvent, SoundEvent> POSSESSED_ARMOR_STEP =
+            registerSoundEvent("possessed_armor_step", "entity.possessed_armor.step");
+    public static final DeferredHolder<SoundEvent, SoundEvent> POSSESSED_ARMOR_HURT =
+            registerSoundEvent("possessed_armor_hurt", "entity.possessed_armor.hurt");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name, String path) {
         return registerSoundEvent(name, fromNamespaceAndPath(ModInfo.ID, path));
     }

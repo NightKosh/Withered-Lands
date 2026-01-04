@@ -186,4 +186,15 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:mummy ~ ~ ~ {NoAI:1b}
     ``` 
-   
+
+### Other mobs spawn:
+1. Possessed armor
+    ```
+        /summon withered_lands:possessed_armor ~ ~ ~ {NoAI:1b}
+    ```
+
+## Apply an enchantment on item:
+1. Curse of Starvation
+    ```
+        /enchant @s withered_lands:curse_of_starvation 1
+    ``` 
