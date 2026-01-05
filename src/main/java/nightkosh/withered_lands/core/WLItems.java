@@ -88,6 +88,10 @@ public class WLItems {
             "bat_wing",
             () -> new BatWing(new Item.Properties()
                     .stacksTo(64)
+                    .food(new FoodProperties.Builder()
+                            .nutrition(1)
+                            .saturationModifier(0.2F)
+                            .build())
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
 
     public static final DeferredHolder<Item, Item> VAMPIRE_BAT_EGG = ITEMS_REGISTER.register(
