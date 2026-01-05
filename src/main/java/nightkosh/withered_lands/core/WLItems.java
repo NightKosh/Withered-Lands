@@ -249,6 +249,19 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "swamp_thing_spawn_egg")))
                     .spawnEgg(WLEntities.SWAMP_THING.get())));
 
+    // fishes
+    public static final DeferredHolder<Item, Item> PIRANHA_EGG = ITEMS_REGISTER.register(
+            "piranha_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "piranha_spawn_egg")))
+                    .spawnEgg(WLEntities.PIRANHA.get())));
+
+    public static final DeferredHolder<Item, Item> PIKE_EGG = ITEMS_REGISTER.register(
+            "pike_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "pike_spawn_egg")))
+                    .spawnEgg(WLEntities.PIKE.get())));
+
     // desert
     public static final DeferredHolder<Item, Item> MUMMY_EGG = ITEMS_REGISTER.register(
             "mummy_spawn_egg",

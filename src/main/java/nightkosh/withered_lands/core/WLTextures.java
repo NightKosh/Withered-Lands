@@ -67,6 +67,9 @@ public final class WLTextures {
     public static final Identifier PHANTOM_DIVER_FACE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/phantom_diver/face.png");
     public static final Identifier SWAMP_THING = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/swamp_thing/swamp_thing.png");
     public static final Identifier SWAMP_THING_OVERLAY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/swamp_thing/overlay.png");
+    // fishes
+    public static final Identifier PIRANHA = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/fish/piranha.png");
+    public static final Identifier PIKE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/fish/pike.png");
     // desert
     public static final Identifier MUMMY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/mummy.png");
     public static final Identifier MUMMY_OVERLAY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/overlay.png");

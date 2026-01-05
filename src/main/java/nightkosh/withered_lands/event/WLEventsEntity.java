@@ -34,6 +34,8 @@ import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
+import nightkosh.withered_lands.entity.water.fish.Pike;
+import nightkosh.withered_lands.entity.water.fish.Piranha;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
 import nightkosh.withered_lands.entity.wolf.ZombieDog;
@@ -91,6 +93,9 @@ public class WLEventsEntity {
         event.put(WLEntities.DROWNED_SAILOR.get(), DrownedSailor.createAttributeSupplier());
         event.put(WLEntities.PHANTOM_DIVER.get(), PhantomDiver.createAttributeSupplier());
         event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
+        // fishes
+        event.put(WLEntities.PIRANHA.get(), Piranha.createAttributeSupplier());
+        event.put(WLEntities.PIKE.get(), Pike.createAttributeSupplier());
         // desert
         event.put(WLEntities.MUMMY.get(), Mummy.createAttributeSupplier());
         // other
@@ -302,6 +307,19 @@ public class WLEventsEntity {
                 SpawnPlacementTypes.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 SwampThing::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // fishes
+        event.register(WLEntities.PIRANHA.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Piranha::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.PIKE.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Pike::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // desert

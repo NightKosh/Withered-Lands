@@ -74,6 +74,9 @@ public class WLTabs {
                         output.accept(WLItems.MUMMY_EGG.get());
                         // other
                         output.accept(WLItems.POSSESSED_ARMOR_EGG.get());
+                        // fishes
+                        output.accept(WLItems.PIRANHA_EGG.get());
+                        output.accept(WLItems.PIKE_EGG.get());
                     })
                     .build()
             );

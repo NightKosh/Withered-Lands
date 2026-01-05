@@ -36,6 +36,8 @@
   "entity.withered_lands.swamp_thing": "Swamp Thing",
   "entity.withered_lands.mummy": "Mummy",
   "entity.withered_lands.possessed_armor": "Possessed Armor",
+  "entity.withered_lands.piranha": "Piranha",
+  "entity.withered_lands.pike": "Pike",
 
   "item.withered_lands.verdant_slime_spawn_egg": "Verdant Slime Spawn Egg",
   "item.withered_lands.sandy_slime_spawn_egg": "Sandy Slime Spawn Egg",
@@ -72,6 +74,8 @@
   "item.withered_lands.swamp_thing_spawn_egg": "Swamp Thing Spawn Egg",
   "item.withered_lands.mummy_spawn_egg": "Mummy Spawn Egg",
   "item.withered_lands.possessed_armor_spawn_egg": "Possessed Armor Spawn Egg",
+  "item.withered_lands.piranha_spawn_egg": "Piranha Spawn Egg",
+  "item.withered_lands.pike_spawn_egg": "Pike Spawn Egg",
 
   "item.withered_lands.slime_gel": "Slime Gel",
   "item.withered_lands.bat_wing": "Bat Wing",

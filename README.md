@@ -181,6 +181,16 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /summon withered_lands:swamp_thing ~ ~ ~ {NoAI:1b}
     ``` 
 
+#### Fishes spawn:
+1. Piranha
+    ```
+        /summon withered_lands:piranha ~ ~ ~ {NoAI:1b}
+    ``` 
+2. Pike
+    ```
+        /summon withered_lands:pike ~ ~ ~ {NoAI:1b}
+    ``` 
+   
 ### Desert mobs spawn:
 1. Mummy
     ```

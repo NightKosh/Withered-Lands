@@ -20,6 +20,8 @@ import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
+import nightkosh.withered_lands.entity.water.fish.Pike;
+import nightkosh.withered_lands.entity.water.fish.Piranha;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
 import nightkosh.withered_lands.entity.wolf.ZombieDog;
@@ -403,6 +405,27 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "mummy"))));
+
+    // fishes
+    public static final DeferredHolder<EntityType<?>, EntityType<Piranha>> PIRANHA =
+            ENTITY_TYPES_REGISTER.register("piranha",
+                    () -> EntityType.Builder.of(Piranha::new, MobCategory.MONSTER)
+                            .sized(0.5F, 0.4F)
+                            .eyeHeight(0.26F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "piranha"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<Pike>> PIKE =
+            ENTITY_TYPES_REGISTER.register("pike",
+                    () -> EntityType.Builder.of(Pike::new, MobCategory.MONSTER)
+                            .sized(0.5F, 0.4F)
+                            .eyeHeight(0.26F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "pike"))));
 
     // other
     public static final DeferredHolder<EntityType<?>, EntityType<PossessedArmor>> POSSESSED_ARMOR =
