@@ -14,15 +14,24 @@ import static net.minecraft.resources.Identifier.withDefaultNamespace;
 public final class WLTextures {
 
     // slimes
-    public static final Identifier VERDANT_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/verdant.png");
-    public static final Identifier SANDY_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/sandy.png");
-    public static final Identifier FROZEN_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/frozen.png");
-    public static final Identifier MUD_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/mud.png");
-    public static final Identifier JUNGLE_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/jungle.png");
-    public static final Identifier CAVE_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/cave.png");
-    public static final Identifier ABYSSAL_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/abyssal.png");
-    public static final Identifier TOXIC_SLUDGE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/toxic_sludge/full.png");
-    public static final Identifier MOLTEN_SLIME = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/molten.png");
+    public static final Identifier VERDANT_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/verdant/outer.png");
+    public static final Identifier VERDANT_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/verdant/inner.png");
+    public static final Identifier SANDY_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/sandy/outer.png");
+    public static final Identifier SANDY_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/sandy/inner.png");
+    public static final Identifier FROZEN_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/frozen/outer.png");
+    public static final Identifier FROZEN_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/frozen/inner.png");
+    public static final Identifier MUD_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/mud/outer.png");
+    public static final Identifier MUD_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/mud/inner.png");
+    public static final Identifier JUNGLE_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/jungle/outer.png");
+    public static final Identifier JUNGLE_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/jungle/inner.png");
+    public static final Identifier CAVE_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/cave/outer.png");
+    public static final Identifier CAVE_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/cave/inner.png");
+    public static final Identifier ABYSSAL_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/abyssal/outer.png");
+    public static final Identifier ABYSSAL_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/abyssal/inner.png");
+    public static final Identifier TOXIC_SLUDGE_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/toxic_sludge/outer.png");
+    public static final Identifier TOXIC_SLUDGE_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/toxic_sludge/inner.png");
+    public static final Identifier MOLTEN_SLIME_OUTER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/molten/outer.png");
+    public static final Identifier MOLTEN_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/molten/inner.png");
     // bats
     public static final Identifier VAMPIRE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire.png");
     public static final Identifier FLYING_FOX = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/fox.png");

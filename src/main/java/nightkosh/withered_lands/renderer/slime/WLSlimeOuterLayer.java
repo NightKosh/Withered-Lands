@@ -11,6 +11,12 @@ import net.minecraft.client.renderer.rendertype.RenderTypes;
 
 import javax.annotation.Nonnull;
 
+/**
+ * Withered Lands
+ *
+ * @author NightKosh
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ */
 public class WLSlimeOuterLayer extends RenderLayer<WLSlimeRenderState, SlimeModel> {
 
     private final SlimeModel model;
@@ -28,18 +34,18 @@ public class WLSlimeOuterLayer extends RenderLayer<WLSlimeRenderState, SlimeMode
                        int packedLight, WLSlimeRenderState renderState, float yRot, float xRot) {
         boolean flag = renderState.appearsGlowing() && renderState.isInvisible;
         if (!renderState.isInvisible || flag) {
-            int i = LivingEntityRenderer.getOverlayCoords(renderState, 0.0F);
+            int i = LivingEntityRenderer.getOverlayCoords(renderState, 0);
             if (flag) {
                 nodeCollector.order(1).submitModel(
                         this.model, renderState, poseStack,
-                        RenderTypes.outline(renderer.getTextureLocation(renderState)),
+                        RenderTypes.outline(renderer.getOuterTextureLocation(renderState)),
                         packedLight, i, -1, null,
                         renderState.outlineColor, null
                 );
             } else {
                 nodeCollector.order(1).submitModel(
                         this.model, renderState, poseStack,
-                        RenderTypes.entityTranslucent(renderer.getTextureLocation(renderState)),
+                        RenderTypes.entityTranslucent(renderer.getOuterTextureLocation(renderState)),
                         packedLight, i, -1, null,
                         renderState.outlineColor, null
                 );

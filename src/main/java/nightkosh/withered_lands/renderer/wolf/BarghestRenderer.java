@@ -45,7 +45,8 @@ public class BarghestRenderer extends MobRenderer<Barghest, BarghestRenderState,
     }
 
     @Override
-    protected @Nullable RenderType getRenderType(BarghestRenderState state, boolean p_115323_, boolean p_115324_, boolean p_115325_) {
+    protected @Nullable RenderType getRenderType(
+            BarghestRenderState state, boolean bodyVisible, boolean translucent, boolean glowing) {
         var identifier = this.getTextureLocation(state);
         if (state.isInvisible) {
             return RenderTypes.itemEntityTranslucentCull(identifier);

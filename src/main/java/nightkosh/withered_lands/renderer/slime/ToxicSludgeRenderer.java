@@ -4,6 +4,8 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.Identifier;
 import nightkosh.withered_lands.core.WLTextures;
 
+import javax.annotation.Nonnull;
+
 /**
  * Withered Lands
  *
@@ -16,8 +18,15 @@ public class ToxicSludgeRenderer extends ASlimeRenderer {
         super(context);
     }
 
+    @Nonnull
+    @Override
     public Identifier getTextureLocation(WLSlimeRenderState state) {
-        return WLTextures.TOXIC_SLUDGE;
+        return WLTextures.TOXIC_SLUDGE_INNER;
+    }
+
+    @Override
+    public Identifier getOuterTextureLocation(WLSlimeRenderState state) {
+        return WLTextures.TOXIC_SLUDGE_OUTER;
     }
 
 }
