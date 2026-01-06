@@ -1,10 +1,10 @@
 package nightkosh.withered_lands.renderer.slime;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.rendertype.RenderType;
-import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import nightkosh.withered_lands.core.WLTextures;
+import nightkosh.withered_lands.entity.slime.ASlime;
 
 import javax.annotation.Nonnull;
 
@@ -16,10 +16,13 @@ import javax.annotation.Nonnull;
  */
 public class MoltenSlimeRenderer extends ASlimeRenderer {
 
-    private static final RenderType MOLTEN_SLIME = RenderTypes.eyes(WLTextures.MOLTEN_SLIME_INNER);
-
     public MoltenSlimeRenderer(EntityRendererProvider.Context context) {
         super(context);
+    }
+
+    @Override
+    protected int getBlockLightLevel(ASlime entity, @Nonnull BlockPos pos) {
+        return 8;
     }
 
     @Nonnull
