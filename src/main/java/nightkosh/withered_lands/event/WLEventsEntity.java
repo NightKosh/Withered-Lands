@@ -130,8 +130,8 @@ public class WLEventsEntity {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.JUNGLE_SLIME.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
                 JungleSlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 

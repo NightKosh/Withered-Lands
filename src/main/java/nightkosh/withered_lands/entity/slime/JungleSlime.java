@@ -63,7 +63,8 @@ public class JungleSlime extends ASlime {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
-                    return ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.MUD;
+                    return ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.MUD ||
+                            ground == Blocks.PODZOL || ground == Blocks.JUNGLE_LEAVES;
                 } else if (pos.getY() < 50) {
                     // TODO additional checks to avoid spawn near buildings
                     return isUndergroundBlock(ground);
