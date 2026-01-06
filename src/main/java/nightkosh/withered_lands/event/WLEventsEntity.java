@@ -118,8 +118,8 @@ public class WLEventsEntity {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.FROZEN_SLIME.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
                 FrozenSlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
