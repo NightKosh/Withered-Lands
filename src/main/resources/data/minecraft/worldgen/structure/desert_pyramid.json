@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:desert_pyramid",
+  "biomes": "#minecraft:has_structure/desert_pyramid",
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "withered_lands:mummy",
+          "weight": 200,
+          "minCount": 3,
+          "maxCount": 7
+        },
+        {
+          "type": "withered_lands:sandy_slime",
+          "weight": 100,
+          "minCount": 7,
+          "maxCount": 10
+        }
+      ]
+    }
+  },
+  "step": "surface_structures"
+}

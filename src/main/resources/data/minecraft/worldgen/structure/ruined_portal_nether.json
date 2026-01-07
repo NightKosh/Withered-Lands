@@ -1,14 +1,14 @@
 {
   "type": "minecraft:ruined_portal",
-  "biomes": "#minecraft:has_structure/ruined_portal_desert",
+  "biomes": "#minecraft:has_structure/ruined_portal_nether",
   "setups": [
     {
-      "air_pocket_probability": 0.0,
+      "air_pocket_probability": 0.5,
       "can_be_cold": false,
       "mossiness": 0.0,
       "overgrown": false,
-      "placement": "partly_buried",
-      "replace_with_blackstone": false,
+      "placement": "in_nether",
+      "replace_with_blackstone": true,
       "vines": false,
       "weight": 1.0
     }
@@ -21,6 +21,12 @@
           "type": "withered_lands:molten_slime",
           "weight": 200,
           "minCount": 7,
+          "maxCount": 10
+        },
+        {
+          "type": "withered_lands:blazing_bat",
+          "weight": 100,
+          "minCount": 5,
           "maxCount": 10
         }
       ]

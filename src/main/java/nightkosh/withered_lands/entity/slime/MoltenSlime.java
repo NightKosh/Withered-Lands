@@ -72,7 +72,14 @@ public class MoltenSlime extends ASlime {
                 return checkMobSpawnRules(entityType, level, spawnReason, pos, random);
             }
 
-            return level.getBrightness(LightLayer.BLOCK, pos) == 0;
+            // Do not check light, otherwise it prevent slime spawn near ruined portals
+            var ground = level.getBlockState(pos.below());
+            return ground.is(Blocks.NETHERRACK) || ground.is(Blocks.SOUL_SAND) || ground.is(Blocks.BASALT) ||
+                    ground.is(Blocks.MAGMA_BLOCK) || ground.is(Blocks.CRIMSON_NYLIUM) || ground.is(Blocks.WARPED_NYLIUM) ||
+                    ground.is(Blocks.OBSIDIAN) || ground.is(Blocks.GOLD_BLOCK) || ground.is(Blocks.LAVA) ||
+                    ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.PODZOL) || ground.is(Blocks.MYCELIUM) ||
+                    ground.is(Blocks.DIRT) || ground.is(Blocks.MUD) || ground.is(Blocks.GRAVEL) ||
+                    ground.is(Blocks.SAND);
         }
 
         return false;

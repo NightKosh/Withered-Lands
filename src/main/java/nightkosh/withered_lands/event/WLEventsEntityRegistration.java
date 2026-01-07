@@ -96,8 +96,8 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.SANDY_SLIME.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
                 SandySlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
@@ -108,8 +108,8 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.MUD_SLIME.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
                 MudSlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
@@ -132,8 +132,8 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.MOLTEN_SLIME.get(),
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
                 MoltenSlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 

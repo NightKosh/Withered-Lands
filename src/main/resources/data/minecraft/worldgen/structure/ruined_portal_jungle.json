@@ -19,8 +19,8 @@
       "spawns": [
         {
           "type": "withered_lands:molten_slime",
-          "weight": 100,
-          "minCount": 5,
+          "weight": 200,
+          "minCount": 7,
           "maxCount": 10
         }
       ]
