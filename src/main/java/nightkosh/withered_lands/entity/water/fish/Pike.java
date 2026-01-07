@@ -51,9 +51,9 @@ public class Pike extends AHostileFish {
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 6)
-                .add(Attributes.MOVEMENT_SPEED, 1.5)
-                .add(Attributes.ATTACK_DAMAGE, 1.5)
+                .add(Attributes.MAX_HEALTH, 4)
+                .add(Attributes.MOVEMENT_SPEED, 1)
+                .add(Attributes.ATTACK_DAMAGE, 0.5)
                 .build();
     }
 
