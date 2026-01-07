@@ -83,5 +83,8 @@
   "effect.withered_lands.bleeding": "Bleeding",
   "effect.withered_lands.call_of_the_abyss": "Call of the Abyss",
 
-  "enchantment.withered_lands.curse_of_starvation": "Curse of Starvation"
+  "enchantment.withered_lands.curse_of_starvation": "Curse of Starvation",
+
+  "message.withered_lands.to_hungry_to_sleep": "You are too hungry to sleep!",
+  "message.withered_lands.open_sky_sleep": "You cannot sleep under the open sky!"
 }

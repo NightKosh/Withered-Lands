@@ -13,6 +13,10 @@ public class WLConfigs {
     public static final ModConfigSpec SPEC;
     public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    // sleep
+    public static ModConfigSpec.ConfigValue<Boolean> TO_HUNGRY_TO_SLEEP;
+    public static ModConfigSpec.ConfigValue<Boolean> OPEN_SKY_SLEEP;
+
     // slimes
     public static ModConfigSpec.ConfigValue<Boolean> VERDANT_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> SANDY_SLIME_SPAWN;
@@ -65,6 +69,10 @@ public class WLConfigs {
 
     static {
         BUILDER.push("Configs for Withered Lands Mod");
+
+        // sleep
+        TO_HUNGRY_TO_SLEEP = BUILDER.define("Can't sleep if hungry", true);
+        OPEN_SKY_SLEEP = BUILDER.define("Can't sleep under the open sky", true);
 
         // slimes
         VERDANT_SLIME_SPAWN = BUILDER.define("Verdant Slimes Spawn", true);
