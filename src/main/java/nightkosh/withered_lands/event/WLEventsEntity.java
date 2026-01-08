@@ -112,7 +112,7 @@ public class WLEventsEntity {
             }
         }
     }
-    
+
     private static final int MIN_FOOD_TO_SLEEP = 18;
 
     @SubscribeEvent
