@@ -182,11 +182,15 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ``` 
 
 #### Fishes spawn:
-1. Piranha
+1. Minnow
+    ```
+        /summon withered_lands:minnow ~ ~ ~ {NoAI:1b}
+    ``` 
+2. Piranha
     ```
         /summon withered_lands:piranha ~ ~ ~ {NoAI:1b}
     ``` 
-2. Pike
+3. Pike
     ```
         /summon withered_lands:pike ~ ~ ~ {NoAI:1b}
     ``` 
