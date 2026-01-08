@@ -59,9 +59,9 @@ public class Piranha extends AHostileFish {
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 3)
+                .add(Attributes.MAX_HEALTH, 2)
                 .add(Attributes.MOVEMENT_SPEED, 1.2)
-                .add(Attributes.ATTACK_DAMAGE, 0.5)
+                .add(Attributes.ATTACK_DAMAGE, 0.2)
                 .build();
     }
 
