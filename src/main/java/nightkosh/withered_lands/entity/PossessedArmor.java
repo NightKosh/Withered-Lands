@@ -1,6 +1,7 @@
 package nightkosh.withered_lands.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
@@ -24,10 +25,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.item.equipment.trim.ArmorTrim;
-import net.minecraft.world.item.equipment.trim.TrimMaterials;
-import net.minecraft.world.item.equipment.trim.TrimPattern;
-import net.minecraft.world.item.equipment.trim.TrimPatterns;
+import net.minecraft.world.item.equipment.trim.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -121,24 +119,23 @@ public class PossessedArmor extends Monster {
                 .lookupOrThrow(Registries.TRIM_PATTERN)
                 .getOrThrow(TRIM_PATTERNS.get(this.random.nextInt(TRIM_PATTERNS.size())));
 
-        var material = level.registryAccess()
-                .lookupOrThrow(Registries.TRIM_MATERIAL)
-                .getOrThrow(TrimMaterials.EMERALD);
-
-        var trim = new ArmorTrim(material, pattern);
-
+        ArmorTrim trim;
         Map<EquipmentSlot, Item> armorSet;
         if (this.level().dimension() == Level.NETHER) {
             if (random.nextInt(5) == 0) {
                 armorSet = NETHERITE_SET;
+                trim = new ArmorTrim(getMaterial(this.level(), TrimMaterials.EMERALD), pattern);
             } else {
                 armorSet = GOLDEN_SET;
+                trim = new ArmorTrim(getMaterial(this.level(), TrimMaterials.REDSTONE), pattern);
             }
         } else {
             if (random.nextInt(5) == 0) {
                 armorSet = DIAMOND_SET;
+                trim = new ArmorTrim(getMaterial(this.level(), TrimMaterials.NETHERITE), pattern);
             } else {
                 armorSet = CHAINMAIL_SET;
+                trim = new ArmorTrim(getMaterial(this.level(), TrimMaterials.LAPIS), pattern);
             }
         }
 
@@ -150,6 +147,12 @@ public class PossessedArmor extends Monster {
         this.setItemSlot(EquipmentSlot.FEET, getArmorItem(armorSet.get(EquipmentSlot.FEET), trim));
 
         return groupData;
+    }
+
+    private static Holder<TrimMaterial> getMaterial(Level level, ResourceKey<TrimMaterial> material) {
+        return level.registryAccess()
+                .lookupOrThrow(Registries.TRIM_MATERIAL)
+                .getOrThrow(material);
     }
 
     private ItemStack getArmorItem(Item item, ArmorTrim trim) {
