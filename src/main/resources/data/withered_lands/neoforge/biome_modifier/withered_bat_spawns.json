@@ -7,7 +7,7 @@
   "spawners": [
     {
       "type": "withered_lands:withered_bat",
-      "weight": 30,
+      "weight": 50,
       "minCount": 1,
       "maxCount": 3
     }

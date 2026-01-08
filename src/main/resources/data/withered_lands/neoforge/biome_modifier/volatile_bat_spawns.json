@@ -8,7 +8,7 @@
   "spawners": [
     {
       "type": "withered_lands:volatile_bat",
-      "weight": 10,
+      "weight": 30,
       "minCount": 1,
       "maxCount": 2
     }

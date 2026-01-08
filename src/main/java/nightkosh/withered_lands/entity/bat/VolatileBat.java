@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -68,7 +69,8 @@ public class VolatileBat extends AHostileBat {
     public static boolean checkSpawnRules(
             EntityType<? extends AHostileBat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.VOLATILE_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
+        // light level should be ignored
+        return WLConfigs.VOLATILE_BAT_SPAWN.get() && level.getDifficulty() != Difficulty.PEACEFUL;
     }
 
 }

@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -49,7 +50,8 @@ public class WitheredBat extends AHostileBat {
     public static boolean checkSpawnRules(
             EntityType<? extends AHostileBat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.WITHERED_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
+        // light level should be ignored
+        return WLConfigs.WITHERED_BAT_SPAWN.get() && level.getDifficulty() != Difficulty.PEACEFUL;
     }
 
 }
