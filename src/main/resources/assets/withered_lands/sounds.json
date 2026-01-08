@@ -52,11 +52,11 @@
     "subtitle": "entity.possessed_armor.step",
     "sounds" : [
       {
-        "name" : "withered_lands:entity/other/possessed_armor/step1",
+        "name" : "withered_lands:other/possessed_armor/step1",
         "stream" : true
       },
       {
-        "name" : "withered_lands:entity/other/possessed_armor/step2",
+        "name" : "withered_lands:other/possessed_armor/step2",
         "stream" : true
       }]
   },
@@ -64,7 +64,7 @@
     "category": "hostile",
     "subtitle": "entity.possessed_armor.hurt",
     "sounds" : [{
-      "name" : "withered_lands:entity/other/possessed_armor/hurt",
+      "name" : "withered_lands:other/possessed_armor/hurt",
       "stream" : true
     }]
   }
