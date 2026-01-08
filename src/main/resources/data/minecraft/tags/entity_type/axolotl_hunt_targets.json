@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "withered_lands:minnow",
     "withered_lands:piranha",
     "withered_lands:pike"
   ]

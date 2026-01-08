@@ -9,15 +9,15 @@
       "spawns": [
         {
           "type": "withered_lands:drowned_sailor",
-          "weight": 70,
+          "weight": 100,
           "minCount": 2,
           "maxCount": 4
         },
         {
           "type": "withered_lands:phantom_diver",
-          "weight": 35,
+          "weight": 100,
           "minCount": 1,
-          "maxCount": 3
+          "maxCount": 2
         },
         {
           "type": "withered_lands:piranha",
@@ -26,10 +26,10 @@
           "maxCount": 10
         },
         {
-          "type": "minecraft:cod",
+          "type": "withered_lands:minnow",
           "weight": 100,
-          "minCount": 3,
-          "maxCount": 5
+          "minCount": 7,
+          "maxCount": 10
         }
       ]
     }

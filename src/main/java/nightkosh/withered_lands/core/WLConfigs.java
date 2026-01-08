@@ -54,6 +54,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> SWAMP_THING_SPAWN;
 
     // fish
+    public static ModConfigSpec.ConfigValue<Boolean> MINNOW_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> PIRANHA_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> PIKE_SPAWN;
 
@@ -111,6 +112,7 @@ public class WLConfigs {
         SWAMP_THING_SPAWN = BUILDER.define("Swamp Things Spawn", true);
 
         // fish
+        MINNOW_SPAWN = BUILDER.define("Minnows Spawn", true);
         PIRANHA_SPAWN = BUILDER.define("Piranhas Spawn", true);
         PIKE_SPAWN = BUILDER.define("Pikes Spawn", true);
 

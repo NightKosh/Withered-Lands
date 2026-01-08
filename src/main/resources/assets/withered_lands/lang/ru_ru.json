@@ -36,6 +36,7 @@
   "entity.withered_lands.swamp_thing": "Болотная тварь",
   "entity.withered_lands.mummy": "Мумия",
   "entity.withered_lands.possessed_armor": "Одержимые доспехи",
+  "entity.withered_lands.minnow": "Пескарь",
   "entity.withered_lands.piranha": "Пиранья",
   "entity.withered_lands.pike": "Щука",
 
@@ -74,6 +75,7 @@
   "item.withered_lands.swamp_thing_spawn_egg": "Яйцо призыва Болотной твари",
   "item.withered_lands.mummy_spawn_egg": "Яйцо призыва мумии",
   "item.withered_lands.possessed_armor_spawn_egg": "Яйцо призыва одержимых доспехов",
+  "item.withered_lands.minnow_spawn_egg": "Яйцо призыва пескаря",
   "item.withered_lands.piranha_spawn_egg": "Яйцо призыва пираньи",
   "item.withered_lands.pike_spawn_egg": "Яйцо призыва щуки",
 

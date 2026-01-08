@@ -250,6 +250,12 @@ public class WLItems {
                     .spawnEgg(WLEntities.SWAMP_THING.get())));
 
     // fishes
+    public static final DeferredHolder<Item, Item> MINNOW_EGG = ITEMS_REGISTER.register(
+            "minnow_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "minnow_spawn_egg")))
+                    .spawnEgg(WLEntities.MINNOW.get())));
+
     public static final DeferredHolder<Item, Item> PIRANHA_EGG = ITEMS_REGISTER.register(
             "piranha_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()

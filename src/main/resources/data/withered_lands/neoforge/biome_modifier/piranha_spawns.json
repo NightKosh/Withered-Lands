@@ -15,7 +15,7 @@
   "spawners": [
     {
       "type": "withered_lands:piranha",
-      "weight": 80,
+      "weight": 60,
       "minCount": 5,
       "maxCount": 10
     }
