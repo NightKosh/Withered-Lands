@@ -133,6 +133,16 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /summon withered_lands:piglin_skull_crawler ~ ~ ~ {NoAI:1b}
     ```
 
+### Giants spawn:
+1. Hill giant
+    ```
+        /summon withered_lands:hill_giant ~ ~ ~ {NoAI:1b}
+    ```
+2. Frozen giant
+    ```
+        /summon withered_lands:frozen_giant ~ ~ ~ {NoAI:1b}
+    ```
+
 ### Wolves spawn:
 1. Skeleton dog
     ```

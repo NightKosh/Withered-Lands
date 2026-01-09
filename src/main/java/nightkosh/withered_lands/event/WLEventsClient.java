@@ -13,6 +13,8 @@ import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.cat.ZombieCatRenderer;
 import nightkosh.withered_lands.renderer.crawler.*;
 import nightkosh.withered_lands.renderer.desert.MummyRenderer;
+import nightkosh.withered_lands.renderer.giant.FrozenGiantRenderer;
+import nightkosh.withered_lands.renderer.giant.HillGiantRenderer;
 import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
 import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
@@ -90,6 +92,9 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.PIKE.get(), PikeRenderer::new);
         // desert
         event.registerEntityRenderer(WLEntities.MUMMY.get(), MummyRenderer::new);
+        // giant
+        event.registerEntityRenderer(WLEntities.HILL_GIANT.get(), HillGiantRenderer::new);
+        event.registerEntityRenderer(WLEntities.FROZEN_GIANT.get(), FrozenGiantRenderer::new);
         // other
         event.registerEntityRenderer(WLEntities.POSSESSED_ARMOR.get(), PossessedArmorRenderer::new);
     }

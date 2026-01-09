@@ -14,6 +14,8 @@ import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
 import nightkosh.withered_lands.entity.desert.Mummy;
+import nightkosh.withered_lands.entity.giant.FrozenGiant;
+import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
 import nightkosh.withered_lands.entity.horse.ZombieHorse;
 import nightkosh.withered_lands.entity.slime.*;
@@ -84,6 +86,9 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.PIKE.get(), Pike.createAttributeSupplier());
         // desert
         event.put(WLEntities.MUMMY.get(), Mummy.createAttributeSupplier());
+        // giants
+        event.put(WLEntities.HILL_GIANT.get(), HillGiant.createAttributeSupplier());
+        event.put(WLEntities.FROZEN_GIANT.get(), FrozenGiant.createAttributeSupplier());
         // other
         event.put(WLEntities.POSSESSED_ARMOR.get(), PossessedArmor.createAttributeSupplier());
     }
@@ -319,6 +324,19 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Mummy::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // giants
+        event.register(WLEntities.HILL_GIANT.get(),
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
+                HillGiant::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.FROZEN_GIANT.get(),
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
+                FrozenGiant::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // other

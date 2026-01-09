@@ -58,9 +58,12 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> PIRANHA_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> PIKE_SPAWN;
 
-
     // desert
     public static ModConfigSpec.ConfigValue<Boolean> MUMMY_SPAWN;
+
+    // giants
+    public static ModConfigSpec.ConfigValue<Boolean> HILL_GIANT_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> FROZEN_GIANT_SPAWN;
 
     // other
     public static ModConfigSpec.ConfigValue<Boolean> POSSESSED_ARMOR_SPAWN;
@@ -118,6 +121,10 @@ public class WLConfigs {
 
         // desert
         MUMMY_SPAWN = BUILDER.define("Mummies Spawn", true);
+
+        // giants
+        HILL_GIANT_SPAWN = BUILDER.define("Hill Giants Spawn", true);
+        FROZEN_GIANT_SPAWN = BUILDER.define("Frozen Giants Spawn", true);
 
         // other
         POSSESSED_ARMOR_SPAWN = BUILDER.define("Possessed Armors Spawn", true);

@@ -3,6 +3,8 @@
   "values": [
     "withered_lands:minnow",
     "withered_lands:piranha",
-    "withered_lands:pike"
+    "withered_lands:pike",
+    "withered_lands:hill_giant",
+    "withered_lands:frozen_giant"
   ]
 }

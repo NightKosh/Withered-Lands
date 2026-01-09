@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "withered_lands:frozen_slime",
-    "withered_lands:stray_skull_crawler"
+    "withered_lands:stray_skull_crawler",
+    "withered_lands:frozen_giant"
   ]
 }

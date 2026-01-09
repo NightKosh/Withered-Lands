@@ -14,6 +14,8 @@ import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
 import nightkosh.withered_lands.entity.desert.Mummy;
+import nightkosh.withered_lands.entity.giant.FrozenGiant;
+import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
 import nightkosh.withered_lands.entity.horse.ZombieHorse;
 import nightkosh.withered_lands.entity.slime.*;
@@ -406,6 +408,29 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "mummy"))));
+
+    // giants
+    public static final DeferredHolder<EntityType<?>, EntityType<HillGiant>> HILL_GIANT =
+            ENTITY_TYPES_REGISTER.register("hill_giant",
+                    () -> EntityType.Builder.of(HillGiant::new, MobCategory.MONSTER)
+                            .sized(3.6F, 12)
+                            .ridingOffset(-3.75F)
+                            .eyeHeight(10.44F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "hill_giant"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<FrozenGiant>> FROZEN_GIANT =
+            ENTITY_TYPES_REGISTER.register("frozen_giant",
+                    () -> EntityType.Builder.of(FrozenGiant::new, MobCategory.MONSTER)
+                            .sized(3.6F, 12)
+                            .ridingOffset(-3.75F)
+                            .eyeHeight(10.44F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "frozen_giant"))));
 
     // fishes
     public static final DeferredHolder<EntityType<?>, EntityType<Minnow>> MINNOW =
