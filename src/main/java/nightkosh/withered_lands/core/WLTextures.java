@@ -74,6 +74,8 @@ public final class WLTextures {
     // desert
     public static final Identifier MUMMY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/mummy.png");
     public static final Identifier MUMMY_OVERLAY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/overlay.png");
+    // snow
+    public static final Identifier SNOWMAN = fromNamespaceAndPath(ModInfo.ID, "textures/entity/snow/snowman.png");
     // giants
     public static final Identifier HILL_GIANT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/giant/hill.png");
     public static final Identifier FROZEN_GIANT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/giant/frozen.png");

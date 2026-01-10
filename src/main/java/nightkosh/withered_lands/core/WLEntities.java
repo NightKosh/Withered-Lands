@@ -4,6 +4,8 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.Snowball;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -18,7 +20,9 @@ import nightkosh.withered_lands.entity.giant.FrozenGiant;
 import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
 import nightkosh.withered_lands.entity.horse.ZombieHorse;
+import nightkosh.withered_lands.entity.projectile.FrozenSnowball;
 import nightkosh.withered_lands.entity.slime.*;
+import nightkosh.withered_lands.entity.snow.Snowman;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
@@ -69,6 +73,7 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("frozen_slime",
                     () -> EntityType.Builder.of(FrozenSlime::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
+                            .immuneTo(Blocks.POWDER_SNOW)
                             .spawnDimensionsScale(4.0F)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
@@ -210,6 +215,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<StraySkullCrawler>> STRAY_SKULL_CRAWLER =
             ENTITY_TYPES_REGISTER.register("stray_skull_crawler",
                     () -> EntityType.Builder.of(StraySkullCrawler::new, MobCategory.MONSTER)
+                            .immuneTo(Blocks.POWDER_SNOW)
                             .sized(0.8F, 0.8F)
                             .eyeHeight(0.5F)
                             .notInPeaceful()
@@ -409,6 +415,18 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "mummy"))));
 
+    // snow
+    public static final DeferredHolder<EntityType<?>, EntityType<Snowman>> SNOWMAN =
+            ENTITY_TYPES_REGISTER.register("snowman",
+                    () -> EntityType.Builder.of(Snowman::new, MobCategory.MONSTER)
+                            .immuneTo(Blocks.POWDER_SNOW)
+                            .sized(0.7F, 1.9F)
+                            .eyeHeight(1.7F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "snowman"))));
+
     // giants
     public static final DeferredHolder<EntityType<?>, EntityType<HillGiant>> HILL_GIANT =
             ENTITY_TYPES_REGISTER.register("hill_giant",
@@ -424,6 +442,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<FrozenGiant>> FROZEN_GIANT =
             ENTITY_TYPES_REGISTER.register("frozen_giant",
                     () -> EntityType.Builder.of(FrozenGiant::new, MobCategory.MONSTER)
+                            .immuneTo(Blocks.POWDER_SNOW)
                             .sized(3.6F, 12)
                             .ridingOffset(-3.75F)
                             .eyeHeight(10.44F)
@@ -473,6 +492,20 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "possessed_armor"))));
+
+    // projectiles
+    public static final DeferredHolder<EntityType<?>, EntityType<FrozenSnowball>> FROZEN_SNOWBALL =
+            ENTITY_TYPES_REGISTER.register("frozen_snowball",
+                    () -> EntityType.Builder.of(
+                            (EntityType<FrozenSnowball> entityType, Level level) -> new FrozenSnowball(entityType, level),
+                                    MobCategory.MISC)
+                            .sized(0.25F, 0.25F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .noLootTable()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "frozen_snowball"))));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES_REGISTER.register(eventBus);

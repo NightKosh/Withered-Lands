@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.event;
 
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -20,6 +21,7 @@ import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
 import nightkosh.withered_lands.renderer.model.SkullCrawlerModel;
 import nightkosh.withered_lands.renderer.slime.*;
+import nightkosh.withered_lands.renderer.snow.SnowmanRenderer;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
 import nightkosh.withered_lands.renderer.water.PhantomDiverRenderer;
 import nightkosh.withered_lands.renderer.water.SwampThingRenderer;
@@ -92,11 +94,16 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.PIKE.get(), PikeRenderer::new);
         // desert
         event.registerEntityRenderer(WLEntities.MUMMY.get(), MummyRenderer::new);
+        // snow
+        event.registerEntityRenderer(WLEntities.SNOWMAN.get(), SnowmanRenderer::new);
         // giant
         event.registerEntityRenderer(WLEntities.HILL_GIANT.get(), HillGiantRenderer::new);
         event.registerEntityRenderer(WLEntities.FROZEN_GIANT.get(), FrozenGiantRenderer::new);
         // other
         event.registerEntityRenderer(WLEntities.POSSESSED_ARMOR.get(), PossessedArmorRenderer::new);
+
+        // projectiles
+        event.registerEntityRenderer(WLEntities.FROZEN_SNOWBALL.get(), ThrownItemRenderer::new);
     }
 
     @SubscribeEvent

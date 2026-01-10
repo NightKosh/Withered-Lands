@@ -20,8 +20,8 @@ public abstract class HostileBatRender extends MobRenderer<AHostileBat, BatRende
     }
 
     @Override
-    public void extractRenderState(AHostileBat bat, BatRenderState state, float xz) {
-        super.extractRenderState(bat, state, xz);
+    public void extractRenderState(AHostileBat bat, BatRenderState state, float partialTick) {
+        super.extractRenderState(bat, state, partialTick);
         state.isResting = bat.isResting();
         state.flyAnimationState.copyFrom(bat.flyAnimationState);
         state.restAnimationState.copyFrom(bat.restAnimationState);

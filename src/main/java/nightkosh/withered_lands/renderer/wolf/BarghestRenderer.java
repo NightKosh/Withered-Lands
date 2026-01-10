@@ -39,8 +39,8 @@ public class BarghestRenderer extends MobRenderer<Barghest, BarghestRenderState,
     }
 
     @Override
-    public void extractRenderState(Barghest barghest, BarghestRenderState state, float xz) {
-        super.extractRenderState(barghest, state, xz);
+    public void extractRenderState(Barghest barghest, BarghestRenderState state, float partialTick) {
+        super.extractRenderState(barghest, state, partialTick);
         state.isInvisible = barghest.isBarghestInvisible();
     }
 

@@ -209,6 +209,12 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 1. Mummy
     ```
         /summon withered_lands:mummy ~ ~ ~ {NoAI:1b}
+    ```
+   
+### Snow mobs spawn:
+1. Snowman
+    ```
+        /summon withered_lands:snowman ~ ~ ~ {NoAI:1b}
     ``` 
 
 ### Other mobs spawn:

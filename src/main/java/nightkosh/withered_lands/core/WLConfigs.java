@@ -61,6 +61,9 @@ public class WLConfigs {
     // desert
     public static ModConfigSpec.ConfigValue<Boolean> MUMMY_SPAWN;
 
+    // snow
+    public static ModConfigSpec.ConfigValue<Boolean> SNOWMAN_SPAWN;
+
     // giants
     public static ModConfigSpec.ConfigValue<Boolean> HILL_GIANT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> FROZEN_GIANT_SPAWN;
@@ -121,6 +124,9 @@ public class WLConfigs {
 
         // desert
         MUMMY_SPAWN = BUILDER.define("Mummies Spawn", true);
+
+        // snow
+        SNOWMAN_SPAWN = BUILDER.define("Snowmans Spawn", true);
 
         // giants
         HILL_GIANT_SPAWN = BUILDER.define("Hill Giants Spawn", true);
