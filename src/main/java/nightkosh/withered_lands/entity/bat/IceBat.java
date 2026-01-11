@@ -1,6 +1,8 @@
 package nightkosh.withered_lands.entity.bat;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -20,6 +22,21 @@ public class IceBat extends AHostileBat {
 
     public IceBat(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public void tick() {
+        if (this.level() instanceof ServerLevel server) {
+            server.sendParticles(ParticleTypes.SNOWFLAKE,
+                    this.getX() + 0.25 - this.random.nextDouble() * 0.5,
+                    this.getY() + 0.25 + this.random.nextDouble() * 0.5,
+                    this.getZ() + 0.25 - this.random.nextDouble() * 0.5,
+                    2,
+                    0, 0, 0,
+                    0);
+        }
+
+        super.tick();
     }
 
     @Override
