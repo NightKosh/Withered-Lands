@@ -185,11 +185,7 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 2. Phantom diver
     ```
         /summon withered_lands:phantom_diver ~ ~ ~ {NoAI:1b}
-    ``` 
-3. Swamp thing
     ```
-        /summon withered_lands:swamp_thing ~ ~ ~ {NoAI:1b}
-    ``` 
 
 #### Fishes spawn:
 1. Minnow
@@ -203,6 +199,16 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 3. Pike
     ```
         /summon withered_lands:pike ~ ~ ~ {NoAI:1b}
+    ``` 
+
+### Swamp mobs spawn:
+1. Giant Frog
+    ```
+        /summon withered_lands:giant_frog ~ ~ ~ {NoAI:1b}
+    ```
+2. Swamp thing
+    ```
+        /summon withered_lands:swamp_thing ~ ~ ~ {NoAI:1b}
     ``` 
    
 ### Desert mobs spawn:

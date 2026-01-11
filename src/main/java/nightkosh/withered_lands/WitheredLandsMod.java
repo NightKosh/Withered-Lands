@@ -31,6 +31,7 @@ public class WitheredLandsMod {
         WLItems.register(eventBus);
         WLTabs.register(eventBus);
         WLMobEffects.register(eventBus);
+        WLSensorTypes.register(eventBus);
     }
 
 }

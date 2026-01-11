@@ -52,6 +52,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> DROWNED_SAILOR_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> PHANTOM_DIVER_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> SWAMP_THING_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> GIANT_FROG_SPAWN;
 
     // fish
     public static ModConfigSpec.ConfigValue<Boolean> MINNOW_SPAWN;
@@ -116,6 +117,7 @@ public class WLConfigs {
         DROWNED_SAILOR_SPAWN = BUILDER.define("Drowned Sailors Spawn", true);
         PHANTOM_DIVER_SPAWN = BUILDER.define("Phantom Divers Spawn", true);
         SWAMP_THING_SPAWN = BUILDER.define("Swamp Things Spawn", true);
+        GIANT_FROG_SPAWN = BUILDER.define("Giant Frogs Spawn", true);
 
         // fish
         MINNOW_SPAWN = BUILDER.define("Minnows Spawn", true);

@@ -21,6 +21,7 @@ import nightkosh.withered_lands.entity.horse.ZombieHorse;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.snow.Snowman;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
+import nightkosh.withered_lands.entity.swamp.GiantFrog;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.water.fish.Minnow;
@@ -85,6 +86,8 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.MINNOW.get(), Minnow.createAttributeSupplier());
         event.put(WLEntities.PIRANHA.get(), Piranha.createAttributeSupplier());
         event.put(WLEntities.PIKE.get(), Pike.createAttributeSupplier());
+        // swamp
+        event.put(WLEntities.GIANT_FROG.get(), GiantFrog.createAttributeSupplier());
         // desert
         event.put(WLEntities.MUMMY.get(), Mummy.createAttributeSupplier());
         // snow
@@ -320,6 +323,13 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Pike::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // swamp
+        event.register(WLEntities.GIANT_FROG.get(),
+                SpawnPlacementTypes.NO_RESTRICTIONS,
+                Heightmap.Types.WORLD_SURFACE,
+                GiantFrog::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // desert

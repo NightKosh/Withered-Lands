@@ -4,7 +4,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.projectile.throwableitemprojectile.Snowball;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
@@ -24,6 +23,7 @@ import nightkosh.withered_lands.entity.projectile.FrozenSnowball;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.snow.Snowman;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
+import nightkosh.withered_lands.entity.swamp.GiantFrog;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.water.SwampThing;
 import nightkosh.withered_lands.entity.water.fish.Minnow;
@@ -403,6 +403,16 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "swamp_thing"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<GiantFrog>> GIANT_FROG =
+            ENTITY_TYPES_REGISTER.register("giant_frog",
+                    () -> EntityType.Builder.of(GiantFrog::new, MobCategory.MONSTER)
+                            .sized(2F, 2F)
+                            .eyeHeight(2)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "giant_frog"))));
 
     // desert
     public static final DeferredHolder<EntityType<?>, EntityType<Mummy>> MUMMY =

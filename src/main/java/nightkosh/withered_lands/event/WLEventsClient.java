@@ -23,6 +23,7 @@ import nightkosh.withered_lands.renderer.model.SkullCrawlerModel;
 import nightkosh.withered_lands.renderer.slime.*;
 import nightkosh.withered_lands.renderer.snow.SnowmanRenderer;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
+import nightkosh.withered_lands.renderer.swamp.GiantFrogRenderer;
 import nightkosh.withered_lands.renderer.water.PhantomDiverRenderer;
 import nightkosh.withered_lands.renderer.water.SwampThingRenderer;
 import nightkosh.withered_lands.renderer.water.fish.MinnowRenderer;
@@ -88,6 +89,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.DROWNED_SAILOR.get(), DrownedSailorRenderer::new);
         event.registerEntityRenderer(WLEntities.PHANTOM_DIVER.get(), PhantomDiverRenderer::new);
         event.registerEntityRenderer(WLEntities.SWAMP_THING.get(), SwampThingRenderer::new);
+        event.registerEntityRenderer(WLEntities.GIANT_FROG.get(), GiantFrogRenderer::new);
         // fishes
         event.registerEntityRenderer(WLEntities.MINNOW.get(), MinnowRenderer::new);
         event.registerEntityRenderer(WLEntities.PIRANHA.get(), PiranhaRenderer::new);
