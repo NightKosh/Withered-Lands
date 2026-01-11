@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -63,7 +64,7 @@ public abstract class ASlime extends Slime {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, 500), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, TimeHelper.SECONDS_25), this);
     }
 
     protected static boolean isUndergroundBlock(Block ground) {

@@ -66,7 +66,7 @@ public class PhantomDiver extends DrownedSailor implements RangedAttackMob {
                 new ItemStack(Items.TRIDENT);
         var throwntrident = new ThrownTrident(this.level(), this, itemStack);
         double x = target.getX() - this.getX();
-        double y = target.getY(0.3333333333333333) - throwntrident.getY();
+        double y = target.getY(0.33) - throwntrident.getY();
         double z = target.getZ() - this.getZ();
         double d = Math.sqrt(x * x + z * z);
 

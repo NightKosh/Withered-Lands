@@ -15,6 +15,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.core.WLSounds;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -29,7 +30,7 @@ public class DrownedSailor extends AWaterWalkingMob {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.CALL_OF_THE_ABYSS, 400), this);
+        entity.addEffect(new MobEffectInstance(WLMobEffects.CALL_OF_THE_ABYSS, TimeHelper.SECONDS_20), this);
     }
 
     @Override

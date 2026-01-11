@@ -11,6 +11,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -26,7 +27,7 @@ public class FrozenGiant extends AGiant {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.setTicksFrozen(entity.getTicksFrozen() + 250);
+        entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_15);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

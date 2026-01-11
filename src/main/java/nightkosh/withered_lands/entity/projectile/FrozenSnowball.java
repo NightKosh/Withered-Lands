@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -64,12 +65,12 @@ public class FrozenSnowball extends ThrowableItemProjectile {
         var entity = entityHitResult.getEntity();
         int damage = entity instanceof Blaze ? 3 : 1;
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), damage);
-        entity.setTicksFrozen(Math.min(entity.getTicksFrozen() + 200, 400));
+        entity.setTicksFrozen(Math.min(entity.getTicksFrozen() + TimeHelper.SECONDS_10, 400));
     }
 
     @Override
-    protected void onHit(HitResult p_480151_) {
-        super.onHit(p_480151_);
+    protected void onHit(@Nonnull HitResult hitResult) {
+        super.onHit(hitResult);
         if (!this.level().isClientSide()) {
             this.level().broadcastEntityEvent(this, (byte)3);
             this.discard();

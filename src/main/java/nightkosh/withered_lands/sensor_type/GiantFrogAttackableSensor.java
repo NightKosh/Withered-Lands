@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class GiantFrogAttackablesSensor extends NearestVisibleLivingEntitySensor {
+public class GiantFrogAttackableSensor extends NearestVisibleLivingEntitySensor {
 
     public static final float TARGET_DETECTION_DISTANCE = 15;
 

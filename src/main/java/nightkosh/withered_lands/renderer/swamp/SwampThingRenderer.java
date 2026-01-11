@@ -1,6 +1,5 @@
 package nightkosh.withered_lands.renderer.swamp;
 
-
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

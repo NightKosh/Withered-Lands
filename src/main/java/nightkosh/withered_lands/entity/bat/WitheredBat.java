@@ -13,6 +13,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -44,7 +45,7 @@ public class WitheredBat extends AHostileBat {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 150), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, TimeHelper.SECONDS_8), this);
     }
 
     public static boolean checkSpawnRules(

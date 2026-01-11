@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLMobEffects;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -33,7 +34,7 @@ public class Piranha extends AHostileFish {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, 600), this);
+        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_30), this);
     }
 
     @Override

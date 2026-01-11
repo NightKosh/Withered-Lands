@@ -38,12 +38,12 @@ public class SkeletonDog extends AUndeadDog {
         this.goalSelector.addGoal(1, new RestrictSunGoal(this));
         this.goalSelector.addGoal(2, new FleeSunGoal(this, 1));
         this.goalSelector.addGoal(2, new AvoidEntityGoal(this, Wolf.class, 6, 1, 1.2));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
         this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 1));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
     }
 

@@ -72,7 +72,7 @@ public class SkullCrawlerModel<T extends LivingEntityRenderState> extends Entity
                 CubeListBuilder.create()
                         .texOffs(0, 0)
                         .addBox(0, 0, 0, 8, 6, 8),
-                PartPose.offsetAndRotation(-4, 16.6F, -4, -0.1745329F, 0, 0)
+                PartPose.offsetAndRotation(-4, 16.6F, -4, -0.175F, 0, 0)
         );
 
         // teeth child

@@ -7,7 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.swamp.GiantFrog;
-import nightkosh.withered_lands.sensor_type.GiantFrogAttackablesSensor;
+import nightkosh.withered_lands.sensor_type.GiantFrogAttackableSensor;
 
 /**
  * Withered Lands
@@ -22,7 +22,7 @@ public class WLSensorTypes {
 
     public static final DeferredHolder<SensorType<?>, SensorType<? extends Sensor<? super GiantFrog>>> GIANT_FROG =
             SENSORS.register("giant_frog",
-                    () -> new SensorType<>(GiantFrogAttackablesSensor::new));
+                    () -> new SensorType<>(GiantFrogAttackableSensor::new));
 
     public static void register(IEventBus modEventBus) {
         SENSORS.register(modEventBus);

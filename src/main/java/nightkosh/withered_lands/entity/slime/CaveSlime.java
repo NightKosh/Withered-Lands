@@ -15,8 +15,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -38,7 +38,7 @@ public class CaveSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 300), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, TimeHelper.SECONDS_15), this);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

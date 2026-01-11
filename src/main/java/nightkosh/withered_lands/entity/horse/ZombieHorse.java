@@ -53,7 +53,7 @@ public class ZombieHorse extends AUndeadHorse {
         this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 1));
         this.goalSelector.addGoal(5, new MoveThroughVillageGoal(this, 1, true, 4, () -> false));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this)

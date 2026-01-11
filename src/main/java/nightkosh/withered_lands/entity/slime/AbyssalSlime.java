@@ -17,6 +17,7 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -38,7 +39,7 @@ public class AbyssalSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 600), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, TimeHelper.SECONDS_30), this);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

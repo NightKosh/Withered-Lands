@@ -28,6 +28,7 @@ public class MummyLayer extends RenderLayer<ZombieRenderState, HumanoidModel<Zom
 
     }
 
+    @Override
     public void submit(@Nonnull PoseStack poseStack, @Nonnull SubmitNodeCollector nodeCollector,
                        int packedLight, ZombieRenderState renderState, float yRot, float xRot) {
         float s = 1.03F;

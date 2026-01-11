@@ -37,6 +37,7 @@ public class PhantomDiverRenderer extends HumanoidMobRenderer<AWaterWalkingMob, 
         return new ZombieRenderState();
     }
 
+    @Override
     protected void setupRotations(ZombieRenderState state, @Nonnull PoseStack poseStack, float bodyRot, float scale) {
         super.setupRotations(state, poseStack, bodyRot, scale);
         float f = state.swimAmount;
@@ -48,6 +49,7 @@ public class PhantomDiverRenderer extends HumanoidMobRenderer<AWaterWalkingMob, 
     }
 
     @Nonnull
+    @Override
     protected HumanoidModel.ArmPose getArmPose(AWaterWalkingMob mob, @Nonnull HumanoidArm arm) {
         var itemstack = mob.getItemHeldByArm(arm);
         if (mob.getMainArm() == arm && mob.isAggressive() && itemstack.is(Items.TRIDENT)) {

@@ -9,6 +9,8 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nonnull;
+
 /**
  * Withered Lands
  *
@@ -26,11 +28,13 @@ public class DrownedSkullCrawler extends ZombieSkullCrawler {
         return SoundEvents.DROWNED_AMBIENT;
     }
 
+    @Nonnull
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
         return SoundEvents.DROWNED_HURT;
     }
 
+    @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.DROWNED_DEATH;

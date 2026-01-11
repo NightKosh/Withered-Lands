@@ -194,6 +194,7 @@ public class GiantFrog extends Monster {
         this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
     }
 
+    @Nonnull
     @Override
     protected PathNavigation createNavigation(@Nonnull Level level) {
         return new GiantFrogPathNavigation(this, level);

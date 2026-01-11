@@ -17,6 +17,8 @@ import net.minecraft.util.Mth;
  */
 public class UndeadCatModel<T extends FelineRenderState> extends EntityModel<T> {
 
+    private static final float HALF_PI = (float) Math.PI / 2;
+
     protected final ModelPart leftHindLeg;
     protected final ModelPart rightHindLeg;
     protected final ModelPart leftFrontLeg;
@@ -56,7 +58,7 @@ public class UndeadCatModel<T extends FelineRenderState> extends EntityModel<T> 
                 CubeListBuilder.create()
                         .texOffs(20, 0)
                         .addBox(-2, 3, -8, 4, 16, 6, deformation),
-                PartPose.offsetAndRotation(0, 12, -10, (float) (Math.PI / 2), 0, 0)
+                PartPose.offsetAndRotation(0, 12, -10, HALF_PI, 0, 0)
         );
         partdefinition.addOrReplaceChild(
                 "tail1",
@@ -94,19 +96,19 @@ public class UndeadCatModel<T extends FelineRenderState> extends EntityModel<T> 
             this.tail1.y += f;
             this.tail2.y += -4 * f;
             this.tail2.z += 2 * f;
-            this.tail1.xRot = (float) (Math.PI / 2);
-            this.tail2.xRot = (float) (Math.PI / 2);
+            this.tail1.xRot = HALF_PI;
+            this.tail2.xRot = HALF_PI;
         } else if (renderState.isSprinting) {
             this.tail2.y = this.tail1.y;
             this.tail2.z += 2 * f;
-            this.tail1.xRot = (float) (Math.PI / 2);
-            this.tail2.xRot = (float) (Math.PI / 2);
+            this.tail1.xRot = HALF_PI;
+            this.tail2.xRot = HALF_PI;
         }
 
-        this.head.xRot = renderState.xRot * (float) (Math.PI / 180.0);
-        this.head.yRot = renderState.yRot * (float) (Math.PI / 180.0);
+        this.head.xRot = renderState.xRot * (float) (Math.PI / 180);
+        this.head.yRot = renderState.yRot * (float) (Math.PI / 180);
         if (!renderState.isSitting) {
-            this.body.xRot = (float) (Math.PI / 2);
+            this.body.xRot = HALF_PI;
             float f1 = renderState.walkAnimationSpeed;
             float f2 = renderState.walkAnimationPos;
             if (renderState.isSprinting) {
@@ -114,16 +116,16 @@ public class UndeadCatModel<T extends FelineRenderState> extends EntityModel<T> 
                 this.rightHindLeg.xRot = Mth.cos(f2 * 0.6662F + 0.3F) * f1;
                 this.leftFrontLeg.xRot = Mth.cos(f2 * 0.6662F + (float) Math.PI + 0.3F) * f1;
                 this.rightFrontLeg.xRot = Mth.cos(f2 * 0.6662F + (float) Math.PI) * f1;
-                this.tail2.xRot = 1.7278761F + (float) (Math.PI / 10) * Mth.cos(f2) * f1;
+                this.tail2.xRot = 1.73F + (float) (Math.PI / 10) * Mth.cos(f2) * f1;
             } else {
                 this.leftHindLeg.xRot = Mth.cos(f2 * 0.6662F) * f1;
                 this.rightHindLeg.xRot = Mth.cos(f2 * 0.6662F + (float) Math.PI) * f1;
                 this.leftFrontLeg.xRot = Mth.cos(f2 * 0.6662F + (float) Math.PI) * f1;
                 this.rightFrontLeg.xRot = Mth.cos(f2 * 0.6662F) * f1;
                 if (!renderState.isCrouching) {
-                    this.tail2.xRot = 1.7278761F + (float) (Math.PI / 4) * Mth.cos(f2) * f1;
+                    this.tail2.xRot = 1.73F + (float) (Math.PI / 4) * Mth.cos(f2) * f1;
                 } else {
-                    this.tail2.xRot = 1.7278761F + 0.47123894F * Mth.cos(f2) * f1;
+                    this.tail2.xRot = 1.73F + 0.47F * Mth.cos(f2) * f1;
                 }
             }
         }

@@ -100,7 +100,7 @@ public class PossessedArmor extends Monster {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1));
-        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0));
+        this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
@@ -215,18 +215,20 @@ public class PossessedArmor extends Monster {
         return SoundEvents.ARMOR_EQUIP_CHAIN.value();
     }
 
+    @Nonnull
     @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource) {
+    protected SoundEvent getHurtSound(@Nonnull DamageSource damageSource) {
         return WLSounds.POSSESSED_ARMOR_HURT.get();
     }
 
+    @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.SHIELD_BREAK.value();
     }
 
     @Override
-    protected void playStepSound(BlockPos pos, BlockState block) {
+    protected void playStepSound(@Nonnull BlockPos pos, @Nonnull BlockState block) {
         this.playSound(WLSounds.POSSESSED_ARMOR_STEP.get(), 0.15F, 1);
     }
 

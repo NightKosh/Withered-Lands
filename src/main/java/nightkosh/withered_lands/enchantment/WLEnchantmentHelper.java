@@ -11,6 +11,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import nightkosh.withered_lands.core.WLEnchantments;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -33,7 +34,7 @@ public class WLEnchantmentHelper {
             var item = player.getItemBySlot(slot);
             if (!item.isEmpty()) {
                 if (EnchantmentHelper.getItemEnchantmentLevel(ench, item) > 0) {
-                    duration += 200;
+                    duration += TimeHelper.SECONDS_10;
                 }
             }
         }

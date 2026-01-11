@@ -26,6 +26,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.ai.BarghestInvisibleGoal;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -52,7 +53,7 @@ public class Barghest extends AUndeadDog {
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1, false));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1));
         this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
     }
 
@@ -90,7 +91,7 @@ public class Barghest extends AUndeadDog {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, TimeHelper.SECONDS_10), this);
     }
 
     public void setBarghestInvisible(boolean isInvisible) {

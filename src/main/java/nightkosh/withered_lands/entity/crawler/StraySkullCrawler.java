@@ -11,6 +11,9 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
+import nightkosh.withered_lands.helper.TimeHelper;
+
+import javax.annotation.Nonnull;
 
 /**
  * Withered Lands
@@ -26,7 +29,7 @@ public class StraySkullCrawler extends SkeletonSkullCrawler {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 200), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_10), this);
     }
 
     @Override
@@ -34,11 +37,13 @@ public class StraySkullCrawler extends SkeletonSkullCrawler {
         return SoundEvents.STRAY_AMBIENT;
     }
 
+    @Nonnull
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
         return SoundEvents.STRAY_HURT;
     }
 
+    @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.STRAY_DEATH;

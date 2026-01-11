@@ -31,6 +31,7 @@ public class DrownedSailorRenderer extends HumanoidMobRenderer<AWaterWalkingMob,
         return new ZombieRenderState();
     }
 
+    @Override
     protected void setupRotations(ZombieRenderState state, @Nonnull PoseStack poseStack, float bodyRot, float scale) {
         super.setupRotations(state, poseStack, bodyRot, scale);
         float f = state.swimAmount;

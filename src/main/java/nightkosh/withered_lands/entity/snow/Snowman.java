@@ -31,6 +31,7 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.entity.projectile.FrozenSnowball;
+import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -51,7 +52,7 @@ public class Snowman extends Monster implements RangedAttackMob {
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1, 20, 15));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1));
-        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 6));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
@@ -138,7 +139,7 @@ public class Snowman extends Monster implements RangedAttackMob {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.setTicksFrozen(entity.getTicksFrozen() + 200);
+        entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_10);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

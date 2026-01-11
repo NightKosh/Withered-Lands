@@ -22,6 +22,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -45,7 +46,7 @@ public class Mummy extends Monster {
         this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1, false));
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1));
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers(ZombifiedPiglin.class));
@@ -66,7 +67,7 @@ public class Mummy extends Monster {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS, 300), this);
+        entity.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.WEAKNESS, TimeHelper.SECONDS_15), this);
     }
 
     @Override

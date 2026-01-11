@@ -35,6 +35,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.ai.BatAiStep;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nullable;
 
@@ -101,7 +102,7 @@ public abstract class AHostileBat extends Monster {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, 600), this);
+        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_30), this);
     }
 
     @Override

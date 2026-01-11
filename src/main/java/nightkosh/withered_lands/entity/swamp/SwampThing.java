@@ -17,6 +17,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.water.AWaterWalkingMob;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -31,7 +32,7 @@ public class SwampThing extends AWaterWalkingMob {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOWNESS, 300), this);
+        entity.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOWNESS, TimeHelper.SECONDS_15), this);
     }
 
     @Override
