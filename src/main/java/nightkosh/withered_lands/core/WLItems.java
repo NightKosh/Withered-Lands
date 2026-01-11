@@ -94,6 +94,12 @@ public class WLItems {
                             .build())
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
 
+    public static final DeferredHolder<Item, Item> CAVE_BAT_EGG = ITEMS_REGISTER.register(
+            "cave_bat_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "cave_bat_spawn_egg")))
+                    .spawnEgg(WLEntities.CAVE_BAT.get())));
+
     public static final DeferredHolder<Item, Item> VAMPIRE_BAT_EGG = ITEMS_REGISTER.register(
             "vampire_bat_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()

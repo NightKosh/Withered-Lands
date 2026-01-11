@@ -138,6 +138,16 @@ public class WLEntities {
                                     fromNamespaceAndPath(ModInfo.ID, "molten_slime"))));
 
     // bats
+    public static final DeferredHolder<EntityType<?>, EntityType<CaveBat>> CAVE_BAT =
+            ENTITY_TYPES_REGISTER.register("cave_bat",
+                    () -> EntityType.Builder.of(CaveBat::new, MobCategory.MONSTER)
+                            .sized(0.5F, 0.9F)
+                            .eyeHeight(0.45F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "cave_bat"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<VampireBat>> VAMPIRE_BAT =
             ENTITY_TYPES_REGISTER.register("vampire_bat",
                     () -> EntityType.Builder.of(VampireBat::new, MobCategory.MONSTER)

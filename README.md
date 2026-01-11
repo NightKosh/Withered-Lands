@@ -70,31 +70,35 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
 
 ### Bats spawn:
-1. Vampire bat
+1. Cave bat
+    ```
+        /summon withered_lands:cave_bat ~ ~ ~ {NoAI:1b}
+    ```
+2. Vampire bat
     ```
         /summon withered_lands:vampire_bat ~ ~ ~ {NoAI:1b}
     ```
-1. Ice bat
+3. Ice bat
     ```
         /summon withered_lands:ice_bat ~ ~ ~ {NoAI:1b}
     ```
-2. Flying fox
+4. Flying fox
     ```
         /summon withered_lands:flying_fox ~ ~ ~ {NoAI:1b}
     ```
-3. Blazing bat
+5. Blazing bat
     ```
         /summon withered_lands:blazing_bat ~ ~ ~ {NoAI:1b}
     ```
-4. Withered bat
+6. Withered bat
     ```
         /summon withered_lands:withered_bat ~ ~ ~ {NoAI:1b}
     ```
-5. Blazing bat
+7. Blazing bat
     ```
         /summon withered_lands:volatile_bat ~ ~ ~ {NoAI:1b}
     ```
-6. Chorus bat
+8. Chorus bat
     ```
         /summon withered_lands:chorus_bat ~ ~ ~ {NoAI:1b}
     ```

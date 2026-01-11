@@ -28,6 +28,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_LAVA;
     // bats
+    public static ModConfigSpec.ConfigValue<Boolean> CAVE_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> VAMPIRE_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ICE_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> FLYING_FOX_SPAWN;
@@ -94,6 +95,7 @@ public class WLConfigs {
         MOLTEN_SLIME_SPAWN = BUILDER.define("Molten Slimes Spawn", true);
         MOLTEN_SLIME_LAVA = BUILDER.define("Molten Slimes Create LAVA", true);
         // bats
+        CAVE_BAT_SPAWN = BUILDER.define("Cave Bats Spawn", true);
         VAMPIRE_BAT_SPAWN = BUILDER.define("Vampire Bats Spawn", true);
         ICE_BAT_SPAWN = BUILDER.define("Ice Bats Spawn", true);
         FLYING_FOX_SPAWN = BUILDER.define("Flying Foxes Spawn", true);

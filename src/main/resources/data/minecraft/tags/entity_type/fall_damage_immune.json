@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "withered_lands:cave_bat",
     "withered_lands:vampire_bat",
     "withered_lands:ice_bat",
     "withered_lands:flying_fox",

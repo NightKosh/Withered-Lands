@@ -59,6 +59,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.ABYSSAL_SLIME.get(), AbyssalSlimeRenderer::new);
         event.registerEntityRenderer(WLEntities.MOLTEN_SLIME.get(), MoltenSlimeRenderer::new);
         // bats
+        event.registerEntityRenderer(WLEntities.CAVE_BAT.get(), CaveBatRenderer::new);
         event.registerEntityRenderer(WLEntities.VAMPIRE_BAT.get(), VampireBatRenderer::new);
         event.registerEntityRenderer(WLEntities.ICE_BAT.get(), IceBatRenderer::new);
         event.registerEntityRenderer(WLEntities.FLYING_FOX.get(), FlyingFoxRenderer::new);

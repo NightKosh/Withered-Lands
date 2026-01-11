@@ -52,6 +52,7 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.ABYSSAL_SLIME.get(), AbyssalSlime.createAttributeSupplier());
         event.put(WLEntities.MOLTEN_SLIME.get(), MoltenSlime.createAttributeSupplier());
         // bats
+        event.put(WLEntities.CAVE_BAT.get(), CaveBat.createAttributeSupplier());
         event.put(WLEntities.VAMPIRE_BAT.get(), VampireBat.createAttributeSupplier());
         event.put(WLEntities.ICE_BAT.get(), IceBat.createAttributeSupplier());
         event.put(WLEntities.FLYING_FOX.get(), FlyingFox.createAttributeSupplier());
@@ -152,6 +153,12 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // bats
+        event.register(WLEntities.CAVE_BAT.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                CaveBat::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
         event.register(WLEntities.VAMPIRE_BAT.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
