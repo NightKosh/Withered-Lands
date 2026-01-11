@@ -34,6 +34,7 @@ public final class WLTextures {
     public static final Identifier MOLTEN_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/molten/inner.png");
     // bats
     public static final Identifier VAMPIRE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire.png");
+    public static final Identifier ICE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/ice.png");
     public static final Identifier FLYING_FOX = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/fox.png");
     public static final Identifier BLAZING_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/blazing.png");
     public static final Identifier WITHERED_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/withered.png");

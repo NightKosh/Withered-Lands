@@ -74,6 +74,10 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:vampire_bat ~ ~ ~ {NoAI:1b}
     ```
+1. Ice bat
+    ```
+        /summon withered_lands:ice_bat ~ ~ ~ {NoAI:1b}
+    ```
 2. Flying fox
     ```
         /summon withered_lands:flying_fox ~ ~ ~ {NoAI:1b}

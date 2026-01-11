@@ -148,6 +148,17 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "vampire_bat"))));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<IceBat>> ICE_BAT =
+            ENTITY_TYPES_REGISTER.register("ice_bat",
+                    () -> EntityType.Builder.of(IceBat::new, MobCategory.MONSTER)
+                            .sized(0.5F, 0.9F)
+                            .immuneTo(Blocks.POWDER_SNOW)
+                            .eyeHeight(0.45F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "ice_bat"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<FlyingFox>> FLYING_FOX =
             ENTITY_TYPES_REGISTER.register("flying_fox",
                     () -> EntityType.Builder.of(FlyingFox::new, MobCategory.MONSTER)
