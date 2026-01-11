@@ -249,7 +249,7 @@ public class GiantFrog extends Monster {
             ServerLevelAccessor levelAccessor, EntitySpawnReason spawnReason, BlockPos pos) {
         return EntitySpawnReason.isSpawner(spawnReason) ||
                 levelAccessor.getDifficulty() != Difficulty.PEACEFUL &&
-//                        levelAccessor.getBrightness(LightLayer.BLOCK, pos) == 0 &&
+                        levelAccessor.getBrightness(LightLayer.BLOCK, pos) == 0 &&
                         levelAccessor.canSeeSky(pos.above());
     }
 
