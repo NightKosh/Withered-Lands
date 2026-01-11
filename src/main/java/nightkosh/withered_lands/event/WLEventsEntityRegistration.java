@@ -23,7 +23,7 @@ import nightkosh.withered_lands.entity.snow.Snowman;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.swamp.GiantFrog;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
-import nightkosh.withered_lands.entity.water.SwampThing;
+import nightkosh.withered_lands.entity.swamp.SwampThing;
 import nightkosh.withered_lands.entity.water.fish.Minnow;
 import nightkosh.withered_lands.entity.water.fish.Pike;
 import nightkosh.withered_lands.entity.water.fish.Piranha;
@@ -81,13 +81,13 @@ public class WLEventsEntityRegistration {
         // underwater mobs
         event.put(WLEntities.DROWNED_SAILOR.get(), DrownedSailor.createAttributeSupplier());
         event.put(WLEntities.PHANTOM_DIVER.get(), PhantomDiver.createAttributeSupplier());
-        event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
         // fishes
         event.put(WLEntities.MINNOW.get(), Minnow.createAttributeSupplier());
         event.put(WLEntities.PIRANHA.get(), Piranha.createAttributeSupplier());
         event.put(WLEntities.PIKE.get(), Pike.createAttributeSupplier());
         // swamp
         event.put(WLEntities.GIANT_FROG.get(), GiantFrog.createAttributeSupplier());
+        event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
         // desert
         event.put(WLEntities.MUMMY.get(), Mummy.createAttributeSupplier());
         // snow
@@ -300,12 +300,6 @@ public class WLEventsEntityRegistration {
                 PhantomDiver::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.SWAMP_THING.get(),
-                SpawnPlacementTypes.IN_WATER,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                SwampThing::checkSpawnRules,
-                RegisterSpawnPlacementsEvent.Operation.OR);
-
         // fishes
         event.register(WLEntities.MINNOW.get(),
                 SpawnPlacementTypes.IN_WATER,
@@ -330,6 +324,12 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.WORLD_SURFACE,
                 GiantFrog::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.SWAMP_THING.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SwampThing::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // desert

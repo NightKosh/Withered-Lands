@@ -25,7 +25,7 @@ import nightkosh.withered_lands.renderer.snow.SnowmanRenderer;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
 import nightkosh.withered_lands.renderer.swamp.GiantFrogRenderer;
 import nightkosh.withered_lands.renderer.water.PhantomDiverRenderer;
-import nightkosh.withered_lands.renderer.water.SwampThingRenderer;
+import nightkosh.withered_lands.renderer.swamp.SwampThingRenderer;
 import nightkosh.withered_lands.renderer.water.fish.MinnowRenderer;
 import nightkosh.withered_lands.renderer.water.fish.PikeRenderer;
 import nightkosh.withered_lands.renderer.water.fish.PiranhaRenderer;

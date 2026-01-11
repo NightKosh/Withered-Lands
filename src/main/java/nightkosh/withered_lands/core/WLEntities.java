@@ -25,7 +25,7 @@ import nightkosh.withered_lands.entity.snow.Snowman;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.swamp.GiantFrog;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
-import nightkosh.withered_lands.entity.water.SwampThing;
+import nightkosh.withered_lands.entity.swamp.SwampThing;
 import nightkosh.withered_lands.entity.water.fish.Minnow;
 import nightkosh.withered_lands.entity.water.fish.Pike;
 import nightkosh.withered_lands.entity.water.fish.Piranha;

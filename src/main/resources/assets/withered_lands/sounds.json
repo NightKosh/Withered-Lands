@@ -27,7 +27,7 @@
     "category": "hostile",
     "subtitle": "entity.swamp_thing.growl",
     "sounds" : [{
-      "name" : "withered_lands:water/swamp_thing/growl",
+      "name" : "withered_lands:swamp/swamp_thing/growl",
       "stream" : true
     }]
   },

@@ -1,4 +1,4 @@
-package nightkosh.withered_lands.renderer.water;
+package nightkosh.withered_lands.renderer.swamp;
 
 
 import net.minecraft.client.model.HumanoidModel;

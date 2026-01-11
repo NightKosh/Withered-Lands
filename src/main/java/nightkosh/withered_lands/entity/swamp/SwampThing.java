@@ -1,4 +1,4 @@
-package nightkosh.withered_lands.entity.water;
+package nightkosh.withered_lands.entity.swamp;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
+import nightkosh.withered_lands.entity.water.AWaterWalkingMob;
 
 /**
  * Withered Lands

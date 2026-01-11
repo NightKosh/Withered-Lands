@@ -243,6 +243,7 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "phantom_diver_spawn_egg")))
                     .spawnEgg(WLEntities.PHANTOM_DIVER.get())));
 
+    // swamp
     public static final DeferredHolder<Item, Item> SWAMP_THING_EGG = ITEMS_REGISTER.register(
             "swamp_thing_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()
