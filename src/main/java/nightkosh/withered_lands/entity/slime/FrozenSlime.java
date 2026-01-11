@@ -31,7 +31,7 @@ public class FrozenSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.setTicksFrozen(entity.getTicksFrozen() + 150);
+        entity.setTicksFrozen(entity.getTicksFrozen() + 300);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

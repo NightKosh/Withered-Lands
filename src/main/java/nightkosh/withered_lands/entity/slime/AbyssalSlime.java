@@ -38,7 +38,7 @@ public class AbyssalSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 150), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, 600), this);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

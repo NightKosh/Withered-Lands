@@ -38,7 +38,7 @@ public class CaveSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 150), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 450), this);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

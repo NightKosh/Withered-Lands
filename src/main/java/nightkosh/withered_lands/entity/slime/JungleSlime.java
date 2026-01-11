@@ -33,7 +33,7 @@ public class JungleSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.POISON, 150), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.POISON, 300), this);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

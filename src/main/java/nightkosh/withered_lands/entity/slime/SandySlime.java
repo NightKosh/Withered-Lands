@@ -33,7 +33,7 @@ public class SandySlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 150), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 300), this);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

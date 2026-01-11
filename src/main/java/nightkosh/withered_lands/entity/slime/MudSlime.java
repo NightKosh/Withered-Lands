@@ -33,7 +33,7 @@ public class MudSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 150), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 450), this);
     }
 
     public static AttributeSupplier createAttributeSupplier() {
