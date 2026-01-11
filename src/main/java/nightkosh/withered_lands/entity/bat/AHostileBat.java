@@ -7,7 +7,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
@@ -22,14 +21,11 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
@@ -37,6 +33,7 @@ import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.ai.BatAiStep;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
@@ -83,13 +80,13 @@ public abstract class AHostileBat extends Monster {
     }
 
     @Override
-    protected void customServerAiStep(ServerLevel level) {
+    protected void customServerAiStep(@Nonnull ServerLevel level) {
         super.customServerAiStep(level);
         BatAiStep.step(level, this);
     }
 
     @Override
-    public boolean doHurtTarget(ServerLevel level, Entity entity) {
+    public boolean doHurtTarget(@Nonnull ServerLevel level, @Nonnull Entity entity) {
         if (!super.doHurtTarget(level, entity)) {
             return false;
         } else {
@@ -111,7 +108,7 @@ public abstract class AHostileBat extends Monster {
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    protected void defineSynchedData(@Nonnull SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(HANGING_FLAG, (byte) 0);
     }
@@ -132,11 +129,13 @@ public abstract class AHostileBat extends Monster {
         return this.isResting() && this.random.nextInt(4) != 0 ? null : SoundEvents.BAT_AMBIENT;
     }
 
+    @Nonnull
     @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource) {
+    protected SoundEvent getHurtSound(@Nonnull DamageSource damageSource) {
         return SoundEvents.BAT_HURT;
     }
 
+    @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.BAT_DEATH;
@@ -181,13 +180,14 @@ public abstract class AHostileBat extends Monster {
         this.setupAnimationStates();
     }
 
+    @Nonnull
     @Override
     protected Entity.MovementEmission getMovementEmission() {
         return Entity.MovementEmission.EVENTS;
     }
 
     @Override
-    protected void checkFallDamage(double y, boolean onGround, BlockState state, BlockPos pos) {
+    protected void checkFallDamage(double y, boolean onGround, @Nonnull BlockState state, @Nonnull BlockPos pos) {
     }
 
     @Override
@@ -196,7 +196,7 @@ public abstract class AHostileBat extends Monster {
     }
 
     @Override
-    public boolean hurtServer(ServerLevel serverLevel, DamageSource damageSource, float xz) {
+    public boolean hurtServer(@Nonnull ServerLevel serverLevel, @Nonnull DamageSource damageSource, float xz) {
         if (this.isInvulnerableTo(serverLevel, damageSource)) {
             return false;
         } else {
@@ -209,29 +209,15 @@ public abstract class AHostileBat extends Monster {
     }
 
     @Override
-    protected void readAdditionalSaveData(ValueInput input) {
+    protected void readAdditionalSaveData(@Nonnull ValueInput input) {
         super.readAdditionalSaveData(input);
         this.entityData.set(HANGING_FLAG, input.getByteOr("BatFlags", (byte) 0));
     }
 
     @Override
-    protected void addAdditionalSaveData(ValueOutput output) {
+    protected void addAdditionalSaveData(@Nonnull ValueOutput output) {
         super.addAdditionalSaveData(output);
         output.putByte("BatFlags", this.entityData.get(HANGING_FLAG));
-    }
-
-    public static boolean checkBatSpawnRules(
-            EntityType<Bat> entityType, LevelAccessor level, EntitySpawnReason spawnReason, BlockPos pos, RandomSource randomSource
-    ) {
-        if (pos.getY() >= level.getHeightmapPos(Heightmap.Types.WORLD_SURFACE, pos).getY()) {
-            return false;
-        } else if (randomSource.nextBoolean()) {
-            return false;
-        } else if (level.getMaxLocalRawBrightness(pos) > randomSource.nextInt(4)) {
-            return false;
-        } else {
-            return level.getBlockState(pos.below()).is(BlockTags.BATS_SPAWNABLE_ON) && checkMobSpawnRules(entityType, level, spawnReason, pos, randomSource);
-        }
     }
 
     private void setupAnimationStates() {
