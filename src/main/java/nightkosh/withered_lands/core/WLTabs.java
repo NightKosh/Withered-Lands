@@ -21,7 +21,7 @@ public class WLTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> WITHERED_LANDS =
             WL_TAB.register("withered_lands", () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(WLItems.VERDANT_SLIME_EGG))
+                    .icon(() -> new ItemStack(WLItems.WITHER_SKULL_CRAWLER_EGG))
                     .title(Component.translatable("itemGroup." + ModInfo.ID))
                     .displayItems((parameters, output) -> {
 
