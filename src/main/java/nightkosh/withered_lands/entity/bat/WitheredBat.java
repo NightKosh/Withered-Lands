@@ -44,7 +44,7 @@ public class WitheredBat extends AHostileBat {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 300), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 150), this);
     }
 
     public static boolean checkSpawnRules(
