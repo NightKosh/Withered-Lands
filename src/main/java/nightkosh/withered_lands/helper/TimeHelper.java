@@ -15,5 +15,6 @@ public final class TimeHelper {
     public static final int SECONDS_20 = 400;
     public static final int SECONDS_25 = 500;
     public static final int SECONDS_30 = 600;
+    public static final int SECONDS_180 = 3600;
 
 }

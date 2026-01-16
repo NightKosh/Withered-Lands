@@ -20,7 +20,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -84,6 +86,22 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
         }
     }
 
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (!level().isClientSide() && removeWhenFarAway(0)) {
+            if (level().getNearestPlayer(this, 32) == null) {
+                this.discard();
+                return;
+            }
+
+            if (this.tickCount > TimeHelper.SECONDS_180) {
+                this.discard();
+            }
+        }
+    }
+
     @Nonnull
     @Override
     protected InteractionResult mobInteract(@Nonnull Player player, @Nonnull InteractionHand hand) {
@@ -97,7 +115,11 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
     }
 
     protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL;
+        return level.getDifficulty() != Difficulty.PEACEFUL && checkDensity(level, pos);
+    }
+
+    protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos) {
+        return level.getEntitiesOfClass(AHostileFish.class, new AABB(pos).inflate(64)).size() <= 25;
     }
 
 }
