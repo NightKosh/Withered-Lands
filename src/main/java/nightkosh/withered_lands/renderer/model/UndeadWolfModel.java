@@ -18,7 +18,7 @@ import nightkosh.withered_lands.renderer.render_sate.UndeadWolfRenderState;
  */
 public class UndeadWolfModel<T extends UndeadWolfRenderState> extends EntityModel<T> {
 
-    private static final float H_PI = 1.5707963267948966192313216916398F;
+    private static final float PI_180 = 0.01745F;
 
     private final ModelPart head;
     private final ModelPart realHead;
@@ -117,8 +117,8 @@ public class UndeadWolfModel<T extends UndeadWolfRenderState> extends EntityMode
         this.upperBody.zRot = state.getBodyRollAngle(-0.08F);
         this.body.zRot = state.getBodyRollAngle(-0.16F);
         this.realTail.zRot = state.getBodyRollAngle(-0.2F);
-        this.head.xRot = state.xRot * H_PI;
-        this.head.yRot = state.yRot * H_PI;
+        this.head.xRot = state.xRot * PI_180;
+        this.head.yRot = state.yRot * PI_180;
         this.tail.xRot = state.tailAngle;
     }
 

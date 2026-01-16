@@ -17,7 +17,8 @@ import net.minecraft.util.Mth;
  */
 public class UndeadCatModel<T extends FelineRenderState> extends EntityModel<T> {
 
-    private static final float HALF_PI = (float) Math.PI / 2;
+    private static final float HALF_PI = 1.57F;
+    private static final float PI_180 = 0.01745F;
 
     protected final ModelPart leftHindLeg;
     protected final ModelPart rightHindLeg;
@@ -105,8 +106,8 @@ public class UndeadCatModel<T extends FelineRenderState> extends EntityModel<T> 
             this.tail2.xRot = HALF_PI;
         }
 
-        this.head.xRot = renderState.xRot * (float) (Math.PI / 180);
-        this.head.yRot = renderState.yRot * (float) (Math.PI / 180);
+        this.head.xRot = renderState.xRot * PI_180;
+        this.head.yRot = renderState.yRot * PI_180;
         if (!renderState.isSitting) {
             this.body.xRot = HALF_PI;
             float f1 = renderState.walkAnimationSpeed;
