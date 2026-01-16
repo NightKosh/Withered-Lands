@@ -1,6 +1,8 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
@@ -82,6 +84,12 @@ public class MoltenSlime extends ASlime {
         }
 
         return false;
+    }
+
+    @Nonnull
+    @Override
+    protected ParticleOptions getParticleType() {
+        return ParticleTypes.SMALL_FLAME;
     }
 
 }
