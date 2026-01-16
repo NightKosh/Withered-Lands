@@ -11,9 +11,12 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
+
+import static nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility.*;
 
 /**
  * Withered Lands
@@ -25,6 +28,21 @@ public class WitherSkullCrawler extends SkeletonSkullCrawler {
 
     public WitherSkullCrawler(EntityType<? extends ASkullCrawler> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public Block getPilesOfBones() {
+        return PILE_OF_BONES_SKULL_WITHER_CRAWLER;
+    }
+
+    @Override
+    public Block getBoneBlock() {
+        return BONE_BLOCK_WITHER_CRAWLER;
+    }
+
+    @Override
+    public Block getBoneSkullBlock() {
+        return BONE_BLOCK_SKULL_WITHER_CRAWLER;
     }
 
     @Override

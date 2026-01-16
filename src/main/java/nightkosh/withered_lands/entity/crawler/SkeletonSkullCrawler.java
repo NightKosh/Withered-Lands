@@ -8,8 +8,11 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 
 import javax.annotation.Nonnull;
+
+import static nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility.*;
 
 /**
  * Withered Lands
@@ -21,6 +24,21 @@ public class SkeletonSkullCrawler extends ASkullCrawler {
 
     public SkeletonSkullCrawler(EntityType<? extends ASkullCrawler> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public Block getPilesOfBones() {
+        return PILE_OF_BONES_SKULL_SKELETON_CRAWLER;
+    }
+
+    @Override
+    public Block getBoneBlock() {
+        return BONE_BLOCK_SKELETON_CRAWLER;
+    }
+
+    @Override
+    public Block getBoneSkullBlock() {
+        return BONE_BLOCK_SKULL_SKELETON_CRAWLER;
     }
 
     @Override
@@ -38,11 +56,6 @@ public class SkeletonSkullCrawler extends ASkullCrawler {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundEvents.SKELETON_DEATH;
-    }
-
-    @Override
-    public boolean canHideInBones() {
-        return true;
     }
 
     public static AttributeSupplier createAttributeSupplier() {

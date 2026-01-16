@@ -6,8 +6,10 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,9 +25,14 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
+import nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility;
+import nightkosh.withered_lands.entity.ai.HideInBonesGoal;
+import nightkosh.withered_lands.entity.ai.HideInPilesOfBonesGoal;
+import nightkosh.withered_lands.entity.ai.SummonSkullCrawlersGoal;
 
 import javax.annotation.Nonnull;
 
@@ -39,14 +46,11 @@ public abstract class ASkullCrawler extends Monster {
 
     private static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ASkullCrawler.class, EntityDataSerializers.BYTE);
 
-    //TODO
-//    private AISummonSkullCrawler summonAI;
-//    private AIHideInBones hideInBonesAI;
-
+    private SummonSkullCrawlersGoal summonGoal;
+    public HideInBonesGoal hideInBonesGoal;
 
     public ASkullCrawler(EntityType<? extends ASkullCrawler> entityType, Level level) {
         super(entityType, level);
-
     }
 
     @Override
@@ -54,10 +58,12 @@ public abstract class ASkullCrawler extends Monster {
         super.registerGoals();
 
         this.goalSelector.addGoal(1, new FloatGoal(this));
-//        this.goalSelector.addGoal(3, new AISummonSkullCrawler(this));//TODO
+        if (GravestoneExtendedCompatibility.loaded()) {
+            this.goalSelector.addGoal(3, this.summonGoal = new SummonSkullCrawlersGoal(this));
+            this.goalSelector.addGoal(5, this.hideInBonesGoal = new HideInBonesGoal(this));
+            this.goalSelector.addGoal(6, new HideInPilesOfBonesGoal(this));
+        }
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1, false));
-//        this.goalSelector.addGoal(5, this.hideInBonesAI = new AIHideInBones(this));//TODO
-//        this.goalSelector.addGoal(6, new AIHideInPilesOfBones(this));//TODO
 
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
@@ -88,22 +94,19 @@ public abstract class ASkullCrawler extends Monster {
         this.playSound(SoundEvents.SPIDER_STEP, 0.15F, 1);
     }
 
-    //TODO
-//    @Override
-//    public boolean hurtServer(ServerLevel serverLevel, DamageSource damageSource, float p_376305_) {
-//        if (this.isInvulnerableTo(serverLevel, damageSource)) {
-//            return false;
-//        } else {
-//            if ((source instanceof EntityDamageSource || source == DamageSource.MAGIC)) {
-//                summonAI.resetSummonColdown();
-//            }
-//            if ((damageSource.getEntity() != null || damageSource.is(DamageTypeTags.ALWAYS_TRIGGERS_SILVERFISH)) && this.friendsGoal != null) {
-//                this.summonAI.notifyHurt();
-//            }
-//
-//            return super.hurtServer(serverLevel, damageSource, p_376305_);
-//        }
-//    }
+    @Override
+    public boolean hurtServer(@Nonnull ServerLevel serverLevel, @Nonnull DamageSource damageSource, float xz) {
+        if (this.isInvulnerableTo(serverLevel, damageSource)) {
+            return false;
+        } else {
+            if ((damageSource.getEntity() != null || damageSource.is(DamageTypeTags.ALWAYS_TRIGGERS_SILVERFISH)) &&
+                    this.summonGoal != null) {
+                this.summonGoal.resetSummonColdown();
+            }
+
+            return super.hurtServer(serverLevel, damageSource, xz);
+        }
+    }
 
     @Nonnull
     @Override
@@ -152,14 +155,11 @@ public abstract class ASkullCrawler extends Monster {
         this.entityData.set(CLIMBING, b0);
     }
 
-    public boolean canHideInBones() {
-        return false;
-    }
+    public abstract Block getPilesOfBones();
 
-    //TODO
-//    public AIHideInBones getHideInBonesAI() {
-//        return hideInBonesAI;
-//    }
+    public abstract Block getBoneBlock();
+
+    public abstract Block getBoneSkullBlock();
 
     public static boolean checkSpawnRules(
             EntityType<? extends ASkullCrawler> entityType, ServerLevelAccessor level,
