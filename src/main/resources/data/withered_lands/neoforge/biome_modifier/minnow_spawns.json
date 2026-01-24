@@ -5,8 +5,8 @@
     {
       "type": "withered_lands:minnow",
       "weight": 100,
-      "minCount": 7,
-      "maxCount": 12
+      "minCount": 4,
+      "maxCount": 8
     }
   ]
 }
