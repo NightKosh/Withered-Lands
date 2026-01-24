@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.entity.crawler.ASkullCrawler;
 
@@ -31,7 +32,7 @@ public class HideInPilesOfBonesGoal extends RandomStrollGoal {
     @Override
     public boolean canUse() {
         ticks++;
-        if (ticks >= 100 && !crawler.hideInBonesGoal.isExecuting()) {
+        if (ticks >= 100 && !crawler.hideInBonesGoal.isExecuting() && !isNether()) {
             if (this.mob.getTarget() != null || !this.mob.getNavigation().isDone()) {
                 return false;
             } else {
@@ -67,7 +68,7 @@ public class HideInPilesOfBonesGoal extends RandomStrollGoal {
     public void start() {
         if (!this.doHide) {
             super.start();
-        } else {
+        } else if (!isNether()) {
             var level = crawler.level();
             var blockPos = crawler.blockPosition().relative(this.selectedDirection);
 
@@ -75,6 +76,10 @@ public class HideInPilesOfBonesGoal extends RandomStrollGoal {
             crawler.spawnAnim();
             crawler.discard();
         }
+    }
+
+    protected boolean isNether() {
+        return this.crawler.level().dimension() == Level.NETHER;
     }
 
 }
