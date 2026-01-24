@@ -335,7 +335,7 @@ public class WLEventsEntityRegistration {
 
         // swamp
         event.register(WLEntities.GIANT_FROG.get(),
-                SpawnPlacementTypes.NO_RESTRICTIONS,
+                SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
                 GiantFrog::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);

@@ -7,9 +7,9 @@
   "spawners": [
     {
       "type": "withered_lands:giant_frog",
-      "weight": 60,
+      "weight": 50,
       "minCount": 1,
-      "maxCount": 3
+      "maxCount": 2
     }
   ]
 }

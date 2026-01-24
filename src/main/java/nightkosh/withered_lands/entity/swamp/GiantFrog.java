@@ -22,6 +22,7 @@ import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
@@ -226,6 +227,11 @@ public class GiantFrog extends Monster {
     @Override
     protected void playStepSound(@Nonnull BlockPos blockPos, @Nonnull BlockState state) {
         this.playSound(SoundEvents.FROG_STEP, 0.15F, 1);
+    }
+
+    @Override
+    public boolean checkSpawnRules(@Nonnull LevelAccessor levelAccessor, @Nonnull EntitySpawnReason spawnReason) {
+        return true;
     }
 
     public static AttributeSupplier createAttributeSupplier() {
