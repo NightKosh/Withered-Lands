@@ -6,6 +6,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,10 +14,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
+
+import javax.annotation.Nonnull;
 
 /**
  * Withered Lands
@@ -69,10 +74,18 @@ public class ChorusBat extends AHostileBat {
         }
     }
 
+    @Override
+    public boolean checkSpawnRules(@Nonnull LevelAccessor levelAccessor, @Nonnull EntitySpawnReason spawnReason) {
+        return true;
+    }
+
     public static boolean checkSpawnRules(
             EntityType<? extends AHostileBat> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
-        return WLConfigs.CHORUS_BAT_SPAWN.get() && checkCommonSpawnRules(level, pos, random);
+        // surface light level should be ignored
+        return WLConfigs.CHORUS_BAT_SPAWN.get() &&
+                level.getDifficulty() != Difficulty.PEACEFUL &&
+                level.getBrightness(LightLayer.BLOCK, pos) == 0;
     }
 
 }
