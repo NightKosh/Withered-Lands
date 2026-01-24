@@ -10,7 +10,6 @@ import nightkosh.withered_lands.entity.crawler.ASkullCrawler;
 import java.util.EnumSet;
 
 import static nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility.BONE_BLOCK;
-import static nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility.BONE_BLOCK_SKULL;
 
 /**
  * Withered Lands
@@ -46,7 +45,7 @@ public class HideInBonesGoal extends RandomStrollGoal {
                     var blockpos = BlockPos.containing(this.mob.getX(), this.mob.getY() + 0.5, this.mob.getZ())
                             .relative(this.selectedDirection);
                     var blockstate = level.getBlockState(blockpos);
-                    if (blockstate.is(BONE_BLOCK) || blockstate.is(BONE_BLOCK_SKULL)) {
+                    if (blockstate.is(BONE_BLOCK)) {
                         this.doHide = true;
                         return true;
                     }
@@ -80,10 +79,6 @@ public class HideInBonesGoal extends RandomStrollGoal {
             var blockPos = crawler.blockPosition().relative(this.selectedDirection);
             var state = level.getBlockState(blockPos);
             if (state.is(BONE_BLOCK)) {
-                level.setBlock(blockPos, crawler.getBoneBlock().defaultBlockState(), 3);
-                crawler.spawnAnim();
-                crawler.discard();
-            } else if (state.is(BONE_BLOCK_SKULL)) {
                 level.setBlock(blockPos, crawler.getBoneSkullBlock().defaultBlockState(), 3);
                 crawler.spawnAnim();
                 crawler.discard();

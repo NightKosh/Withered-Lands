@@ -32,11 +32,6 @@ public class PiglinSkullCrawler extends ZombieSkullCrawler {
     }
 
     @Override
-    public Block getBoneBlock() {
-        return BONE_BLOCK_PIGLIN_CRAWLER;
-    }
-
-    @Override
     public Block getBoneSkullBlock() {
         return BONE_BLOCK_SKULL_PIGLIN_CRAWLER;
     }

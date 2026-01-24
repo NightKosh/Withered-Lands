@@ -32,11 +32,6 @@ public class DrownedSkullCrawler extends ZombieSkullCrawler {
     }
 
     @Override
-    public Block getBoneBlock() {
-        return BONE_BLOCK_DROWNED_CRAWLER;
-    }
-
-    @Override
     public Block getBoneSkullBlock() {
         return BONE_BLOCK_SKULL_DROWNED_CRAWLER;
     }

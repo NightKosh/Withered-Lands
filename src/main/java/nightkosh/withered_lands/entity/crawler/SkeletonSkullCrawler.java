@@ -32,11 +32,6 @@ public class SkeletonSkullCrawler extends ASkullCrawler {
     }
 
     @Override
-    public Block getBoneBlock() {
-        return BONE_BLOCK_SKELETON_CRAWLER;
-    }
-
-    @Override
     public Block getBoneSkullBlock() {
         return BONE_BLOCK_SKULL_SKELETON_CRAWLER;
     }

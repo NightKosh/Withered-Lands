@@ -36,11 +36,6 @@ public class WitherSkullCrawler extends SkeletonSkullCrawler {
     }
 
     @Override
-    public Block getBoneBlock() {
-        return BONE_BLOCK_WITHER_CRAWLER;
-    }
-
-    @Override
     public Block getBoneSkullBlock() {
         return BONE_BLOCK_SKULL_WITHER_CRAWLER;
     }

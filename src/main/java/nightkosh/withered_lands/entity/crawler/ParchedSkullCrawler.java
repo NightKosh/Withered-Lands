@@ -36,11 +36,6 @@ public class ParchedSkullCrawler extends SkeletonSkullCrawler {
     }
 
     @Override
-    public Block getBoneBlock() {
-        return BONE_BLOCK_PARCHED_CRAWLER;
-    }
-
-    @Override
     public Block getBoneSkullBlock() {
         return BONE_BLOCK_SKULL_PARCHED_CRAWLER;
     }

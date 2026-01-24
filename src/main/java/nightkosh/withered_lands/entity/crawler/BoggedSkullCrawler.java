@@ -36,11 +36,6 @@ public class BoggedSkullCrawler extends SkeletonSkullCrawler {
     }
 
     @Override
-    public Block getBoneBlock() {
-        return BONE_BLOCK_BOGGED_CRAWLER;
-    }
-
-    @Override
     public Block getBoneSkullBlock() {
         return BONE_BLOCK_SKULL_BOGGED_CRAWLER;
     }

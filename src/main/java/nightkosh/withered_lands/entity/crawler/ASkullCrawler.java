@@ -157,8 +157,6 @@ public abstract class ASkullCrawler extends Monster {
 
     public abstract Block getPilesOfBones();
 
-    public abstract Block getBoneBlock();
-
     public abstract Block getBoneSkullBlock();
 
     public static boolean checkSpawnRules(

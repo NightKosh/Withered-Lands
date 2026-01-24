@@ -37,11 +37,6 @@ public class HuskSkullCrawler extends ZombieSkullCrawler {
     }
 
     @Override
-    public Block getBoneBlock() {
-        return BONE_BLOCK_HUSK_CRAWLER;
-    }
-
-    @Override
     public Block getBoneSkullBlock() {
         return BONE_BLOCK_SKULL_HUSK_CRAWLER;
     }
