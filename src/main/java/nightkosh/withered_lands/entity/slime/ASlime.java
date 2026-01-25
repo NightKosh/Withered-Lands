@@ -48,6 +48,11 @@ public abstract class ASlime extends Slime {
     }
 
     @Override
+    protected boolean isDealsDamage() {
+        return this.isEffectiveAi();
+    }
+
+    @Override
     protected void dealDamage(@Nonnull LivingEntity entity) {
         if (this.level() instanceof ServerLevel serverlevel &&
                 this.isAlive() &&
