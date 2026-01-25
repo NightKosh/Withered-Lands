@@ -7,7 +7,7 @@
   "spawners": [
     {
       "type": "withered_lands:barghest",
-      "weight": 5,
+      "weight": 10,
       "minCount": 1,
       "maxCount": 1
     }

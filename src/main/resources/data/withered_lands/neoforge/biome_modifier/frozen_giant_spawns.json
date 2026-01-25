@@ -8,7 +8,7 @@
   "spawners": [
     {
       "type": "withered_lands:frozen_giant",
-      "weight": 5,
+      "weight": 10,
       "minCount": 1,
       "maxCount": 1
     }

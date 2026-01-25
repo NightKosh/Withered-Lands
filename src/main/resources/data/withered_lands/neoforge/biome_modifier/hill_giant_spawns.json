@@ -9,7 +9,7 @@
   "spawners": [
     {
       "type": "withered_lands:hill_giant",
-      "weight": 5,
+      "weight": 10,
       "minCount": 1,
       "maxCount": 1
     }
