@@ -32,7 +32,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEnchantments;
 import nightkosh.withered_lands.core.WLSounds;
-import nightkosh.withered_lands.enchantment.WLEnchantmentHelper;
+import nightkosh.withered_lands.helper.WLEnchantmentHelper;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;

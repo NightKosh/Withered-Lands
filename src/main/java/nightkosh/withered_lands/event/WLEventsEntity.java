@@ -23,7 +23,7 @@ import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.core.WLMobEffects;
-import nightkosh.withered_lands.enchantment.WLEnchantmentHelper;
+import nightkosh.withered_lands.helper.WLEnchantmentHelper;
 import nightkosh.withered_lands.entity.crawler.ASkullCrawler;
 
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;

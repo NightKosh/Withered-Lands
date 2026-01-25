@@ -1,4 +1,4 @@
-package nightkosh.withered_lands.enchantment;
+package nightkosh.withered_lands.helper;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -11,7 +11,6 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import nightkosh.withered_lands.core.WLEnchantments;
-import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
