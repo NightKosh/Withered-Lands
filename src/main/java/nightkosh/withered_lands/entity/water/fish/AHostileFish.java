@@ -119,7 +119,7 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
     }
 
     protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos) {
-        return level.getEntitiesOfClass(AHostileFish.class, new AABB(pos).inflate(100)).size() <= 20;
+        return level.getEntitiesOfClass(AHostileFish.class, new AABB(pos).inflate(100)).size() <= 25;
     }
 
 }
