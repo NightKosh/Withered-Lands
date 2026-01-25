@@ -44,7 +44,9 @@ public class MoltenSlime extends ASlime {
         if (!this.level().isClientSide() && WLConfigs.MOLTEN_SLIME_LAVA.get() && this.getSize() > 1) {
             var pos = this.blockPosition();
 
-            if (this.level().getBlockState(pos).getCollisionShape(this.level(), pos).isEmpty()) {
+            if (this.level().getBlockState(pos).getCollisionShape(this.level(), pos).isEmpty() &&
+                    !this.level().getBlockState(pos.below()).isAir() &&
+                    !this.level().getBlockState(pos.below()).is(Blocks.LAVA)) {
                 this.level().setBlock(pos, Blocks.LAVA.defaultBlockState(), 3);
             }
         }
@@ -72,15 +74,19 @@ public class MoltenSlime extends ASlime {
             if (EntitySpawnReason.isSpawner(spawnReason)) {
                 return checkMobSpawnRules(entityType, level, spawnReason, pos, random);
             }
-
-            // Do not check light, otherwise it prevent slime spawn near ruined portals
-            var ground = level.getBlockState(pos.below());
-            return ground.is(Blocks.NETHERRACK) || ground.is(Blocks.SOUL_SAND) || ground.is(Blocks.BASALT) ||
-                    ground.is(Blocks.MAGMA_BLOCK) || ground.is(Blocks.CRIMSON_NYLIUM) || ground.is(Blocks.WARPED_NYLIUM) ||
-                    ground.is(Blocks.OBSIDIAN) || ground.is(Blocks.GOLD_BLOCK) || ground.is(Blocks.LAVA) ||
-                    ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.PODZOL) || ground.is(Blocks.MYCELIUM) ||
-                    ground.is(Blocks.DIRT) || ground.is(Blocks.MUD) || ground.is(Blocks.GRAVEL) ||
-                    ground.is(Blocks.SAND);
+            if (level instanceof Level l && l.dimension() != Level.NETHER) {
+                // avoid additional checks out of the nether
+                return true;
+            } else {
+                // Do not check light, otherwise it prevent slime spawn near ruined portals and in lava
+                var ground = level.getBlockState(pos.below());
+                return ground.is(Blocks.NETHERRACK) || ground.is(Blocks.SOUL_SAND) || ground.is(Blocks.BASALT) ||
+                        ground.is(Blocks.MAGMA_BLOCK) || ground.is(Blocks.CRIMSON_NYLIUM) || ground.is(Blocks.WARPED_NYLIUM) ||
+                        ground.is(Blocks.OBSIDIAN) || ground.is(Blocks.GOLD_BLOCK) || ground.is(Blocks.LAVA) ||
+                        ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.PODZOL) || ground.is(Blocks.MYCELIUM) ||
+                        ground.is(Blocks.DIRT) || ground.is(Blocks.MUD) || ground.is(Blocks.GRAVEL) ||
+                        ground.is(Blocks.SAND);
+            }
         }
 
         return false;
