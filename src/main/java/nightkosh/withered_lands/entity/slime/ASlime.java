@@ -2,7 +2,6 @@ package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -68,7 +67,7 @@ public abstract class ASlime extends Slime {
     }
 
     protected static boolean isUndergroundBlock(Block ground) {
-        return ground == Blocks.STONE ||  ground == Blocks.COBBLESTONE ||
+        return ground == Blocks.STONE || ground == Blocks.COBBLESTONE ||
                 ground == Blocks.GRANITE || ground == Blocks.ANDESITE || ground == Blocks.DIORITE ||
                 ground == Blocks.BLACKSTONE || ground == Blocks.DEEPSLATE ||
                 ground == Blocks.DIRT || ground == Blocks.GRAVEL ||

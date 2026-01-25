@@ -12,7 +12,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -53,14 +52,16 @@ public class SandySlime extends ASlime {
     }
 
     protected static boolean checkCommonSpawnRules(
-            EntityType<? extends ASlime> entityType, LevelAccessor level,
+            EntityType<? extends ASlime> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         if (level.getDifficulty() != Difficulty.PEACEFUL) {
             if (EntitySpawnReason.isSpawner(spawnReason)) {
                 return checkMobSpawnRules(entityType, level, spawnReason, pos, random);
             }
 
-            if (level.getBrightness(LightLayer.BLOCK, pos) == 0) {
+            if (level.canSeeSky(pos) &&
+                    level.getBrightness(LightLayer.BLOCK, pos) == 0 &&
+                    level.getBrightness(LightLayer.SKY, pos) > 0) {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
