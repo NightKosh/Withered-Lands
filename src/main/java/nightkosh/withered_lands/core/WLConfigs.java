@@ -13,6 +13,9 @@ public class WLConfigs {
     public static final ModConfigSpec SPEC;
     public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
+    // mob cap
+    public static ModConfigSpec.ConfigValue<Double> MOB_CAP_MULTIPLIER;
+
     // sleep
     public static ModConfigSpec.ConfigValue<Boolean> TO_HUNGRY_TO_SLEEP;
     public static ModConfigSpec.ConfigValue<Boolean> OPEN_SKY_SLEEP;
@@ -79,6 +82,10 @@ public class WLConfigs {
 
     static {
         BUILDER.push("Configs for Withered Lands Mod");
+
+        // mob cap
+        MOB_CAP_MULTIPLIER = BUILDER.comment("Changes the maximum number of monsters that can spawn. May impact performance, so adjust with care.")
+                .defineInRange("Mob cap multiplier", 2D, 1, 10);
 
         // sleep
         TO_HUNGRY_TO_SLEEP = BUILDER.define("Can't sleep if hungry", true);

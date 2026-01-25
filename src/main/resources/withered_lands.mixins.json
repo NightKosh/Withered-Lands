@@ -1,0 +1,10 @@
+{
+  "required": true,
+  "package": "nightkosh.withered_lands.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "MobCategoryMixin"
+  ],
+  "client": [],
+  "server": []
+}
