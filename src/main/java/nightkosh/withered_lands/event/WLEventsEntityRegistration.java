@@ -355,20 +355,20 @@ public class WLEventsEntityRegistration {
 
         // snow
         event.register(WLEntities.SNOWMAN.get(),
-                SpawnPlacementTypes.NO_RESTRICTIONS,
+                SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
                 Snowman::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // giants
         event.register(WLEntities.HILL_GIANT.get(),
-                SpawnPlacementTypes.NO_RESTRICTIONS,
+                SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
                 HillGiant::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.FROZEN_GIANT.get(),
-                SpawnPlacementTypes.NO_RESTRICTIONS,
+                SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
                 FrozenGiant::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);

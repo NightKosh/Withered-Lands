@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.*;
@@ -16,6 +17,7 @@ import net.minecraft.world.entity.monster.zombie.ZombieVillager;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.entity.wolf.ZombieDog;
 
@@ -62,6 +64,15 @@ public class AGiant extends Monster {
     }
 
     protected void applyEffect(LivingEntity entity) {
+    }
+
+    @Override
+    public boolean checkSpawnRules(@Nonnull LevelAccessor levelAccessor, @Nonnull EntitySpawnReason spawnReason) {
+        if (levelAccessor instanceof ServerLevelAccessor sa) {
+            return isDarkEnoughToSpawn(sa, this.blockPosition(), random);
+        } else {
+            return super.checkSpawnRules(levelAccessor, spawnReason);
+        }
     }
 
     protected static boolean checkCommonSpawnRules(
