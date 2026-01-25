@@ -1,8 +1,6 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -20,8 +18,6 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
-
-import javax.annotation.Nonnull;
 
 /**
  * Withered Lands
@@ -69,9 +65,6 @@ public class SandySlime extends ASlime {
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
                     return ground == Blocks.SAND || ground == Blocks.RED_SAND;
-                } else if (pos.getY() < 50) {
-                    // TODO additional checks to avoid spawn near buildings
-                    return isUndergroundBlock(ground);
                 }
             }
         }
