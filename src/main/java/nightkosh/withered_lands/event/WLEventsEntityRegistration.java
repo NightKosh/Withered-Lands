@@ -111,7 +111,7 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.SANDY_SLIME.get(),
-                SpawnPlacementTypes.NO_RESTRICTIONS,
+                SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
                 SandySlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
@@ -123,13 +123,13 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.MUD_SLIME.get(),
-                SpawnPlacementTypes.NO_RESTRICTIONS,
+                SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
                 MudSlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.JUNGLE_SLIME.get(),
-                SpawnPlacementTypes.NO_RESTRICTIONS,
+                SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
                 JungleSlime::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
