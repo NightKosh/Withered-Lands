@@ -34,6 +34,10 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /kill @e[type=!minecraft:player]
     ```
+2. Light all mobs
+    ```
+        /effect give @e[type=!minecraft:player] minecraft:glowing 1000000 0 true
+    ```
 
 ### Slimes spawn:
 1. Verdant slime
