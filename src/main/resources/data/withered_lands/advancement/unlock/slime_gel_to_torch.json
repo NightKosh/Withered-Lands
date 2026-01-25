@@ -1,0 +1,22 @@
+{
+  "criteria": {
+    "has_my_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "withered_lands:slime_gel",
+              "minecraft:stick"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "withered_lands:slime_gel_to_torch"
+    ]
+  }
+}
