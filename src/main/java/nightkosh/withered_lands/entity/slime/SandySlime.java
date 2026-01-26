@@ -1,6 +1,9 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -18,6 +21,8 @@ import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+import javax.annotation.Nonnull;
+
 /**
  * Withered Lands
  *
@@ -25,6 +30,9 @@ import nightkosh.withered_lands.helper.TimeHelper;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
 public class SandySlime extends ASlime {
+
+    private static final BlockParticleOption PARTICLE = new BlockParticleOption(
+            ParticleTypes.BLOCK, Blocks.SAND.defaultBlockState());
 
     public SandySlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
@@ -34,6 +42,12 @@ public class SandySlime extends ASlime {
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
         entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_15), this);
+    }
+
+    @Nonnull
+    @Override
+    protected ParticleOptions getParticleType() {
+        return PARTICLE;
     }
 
     public static AttributeSupplier createAttributeSupplier() {
