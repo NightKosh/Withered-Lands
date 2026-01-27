@@ -2,6 +2,7 @@ package nightkosh.withered_lands.core;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -345,6 +346,12 @@ public class WLItems {
             () -> new SpawnEggItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "possessed_armor_spawn_egg")))
                     .spawnEgg(WLEntities.POSSESSED_ARMOR.get())));
+
+    public static final DeferredHolder<Item, Item> ILLUSIONER_EGG = ITEMS_REGISTER.register(
+            "illusioner_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "illusioner_spawn_egg")))
+                    .spawnEgg(EntityType.ILLUSIONER)));
 
     public static final DeferredHolder<Item, Item> KILLER_BUNNY_EGG = ITEMS_REGISTER.register(
             "killer_bunny_spawn_egg",
