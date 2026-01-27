@@ -30,6 +30,27 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:soul_sand",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "min": 0,
+                "max": 3,
+                "type": "minecraft:uniform"
+              },
+              "function": "minecraft:set_count"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
