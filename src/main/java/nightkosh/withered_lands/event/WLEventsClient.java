@@ -10,6 +10,10 @@ import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.renderer.PossessedArmorRenderer;
 import nightkosh.withered_lands.renderer.bat.*;
+import nightkosh.withered_lands.renderer.breeze.BlizzardRenderer;
+import nightkosh.withered_lands.renderer.breeze.DirgeGaleRenderer;
+import nightkosh.withered_lands.renderer.breeze.SandDevilRenderer;
+import nightkosh.withered_lands.renderer.breeze.ThunderstormRenderer;
 import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.cat.ZombieCatRenderer;
 import nightkosh.withered_lands.renderer.crawler.*;
@@ -77,6 +81,11 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawlerRenderer::new);
         event.registerEntityRenderer(WLEntities.DROWNED_SKULL_CRAWLER.get(), DrownedSkullCrawlerRenderer::new);
         event.registerEntityRenderer(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawlerRenderer::new);
+        // breeze
+        event.registerEntityRenderer(WLEntities.THUNDERSTORM.get(), ThunderstormRenderer::new);
+        event.registerEntityRenderer(WLEntities.BLIZZARD.get(), BlizzardRenderer::new);
+        event.registerEntityRenderer(WLEntities.SAND_DEVIL.get(), SandDevilRenderer::new);
+        event.registerEntityRenderer(WLEntities.DIRGE_GALE.get(), DirgeGaleRenderer::new);
         // wolves
         event.registerEntityRenderer(WLEntities.SKELETON_DOG.get(), SkeletonDogRenderer::new);
         event.registerEntityRenderer(WLEntities.ZOMBIE_DOG.get(), ZombieDogRenderer::new);
@@ -108,6 +117,9 @@ public class WLEventsClient {
 
         // projectiles
         event.registerEntityRenderer(WLEntities.FROZEN_SNOWBALL.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(WLEntities.BLIZZARD_WIND_CHARGE.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(WLEntities.SAND_DEVIL_WIND_CHARGE.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(WLEntities.DIRGE_GALE_WIND_CHARGE.get(), ThrownItemRenderer::new);
     }
 
     @SubscribeEvent

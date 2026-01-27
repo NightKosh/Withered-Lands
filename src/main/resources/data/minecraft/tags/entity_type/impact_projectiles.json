@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "withered_lands:frozen_snowball"
+    "withered_lands:frozen_snowball",
+    "withered_lands:blizzard_wind_charge",
+    "withered_lands:sand_devil_wind_charge",
+    "withered_lands:dirge_gale_wind_charge"
   ]
 }

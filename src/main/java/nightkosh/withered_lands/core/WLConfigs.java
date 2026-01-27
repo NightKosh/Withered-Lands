@@ -30,6 +30,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> ABYSSAL_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_LAVA;
+
     // bats
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> VAMPIRE_BAT_SPAWN;
@@ -39,6 +40,12 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> WITHERED_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> VOLATILE_BAT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> CHORUS_BAT_SPAWN;
+
+    // breeze
+    public static ModConfigSpec.ConfigValue<Boolean> THUNDERSTORM_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> BLIZZARD_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> SAND_DEVIL_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> DIRGE_GALE_SPAWN;
 
     // wolves
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_DOG_SPAWN;
@@ -74,8 +81,10 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> HILL_GIANT_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> FROZEN_GIANT_SPAWN;
 
-    // other
+    // other mobs
     public static ModConfigSpec.ConfigValue<Boolean> POSSESSED_ARMOR_SPAWN;
+
+    // other
     public static ModConfigSpec.ConfigValue<Boolean> SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_PETS_ATTACK_PETS;
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
@@ -101,6 +110,7 @@ public class WLConfigs {
         ABYSSAL_SLIME_SPAWN = BUILDER.define("Abyssal Slimes Spawn", true);
         MOLTEN_SLIME_SPAWN = BUILDER.define("Molten Slimes Spawn", true);
         MOLTEN_SLIME_LAVA = BUILDER.define("Molten Slimes Create LAVA", true);
+
         // bats
         CAVE_BAT_SPAWN = BUILDER.define("Cave Bats Spawn", true);
         VAMPIRE_BAT_SPAWN = BUILDER.define("Vampire Bats Spawn", true);
@@ -110,6 +120,12 @@ public class WLConfigs {
         WITHERED_BAT_SPAWN = BUILDER.define("Withered Bats Spawn", true);
         VOLATILE_BAT_SPAWN = BUILDER.define("Volatile Bats Spawn", true);
         CHORUS_BAT_SPAWN = BUILDER.define("Chorus Bats Spawn", true);
+
+        // breeze
+        THUNDERSTORM_SPAWN = BUILDER.define("Thunderstorms Spawn", true);
+        BLIZZARD_SPAWN = BUILDER.define("Blizzards Spawn", true);
+        SAND_DEVIL_SPAWN = BUILDER.define("Sand Devils Spawn", true);
+        DIRGE_GALE_SPAWN = BUILDER.define("Dirge Gales Spawn", true);
 
         // wolves
         SKELETON_DOG_SPAWN = BUILDER.define("Skeleton Dogs Spawn", true);
@@ -145,8 +161,10 @@ public class WLConfigs {
         HILL_GIANT_SPAWN = BUILDER.define("Hill Giants Spawn", true);
         FROZEN_GIANT_SPAWN = BUILDER.define("Frozen Giants Spawn", true);
 
-        // other
+        // other mobs
         POSSESSED_ARMOR_SPAWN = BUILDER.define("Possessed Armors Spawn", true);
+
+        // other
         SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN = BUILDER.define("Should spawn skull crawlers at mobs death", true);
         ZOMBIE_PETS_ATTACK_PETS = BUILDER.define("Should zombie pets attack pets", true);
 

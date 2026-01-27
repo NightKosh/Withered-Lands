@@ -197,6 +197,31 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "piglin_skull_crawler_spawn_egg")))
                     .spawnEgg(WLEntities.PIGLIN_SKULL_CRAWLER.get())));
 
+    // breeze
+    public static final DeferredHolder<Item, Item> THUNDERSTORM_EGG = ITEMS_REGISTER.register(
+            "thunderstorm_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "thunderstorm_spawn_egg")))
+                    .spawnEgg(WLEntities.THUNDERSTORM.get())));
+
+    public static final DeferredHolder<Item, Item> BLIZZARD_EGG = ITEMS_REGISTER.register(
+            "blizzard_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "blizzard_spawn_egg")))
+                    .spawnEgg(WLEntities.BLIZZARD.get())));
+
+    public static final DeferredHolder<Item, Item> SAND_DEVIL_EGG = ITEMS_REGISTER.register(
+            "sand_devil_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "sand_devil_spawn_egg")))
+                    .spawnEgg(WLEntities.SAND_DEVIL.get())));
+
+    public static final DeferredHolder<Item, Item> DIRGE_GALE_EGG = ITEMS_REGISTER.register(
+            "dirge_gale_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "dirge_gale_spawn_egg")))
+                    .spawnEgg(WLEntities.DIRGE_GALE.get())));
+
     // wolves
     public static final DeferredHolder<Item, Item> SKELETON_DOG_EGG = ITEMS_REGISTER.register(
             "skeleton_dog_spawn_egg",

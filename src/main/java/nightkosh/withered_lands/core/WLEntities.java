@@ -11,6 +11,10 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.breeze.Blizzard;
+import nightkosh.withered_lands.entity.breeze.DirgeGale;
+import nightkosh.withered_lands.entity.breeze.SandDevil;
+import nightkosh.withered_lands.entity.breeze.Thunderstorm;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
@@ -19,7 +23,10 @@ import nightkosh.withered_lands.entity.giant.FrozenGiant;
 import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
 import nightkosh.withered_lands.entity.horse.ZombieHorse;
+import nightkosh.withered_lands.entity.projectile.BlizzardWindCharge;
+import nightkosh.withered_lands.entity.projectile.DirgeGaleWindCharge;
 import nightkosh.withered_lands.entity.projectile.FrozenSnowball;
+import nightkosh.withered_lands.entity.projectile.SandDevilWindCharge;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.snow.Snowman;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
@@ -318,6 +325,51 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "piglin_skull_crawler"))));
 
+    // breeze
+    public static final DeferredHolder<EntityType<?>, EntityType<Thunderstorm>> THUNDERSTORM =
+            ENTITY_TYPES_REGISTER.register("thunderstorm",
+                    () -> EntityType.Builder.of(Thunderstorm::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.77F)
+                            .eyeHeight(1.3452F)
+                            .notInPeaceful()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "thunderstorm"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<Blizzard>> BLIZZARD =
+            ENTITY_TYPES_REGISTER.register("blizzard",
+                    () -> EntityType.Builder.of(Blizzard::new, MobCategory.MONSTER)
+                            .immuneTo(Blocks.POWDER_SNOW)
+                            .sized(0.6F, 1.77F)
+                            .eyeHeight(1.3452F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "blizzard"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SandDevil>> SAND_DEVIL =
+            ENTITY_TYPES_REGISTER.register("sand_devil",
+                    () -> EntityType.Builder.of(SandDevil::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.77F)
+                            .eyeHeight(1.3452F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "sand_devil"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DirgeGale>> DIRGE_GALE =
+            ENTITY_TYPES_REGISTER.register("dirge_gale",
+                    () -> EntityType.Builder.of(DirgeGale::new, MobCategory.MONSTER)
+                            .immuneTo(Blocks.WITHER_ROSE)
+                            .sized(0.6F, 1.77F)
+                            .eyeHeight(1.3452F)
+                            .notInPeaceful()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "dirge_gale"))));
+
     // wolves
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletonDog>> SKELETON_DOG =
             ENTITY_TYPES_REGISTER.register("skeleton_dog",
@@ -537,6 +589,52 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "frozen_snowball"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BlizzardWindCharge>> BLIZZARD_WIND_CHARGE =
+            ENTITY_TYPES_REGISTER.register("blizzard_wind_charge",
+                    () -> EntityType.Builder.of(
+                            (EntityType<BlizzardWindCharge> entityType, Level level) ->
+                                    new BlizzardWindCharge(entityType, level),
+                                    MobCategory.MISC)
+                            .sized(0.3125F, 0.3125F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .eyeHeight(0.0F)
+                            .noLootTable()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "blizzard_wind_charge"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SandDevilWindCharge>> SAND_DEVIL_WIND_CHARGE =
+            ENTITY_TYPES_REGISTER.register("sand_devil_wind_charge",
+                    () -> EntityType.Builder.of(
+                            (EntityType<SandDevilWindCharge> entityType, Level level) ->
+                                    new SandDevilWindCharge(entityType, level),
+                                    MobCategory.MISC)
+                            .sized(0.3125F, 0.3125F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .eyeHeight(0.0F)
+                            .noLootTable()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "sand_devil_wind_charge"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DirgeGaleWindCharge>> DIRGE_GALE_WIND_CHARGE =
+            ENTITY_TYPES_REGISTER.register("dirge_gale_wind_charge",
+                    () -> EntityType.Builder.of(
+                            (EntityType<DirgeGaleWindCharge> entityType, Level level) ->
+                                    new DirgeGaleWindCharge(entityType, level),
+                                    MobCategory.MISC)
+                            .sized(0.3125F, 0.3125F)
+                            .clientTrackingRange(4)
+                            .updateInterval(10)
+                            .eyeHeight(0.0F)
+                            .noLootTable()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "dirge_gale_wind_charge"))));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES_REGISTER.register(eventBus);

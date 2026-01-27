@@ -58,6 +58,11 @@ public class WLTabs {
                         output.accept(WLItems.HUSK_SKULL_CRAWLER_EGG.get());
                         output.accept(WLItems.DROWNED_SKULL_CRAWLER_EGG.get());
                         output.accept(WLItems.PIGLIN_SKULL_CRAWLER_EGG.get());
+                        // breeze
+                        output.accept(WLItems.THUNDERSTORM_EGG.get());
+                        output.accept(WLItems.BLIZZARD_EGG.get());
+                        output.accept(WLItems.SAND_DEVIL_EGG.get());
+                        output.accept(WLItems.DIRGE_GALE_EGG.get());
                         // wolves
                         output.accept(WLItems.SKELETON_DOG_EGG.get());
                         output.accept(WLItems.ZOMBIE_DOG_EGG.get());

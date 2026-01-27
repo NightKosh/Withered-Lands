@@ -145,6 +145,24 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /summon withered_lands:piglin_skull_crawler ~ ~ ~ {NoAI:1b}
     ```
 
+### Breezes spawn:
+1. Thunderstorm
+    ```
+        /summon withered_lands:thunderstorm ~ ~ ~ {NoAI:1b}
+    ```
+2. Blizzard
+    ```
+        /summon withered_lands:blizzard ~ ~ ~ {NoAI:1b}
+    ```
+3. Sand Devil
+    ```
+        /summon withered_lands:sand_devil ~ ~ ~ {NoAI:1b}
+    ```
+4. Dirge Gale
+    ```
+        /summon withered_lands:dirge_gale ~ ~ ~ {NoAI:1b}
+    ```
+
 ### Giants spawn:
 1. Hill giant
     ```

@@ -10,6 +10,10 @@ import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
+import nightkosh.withered_lands.entity.breeze.Blizzard;
+import nightkosh.withered_lands.entity.breeze.DirgeGale;
+import nightkosh.withered_lands.entity.breeze.SandDevil;
+import nightkosh.withered_lands.entity.breeze.Thunderstorm;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
@@ -70,6 +74,11 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawler.createAttributeSupplier());
         event.put(WLEntities.DROWNED_SKULL_CRAWLER.get(), DrownedSkullCrawler.createAttributeSupplier());
         event.put(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawler.createAttributeSupplier());
+        // breeze
+        event.put(WLEntities.THUNDERSTORM.get(), Thunderstorm.createAttributeSupplier());
+        event.put(WLEntities.BLIZZARD.get(), Blizzard.createAttributeSupplier());
+        event.put(WLEntities.SAND_DEVIL.get(), SandDevil.createAttributeSupplier());
+        event.put(WLEntities.DIRGE_GALE.get(), DirgeGale.createAttributeSupplier());
         // wolves
         event.put(WLEntities.SKELETON_DOG.get(), SkeletonDog.createAttributeSupplier());
         event.put(WLEntities.ZOMBIE_DOG.get(), ZombieDog.createAttributeSupplier());
@@ -254,6 +263,31 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // breeze
+        event.register(WLEntities.THUNDERSTORM.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Thunderstorm::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.BLIZZARD.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Blizzard::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.SAND_DEVIL.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SandDevil::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.DIRGE_GALE.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                DirgeGale::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // wolves

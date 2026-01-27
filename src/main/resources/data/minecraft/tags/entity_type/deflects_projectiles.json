@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "withered_lands:thunderstorm",
+    "withered_lands:blizzard",
+    "withered_lands:sand_devil",
+    "withered_lands:dirge_gale"
+  ]
+}

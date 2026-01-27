@@ -51,6 +51,19 @@ public final class WLTextures {
     public static final Identifier HUSK_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/husk.png");
     public static final Identifier DROWNED_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/drowned.png");
     public static final Identifier PIGLIN_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/piglin.png");
+    // breeze
+    public static final Identifier THUNDERSTORM = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/thunderstorm/body.png");
+    public static final Identifier THUNDERSTORM_WIND = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/thunderstorm/wind.png");
+    public static final Identifier THUNDERSTORM_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/thunderstorm/eyes.png");
+    public static final Identifier BLIZZARD = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/blizzard/body.png");
+    public static final Identifier BLIZZARD_WIND = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/blizzard/wind.png");
+    public static final Identifier BLIZZARD_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/blizzard/eyes.png");
+    public static final Identifier SAND_DEVIL = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/sand_devil/body.png");
+    public static final Identifier SAND_DEVIL_WIND = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/sand_devil/wind.png");
+    public static final Identifier SAND_DEVIL_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/sand_devil/eyes.png");
+    public static final Identifier DIRGE_GALE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/dirge_gale/body.png");
+    public static final Identifier DIRGE_GALE_WIND = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/dirge_gale/wind.png");
+    public static final Identifier DIRGE_GALE_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/dirge_gale/eyes.png");
     // wolves
     public static final Identifier SKELETON_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/skeleton.png");
     public static final Identifier ZOMBIE_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/zombie.png");
