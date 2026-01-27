@@ -87,6 +87,7 @@ public class WLConfigs {
     // other
     public static ModConfigSpec.ConfigValue<Boolean> SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_PETS_ATTACK_PETS;
+    public static ModConfigSpec.ConfigValue<Boolean> DISABLE_INFERNAL_MOBS;
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
     static {
@@ -167,6 +168,11 @@ public class WLConfigs {
         // other
         SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN = BUILDER.define("Should spawn skull crawlers at mobs death", true);
         ZOMBIE_PETS_ATTACK_PETS = BUILDER.define("Should zombie pets attack pets", true);
+
+        DISABLE_INFERNAL_MOBS = BUILDER.comment(
+                        "By default some mobs from this mod should never be infernal. " +
+                                "Set it to `false` to handle it on InfernalMobs mod side.")
+                .define("Disable infernal mobs", true);
 
         DEBUG_MODE = BUILDER.comment("Enable additional dev logs")
                 .define("Debug Mode", false);
