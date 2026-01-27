@@ -52,6 +52,21 @@ public class MoltenSlime extends ASlime {
         }
     }
 
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (!level().isClientSide() && this.isInWater()) {
+            this.hurt(this.damageSources().freeze(), 1);
+        }
+    }
+
+    @Nonnull
+    @Override
+    protected ParticleOptions getParticleType() {
+        return ParticleTypes.SMALL_FLAME;
+    }
+
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MOVEMENT_SPEED, 0.2)
@@ -90,12 +105,6 @@ public class MoltenSlime extends ASlime {
         }
 
         return false;
-    }
-
-    @Nonnull
-    @Override
-    protected ParticleOptions getParticleType() {
-        return ParticleTypes.SMALL_FLAME;
     }
 
 }
