@@ -23,7 +23,7 @@
   "spawners": [
     {
       "type": "withered_lands:killer_bunny",
-      "weight": 10,
+      "weight": 5,
       "minCount": 1,
       "maxCount": 1
     }
