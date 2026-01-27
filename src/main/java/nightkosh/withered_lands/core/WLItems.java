@@ -346,6 +346,12 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "possessed_armor_spawn_egg")))
                     .spawnEgg(WLEntities.POSSESSED_ARMOR.get())));
 
+    public static final DeferredHolder<Item, Item> KILLER_BUNNY_EGG = ITEMS_REGISTER.register(
+            "killer_bunny_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "killer_bunny_spawn_egg")))
+                    .spawnEgg(WLEntities.KILLER_BUNNY.get())));
+
     public static void register(IEventBus eventBus) {
         ITEMS_REGISTER.register(eventBus);
     }

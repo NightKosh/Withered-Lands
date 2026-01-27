@@ -83,6 +83,7 @@ public class WLConfigs {
 
     // other mobs
     public static ModConfigSpec.ConfigValue<Boolean> POSSESSED_ARMOR_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> KILLER_BUNNY_SPAWN;
 
     // other
     public static ModConfigSpec.ConfigValue<Boolean> SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN;
@@ -164,6 +165,7 @@ public class WLConfigs {
 
         // other mobs
         POSSESSED_ARMOR_SPAWN = BUILDER.define("Possessed Armors Spawn", true);
+        KILLER_BUNNY_SPAWN = BUILDER.define("Killer Bunnies Spawn", true);
 
         // other
         SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN = BUILDER.define("Should spawn skull crawlers at mobs death", true);

@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.event;
 
+import net.minecraft.client.renderer.entity.RabbitRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -114,6 +115,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.FROZEN_GIANT.get(), FrozenGiantRenderer::new);
         // other
         event.registerEntityRenderer(WLEntities.POSSESSED_ARMOR.get(), PossessedArmorRenderer::new);
+        event.registerEntityRenderer(WLEntities.KILLER_BUNNY.get(), RabbitRenderer::new);
 
         // projectiles
         event.registerEntityRenderer(WLEntities.FROZEN_SNOWBALL.get(), ThrownItemRenderer::new);

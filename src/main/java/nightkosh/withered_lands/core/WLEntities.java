@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import nightkosh.withered_lands.entity.KillerBunny;
 import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.breeze.Blizzard;
@@ -575,6 +576,15 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "possessed_armor"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<KillerBunny>> KILLER_BUNNY =
+            ENTITY_TYPES_REGISTER.register("killer_bunny",
+                    () -> EntityType.Builder.of(KillerBunny::new, MobCategory.MONSTER)
+                            .sized(0.4F, 0.5F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "killer_bunny"))));
 
     // projectiles
     public static final DeferredHolder<EntityType<?>, EntityType<FrozenSnowball>> FROZEN_SNOWBALL =

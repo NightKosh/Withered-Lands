@@ -1,6 +1,7 @@
 package nightkosh.withered_lands.event;
 
 import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.animal.rabbit.Rabbit;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -8,6 +9,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.entity.KillerBunny;
 import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.breeze.Blizzard;
@@ -108,6 +110,7 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.FROZEN_GIANT.get(), FrozenGiant.createAttributeSupplier());
         // other
         event.put(WLEntities.POSSESSED_ARMOR.get(), PossessedArmor.createAttributeSupplier());
+        event.put(WLEntities.KILLER_BUNNY.get(), Rabbit.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -412,6 +415,12 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PossessedArmor::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.KILLER_BUNNY.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                KillerBunny::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
     }
 
