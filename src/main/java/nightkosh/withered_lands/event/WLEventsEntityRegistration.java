@@ -26,6 +26,7 @@ import nightkosh.withered_lands.entity.horse.SkeletonHorse;
 import nightkosh.withered_lands.entity.horse.ZombieHorse;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.snow.Snowman;
+import nightkosh.withered_lands.entity.spider.CaveSpider;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.swamp.GiantFrog;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
@@ -81,6 +82,8 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.BLIZZARD.get(), Blizzard.createAttributeSupplier());
         event.put(WLEntities.SAND_DEVIL.get(), SandDevil.createAttributeSupplier());
         event.put(WLEntities.DIRGE_GALE.get(), DirgeGale.createAttributeSupplier());
+        // spiders
+        event.put(WLEntities.CAVE_SPIDER.get(), CaveSpider.createCaveSpider().build());
         // wolves
         event.put(WLEntities.SKELETON_DOG.get(), SkeletonDog.createAttributeSupplier());
         event.put(WLEntities.ZOMBIE_DOG.get(), ZombieDog.createAttributeSupplier());
@@ -291,6 +294,13 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 DirgeGale::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // spiders
+        event.register(WLEntities.CAVE_SPIDER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                CaveSpider::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // wolves

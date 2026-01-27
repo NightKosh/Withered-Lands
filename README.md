@@ -163,6 +163,12 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /summon withered_lands:dirge_gale ~ ~ ~ {NoAI:1b}
     ```
 
+### Spiders spawn:
+1. Cave spider
+    ```
+        /summon withered_lands:cave_spider ~ ~ ~ {NoAI:1b}
+    ```
+
 ### Giants spawn:
 1. Hill giant
     ```

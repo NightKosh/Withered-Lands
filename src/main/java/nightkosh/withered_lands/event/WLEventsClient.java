@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.event;
 
+import net.minecraft.client.renderer.entity.CaveSpiderRenderer;
 import net.minecraft.client.renderer.entity.RabbitRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
@@ -87,6 +88,8 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.BLIZZARD.get(), BlizzardRenderer::new);
         event.registerEntityRenderer(WLEntities.SAND_DEVIL.get(), SandDevilRenderer::new);
         event.registerEntityRenderer(WLEntities.DIRGE_GALE.get(), DirgeGaleRenderer::new);
+        // spiders
+        event.registerEntityRenderer(WLEntities.CAVE_SPIDER.get(), CaveSpiderRenderer::new);
         // wolves
         event.registerEntityRenderer(WLEntities.SKELETON_DOG.get(), SkeletonDogRenderer::new);
         event.registerEntityRenderer(WLEntities.ZOMBIE_DOG.get(), ZombieDogRenderer::new);
