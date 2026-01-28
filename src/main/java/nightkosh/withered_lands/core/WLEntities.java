@@ -182,7 +182,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<FlyingFox>> FLYING_FOX =
             ENTITY_TYPES_REGISTER.register("flying_fox",
                     () -> EntityType.Builder.of(FlyingFox::new, MobCategory.MONSTER)
-                            .sized(1F, 1.8F)
+                            .sized(1.5F, 2.7F)
                             .eyeHeight(0.9F)
                             .notInPeaceful()
                             .build(ResourceKey.create(

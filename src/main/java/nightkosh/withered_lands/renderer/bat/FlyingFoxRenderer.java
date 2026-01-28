@@ -24,7 +24,7 @@ public class FlyingFoxRenderer extends HostileBatRender {
 
     @Override
     protected void scale(BatRenderState state, PoseStack poseStack) {
-        poseStack.scale(2, 2, 2);
+        poseStack.scale(3, 3, 3);
     }
 
     @Override

@@ -25,7 +25,7 @@ public class FlyingFox extends AHostileBat {
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 12)
+                .add(Attributes.MAX_HEALTH, 15)
                 .add(Attributes.FOLLOW_RANGE, 30)
                 .add(Attributes.ATTACK_DAMAGE, 3)
                 .build();
