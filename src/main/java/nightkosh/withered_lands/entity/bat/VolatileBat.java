@@ -59,7 +59,7 @@ public class VolatileBat extends AHostileBat {
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 1)
+                .add(Attributes.MAX_HEALTH, 2)
                 .add(Attributes.FOLLOW_RANGE, 30)
                 .add(Attributes.ATTACK_DAMAGE, 0.5)
                 .build();

@@ -212,7 +212,7 @@ public abstract class AHostileBat extends AMonster {
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 2)
+                .add(Attributes.MAX_HEALTH, 3)
                 .add(Attributes.FOLLOW_RANGE, 30)
                 .add(Attributes.ATTACK_DAMAGE, 0.5)
                 .build();
