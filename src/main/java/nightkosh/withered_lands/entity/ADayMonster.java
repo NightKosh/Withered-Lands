@@ -1,6 +1,7 @@
 package nightkosh.withered_lands.entity;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -29,11 +30,10 @@ public abstract class ADayMonster extends AMonster {
         return true;
     }
 
-    public static boolean checkCommonSpawnRules(
-            ServerLevelAccessor levelAccessor, EntitySpawnReason spawnReason, BlockPos pos) {
-        return levelAccessor.getDifficulty() != Difficulty.PEACEFUL &&
+    public static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
+        return level.getDifficulty() != Difficulty.PEACEFUL &&
                 // surface light level should be ignored
-                levelAccessor.getBrightness(LightLayer.BLOCK, pos) == 0;
+                level.getBrightness(LightLayer.BLOCK, pos) == 0;
     }
 
 }

@@ -55,7 +55,7 @@ public class SandDevil extends ABreeze {
             EntityType<? extends ABreeze> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.SAND_DEVIL_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos);
+                checkBreezeSpawnRules(levelAccessor, blockPos, random);
     }
 
 }

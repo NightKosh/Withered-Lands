@@ -18,7 +18,6 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.level.Level;
@@ -26,6 +25,7 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import nightkosh.withered_lands.entity.ADayMonster;
 import nightkosh.withered_lands.entity.ai.breeze.BreezeAi;
 import nightkosh.withered_lands.entity.projectile.AWindCharge;
 import org.jspecify.annotations.Nullable;
@@ -39,7 +39,8 @@ import java.util.Optional;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class ABreeze extends Monster {
+public abstract class ABreeze extends ADayMonster {
+
     private static final int SLIDE_PARTICLES_AMOUNT = 20;
     private static final int IDLE_PARTICLES_AMOUNT = 1;
     private static final int JUMP_TRAIL_PARTICLES_AMOUNT = 3;
@@ -319,11 +320,10 @@ public abstract class ABreeze extends Monster {
 
     protected abstract ParticleOptions getParticle();
 
-    protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos) {
-        return level.getDifficulty() != Difficulty.PEACEFUL &&
+    protected static boolean checkBreezeSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
+        return checkCommonSpawnRules(level, pos, random) &&
                 (level.getLevel().isRaining() || level.getLevel().isThundering()) &&
-                level.canSeeSky(pos) &&
-                level.getBrightness(LightLayer.BLOCK, pos) == 0;
+                level.canSeeSky(pos);
     }
 
 }

@@ -4,14 +4,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -52,14 +50,10 @@ public class DirgeGale extends ABreeze {
     public static boolean checkSpawnRules(
             EntityType<? extends ABreeze> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.DIRGE_GALE_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random);
-    }
-
-    protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL &&
-                level.getBrightness(LightLayer.BLOCK, pos) == 0 &&
-                false;//TODO
+        if (WLConfigs.DIRGE_GALE_SPAWN.get()) {
+            checkBreezeSpawnRules(levelAccessor, blockPos, random);
+        }
+        return false;
     }
 
     public static AttributeSupplier createAttributeSupplier() {

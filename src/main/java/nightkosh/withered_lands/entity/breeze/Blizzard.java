@@ -82,7 +82,7 @@ public class Blizzard extends ABreeze {
             EntityType<? extends ABreeze> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.BLIZZARD_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos);
+                checkBreezeSpawnRules(levelAccessor, blockPos, random);
     }
 
 }
