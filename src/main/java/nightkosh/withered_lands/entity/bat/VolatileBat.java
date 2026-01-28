@@ -45,14 +45,15 @@ public class VolatileBat extends AHostileBat {
     }
 
     @Override
-    public void die(@Nonnull DamageSource damageSource) {
-        super.die(damageSource);
+    protected void applyEffect(LivingEntity entity) {
         this.explode();
+        this.discard();
     }
 
     private void explode() {
         if (this.level() instanceof ServerLevel serverlevel) {
-            serverlevel.explode(this, this.getX(), this.getY(), this.getZ(), EXPLOSION_RADIUS, Level.ExplosionInteraction.MOB);
+            serverlevel.explode(this, this.getX(), this.getY(), this.getZ(),
+                    EXPLOSION_RADIUS, Level.ExplosionInteraction.MOB);
         }
     }
 
