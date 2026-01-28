@@ -243,7 +243,7 @@ public class GiantFrog extends ADayMonster {
             EntityType<? extends GiantFrog> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.GIANT_FROG_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, spawnReason, blockPos) &&
+                checkCommonSpawnRules(levelAccessor, blockPos, random) &&
                 levelAccessor.canSeeSky(blockPos.above());
     }
 
