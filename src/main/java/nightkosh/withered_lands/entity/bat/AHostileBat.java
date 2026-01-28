@@ -126,14 +126,6 @@ public abstract class AHostileBat extends AMonster {
         return false;
     }
 
-    public static AttributeSupplier createAttributeSupplier() {
-        return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 6)
-                .add(Attributes.FOLLOW_RANGE, 30)
-                .add(Attributes.ATTACK_DAMAGE, 0.5)
-                .build();
-    }
-
     public boolean isResting() {
         return (this.entityData.get(HANGING_FLAG) & 1) != 0;
     }
@@ -216,6 +208,14 @@ public abstract class AHostileBat extends AMonster {
 
     public void setTargetPosition(BlockPos pos) {
         this.targetPosition = pos;
+    }
+
+    public static AttributeSupplier createAttributeSupplier() {
+        return Mob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 2)
+                .add(Attributes.FOLLOW_RANGE, 30)
+                .add(Attributes.ATTACK_DAMAGE, 0.5)
+                .build();
     }
 
 }

@@ -5,17 +5,15 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
-
-import javax.annotation.Nonnull;
 
 /**
  * Withered Lands
@@ -60,7 +58,7 @@ public class VolatileBat extends AHostileBat {
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 3)
+                .add(Attributes.MAX_HEALTH, 1)
                 .add(Attributes.FOLLOW_RANGE, 30)
                 .add(Attributes.ATTACK_DAMAGE, 0.5)
                 .build();
