@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import nightkosh.withered_lands.entity.Illusioner;
 import nightkosh.withered_lands.entity.KillerBunny;
 import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
@@ -589,6 +590,19 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "possessed_armor"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<Illusioner>> ILLUSIONER =
+            ENTITY_TYPES_REGISTER.register("illusioner",
+                    () -> EntityType.Builder.of(Illusioner::new, MobCategory.MONSTER)
+                            .passengerAttachments(2.0F)
+                            .sized(0.6F, 1.95F)
+                            .clientTrackingRange(8)
+                            .ridingOffset(-0.6F)
+                            .eyeHeight(1.80F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "illusioner"))));
 
     public static final DeferredHolder<EntityType<?>, EntityType<KillerBunny>> KILLER_BUNNY =
             ENTITY_TYPES_REGISTER.register("killer_bunny",

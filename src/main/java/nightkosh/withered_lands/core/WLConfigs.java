@@ -86,6 +86,7 @@ public class WLConfigs {
 
     // other mobs
     public static ModConfigSpec.ConfigValue<Boolean> POSSESSED_ARMOR_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> ILLUSIONER_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> KILLER_BUNNY_SPAWN;
 
     // other
@@ -171,6 +172,7 @@ public class WLConfigs {
 
         // other mobs
         POSSESSED_ARMOR_SPAWN = BUILDER.define("Possessed Armors Spawn", true);
+        ILLUSIONER_SPAWN = BUILDER.define("Illusioners Spawn", true);
         KILLER_BUNNY_SPAWN = BUILDER.define("Killer Bunnies Spawn", true);
 
         // other

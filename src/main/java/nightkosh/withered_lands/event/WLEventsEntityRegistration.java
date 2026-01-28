@@ -9,6 +9,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.entity.Illusioner;
 import nightkosh.withered_lands.entity.KillerBunny;
 import nightkosh.withered_lands.entity.PossessedArmor;
 import nightkosh.withered_lands.entity.bat.*;
@@ -113,6 +114,7 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.FROZEN_GIANT.get(), FrozenGiant.createAttributeSupplier());
         // other
         event.put(WLEntities.POSSESSED_ARMOR.get(), PossessedArmor.createAttributeSupplier());
+        event.put(WLEntities.ILLUSIONER.get(), Illusioner.createAttributes().build());
         event.put(WLEntities.KILLER_BUNNY.get(), Rabbit.createAttributes().build());
     }
 
@@ -425,6 +427,12 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PossessedArmor::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.ILLUSIONER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Illusioner::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.KILLER_BUNNY.get(),

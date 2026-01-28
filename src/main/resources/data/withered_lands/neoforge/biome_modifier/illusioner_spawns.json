@@ -3,7 +3,7 @@
   "biomes": "#minecraft:is_overworld",
   "spawners": [
     {
-      "type": "minecraft:illusioner",
+      "type": "withered_lands:illusioner",
       "weight": 7,
       "minCount": 1,
       "maxCount": 1

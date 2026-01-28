@@ -351,7 +351,7 @@ public class WLItems {
             "illusioner_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "illusioner_spawn_egg")))
-                    .spawnEgg(EntityType.ILLUSIONER)));
+                    .spawnEgg(WLEntities.ILLUSIONER.get())));
 
     public static final DeferredHolder<Item, Item> KILLER_BUNNY_EGG = ITEMS_REGISTER.register(
             "killer_bunny_spawn_egg",

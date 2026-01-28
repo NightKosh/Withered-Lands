@@ -264,7 +264,11 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:possessed_armor ~ ~ ~ {NoAI:1b}
     ```
-2. Killer bunny
+2. Illusioner
+    ```
+        /summon withered_lands:illusioner ~ ~ ~ {NoAI:1b}
+    ```
+3. Killer bunny
     ```
         /summon withered_lands:killer_bunny ~ ~ ~ {NoAI:1b}
     ```
