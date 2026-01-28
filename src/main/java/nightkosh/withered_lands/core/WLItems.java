@@ -78,6 +78,12 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "abyssal_slime_spawn_egg")))
                     .spawnEgg(WLEntities.ABYSSAL_SLIME.get())));
 
+    public static final DeferredHolder<Item, Item> TOXIC_SLUDGE_EGG = ITEMS_REGISTER.register(
+            "toxic_sludge_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "toxic_sludge_spawn_egg")))
+                    .spawnEgg(WLEntities.TOXIC_SLUDGE.get())));
+
     public static final DeferredHolder<Item, Item> MOLTEN_SLIME_EGG = ITEMS_REGISTER.register(
             "molten_slime_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()

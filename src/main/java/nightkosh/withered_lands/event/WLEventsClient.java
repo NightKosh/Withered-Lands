@@ -64,6 +64,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.JUNGLE_SLIME.get(), JungleSlimeRenderer::new);
         event.registerEntityRenderer(WLEntities.CAVE_SLIME.get(), CaveSlimeRenderer::new);
         event.registerEntityRenderer(WLEntities.ABYSSAL_SLIME.get(), AbyssalSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.TOXIC_SLUDGE.get(), ToxicSludgeRenderer::new);
         event.registerEntityRenderer(WLEntities.MOLTEN_SLIME.get(), MoltenSlimeRenderer::new);
         // bats
         event.registerEntityRenderer(WLEntities.CAVE_BAT.get(), CaveBatRenderer::new);

@@ -58,6 +58,7 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.JUNGLE_SLIME.get(), JungleSlime.createAttributeSupplier());
         event.put(WLEntities.CAVE_SLIME.get(), CaveSlime.createAttributeSupplier());
         event.put(WLEntities.ABYSSAL_SLIME.get(), AbyssalSlime.createAttributeSupplier());
+        event.put(WLEntities.TOXIC_SLUDGE.get(), ToxicSludge.createAttributeSupplier());
         event.put(WLEntities.MOLTEN_SLIME.get(), MoltenSlime.createAttributeSupplier());
         // bats
         event.put(WLEntities.CAVE_BAT.get(), CaveBat.createAttributeSupplier());
@@ -161,6 +162,12 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 AbyssalSlime::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.TOXIC_SLUDGE.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                ToxicSludge::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.MOLTEN_SLIME.get(),

@@ -29,6 +29,8 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> JUNGLE_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ABYSSAL_SLIME_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_CORROSION;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_LAVA;
 
@@ -116,6 +118,8 @@ public class WLConfigs {
         JUNGLE_SLIME_SPAWN = BUILDER.define("Jungle Slimes Spawn", true);
         CAVE_SLIME_SPAWN = BUILDER.define("Cave Slimes Spawn", true);
         ABYSSAL_SLIME_SPAWN = BUILDER.define("Abyssal Slimes Spawn", true);
+        TOXIC_SLUDGE_SPAWN = BUILDER.define("Toxic Sludges Spawn", true);
+        TOXIC_SLUDGE_CORROSION = BUILDER.define("Toxic Sludges Replace blocks", true);
         MOLTEN_SLIME_SPAWN = BUILDER.define("Molten Slimes Spawn", true);
         MOLTEN_SLIME_LAVA = BUILDER.define("Molten Slimes Create LAVA at death", true);
 

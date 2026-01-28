@@ -135,6 +135,17 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "abyssal_slime"))));
 
+    public static final DeferredHolder<EntityType<?>, EntityType<ToxicSludge>> TOXIC_SLUDGE =
+            ENTITY_TYPES_REGISTER.register("toxic_sludge",
+                    () -> EntityType.Builder.of(ToxicSludge::new, MobCategory.MONSTER)
+                            .sized(0.52F, 0.52F)
+                            .spawnDimensionsScale(4.0F)
+                            .eyeHeight(0.325F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "toxic_sludge"))));
+
     public static final DeferredHolder<EntityType<?>, EntityType<MoltenSlime>> MOLTEN_SLIME =
             ENTITY_TYPES_REGISTER.register("molten_slime",
                     () -> EntityType.Builder.of(MoltenSlime::new, MobCategory.MONSTER)

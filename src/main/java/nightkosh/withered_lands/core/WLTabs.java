@@ -38,6 +38,7 @@ public class WLTabs {
                         output.accept(WLItems.JUNGLE_SLIME_EGG.get());
                         output.accept(WLItems.CAVE_SLIME_EGG.get());
                         output.accept(WLItems.ABYSSAL_SLIME_EGG.get());
+                        output.accept(WLItems.TOXIC_SLUDGE_EGG.get());
                         output.accept(WLItems.MOLTEN_SLIME_EGG.get());
                         // bats
                         output.accept(WLItems.CAVE_BAT_EGG.get());

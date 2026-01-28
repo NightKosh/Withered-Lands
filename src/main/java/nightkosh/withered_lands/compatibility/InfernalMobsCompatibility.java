@@ -49,6 +49,7 @@ public class InfernalMobsCompatibility {
                 classesAllowedMap.put(JungleSlime.class.getSimpleName(), false);
                 classesAllowedMap.put(CaveSlime.class.getSimpleName(), false);
                 classesAllowedMap.put(AbyssalSlime.class.getSimpleName(), false);
+                classesAllowedMap.put(ToxicSludge.class.getSimpleName(), false);
                 classesAllowedMap.put(MoltenSlime.class.getSimpleName(), false);
 
                 classesAllowedMap.put(CaveBat.class.getSimpleName(), false);
