@@ -50,10 +50,9 @@ public class DirgeGale extends ABreeze {
     public static boolean checkSpawnRules(
             EntityType<? extends ABreeze> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        if (WLConfigs.DIRGE_GALE_SPAWN.get()) {
-            checkBreezeSpawnRules(levelAccessor, blockPos, random);
-        }
-        return false;
+        return WLConfigs.DIRGE_GALE_SPAWN.get() &&
+                checkBreezeSpawnRules(levelAccessor, blockPos, random) &&
+                false;
     }
 
     public static AttributeSupplier createAttributeSupplier() {
