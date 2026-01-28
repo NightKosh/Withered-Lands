@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "has_my_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bucket",
+              "minecraft:water_bucket",
+              "minecraft:powder_snow_bucket"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "withered_lands:snow_to_water_smoking",
+      "withered_lands:snow_to_water_smelting",
+      "withered_lands:snow_to_water_campfire"
+    ]
+  }
+}
