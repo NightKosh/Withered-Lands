@@ -24,6 +24,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> VERDANT_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> SANDY_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> FROZEN_SLIME_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> FROZEN_SLIME_SNOW;
     public static ModConfigSpec.ConfigValue<Boolean> MUD_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> JUNGLE_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_SLIME_SPAWN;
@@ -110,12 +111,13 @@ public class WLConfigs {
         VERDANT_SLIME_SPAWN = BUILDER.define("Verdant Slimes Spawn", true);
         SANDY_SLIME_SPAWN = BUILDER.define("Sandy Slimes Spawn", true);
         FROZEN_SLIME_SPAWN = BUILDER.define("Frozen Slimes Spawn", true);
+        FROZEN_SLIME_SNOW = BUILDER.define("Frozen Slimes Create Powder Snow block at death", true);
         MUD_SLIME_SPAWN = BUILDER.define("Mud Slimes Spawn", true);
         JUNGLE_SLIME_SPAWN = BUILDER.define("Jungle Slimes Spawn", true);
         CAVE_SLIME_SPAWN = BUILDER.define("Cave Slimes Spawn", true);
         ABYSSAL_SLIME_SPAWN = BUILDER.define("Abyssal Slimes Spawn", true);
         MOLTEN_SLIME_SPAWN = BUILDER.define("Molten Slimes Spawn", true);
-        MOLTEN_SLIME_LAVA = BUILDER.define("Molten Slimes Create LAVA", true);
+        MOLTEN_SLIME_LAVA = BUILDER.define("Molten Slimes Create LAVA at death", true);
 
         // bats
         CAVE_BAT_SPAWN = BUILDER.define("Cave Bats Spawn", true);
