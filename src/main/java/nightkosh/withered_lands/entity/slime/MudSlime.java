@@ -1,6 +1,7 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -16,6 +17,8 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -35,6 +38,19 @@ public class MudSlime extends ASlime {
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
         entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_20), this);
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.level() instanceof ServerLevel level && EventHooks.canEntityGrief(level, this)) {
+            var blockstate = Blocks.MUD.defaultBlockState();
+            var blockpos = this.blockPosition().below();
+            if (this.level().getBlockState(blockpos).is(Blocks.DIRT)) {
+                this.level().setBlockAndUpdate(blockpos, blockstate);
+                this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
+            }
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {
