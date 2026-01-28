@@ -1,23 +1,19 @@
 package nightkosh.withered_lands.entity;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ConversionParams;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.neoforged.neoforge.event.EventHooks;
-
-import javax.annotation.Nonnull;
 
 /**
  * Withered Lands
@@ -25,7 +21,7 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class AUndeadPet extends Monster {
+public abstract class AUndeadPet extends AMonster {
 
     public AUndeadPet(EntityType<? extends AUndeadPet> entityType, Level level) {
         super(entityType, level);
@@ -39,23 +35,6 @@ public abstract class AUndeadPet extends Monster {
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
-    }
-
-    @Override
-    public boolean doHurtTarget(@Nonnull ServerLevel level, @Nonnull Entity entity) {
-        if (!super.doHurtTarget(level, entity)) {
-            return false;
-        } else {
-            if (entity instanceof LivingEntity living) {
-                applyEffect(living);
-            }
-
-            return true;
-        }
-    }
-
-    protected void applyEffect(LivingEntity entity) {
-
     }
 
     protected boolean convertToZombie(ServerLevel level, Mob pet, EntityType<? extends AUndeadPet> entityType) {
@@ -76,11 +55,6 @@ public abstract class AUndeadPet extends Monster {
                 }
         );
         return zombie != null;
-    }
-
-    protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL &&
-                isDarkEnoughToSpawn(level, pos, random);
     }
 
 }

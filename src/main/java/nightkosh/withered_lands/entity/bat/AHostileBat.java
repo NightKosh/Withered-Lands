@@ -8,8 +8,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
@@ -21,15 +19,14 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 import nightkosh.withered_lands.core.WLMobEffects;
+import nightkosh.withered_lands.entity.AMonster;
 import nightkosh.withered_lands.entity.ai.BatAiStep;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -42,7 +39,7 @@ import javax.annotation.Nullable;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class AHostileBat extends Monster {
+public abstract class AHostileBat extends AMonster {
 
     public static final float TICKS_PER_FLAP = 10;
 
@@ -74,11 +71,6 @@ public abstract class AHostileBat extends Monster {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
-    protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL &&
-                isDarkEnoughToSpawn(level, pos, random);
-    }
-
     @Override
     protected void customServerAiStep(@Nonnull ServerLevel level) {
         super.customServerAiStep(level);
@@ -86,18 +78,6 @@ public abstract class AHostileBat extends Monster {
     }
 
     @Override
-    public boolean doHurtTarget(@Nonnull ServerLevel level, @Nonnull Entity entity) {
-        if (!super.doHurtTarget(level, entity)) {
-            return false;
-        } else {
-            if (entity instanceof LivingEntity living) {
-                applyEffect(living);
-            }
-
-            return true;
-        }
-    }
-
     protected void applyEffect(LivingEntity entity) {
         entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_30), this);
     }

@@ -3,7 +3,6 @@ package nightkosh.withered_lands.entity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
@@ -34,12 +33,7 @@ public class Illusioner extends net.minecraft.world.entity.monster.illager.Illus
             EntityType<? extends Illusioner> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.ILLUSIONER_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random);
-    }
-
-    private static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL &&
-                isDarkEnoughToSpawn(level, pos, random);
+                AMonster.checkCommonSpawnRules(levelAccessor, blockPos, random);
     }
 
 }

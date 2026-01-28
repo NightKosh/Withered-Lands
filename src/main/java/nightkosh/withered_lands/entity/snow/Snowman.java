@@ -6,7 +6,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -30,6 +29,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.entity.AMonster;
 import nightkosh.withered_lands.entity.projectile.FrozenSnowball;
 import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
@@ -42,7 +42,7 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class Snowman extends Monster implements RangedAttackMob {
+public class Snowman extends AMonster implements RangedAttackMob {
 
     public Snowman(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
@@ -126,18 +126,6 @@ public class Snowman extends Monster implements RangedAttackMob {
     }
 
     @Override
-    public boolean doHurtTarget(@Nonnull ServerLevel level, @Nonnull Entity entity) {
-        if (!super.doHurtTarget(level, entity)) {
-            return false;
-        } else {
-            if (entity instanceof LivingEntity living) {
-                applyEffect(living);
-            }
-
-            return true;
-        }
-    }
-
     protected void applyEffect(LivingEntity entity) {
         entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_10);
     }
@@ -155,12 +143,8 @@ public class Snowman extends Monster implements RangedAttackMob {
             EntityType<? extends Snowman> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.SNOWMAN_SPAWN.get() &&
+                levelAccessor.canSeeSky(blockPos.above()) &&
                 checkCommonSpawnRules(levelAccessor, blockPos, random);
-    }
-
-    private static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL && level.canSeeSky(pos.above()) &&
-                isDarkEnoughToSpawn(level, pos, random);
     }
 
 }

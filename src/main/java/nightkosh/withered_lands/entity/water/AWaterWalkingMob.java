@@ -1,14 +1,16 @@
 package nightkosh.withered_lands.entity.water;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -17,7 +19,6 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
+import nightkosh.withered_lands.entity.AMonster;
 import nightkosh.withered_lands.entity.ai.GoToBeachGoal;
 import nightkosh.withered_lands.entity.ai.GoToWaterGoal;
 import nightkosh.withered_lands.entity.ai.SwimUpGoal;
@@ -40,7 +42,7 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class AWaterWalkingMob extends Monster {
+public abstract class AWaterWalkingMob extends AMonster {
 
     public boolean searchingForLand;
 
@@ -73,23 +75,6 @@ public abstract class AWaterWalkingMob extends Monster {
         return new AmphibiousPathNavigation(this, level);
     }
 
-    @Override
-    public boolean doHurtTarget(@Nonnull ServerLevel level, @Nonnull Entity entity) {
-        if (!super.doHurtTarget(level, entity)) {
-            return false;
-        } else {
-            if (entity instanceof LivingEntity living) {
-                applyEffect(living);
-            }
-
-            return true;
-        }
-    }
-
-    protected void applyEffect(LivingEntity entity) {
-
-    }
-
     public boolean closeToNextPos() {
         var path = this.getNavigation().getPath();
         if (path != null) {
@@ -104,10 +89,6 @@ public abstract class AWaterWalkingMob extends Monster {
 
     public void setSearchingForLand(boolean searchingForLand) {
         this.searchingForLand = searchingForLand;
-    }
-
-    protected static boolean isDeepEnoughToSpawn(LevelAccessor levelAccessor, BlockPos blockPos) {
-        return blockPos.getY() < levelAccessor.getSeaLevel() - 1;
     }
 
     @Override
@@ -212,6 +193,10 @@ public abstract class AWaterWalkingMob extends Monster {
                 return true;
             }
         }
+    }
+
+    protected static boolean isDeepEnoughToSpawn(LevelAccessor levelAccessor, BlockPos blockPos) {
+        return blockPos.getY() < levelAccessor.getSeaLevel() - 1;
     }
 
 }
