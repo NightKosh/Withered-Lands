@@ -31,7 +31,7 @@ public class DrownedSailor extends AWaterWalkingMob {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.CALL_OF_THE_ABYSS, TimeHelper.SECONDS_20), this);
+        entity.addEffect(new MobEffectInstance(WLMobEffects.CALL_OF_THE_ABYSS, TimeHelper.SECONDS_15), this);
     }
 
     @Override
