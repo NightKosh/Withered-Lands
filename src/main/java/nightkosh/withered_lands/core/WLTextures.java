@@ -34,13 +34,21 @@ public final class WLTextures {
     public static final Identifier MOLTEN_SLIME_INNER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/slime/molten/inner.png");
     // bats
     public static final Identifier CAVE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/cave.png");
+    public static final Identifier CAVE_BAT_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/cave_eyes.png");
     public static final Identifier VAMPIRE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire.png");
+    public static final Identifier VAMPIRE_BAT_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/vampire_eyes.png");
     public static final Identifier ICE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/ice.png");
+    public static final Identifier ICE_BAT_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/ice_eyes.png");
     public static final Identifier FLYING_FOX = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/fox.png");
+    public static final Identifier FLYING_FOX_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/fox_eyes.png");
     public static final Identifier BLAZING_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/blazing.png");
+    public static final Identifier BLAZING_BAT_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/blazing_eyes.png");
     public static final Identifier WITHERED_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/withered.png");
+    public static final Identifier WITHERED_BAT_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/withered_eyes.png");
     public static final Identifier VOLATILE_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/volatile.png");
+    public static final Identifier VOLATILE_BAT_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/volatile_eyes.png");
     public static final Identifier CHORUS_BAT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/chorus.png");
+    public static final Identifier CHORUS_BAT_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/bat/chorus_eyes.png");
     // crawlers
     public static final Identifier SKELETON_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/skeleton.png");
     public static final Identifier STRAY_SKULL_CRAWLER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/crawler/stray.png");

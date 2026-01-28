@@ -17,6 +17,7 @@ public abstract class HostileBatRender extends MobRenderer<AHostileBat, BatRende
 
     public HostileBatRender(EntityRendererProvider.Context context) {
         super(context, new BatModel(context.bakeLayer(ModelLayers.BAT)), 0.25F);
+        this.addLayer(getEyesLayer());
     }
 
     @Override
@@ -31,5 +32,7 @@ public abstract class HostileBatRender extends MobRenderer<AHostileBat, BatRende
     public BatRenderState createRenderState() {
         return new BatRenderState();
     }
+
+    protected abstract BatEyesLayer getEyesLayer();
 
 }

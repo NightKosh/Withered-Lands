@@ -2,7 +2,10 @@ package nightkosh.withered_lands.renderer.bat;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.BatRenderState;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.resources.Identifier;
+import nightkosh.withered_lands.core.WLTextures;
 
 import javax.annotation.Nonnull;
 
@@ -16,14 +19,21 @@ import static nightkosh.withered_lands.core.WLTextures.VOLATILE_BAT;
  */
 public class VolatileBatRenderer extends HostileBatRender {
 
+    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.VOLATILE_BAT_EYES);
+
     public VolatileBatRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
-    @Override
     @Nonnull
+    @Override
     public Identifier getTextureLocation(@Nonnull BatRenderState batRenderState) {
         return VOLATILE_BAT;
+    }
+
+    @Override
+    protected BatEyesLayer getEyesLayer() {
+        return new BatEyesLayer(this, BAT_EYES);
     }
 
 }
