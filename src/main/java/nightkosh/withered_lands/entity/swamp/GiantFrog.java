@@ -20,15 +20,14 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.entity.ADayMonster;
 import nightkosh.withered_lands.entity.ai.GiantFrogAi;
 import nightkosh.withered_lands.entity.ai.look_control.FrogLC;
 import nightkosh.withered_lands.entity.ai.navigation.GiantFrogPathNavigation;
@@ -45,7 +44,7 @@ import java.util.OptionalInt;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class GiantFrog extends Monster {
+public class GiantFrog extends ADayMonster {
 
     private static final EntityDataAccessor<OptionalInt> DATA_TONGUE_TARGET_ID = SynchedEntityData.defineId(
             GiantFrog.class, EntityDataSerializers.OPTIONAL_UNSIGNED_INT
@@ -229,11 +228,6 @@ public class GiantFrog extends Monster {
         this.playSound(SoundEvents.FROG_STEP, 0.15F, 1);
     }
 
-    @Override
-    public boolean checkSpawnRules(@Nonnull LevelAccessor levelAccessor, @Nonnull EntitySpawnReason spawnReason) {
-        return true;
-    }
-
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MOVEMENT_SPEED, 1)
@@ -249,15 +243,8 @@ public class GiantFrog extends Monster {
             EntityType<? extends GiantFrog> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.GIANT_FROG_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, spawnReason, blockPos);
-    }
-
-    public static boolean checkCommonSpawnRules(
-            ServerLevelAccessor levelAccessor, EntitySpawnReason spawnReason, BlockPos pos) {
-        return EntitySpawnReason.isSpawner(spawnReason) ||
-                levelAccessor.getDifficulty() != Difficulty.PEACEFUL &&
-                        levelAccessor.getBrightness(LightLayer.BLOCK, pos) == 0 &&
-                        levelAccessor.canSeeSky(pos.above());
+                checkCommonSpawnRules(levelAccessor, spawnReason, blockPos) &&
+                levelAccessor.canSeeSky(blockPos.above());
     }
 
 }
