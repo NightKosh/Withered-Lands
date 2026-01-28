@@ -1,6 +1,8 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -16,6 +18,8 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -29,6 +33,26 @@ public class JungleSlime extends ASlime {
 
     public JungleSlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.level() instanceof ServerLevel level && EventHooks.canEntityGrief(level, this)) {
+            var blockstate = Blocks.MOSS_CARPET.defaultBlockState();
+            for (int i = 0; i < 4; i++) {
+                var blockpos = new BlockPos(
+                        Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
+                        Mth.floor(this.getY()),
+                        Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
+                if (this.level().getBlockState(blockpos).isAir() &&
+                        blockstate.canSurvive(this.level(), blockpos) &&
+                        this.level().getBlockState(this.blockPosition().below()).isSolidRender()) {
+                    this.level().setBlockAndUpdate(blockpos, blockstate);
+                    this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
+                }
+            }
+        }
     }
 
     @Override
