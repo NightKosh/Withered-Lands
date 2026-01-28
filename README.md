@@ -98,7 +98,7 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:withered_bat ~ ~ ~ {NoAI:1b}
     ```
-7. Blazing bat
+7. Volatile bat
     ```
         /summon withered_lands:volatile_bat ~ ~ ~ {NoAI:1b}
     ```
