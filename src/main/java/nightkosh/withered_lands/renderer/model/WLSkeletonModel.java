@@ -42,7 +42,7 @@ public class WLSkeletonModel<S extends SkeletonRenderState> extends SkeletonMode
         skull.addOrReplaceChild(
                 "teeth",
                 CubeListBuilder.create()
-                        .texOffs(54, 28)
+                        .texOffs(54, 30)
                         .addBox(0, 0, 0, 4, 1, 1),
                 PartPose.offset(-2F, -1F, -4F));
 
