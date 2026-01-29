@@ -7,6 +7,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.mob_effect.BleedingEffect;
 import nightkosh.withered_lands.mob_effect.CallOfTheAbyssEffect;
+import nightkosh.withered_lands.mob_effect.RustEffect;
 
 /**
  * Withered Lands
@@ -24,6 +25,9 @@ public class WLMobEffects {
 
     public static final DeferredHolder<MobEffect, MobEffect> CALL_OF_THE_ABYSS =
             EFFECTS.register("call_of_the_abyss", CallOfTheAbyssEffect::new);
+
+    public static final DeferredHolder<MobEffect, MobEffect> RUST =
+            EFFECTS.register("rust", RustEffect::new);
 
 
     public static void register(IEventBus eventBus) {

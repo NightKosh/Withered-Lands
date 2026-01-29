@@ -1,6 +1,9 @@
 package nightkosh.withered_lands.compatibility;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -8,6 +11,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.fml.ModList;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
+import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
 /**
  * Withered Lands
@@ -15,11 +19,11 @@ import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class GravestoneExtendedCompatibility  {
+public class GravestoneExtendedCompatibility {
 
     public static final String MOD_ID = "gravestone_extended";
 
-    // items
+    // blocks
     public static final Block PILE_OF_BONES = getBlock("pile_of_bones");
     public static final Block PILE_OF_BONES_SKULL_SKELETON_CRAWLER = getBlock("pile_of_bones_skull_skeleton_crawler");
     public static final Block PILE_OF_BONES_SKULL_STRAY_CRAWLER = getBlock("pile_of_bones_skull_stray_crawler");
@@ -52,6 +56,9 @@ public class GravestoneExtendedCompatibility  {
     public static final Block BONE_BLOCK_PIGLIN_CRAWLER = getBlock("bone_block_piglin_crawler");
     public static final Block BONE_BLOCK_SKULL_PIGLIN_CRAWLER = getBlock("bone_block_skull_piglin_crawler");
 
+    // effects
+    public static final Identifier BONE_SKIN = fromNamespaceAndPath(MOD_ID, "bone_skin");
+
     private static Item getItem(String id) {
         var holder = BuiltInRegistries.ITEM.get(fromNamespaceAndPath(MOD_ID, id));
         return holder.isPresent() ?
@@ -64,6 +71,15 @@ public class GravestoneExtendedCompatibility  {
         return holder.isPresent() ?
                 holder.get().value() :
                 Blocks.CAKE;
+    }
+
+    public static Holder.Reference<MobEffect> getBoneSkinEffect() {
+        var effect = BuiltInRegistries.MOB_EFFECT.get(BONE_SKIN);
+        if (!effect.isPresent()) {
+            LOGGER.info("Missing effect: " + BONE_SKIN);
+            return null;
+        }
+        return effect.get();
     }
 
     public static boolean loaded() {

@@ -9,6 +9,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,6 +24,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLMobEffects;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -40,8 +43,7 @@ public class ToxicSludge extends ASlime {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        //TODO
-//        entity.addEffect(new MobEffectInstance(MobEffects.RUST, 100), this);//GSPotion.RUST, 100
+        entity.addEffect(new MobEffectInstance(WLMobEffects.RUST, TimeHelper.SECONDS_5), this);
     }
 
     @Override
