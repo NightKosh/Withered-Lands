@@ -11,6 +11,7 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.monster.skeleton.Skeleton;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -28,9 +29,9 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class Skeleton extends net.minecraft.world.entity.monster.skeleton.Skeleton {
+public class WLSkeleton extends Skeleton {
 
-    public Skeleton(EntityType<? extends Skeleton> entityType, Level level) {
+    public WLSkeleton(EntityType<? extends WLSkeleton> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -80,7 +81,7 @@ public class Skeleton extends net.minecraft.world.entity.monster.skeleton.Skelet
     }
 
     public static boolean checkSpawnRules(
-            EntityType<? extends Skeleton> entityType, ServerLevelAccessor levelAccessor,
+            EntityType<? extends WLSkeleton> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.SKELETON_WITH_SWORD_SPAWN.get() &&
                 AMonster.checkCommonSpawnRules(levelAccessor, blockPos, random);

@@ -25,6 +25,7 @@ import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.core.WLMobEffects;
+import nightkosh.withered_lands.entity.WLSkeleton;
 import nightkosh.withered_lands.entity.crawler.ASkullCrawler;
 import nightkosh.withered_lands.helper.WLEnchantmentHelper;
 
@@ -44,7 +45,7 @@ public class WLEventsEntity {
         var entity = event.getEntity();
 
         if (WLConfigs.SKELETON_WITH_SWORD_SPAWN.get() && entity instanceof Skeleton &&
-                !(entity instanceof nightkosh.withered_lands.entity.Skeleton) &&
+                !(entity instanceof WLSkeleton) &&
                 entity.getRandom().nextInt(5) == 0) {//20% chance
             var level = event.getLevel();
             if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {

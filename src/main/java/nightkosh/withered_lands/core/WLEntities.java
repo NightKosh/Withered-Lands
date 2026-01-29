@@ -9,10 +9,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import nightkosh.withered_lands.entity.Illusioner;
+import nightkosh.withered_lands.entity.WLIllusioner;
 import nightkosh.withered_lands.entity.KillerBunny;
 import nightkosh.withered_lands.entity.PossessedArmor;
-import nightkosh.withered_lands.entity.Skeleton;
+import nightkosh.withered_lands.entity.WLSkeleton;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.breeze.Blizzard;
 import nightkosh.withered_lands.entity.breeze.DirgeGale;
@@ -603,9 +603,9 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "possessed_armor"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<Skeleton>> SKELETON =
+    public static final DeferredHolder<EntityType<?>, EntityType<WLSkeleton>> SKELETON =
             ENTITY_TYPES_REGISTER.register("skeleton",
-                    () -> EntityType.Builder.of(Skeleton::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(WLSkeleton::new, MobCategory.MONSTER)
                             .sized(0.6F, 1.99F)
                             .eyeHeight(1.74F)
                             .ridingOffset(-0.7F)
@@ -614,9 +614,9 @@ public class WLEntities {
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "skeleton"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<Illusioner>> ILLUSIONER =
+    public static final DeferredHolder<EntityType<?>, EntityType<WLIllusioner>> ILLUSIONER =
             ENTITY_TYPES_REGISTER.register("illusioner",
-                    () -> EntityType.Builder.of(Illusioner::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(WLIllusioner::new, MobCategory.MONSTER)
                             .passengerAttachments(2.0F)
                             .sized(0.6F, 1.95F)
                             .clientTrackingRange(8)

@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.illager.Illusioner;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -17,9 +18,9 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class Illusioner extends net.minecraft.world.entity.monster.illager.Illusioner {
+public class WLIllusioner extends Illusioner {
 
-    public Illusioner(EntityType<? extends Illusioner> entityType, Level level) {
+    public WLIllusioner(EntityType<? extends WLIllusioner> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -30,7 +31,7 @@ public class Illusioner extends net.minecraft.world.entity.monster.illager.Illus
     }
 
     public static boolean checkSpawnRules(
-            EntityType<? extends Illusioner> entityType, ServerLevelAccessor levelAccessor,
+            EntityType<? extends WLIllusioner> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.ILLUSIONER_SPAWN.get() &&
                 AMonster.checkCommonSpawnRules(levelAccessor, blockPos, random);
