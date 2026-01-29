@@ -38,8 +38,13 @@ public class DirgeGale extends ABreeze {
     }
 
     @Override
+    protected int getAmountPfBodyParticles() {
+        return 1;
+    }
+
+    @Override
     protected ParticleOptions getParticle() {
-        return ParticleTypes.SOUL_FIRE_FLAME;
+        return ParticleTypes.TRIAL_OMEN;
     }
 
     @Override
@@ -51,8 +56,7 @@ public class DirgeGale extends ABreeze {
             EntityType<? extends ABreeze> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.DIRGE_GALE_SPAWN.get() &&
-                checkBreezeSpawnRules(levelAccessor, blockPos, random) &&
-                false;//TODO
+                checkBreezeSpawnRules(levelAccessor, blockPos, random);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

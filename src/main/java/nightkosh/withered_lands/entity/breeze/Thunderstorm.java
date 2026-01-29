@@ -34,6 +34,11 @@ public class Thunderstorm extends ABreeze {
     }
 
     @Override
+    protected int getAmountPfBodyParticles() {
+        return 3;
+    }
+
+    @Override
     protected ParticleOptions getParticle() {
         return ParticleTypes.ELECTRIC_SPARK;
     }

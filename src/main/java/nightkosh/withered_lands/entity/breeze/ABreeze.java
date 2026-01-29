@@ -142,15 +142,19 @@ public abstract class ABreeze extends ADayMonster {
         }
 
         if (this.level().isClientSide()) {
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < getAmountPfBodyParticles(); i++) {
                 addParticle(getParticle(),
                         this.getX() + 0.5 - this.random.nextDouble(),
-                        this.getY() + 0.75 + this.random.nextDouble() * 0.5,
+                        this.getY() + 0.5 + this.random.nextDouble() * 0.75,
                         this.getZ() + 0.5 - this.random.nextDouble());
             }
         }
 
         super.tick();
+    }
+
+    protected int getAmountPfBodyParticles() {
+        return 2;
     }
 
     public @Nonnull ABreeze resetJumpTrail() {

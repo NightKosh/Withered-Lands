@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.renderer.breeze;
 
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.monster.breeze.BreezeModel;
@@ -17,12 +18,16 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class ABreezeRenderer extends MobRenderer<ABreeze, BreezeRenderState, BreezeModel> {
+public abstract class ABreezeRenderer extends MobRenderer<ABreeze, BreezeRenderState, EntityModel<BreezeRenderState>> {
 
     public ABreezeRenderer(EntityRendererProvider.Context context) {
-        super(context, new BreezeModel(context.bakeLayer(ModelLayers.BREEZE)), 0.5F);
+        this(context, new BreezeModel(context.bakeLayer(ModelLayers.BREEZE)), 0.5F);
         addWindLayer(this, context.getModelSet());
         addEyeLayer(this, context.getModelSet());
+    }
+
+    public ABreezeRenderer(EntityRendererProvider.Context context, EntityModel<BreezeRenderState> model, float shadowRadius) {
+        super(context, model, shadowRadius);
     }
 
     @Override

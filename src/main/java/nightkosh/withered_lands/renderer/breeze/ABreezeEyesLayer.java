@@ -1,6 +1,7 @@
 package nightkosh.withered_lands.renderer.breeze;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.monster.breeze.BreezeModel;
@@ -19,10 +20,10 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public abstract class ABreezeEyesLayer extends RenderLayer<BreezeRenderState, BreezeModel> {
+public abstract class ABreezeEyesLayer extends RenderLayer<BreezeRenderState, EntityModel<BreezeRenderState>> {
     private final BreezeModel model;
 
-    public ABreezeEyesLayer(RenderLayerParent<BreezeRenderState, BreezeModel> renderer, EntityModelSet modelSet) {
+    public ABreezeEyesLayer(RenderLayerParent<BreezeRenderState, EntityModel<BreezeRenderState>> renderer, EntityModelSet modelSet) {
         super(renderer);
         this.model = new BreezeModel(modelSet.bakeLayer(ModelLayers.BREEZE_EYES));
     }

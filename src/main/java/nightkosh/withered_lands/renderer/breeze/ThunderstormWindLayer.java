@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.renderer.breeze;
 
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.model.monster.breeze.BreezeModel;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
@@ -17,7 +18,7 @@ import javax.annotation.Nonnull;
  */
 public class ThunderstormWindLayer extends ABreezeWindLayer {
 
-    public ThunderstormWindLayer(RenderLayerParent<BreezeRenderState, BreezeModel> renderer, EntityModelSet modelSet) {
+    public ThunderstormWindLayer(RenderLayerParent<BreezeRenderState, EntityModel<BreezeRenderState>> renderer, EntityModelSet modelSet) {
         super(renderer, modelSet);
     }
 

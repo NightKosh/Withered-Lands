@@ -26,6 +26,7 @@ import nightkosh.withered_lands.renderer.giant.FrozenGiantRenderer;
 import nightkosh.withered_lands.renderer.giant.HillGiantRenderer;
 import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
 import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
+import nightkosh.withered_lands.renderer.model.DirgeGaleModel;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
 import nightkosh.withered_lands.renderer.model.SkullCrawlerModel;
 import nightkosh.withered_lands.renderer.model.WLSkeletonModel;
@@ -141,6 +142,7 @@ public class WLEventsClient {
         // underwater mobs
         event.registerLayerDefinition(PhantomDiverModel.LAYER, PhantomDiverModel::createBodyLayer);
         event.registerLayerDefinition(WLSkeletonModel.LAYER, WLSkeletonModel::createBodyLayer);
+        event.registerLayerDefinition(DirgeGaleModel.LAYER, DirgeGaleModel::createBodyLayer);
         event.registerLayerDefinition(SkullCrawlerModel.LAYER, SkullCrawlerModel::createBodyLayer);
     }
 

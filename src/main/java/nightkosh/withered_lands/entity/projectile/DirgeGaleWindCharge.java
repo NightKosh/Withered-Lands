@@ -28,7 +28,7 @@ public class DirgeGaleWindCharge extends AWindCharge {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.igniteForTicks(TimeHelper.SECONDS_8);
+        entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, TimeHelper.SECONDS_5), this);
         entity.addEffect(new MobEffectInstance(WLMobEffects.RUST, TimeHelper.SECONDS_10), this);
         entity.addEffect(new MobEffectInstance(MobEffects.UNLUCK, TimeHelper.MINS_30), this);
     }

@@ -71,7 +71,6 @@ public final class WLTextures {
     public static final Identifier SAND_DEVIL_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/sand_devil/eyes.png");
     public static final Identifier DIRGE_GALE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/dirge_gale/body.png");
     public static final Identifier DIRGE_GALE_WIND = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/dirge_gale/wind.png");
-    public static final Identifier DIRGE_GALE_EYES = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/dirge_gale/eyes.png");
     // wolves
     public static final Identifier SKELETON_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/skeleton.png");
     public static final Identifier ZOMBIE_DOG = fromNamespaceAndPath(ModInfo.ID, "textures/entity/wolf/zombie.png");
