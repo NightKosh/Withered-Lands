@@ -49,7 +49,6 @@ public class PossessedArmor extends AMonster {
 
     private static final Map<EquipmentSlot, Item> CHAINMAIL_SET = Map.of(
             EquipmentSlot.MAINHAND, Items.IRON_SWORD,
-            EquipmentSlot.OFFHAND, Items.SHIELD,
             EquipmentSlot.HEAD, Items.CHAINMAIL_HELMET,
             EquipmentSlot.CHEST, Items.CHAINMAIL_CHESTPLATE,
             EquipmentSlot.LEGS, Items.CHAINMAIL_LEGGINGS,
@@ -57,7 +56,6 @@ public class PossessedArmor extends AMonster {
 
     private static final Map<EquipmentSlot, Item> GOLDEN_SET = Map.of(
             EquipmentSlot.MAINHAND, Items.GOLDEN_SWORD,
-            EquipmentSlot.OFFHAND, Items.SHIELD,
             EquipmentSlot.HEAD, Items.GOLDEN_HELMET,
             EquipmentSlot.CHEST, Items.GOLDEN_CHESTPLATE,
             EquipmentSlot.LEGS, Items.GOLDEN_LEGGINGS,
@@ -65,7 +63,6 @@ public class PossessedArmor extends AMonster {
 
     private static final Map<EquipmentSlot, Item> DIAMOND_SET = Map.of(
             EquipmentSlot.MAINHAND, Items.DIAMOND_SWORD,
-            EquipmentSlot.OFFHAND, Items.SHIELD,
             EquipmentSlot.HEAD, Items.DIAMOND_HELMET,
             EquipmentSlot.CHEST, Items.DIAMOND_CHESTPLATE,
             EquipmentSlot.LEGS, Items.DIAMOND_LEGGINGS,
@@ -73,7 +70,6 @@ public class PossessedArmor extends AMonster {
 
     private static final Map<EquipmentSlot, Item> NETHERITE_SET = Map.of(
             EquipmentSlot.MAINHAND, Items.NETHERITE_SWORD,
-            EquipmentSlot.OFFHAND, Items.SHIELD,
             EquipmentSlot.HEAD, Items.NETHERITE_HELMET,
             EquipmentSlot.CHEST, Items.NETHERITE_CHESTPLATE,
             EquipmentSlot.LEGS, Items.NETHERITE_LEGGINGS,
@@ -138,7 +134,6 @@ public class PossessedArmor extends AMonster {
         }
 
         this.setItemSlot(EquipmentSlot.MAINHAND, getHandItem(armorSet.get(EquipmentSlot.MAINHAND)));
-        this.setItemSlot(EquipmentSlot.OFFHAND, getHandItem(armorSet.get(EquipmentSlot.OFFHAND)));
         this.setItemSlot(EquipmentSlot.HEAD, getArmorItem(armorSet.get(EquipmentSlot.HEAD), trim));
         this.setItemSlot(EquipmentSlot.CHEST, getArmorItem(armorSet.get(EquipmentSlot.CHEST), trim));
         this.setItemSlot(EquipmentSlot.LEGS, getArmorItem(armorSet.get(EquipmentSlot.LEGS), trim));
