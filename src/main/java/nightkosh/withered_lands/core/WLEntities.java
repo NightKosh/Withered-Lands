@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.entity.Illusioner;
 import nightkosh.withered_lands.entity.KillerBunny;
 import nightkosh.withered_lands.entity.PossessedArmor;
+import nightkosh.withered_lands.entity.Skeleton;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.breeze.Blizzard;
 import nightkosh.withered_lands.entity.breeze.DirgeGale;
@@ -601,6 +602,17 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "possessed_armor"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<Skeleton>> SKELETON =
+            ENTITY_TYPES_REGISTER.register("skeleton",
+                    () -> EntityType.Builder.of(Skeleton::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.99F)
+                            .eyeHeight(1.74F)
+                            .ridingOffset(-0.7F)
+                            .clientTrackingRange(8)
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "skeleton"))));
 
     public static final DeferredHolder<EntityType<?>, EntityType<Illusioner>> ILLUSIONER =
             ENTITY_TYPES_REGISTER.register("illusioner",

@@ -353,6 +353,12 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "possessed_armor_spawn_egg")))
                     .spawnEgg(WLEntities.POSSESSED_ARMOR.get())));
 
+    public static final DeferredHolder<Item, Item> SKELETON_EGG = ITEMS_REGISTER.register(
+            "skeleton_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_spawn_egg")))
+                    .spawnEgg(WLEntities.SKELETON.get())));
+
     public static final DeferredHolder<Item, Item> ILLUSIONER_EGG = ITEMS_REGISTER.register(
             "illusioner_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()

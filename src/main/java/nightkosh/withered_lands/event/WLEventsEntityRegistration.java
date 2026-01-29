@@ -12,6 +12,7 @@ import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.Illusioner;
 import nightkosh.withered_lands.entity.KillerBunny;
 import nightkosh.withered_lands.entity.PossessedArmor;
+import nightkosh.withered_lands.entity.Skeleton;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.breeze.Blizzard;
 import nightkosh.withered_lands.entity.breeze.DirgeGale;
@@ -115,6 +116,7 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.FROZEN_GIANT.get(), FrozenGiant.createAttributeSupplier());
         // other
         event.put(WLEntities.POSSESSED_ARMOR.get(), PossessedArmor.createAttributeSupplier());
+        event.put(WLEntities.SKELETON.get(), Skeleton.createAttributes().build());
         event.put(WLEntities.ILLUSIONER.get(), Illusioner.createAttributes().build());
         event.put(WLEntities.KILLER_BUNNY.get(), Rabbit.createAttributes().build());
     }
@@ -434,6 +436,12 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PossessedArmor::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.SKELETON.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Skeleton::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         event.register(WLEntities.ILLUSIONER.get(),

@@ -68,7 +68,11 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:abyssal_slime ~ ~ ~ {NoAI:1b}
     ```
-8. Molten slime
+8. Toxic Sludge
+    ```
+        /summon withered_lands:toxic_sludge ~ ~ ~ {NoAI:1b}
+    ```
+9. Molten slime
     ```
         /summon withered_lands:molten_slime ~ ~ ~ {NoAI:1b}
     ```
@@ -264,11 +268,15 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:possessed_armor ~ ~ ~ {NoAI:1b}
     ```
-2. Illusioner
+2. Skeleton
+    ```
+        /summon withered_lands:skeleton ~ ~ ~ {NoAI:1b}
+    ```
+3. Illusioner
     ```
         /summon withered_lands:illusioner ~ ~ ~ {NoAI:1b}
     ```
-3. Killer bunny
+4. Killer bunny
     ```
         /summon withered_lands:killer_bunny ~ ~ ~ {NoAI:1b}
     ```

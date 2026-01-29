@@ -3,6 +3,7 @@ package nightkosh.withered_lands.event;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.monster.skeleton.*;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
@@ -23,8 +25,8 @@ import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.core.WLMobEffects;
-import nightkosh.withered_lands.helper.WLEnchantmentHelper;
 import nightkosh.withered_lands.entity.crawler.ASkullCrawler;
+import nightkosh.withered_lands.helper.WLEnchantmentHelper;
 
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
@@ -36,6 +38,33 @@ import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
  */
 @EventBusSubscriber(modid = ModInfo.ID)
 public class WLEventsEntity {
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
+    public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
+        var entity = event.getEntity();
+
+        if (WLConfigs.SKELETON_WITH_SWORD_SPAWN.get() && entity instanceof Skeleton &&
+                !(entity instanceof nightkosh.withered_lands.entity.Skeleton) &&
+                entity.getRandom().nextInt(5) == 0) {//20% chance
+            var level = event.getLevel();
+            if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
+                if (WLConfigs.DEBUG_MODE.get()) {
+                    LOGGER.info("EntityJoinLevelEvent triggered with Skeleton entity, going to replace it with custom one");
+                }
+                var newSkeleton = WLEntities.SKELETON.get().create(level, EntitySpawnReason.TRIGGERED);
+                newSkeleton.snapTo(entity.getX(), entity.getY(), entity.getZ(),
+                        entity.getYRot(), entity.getXRot());
+                newSkeleton.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(entity.blockPosition()),
+                        EntitySpawnReason.TRIGGERED, null);
+
+                entity.discard();
+
+                level.addFreshEntity(newSkeleton);
+
+                event.setCanceled(true);
+            }
+        }
+    }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onLivingDeath(LivingDeathEvent event) {
