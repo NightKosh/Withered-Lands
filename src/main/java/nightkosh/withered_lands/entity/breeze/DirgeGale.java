@@ -56,7 +56,7 @@ public class DirgeGale extends ABreeze {
             EntityType<? extends ABreeze> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.DIRGE_GALE_SPAWN.get() &&
-                checkBreezeSpawnRules(levelAccessor, blockPos, random);
+                checkCommonSpawnRules(levelAccessor, blockPos, random);
     }
 
     public static AttributeSupplier createAttributeSupplier() {
