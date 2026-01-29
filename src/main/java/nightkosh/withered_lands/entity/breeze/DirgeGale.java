@@ -39,7 +39,7 @@ public class DirgeGale extends ABreeze {
 
     @Override
     protected ParticleOptions getParticle() {
-        return ParticleTypes.TRIAL_OMEN;
+        return ParticleTypes.SOUL_FIRE_FLAME;
     }
 
     @Override

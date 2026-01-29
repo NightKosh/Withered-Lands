@@ -6,6 +6,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.hurtingprojectile.windcharge.AbstractWindCharge;
 import net.minecraft.world.level.Level;
+import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.breeze.ABreeze;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -27,8 +28,9 @@ public class DirgeGaleWindCharge extends AWindCharge {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        //TODO RUST
         entity.igniteForTicks(TimeHelper.SECONDS_8);
+        entity.addEffect(new MobEffectInstance(WLMobEffects.RUST, TimeHelper.SECONDS_10), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.UNLUCK, TimeHelper.MINS_30), this);
     }
 
 }
