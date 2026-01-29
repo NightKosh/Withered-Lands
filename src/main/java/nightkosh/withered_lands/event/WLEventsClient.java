@@ -1,6 +1,9 @@
 package nightkosh.withered_lands.event;
 
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.CaveSpiderRenderer;
+import net.minecraft.client.renderer.entity.IllusionerRenderer;
+import net.minecraft.client.renderer.entity.RabbitRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -9,6 +12,7 @@ import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.renderer.PossessedArmorRenderer;
+import nightkosh.withered_lands.renderer.WLSkeletonRenderer;
 import nightkosh.withered_lands.renderer.bat.*;
 import nightkosh.withered_lands.renderer.breeze.BlizzardRenderer;
 import nightkosh.withered_lands.renderer.breeze.DirgeGaleRenderer;
@@ -24,6 +28,7 @@ import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
 import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
 import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
 import nightkosh.withered_lands.renderer.model.SkullCrawlerModel;
+import nightkosh.withered_lands.renderer.model.WLSkeletonModel;
 import nightkosh.withered_lands.renderer.slime.*;
 import nightkosh.withered_lands.renderer.snow.SnowmanRenderer;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
@@ -117,7 +122,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.FROZEN_GIANT.get(), FrozenGiantRenderer::new);
         // other
         event.registerEntityRenderer(WLEntities.POSSESSED_ARMOR.get(), PossessedArmorRenderer::new);
-        event.registerEntityRenderer(WLEntities.SKELETON.get(), SkeletonRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKELETON.get(), WLSkeletonRenderer::new);
         event.registerEntityRenderer(WLEntities.ILLUSIONER.get(), IllusionerRenderer::new);
         event.registerEntityRenderer(WLEntities.KILLER_BUNNY.get(), RabbitRenderer::new);
 
@@ -135,6 +140,7 @@ public class WLEventsClient {
         }
         // underwater mobs
         event.registerLayerDefinition(PhantomDiverModel.LAYER, PhantomDiverModel::createBodyLayer);
+        event.registerLayerDefinition(WLSkeletonModel.LAYER, WLSkeletonModel::createBodyLayer);
         event.registerLayerDefinition(SkullCrawlerModel.LAYER, SkullCrawlerModel::createBodyLayer);
     }
 

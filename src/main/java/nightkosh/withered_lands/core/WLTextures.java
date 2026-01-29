@@ -106,5 +106,6 @@ public final class WLTextures {
     public static final Identifier FROZEN_GIANT = fromNamespaceAndPath(ModInfo.ID, "textures/entity/giant/frozen.png");
     // other
     public static final Identifier POSSESSED_ARMOR = fromNamespaceAndPath(ModInfo.ID, "textures/entity/possessed_armor.png");
+    public static final Identifier SKELETON = fromNamespaceAndPath(ModInfo.ID, "textures/entity/skeleton.png");
 
 }
