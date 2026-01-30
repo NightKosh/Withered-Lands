@@ -22,6 +22,8 @@ import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
  */
 public class ExtinguishLightGoal extends Goal {
 
+    private static final int RANGE = 35;
+
     protected final Level level;
     protected final AMonster mob;
     protected final int maxDepth;
@@ -43,7 +45,7 @@ public class ExtinguishLightGoal extends Goal {
 
     @Override
     public boolean canContinueToUse() {
-        return this.timeToTryToLook <= TimeHelper.SECONDS_10 ||
+        return this.timeToTryToLook <= TimeHelper.SECONDS_5 ||
                 (this.lightSourcePos != null && this.ifLightSourceAlive());
     }
 
@@ -51,7 +53,7 @@ public class ExtinguishLightGoal extends Goal {
     public void tick() {
         timeToTryToLook++;
         if (this.lightSourcePos == null) {
-            if (this.timeToTryToLook == TimeHelper.SECONDS_10) {
+            if (this.timeToTryToLook == TimeHelper.SECONDS_5) {
                 if (WLConfigs.DEBUG_MODE.get()) {
                     LOGGER.info("ExtinguishLightGoal - going to look for light source");
                 }
@@ -132,12 +134,12 @@ public class ExtinguishLightGoal extends Goal {
     }
 
     private BlockPos tryToGetLightSource(BlockPos pos) {
-        int minX = pos.getX() - 25;
-        int minY = Math.max(this.level.getMinY(), pos.getY() - 25);
-        int minZ = pos.getZ() - 25;
-        int maxX = pos.getX() + 25;
-        int maxY = Math.min(this.maxDepth, pos.getY() + 25);
-        int maxZ = pos.getX() + 25;
+        int minX = pos.getX() - RANGE;
+        int minY = Math.max(this.level.getMinY(), pos.getY() - RANGE);
+        int minZ = pos.getZ() - RANGE;
+        int maxX = pos.getX() + RANGE;
+        int maxY = Math.min(this.maxDepth, pos.getY() + RANGE);
+        int maxZ = pos.getX() + RANGE;
 
         var newPos = new BlockPos.MutableBlockPos();
         for (int x = minX; x <= maxX; x++) {
