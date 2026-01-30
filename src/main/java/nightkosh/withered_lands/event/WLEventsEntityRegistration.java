@@ -22,6 +22,7 @@ import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
 import nightkosh.withered_lands.entity.desert.Mummy;
+import nightkosh.withered_lands.entity.ghost.HollowStalker;
 import nightkosh.withered_lands.entity.giant.FrozenGiant;
 import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
@@ -85,6 +86,8 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.BLIZZARD.get(), Blizzard.createAttributeSupplier());
         event.put(WLEntities.SAND_DEVIL.get(), SandDevil.createAttributeSupplier());
         event.put(WLEntities.DIRGE_GALE.get(), DirgeGale.createAttributeSupplier());
+        // ghosts
+        event.put(WLEntities.HOLLOW_STALKER.get(), HollowStalker.createAttributeSupplier());
         // spiders
         event.put(WLEntities.CAVE_SPIDER.get(), CaveSpider.createCaveSpider().build());
         // wolves
@@ -305,6 +308,13 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 DirgeGale::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // ghosts
+        event.register(WLEntities.HOLLOW_STALKER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                HollowStalker::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // spiders

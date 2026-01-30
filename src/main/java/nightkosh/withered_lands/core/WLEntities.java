@@ -22,6 +22,7 @@ import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
 import nightkosh.withered_lands.entity.desert.Mummy;
+import nightkosh.withered_lands.entity.ghost.HollowStalker;
 import nightkosh.withered_lands.entity.giant.FrozenGiant;
 import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
@@ -384,6 +385,17 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "dirge_gale"))));
+
+    // ghosts
+    public static final DeferredHolder<EntityType<?>, EntityType<HollowStalker>> HOLLOW_STALKER =
+            ENTITY_TYPES_REGISTER.register("hollow_stalker",
+                    () -> EntityType.Builder.of(HollowStalker::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.95F)
+                            .eyeHeight(1.80F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "hollow_stalker"))));
 
     // spiders
     public static final DeferredHolder<EntityType<?>, EntityType<CaveSpider>> CAVE_SPIDER =

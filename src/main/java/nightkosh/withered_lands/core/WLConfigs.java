@@ -50,6 +50,9 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> SAND_DEVIL_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> DIRGE_GALE_SPAWN;
 
+    // ghosts
+    public static ModConfigSpec.ConfigValue<Boolean> HOLLOW_STALKER_SPAWN;
+
     // spiders
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_SPIDER_SPAWN;
 
@@ -139,6 +142,9 @@ public class WLConfigs {
         BLIZZARD_SPAWN = BUILDER.define("Blizzards Spawn", true);
         SAND_DEVIL_SPAWN = BUILDER.define("Sand Devils Spawn", true);
         DIRGE_GALE_SPAWN = BUILDER.define("Dirge Gales Spawn", true);
+
+        // ghosts
+        HOLLOW_STALKER_SPAWN = BUILDER.define("Hollow Stalkers Spawn", true);
 
         // spiders
         CAVE_SPIDER_SPAWN = BUILDER.define("Cave Spiders Spawn", true);

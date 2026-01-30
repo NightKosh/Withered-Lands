@@ -31,6 +31,7 @@
   "entity.withered_lands.blizzard": "Буран",
   "entity.withered_lands.sand_devil": "Песчаный дьявол",
   "entity.withered_lands.dirge_gale": "Погребальный шторм",
+  "entity.withered_lands.hollow_stalker": "Призрачный сталкер",
   "entity.withered_lands.skeleton_dog": "Пёс - скелет",
   "entity.withered_lands.zombie_dog": "Пёс - зомби",
   "entity.withered_lands.barghest": "Баргест",
@@ -81,6 +82,7 @@
   "item.withered_lands.blizzard_spawn_egg": "Яйцо призыва бурана",
   "item.withered_lands.sand_devil_spawn_egg": "Яйцо призыва песчаного дьявола",
   "item.withered_lands.dirge_gale_spawn_egg": "Яйцо призыва погребального шторма",
+  "item.withered_lands.hollow_stalker_spawn_egg": "Яйцо призыва призрачного сталкера",
   "item.withered_lands.skeleton_dog_spawn_egg": "Яйцо призыва псa - скелетa",
   "item.withered_lands.zombie_dog_spawn_egg": "Яйцо призыва псa - зомби",
   "item.withered_lands.barghest_spawn_egg": "Яйцо призыва баргеста",
@@ -106,6 +108,10 @@
 
   "item.withered_lands.slime_gel": "Гель",
   "item.withered_lands.bat_wing": "Крыло летучей мыши",
+
+  "item.withered_lands.extinguished_torch": "Погасший факел",
+  "item.withered_lands.extinguished_copper_torch": "Погасший медный факел",
+  "item.withered_lands.extinguished_soul_torch": "Погасший факел душ",
 
   "effect.withered_lands.bleeding": "Кровотечение - Блокирует восстановление здоровья",
   "effect.withered_lands.call_of_the_abyss": "Зов Бездны - Вы тонете",

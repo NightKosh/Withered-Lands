@@ -167,6 +167,12 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /summon withered_lands:dirge_gale ~ ~ ~ {NoAI:1b}
     ```
 
+### Ghosts spawn:
+1. Hollow stalker
+    ```
+        /summon withered_lands:hollow_stalker ~ ~ ~ {NoAI:1b}
+    ```
+
 ### Spiders spawn:
 1. Cave spider
     ```

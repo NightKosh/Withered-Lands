@@ -1,11 +1,12 @@
 package nightkosh.withered_lands.core;
 
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -26,16 +27,6 @@ public class WLItems {
             DeferredRegister.create(Registries.ITEM, ModInfo.ID);
 
     // slimes
-    public static final DeferredHolder<Item, Item> SLIME_GEL = ITEMS_REGISTER.register(
-            "slime_gel",
-            () -> new SlimeGel(new Item.Properties()
-                    .stacksTo(64)
-                    .food(new FoodProperties.Builder()
-                            .nutrition(1)
-                            .saturationModifier(0.2F)
-                            .build())
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel")))));
-
     public static final DeferredHolder<Item, Item> VERDANT_SLIME_EGG = ITEMS_REGISTER.register(
             "verdant_slime_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()
@@ -91,16 +82,6 @@ public class WLItems {
                     .spawnEgg(WLEntities.MOLTEN_SLIME.get())));
 
     // bats
-    public static final DeferredHolder<Item, Item> BAT_WING = ITEMS_REGISTER.register(
-            "bat_wing",
-            () -> new BatWing(new Item.Properties()
-                    .stacksTo(64)
-                    .food(new FoodProperties.Builder()
-                            .nutrition(1)
-                            .saturationModifier(0.2F)
-                            .build())
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
-
     public static final DeferredHolder<Item, Item> CAVE_BAT_EGG = ITEMS_REGISTER.register(
             "cave_bat_spawn_egg",
             () -> new SpawnEggItem(new Item.Properties()
@@ -228,6 +209,13 @@ public class WLItems {
             () -> new SpawnEggItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "dirge_gale_spawn_egg")))
                     .spawnEgg(WLEntities.DIRGE_GALE.get())));
+
+    // ghosts
+    public static final DeferredHolder<Item, Item> HOLLOW_STALKER_EGG = ITEMS_REGISTER.register(
+            "hollow_stalker_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "hollow_stalker_spawn_egg")))
+                    .spawnEgg(WLEntities.HOLLOW_STALKER.get())));
 
     // wolves
     public static final DeferredHolder<Item, Item> SKELETON_DOG_EGG = ITEMS_REGISTER.register(
@@ -370,6 +358,51 @@ public class WLItems {
             () -> new SpawnEggItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "killer_bunny_spawn_egg")))
                     .spawnEgg(WLEntities.KILLER_BUNNY.get())));
+
+    // items
+    public static final DeferredHolder<Item, Item> SLIME_GEL = ITEMS_REGISTER.register(
+            "slime_gel",
+            () -> new SlimeGel(new Item.Properties()
+                    .stacksTo(64)
+                    .food(new FoodProperties.Builder()
+                            .nutrition(1)
+                            .saturationModifier(0.2F)
+                            .build())
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel")))));
+
+    public static final DeferredHolder<Item, Item> BAT_WING = ITEMS_REGISTER.register(
+            "bat_wing",
+            () -> new BatWing(new Item.Properties()
+                    .stacksTo(64)
+                    .food(new FoodProperties.Builder()
+                            .nutrition(1)
+                            .saturationModifier(0.2F)
+                            .build())
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
+
+    public static final DeferredHolder<Item, Item> EXTINGUISHED_TORCH = ITEMS_REGISTER.register(
+            "extinguished_torch",
+            () -> new StandingAndWallBlockItem(
+                    WLBlocks.EXTINGUISHED_TORCH.get(), WLBlocks.EXTINGUISHED_WALL_TORCH.get(), Direction.DOWN,
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .setId(WLBlocks.EXTINGUISHED_TORCH_RK)));
+
+    public static final DeferredHolder<Item, Item> EXTINGUISHED_COPPER_TORCH = ITEMS_REGISTER.register(
+            "extinguished_copper_torch",
+            () -> new StandingAndWallBlockItem(
+                    WLBlocks.EXTINGUISHED_COPPER_TORCH.get(), WLBlocks.EXTINGUISHED_COPPER_WALL_TORCH.get(), Direction.DOWN,
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .setId(WLBlocks.EXTINGUISHED_COPPER_TORCH_RK)));
+
+    public static final DeferredHolder<Item, Item> EXTINGUISHED_SOUL_TORCH = ITEMS_REGISTER.register(
+            "extinguished_soul_torch",
+            () -> new StandingAndWallBlockItem(
+                    WLBlocks.EXTINGUISHED_SOUL_TORCH.get(), WLBlocks.EXTINGUISHED_SOUL_WALL_TORCH.get(), Direction.DOWN,
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .setId(WLBlocks.EXTINGUISHED_SOUL_TORCH_RK)));
 
     public static void register(IEventBus eventBus) {
         ITEMS_REGISTER.register(eventBus);

@@ -27,6 +27,9 @@ public class WLTabs {
 
                         output.accept(WLItems.SLIME_GEL.get());
                         output.accept(WLItems.BAT_WING.get());
+                        output.accept(WLItems.EXTINGUISHED_TORCH.get());
+                        output.accept(WLItems.EXTINGUISHED_COPPER_TORCH.get());
+                        output.accept(WLItems.EXTINGUISHED_SOUL_TORCH.get());
 
                         // ---------- eggs ----------
 
@@ -64,6 +67,8 @@ public class WLTabs {
                         output.accept(WLItems.BLIZZARD_EGG.get());
                         output.accept(WLItems.SAND_DEVIL_EGG.get());
                         output.accept(WLItems.DIRGE_GALE_EGG.get());
+                        // ghosts
+                        output.accept(WLItems.HOLLOW_STALKER_EGG.get());
                         // wolves
                         output.accept(WLItems.SKELETON_DOG_EGG.get());
                         output.accept(WLItems.ZOMBIE_DOG_EGG.get());

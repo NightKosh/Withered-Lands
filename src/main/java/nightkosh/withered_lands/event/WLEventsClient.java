@@ -1,9 +1,6 @@
 package nightkosh.withered_lands.event;
 
-import net.minecraft.client.renderer.entity.CaveSpiderRenderer;
-import net.minecraft.client.renderer.entity.IllusionerRenderer;
-import net.minecraft.client.renderer.entity.RabbitRenderer;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.client.renderer.entity.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -22,14 +19,12 @@ import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.cat.ZombieCatRenderer;
 import nightkosh.withered_lands.renderer.crawler.*;
 import nightkosh.withered_lands.renderer.desert.MummyRenderer;
+import nightkosh.withered_lands.renderer.ghost.HollowStalkerRenderer;
 import nightkosh.withered_lands.renderer.giant.FrozenGiantRenderer;
 import nightkosh.withered_lands.renderer.giant.HillGiantRenderer;
 import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
 import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
-import nightkosh.withered_lands.renderer.model.DirgeGaleModel;
-import nightkosh.withered_lands.renderer.model.PhantomDiverModel;
-import nightkosh.withered_lands.renderer.model.SkullCrawlerModel;
-import nightkosh.withered_lands.renderer.model.WLSkeletonModel;
+import nightkosh.withered_lands.renderer.model.*;
 import nightkosh.withered_lands.renderer.slime.*;
 import nightkosh.withered_lands.renderer.snow.SnowmanRenderer;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
@@ -93,6 +88,8 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.BLIZZARD.get(), BlizzardRenderer::new);
         event.registerEntityRenderer(WLEntities.SAND_DEVIL.get(), SandDevilRenderer::new);
         event.registerEntityRenderer(WLEntities.DIRGE_GALE.get(), DirgeGaleRenderer::new);
+        // ghosts
+        event.registerEntityRenderer(WLEntities.HOLLOW_STALKER.get(), HollowStalkerRenderer::new);
         // spiders
         event.registerEntityRenderer(WLEntities.CAVE_SPIDER.get(), CaveSpiderRenderer::new);
         // wolves
@@ -143,6 +140,7 @@ public class WLEventsClient {
         event.registerLayerDefinition(PhantomDiverModel.LAYER, PhantomDiverModel::createBodyLayer);
         event.registerLayerDefinition(WLSkeletonModel.LAYER, WLSkeletonModel::createBodyLayer);
         event.registerLayerDefinition(DirgeGaleModel.LAYER, DirgeGaleModel::createBodyLayer);
+        event.registerLayerDefinition(HollowStalkerModel.LAYER, HollowStalkerModel::createBodyLayer);
         event.registerLayerDefinition(SkullCrawlerModel.LAYER, SkullCrawlerModel::createBodyLayer);
     }
 

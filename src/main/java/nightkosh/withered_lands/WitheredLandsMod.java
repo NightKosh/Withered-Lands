@@ -28,6 +28,7 @@ public class WitheredLandsMod {
 
         WLEntities.register(eventBus);
         WLSounds.register(eventBus);
+        WLBlocks.register(eventBus);
         WLItems.register(eventBus);
         WLTabs.register(eventBus);
         WLMobEffects.register(eventBus);
