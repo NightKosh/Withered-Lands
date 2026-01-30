@@ -51,6 +51,16 @@ public class WLSounds {
     public static final DeferredHolder<SoundEvent, SoundEvent> POSSESSED_ARMOR_HURT =
             registerSoundEvent("possessed_armor_hurt", "entity.possessed_armor.hurt");
 
+    // Hollow Stalker
+    public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_AMBIENT =
+            registerSoundEvent("hollow_stalker_ambient", "entity.hollow_stalker.ambient");
+    public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_ARE_YOU_THERE =
+            registerSoundEvent("hollow_stalker_are_you_there", "entity.hollow_stalker.are_you_there");
+    public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_DEATH =
+            registerSoundEvent("hollow_stalker_death", "entity.hollow_stalker.death");
+    public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_ATTACK =
+            registerSoundEvent("hollow_stalker_attack", "entity.hollow_stalker.attack");
+
     private static DeferredHolder<SoundEvent, SoundEvent> registerSoundEvent(String name, String path) {
         return registerSoundEvent(name, fromNamespaceAndPath(ModInfo.ID, path));
     }

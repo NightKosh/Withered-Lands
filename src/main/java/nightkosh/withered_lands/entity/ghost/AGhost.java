@@ -9,6 +9,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.AMonster;
 
 import javax.annotation.Nonnull;
@@ -68,13 +69,13 @@ public abstract class AGhost extends AMonster {
     @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.VEX_DEATH;
+        return WLSounds.HOLLOW_STALKER_DEATH.get();
     }
 
     @Nonnull
     @Override
     protected SoundEvent getHurtSound(@Nonnull DamageSource damageSource) {
-        return SoundEvents.VEX_HURT;
+        return SoundEvents.VEX_DEATH;
     }
 
     @Override

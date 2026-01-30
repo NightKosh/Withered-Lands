@@ -393,6 +393,7 @@ public class WLEntities {
                             .sized(0.6F, 1.95F)
                             .eyeHeight(1.80F)
                             .notInPeaceful()
+                            .fireImmune()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "hollow_stalker"))));

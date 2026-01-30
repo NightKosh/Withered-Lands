@@ -58,13 +58,68 @@
       {
         "name" : "withered_lands:other/possessed_armor/step2",
         "stream" : true
-      }]
+      }
+    ]
   },
   "entity.possessed_armor.hurt" : {
     "category": "hostile",
     "subtitle": "entity.possessed_armor.hurt",
     "sounds" : [{
       "name" : "withered_lands:other/possessed_armor/hurt",
+      "stream" : true
+    }]
+  },
+  "entity.hollow_stalker.ambient" : {
+    "category": "hostile",
+    "subtitle": "entity.hollow_stalker.ambient",
+    "sounds" : [
+      {
+        "name" : "withered_lands:ghost/hollow_stalker/ambient_1",
+        "stream" : true
+      },
+      {
+        "name" : "withered_lands:ghost/hollow_stalker/ambient_2",
+        "stream" : true
+      },
+      {
+        "name" : "withered_lands:ghost/hollow_stalker/ambient_3",
+        "stream" : true
+      },
+      {
+        "name" : "withered_lands:ghost/hollow_stalker/ambient_4",
+        "stream" : true
+      },
+      {
+        "name" : "withered_lands:ghost/hollow_stalker/swoosh",
+        "stream" : true
+      },
+      {
+        "name" : "withered_lands:ghost/hollow_stalker/whisper",
+        "stream" : true
+      }
+    ]
+  },
+  "entity.hollow_stalker.are_you_there" : {
+    "category": "hostile",
+    "subtitle": "entity.hollow_stalker.are_you_there",
+    "sounds" : [{
+      "name" : "withered_lands:ghost/hollow_stalker/are_you_there",
+      "stream" : true
+    }]
+  },
+  "entity.hollow_stalker.attack" : {
+    "category": "hostile",
+    "subtitle": "entity.hollow_stalker.attack",
+    "sounds" : [{
+      "name" : "withered_lands:ghost/hollow_stalker/attack",
+      "stream" : true
+    }]
+  },
+  "entity.hollow_stalker.death" : {
+    "category": "hostile",
+    "subtitle": "entity.hollow_stalker.death",
+    "sounds" : [{
+      "name" : "withered_lands:ghost/hollow_stalker/death",
       "stream" : true
     }]
   }

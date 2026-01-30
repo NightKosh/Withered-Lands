@@ -1,9 +1,9 @@
 package nightkosh.withered_lands.entity.ai;
 
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.phys.Vec3;
+import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.ghost.AGhost;
 
 import java.util.EnumSet;
@@ -42,7 +42,7 @@ public class GhostAttackGoal extends Goal {
         }
 
         ghost.setIsCharging(true);
-        ghost.playSound(SoundEvents.VEX_CHARGE, 1, 1);
+        ghost.playSound(WLSounds.HOLLOW_STALKER_ATTACK.get(), 1, 1);
     }
 
     @Override
