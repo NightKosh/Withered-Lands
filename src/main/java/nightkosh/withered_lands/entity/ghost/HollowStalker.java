@@ -2,7 +2,6 @@ package nightkosh.withered_lands.entity.ghost;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -12,16 +11,12 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
-import nightkosh.withered_lands.entity.ai.ExtinguishLightGoal;
-import nightkosh.withered_lands.entity.ai.GhostAttackGoal;
-import nightkosh.withered_lands.entity.ai.GhostMoveControl;
-import nightkosh.withered_lands.entity.ai.GhostRandomMoveGoal;
+import nightkosh.withered_lands.entity.ai.*;
 
 /**
  * Withered Lands
@@ -48,7 +43,7 @@ public class HollowStalker extends AGhost {
         this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 15));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
+        this.targetSelector.addGoal(2, new AttackIfToCloseGoal(this, Player.class, true, 4));
     }
 
     @Override
