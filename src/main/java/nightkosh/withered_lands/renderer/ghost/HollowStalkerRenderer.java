@@ -3,11 +3,14 @@ package nightkosh.withered_lands.renderer.ghost;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.client.renderer.rendertype.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import nightkosh.withered_lands.core.WLTextures;
 import nightkosh.withered_lands.entity.ghost.HollowStalker;
 import nightkosh.withered_lands.renderer.model.HollowStalkerModel;
+import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
@@ -21,6 +24,12 @@ public class HollowStalkerRenderer extends MobRenderer<HollowStalker, LivingEnti
 
     public HollowStalkerRenderer(EntityRendererProvider.Context context) {
         super(context, new HollowStalkerModel(context.bakeLayer(HollowStalkerModel.LAYER)), 0.3F);
+    }
+
+    @Override
+    protected @Nullable RenderType getRenderType(
+            LivingEntityRenderState state, boolean bodyVisible, boolean translucent, boolean glowing) {
+        return RenderTypes.itemEntityTranslucentCull(this.getTextureLocation(state));
     }
 
     @Override
