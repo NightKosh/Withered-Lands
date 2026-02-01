@@ -22,7 +22,7 @@ import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
  */
 public class ExtinguishLightGoal extends Goal {
 
-    private static final int RANGE = 25;
+    private static final int RANGE = 35;
 
     protected final Level level;
     protected final AMonster mob;
@@ -45,7 +45,7 @@ public class ExtinguishLightGoal extends Goal {
 
     @Override
     public boolean canContinueToUse() {
-        return this.timeToTryToLook <= TimeHelper.SECONDS_8 ||
+        return this.timeToTryToLook <= TimeHelper.SECONDS_5 ||
                 (this.lightSourcePos != null && this.ifLightSourceAlive());
     }
 
@@ -53,7 +53,7 @@ public class ExtinguishLightGoal extends Goal {
     public void tick() {
         timeToTryToLook++;
         if (this.lightSourcePos == null) {
-            if (this.timeToTryToLook == TimeHelper.SECONDS_8) {
+            if (this.timeToTryToLook == TimeHelper.SECONDS_5) {
                 if (WLConfigs.DEBUG_MODE.get()) {
                     LOGGER.info("ExtinguishLightGoal - going to look for light source");
                 }
