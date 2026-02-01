@@ -21,6 +21,10 @@ import nightkosh.withered_lands.entity.breeze.Thunderstorm;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
+import nightkosh.withered_lands.entity.creeper.CaveCreeper;
+import nightkosh.withered_lands.entity.creeper.DeepslateCreeper;
+import nightkosh.withered_lands.entity.creeper.DesertCreeper;
+import nightkosh.withered_lands.entity.creeper.SnowyCreeper;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.ghost.HollowStalker;
 import nightkosh.withered_lands.entity.giant.FrozenGiant;
@@ -409,6 +413,47 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "cave_spider"))));
+
+    // creepers
+    public static final DeferredHolder<EntityType<?>, EntityType<DesertCreeper>> DESERT_CREEPER =
+            ENTITY_TYPES_REGISTER.register("desert_creeper",
+                    () -> EntityType.Builder.of(DesertCreeper::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.7F)
+                            .clientTrackingRange(8)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "desert_creeper"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SnowyCreeper>> SNOWY_CREEPER =
+            ENTITY_TYPES_REGISTER.register("snowy_creeper",
+                    () -> EntityType.Builder.of(SnowyCreeper::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.7F)
+                            .clientTrackingRange(8)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "snowy_creeper"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CaveCreeper>> CAVE_CREEPER =
+            ENTITY_TYPES_REGISTER.register("cave_creeper",
+                    () -> EntityType.Builder.of(CaveCreeper::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.7F)
+                            .clientTrackingRange(8)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "cave_creeper"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<DeepslateCreeper>> DEEPSLATE_CREEPER =
+            ENTITY_TYPES_REGISTER.register("deepslate_creeper",
+                    () -> EntityType.Builder.of(DeepslateCreeper::new, MobCategory.MONSTER)
+                            .sized(0.6F, 1.7F)
+                            .clientTrackingRange(8)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "deepslate_creeper"))));
 
     // wolves
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletonDog>> SKELETON_DOG =

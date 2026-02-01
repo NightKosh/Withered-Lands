@@ -57,6 +57,9 @@ public class WLConfigs {
     // spiders
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_SPIDER_SPAWN;
 
+    // creepers
+    public static ModConfigSpec.ConfigValue<Boolean> CREEPER_SPAWN;
+
     // wolves
     public static ModConfigSpec.ConfigValue<Boolean> SKELETON_DOG_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_DOG_SPAWN;
@@ -150,6 +153,9 @@ public class WLConfigs {
 
         // spiders
         CAVE_SPIDER_SPAWN = BUILDER.define("Cave Spiders Spawn", true);
+
+        // creepers
+        CREEPER_SPAWN = BUILDER.define("Creepers Spawn", true);
 
         // wolves
         SKELETON_DOG_SPAWN = BUILDER.define("Skeleton Dogs Spawn", true);

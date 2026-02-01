@@ -18,6 +18,10 @@ import nightkosh.withered_lands.renderer.breeze.ThunderstormRenderer;
 import nightkosh.withered_lands.renderer.cat.SkeletonCatRenderer;
 import nightkosh.withered_lands.renderer.cat.ZombieCatRenderer;
 import nightkosh.withered_lands.renderer.crawler.*;
+import nightkosh.withered_lands.renderer.creeper.CaveCreeperRenderer;
+import nightkosh.withered_lands.renderer.creeper.DeepslateCreeperRenderer;
+import nightkosh.withered_lands.renderer.creeper.DesertCreeperRenderer;
+import nightkosh.withered_lands.renderer.creeper.SnowyCreeperRenderer;
 import nightkosh.withered_lands.renderer.desert.MummyRenderer;
 import nightkosh.withered_lands.renderer.ghost.HollowStalkerRenderer;
 import nightkosh.withered_lands.renderer.giant.FrozenGiantRenderer;
@@ -92,6 +96,11 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.HOLLOW_STALKER.get(), HollowStalkerRenderer::new);
         // spiders
         event.registerEntityRenderer(WLEntities.CAVE_SPIDER.get(), CaveSpiderRenderer::new);
+        // creepers
+        event.registerEntityRenderer(WLEntities.DESERT_CREEPER.get(), DesertCreeperRenderer::new);
+        event.registerEntityRenderer(WLEntities.SNOWY_CREEPER.get(), SnowyCreeperRenderer::new);
+        event.registerEntityRenderer(WLEntities.CAVE_CREEPER.get(), CaveCreeperRenderer::new);
+        event.registerEntityRenderer(WLEntities.DEEPSLATE_CREEPER.get(), DeepslateCreeperRenderer::new);
         // wolves
         event.registerEntityRenderer(WLEntities.SKELETON_DOG.get(), SkeletonDogRenderer::new);
         event.registerEntityRenderer(WLEntities.ZOMBIE_DOG.get(), ZombieDogRenderer::new);

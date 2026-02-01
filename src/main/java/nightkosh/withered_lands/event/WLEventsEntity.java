@@ -5,7 +5,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.skeleton.*;
 import net.minecraft.world.entity.monster.zombie.Drowned;
 import net.minecraft.world.entity.monster.zombie.Husk;
@@ -13,9 +15,11 @@ import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
@@ -44,25 +48,70 @@ public class WLEventsEntity {
     public static void onEntityJoinLevel(EntityJoinLevelEvent event) {
         var entity = event.getEntity();
 
-        if (WLConfigs.SKELETON_WITH_SWORD_SPAWN.get() && entity instanceof Skeleton &&
-                !(entity instanceof WLSkeleton) &&
-                entity.getRandom().nextInt(5) == 0) {//20% chance
+        if (WLConfigs.SKELETON_WITH_SWORD_SPAWN.get() && entity instanceof Skeleton) {
+            if (!(entity instanceof WLSkeleton) && entity.getRandom().nextInt(5) == 0) {//20% chance
+                var level = event.getLevel();
+                if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
+                    if (WLConfigs.DEBUG_MODE.get()) {
+                        LOGGER.info("EntityJoinLevelEvent triggered with Skeleton entity, going to replace it with custom one");
+                    }
+                    var newSkeleton = WLEntities.SKELETON.get().create(level, EntitySpawnReason.TRIGGERED);
+                    newSkeleton.snapTo(entity.getX(), entity.getY(), entity.getZ(),
+                            entity.getYRot(), entity.getXRot());
+                    newSkeleton.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(entity.blockPosition()),
+                            EntitySpawnReason.TRIGGERED, null);
+
+                    entity.discard();
+
+                    level.addFreshEntity(newSkeleton);
+
+                    event.setCanceled(true);
+                }
+            }
+        } else if (WLConfigs.CREEPER_SPAWN.get() && entity instanceof Creeper && entity.getClass().equals(Creeper.class)) {
             var level = event.getLevel();
             if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
                 if (WLConfigs.DEBUG_MODE.get()) {
-                    LOGGER.info("EntityJoinLevelEvent triggered with Skeleton entity, going to replace it with custom one");
+                    LOGGER.info("EntityJoinLevelEvent triggered with Creeper entity, going to replace it with custom one");
                 }
-                var newSkeleton = WLEntities.SKELETON.get().create(level, EntitySpawnReason.TRIGGERED);
-                newSkeleton.snapTo(entity.getX(), entity.getY(), entity.getZ(),
-                        entity.getYRot(), entity.getXRot());
-                newSkeleton.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(entity.blockPosition()),
-                        EntitySpawnReason.TRIGGERED, null);
+                Creeper newCreeper = null;
+                var pos = entity.blockPosition();
+                boolean canSeeSky = level.canSeeSky(pos);
+                if (pos.getY() <= 0 && !canSeeSky) {
+                    if (WLConfigs.DEBUG_MODE.get()) {
+                        LOGGER.info("Going to replace creeper with deepslate one");
+                    }
+                    newCreeper = WLEntities.DEEPSLATE_CREEPER.get().create(level, EntitySpawnReason.TRIGGERED);
+                } else if (pos.getY() <= 55 && !canSeeSky) {
+                    if (WLConfigs.DEBUG_MODE.get()) {
+                        LOGGER.info("Going to replace creeper with cave one");
+                    }
+                    newCreeper = WLEntities.CAVE_CREEPER.get().create(level, EntitySpawnReason.TRIGGERED);
+                } else {
+                    var biome = level.getBiome(pos);
+                    if (biome.is(Tags.Biomes.IS_SNOWY) || biome.is(Tags.Biomes.IS_ICY)) {
+                        if (WLConfigs.DEBUG_MODE.get()) {
+                            LOGGER.info("Going to replace creeper with snowy one");
+                        }
+                        newCreeper = WLEntities.SNOWY_CREEPER.get().create(level, EntitySpawnReason.TRIGGERED);
+                    } else if (biome.is(Tags.Biomes.IS_DESERT) || biome.is(Tags.Biomes.IS_BADLANDS)) {
+                        if (WLConfigs.DEBUG_MODE.get()) {
+                            LOGGER.info("Going to replace creeper with desert one");
+                        }
+                        newCreeper = WLEntities.DESERT_CREEPER.get().create(level, EntitySpawnReason.TRIGGERED);
+                    }
+                }
+                if (newCreeper != null) {
+                    newCreeper.snapTo(entity.getX(), entity.getY(), entity.getZ(),
+                            entity.getYRot(), entity.getXRot());
+                    newCreeper.finalizeSpawn(serverLevel, serverLevel.getCurrentDifficultyAt(pos),
+                            EntitySpawnReason.TRIGGERED, null);
 
-                entity.discard();
+                    entity.discard();
 
-                level.addFreshEntity(newSkeleton);
-
-                event.setCanceled(true);
+                    level.addFreshEntity(newCreeper);
+                    event.setCanceled(true);
+                }
             }
         }
     }

@@ -2,6 +2,7 @@ package nightkosh.withered_lands.event;
 
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.animal.rabbit.Rabbit;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -21,6 +22,10 @@ import nightkosh.withered_lands.entity.breeze.Thunderstorm;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
+import nightkosh.withered_lands.entity.creeper.CaveCreeper;
+import nightkosh.withered_lands.entity.creeper.DeepslateCreeper;
+import nightkosh.withered_lands.entity.creeper.DesertCreeper;
+import nightkosh.withered_lands.entity.creeper.SnowyCreeper;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.ghost.HollowStalker;
 import nightkosh.withered_lands.entity.giant.FrozenGiant;
@@ -90,6 +95,11 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.HOLLOW_STALKER.get(), HollowStalker.createAttributeSupplier());
         // spiders
         event.put(WLEntities.CAVE_SPIDER.get(), CaveSpider.createCaveSpider().build());
+        // creepers
+        event.put(WLEntities.DESERT_CREEPER.get(), Creeper.createAttributes().build());
+        event.put(WLEntities.SNOWY_CREEPER.get(), Creeper.createAttributes().build());
+        event.put(WLEntities.CAVE_CREEPER.get(), Creeper.createAttributes().build());
+        event.put(WLEntities.DEEPSLATE_CREEPER.get(), Creeper.createAttributes().build());
         // wolves
         event.put(WLEntities.SKELETON_DOG.get(), SkeletonDog.createAttributeSupplier());
         event.put(WLEntities.ZOMBIE_DOG.get(), ZombieDog.createAttributeSupplier());
@@ -322,6 +332,31 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 CaveSpider::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        // creepers
+        event.register(WLEntities.DESERT_CREEPER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                DesertCreeper::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.SNOWY_CREEPER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                SnowyCreeper::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.CAVE_CREEPER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                CaveCreeper::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.DEEPSLATE_CREEPER.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                DeepslateCreeper::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // wolves

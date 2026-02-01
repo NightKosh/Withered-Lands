@@ -217,6 +217,31 @@ public class WLItems {
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "hollow_stalker_spawn_egg")))
                     .spawnEgg(WLEntities.HOLLOW_STALKER.get())));
 
+    // creepers
+    public static final DeferredHolder<Item, Item> DESERT_CREEPER_EGG = ITEMS_REGISTER.register(
+            "desert_creeper_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "desert_creeper_spawn_egg")))
+                    .spawnEgg(WLEntities.DESERT_CREEPER.get())));
+
+    public static final DeferredHolder<Item, Item> SNOWY_CREEPER_EGG = ITEMS_REGISTER.register(
+            "snowy_creeper_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "snowy_creeper_spawn_egg")))
+                    .spawnEgg(WLEntities.SNOWY_CREEPER.get())));
+
+    public static final DeferredHolder<Item, Item> CAVE_CREEPER_EGG = ITEMS_REGISTER.register(
+            "cave_creeper_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "cave_creeper_spawn_egg")))
+                    .spawnEgg(WLEntities.CAVE_CREEPER.get())));
+
+    public static final DeferredHolder<Item, Item> DEEPSLATE_CREEPER_EGG = ITEMS_REGISTER.register(
+            "deepslate_creeper_spawn_egg",
+            () -> new SpawnEggItem(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "deepslate_creeper_spawn_egg")))
+                    .spawnEgg(WLEntities.DEEPSLATE_CREEPER.get())));
+
     // wolves
     public static final DeferredHolder<Item, Item> SKELETON_DOG_EGG = ITEMS_REGISTER.register(
             "skeleton_dog_spawn_egg",
