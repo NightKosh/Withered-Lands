@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "has_my_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:torch",
+              "minecraft:copper_ingot",
+              "minecraft:copper_nugget"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "withered_lands:torch_to_copper_torch"
+    ]
+  }
+}
