@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "withered_lands:skeleton_skull_crawler",
+    "withered_lands:stray_skull_crawler",
+    "withered_lands:bogged_skull_crawler",
+    "withered_lands:parched_skull_crawler",
+    "withered_lands:wither_skull_crawler",
+    "withered_lands:skeleton_dog",
+    "withered_lands:skeleton_cat",
+    "withered_lands:skeleton_horse",
+    "withered_lands:skeleton"
+  ]
+}
