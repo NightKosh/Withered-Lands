@@ -139,7 +139,7 @@ public class ExtinguishLightGoal extends Goal {
         int minZ = pos.getZ() - RANGE;
         int maxX = pos.getX() + RANGE;
         int maxY = Math.min(this.maxDepth, pos.getY() + RANGE);
-        int maxZ = pos.getX() + RANGE;
+        int maxZ = pos.getZ() + RANGE;
 
         var newPos = new BlockPos.MutableBlockPos();
         for (int x = minX; x <= maxX; x++) {
