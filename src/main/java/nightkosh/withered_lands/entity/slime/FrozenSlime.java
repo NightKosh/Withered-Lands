@@ -51,9 +51,9 @@ public class FrozenSlime extends ASlime {
         if (!this.level().isClientSide() && WLConfigs.FROZEN_SLIME_SNOW.get() && this.getSize() > 1) {
             var pos = this.blockPosition();
             var below = pos.below();
+            var state = this.level().getBlockState(pos);
 
-            if ((this.level().getBlockState(pos).getCollisionShape(this.level(), pos).isEmpty() ||
-                    this.level().getBlockState(pos).is(Blocks.SNOW)) &&
+            if ((state.isAir() || state.is(Blocks.SNOW)) &&
                     this.level().getBlockState(below).isSolidRender()) {
                 this.level().setBlock(pos, Blocks.POWDER_SNOW.defaultBlockState(), 3);
             }
