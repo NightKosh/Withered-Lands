@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.spider.CaveSpider;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -18,9 +19,9 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class CaveSpider extends net.minecraft.world.entity.monster.spider.CaveSpider {
+public class WLCaveSpider extends CaveSpider {
 
-    public CaveSpider(EntityType<? extends CaveSpider> entityType, Level level) {
+    public WLCaveSpider(EntityType<? extends WLCaveSpider> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -31,7 +32,7 @@ public class CaveSpider extends net.minecraft.world.entity.monster.spider.CaveSp
     }
 
     public static boolean checkSpawnRules(
-            EntityType<? extends CaveSpider> entityType, ServerLevelAccessor levelAccessor,
+            EntityType<? extends WLCaveSpider> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.CAVE_SPIDER_SPAWN.get() &&
                 !levelAccessor.canSeeSky(blockPos) &&

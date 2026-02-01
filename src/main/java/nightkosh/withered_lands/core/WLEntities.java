@@ -37,7 +37,7 @@ import nightkosh.withered_lands.entity.projectile.FrozenSnowball;
 import nightkosh.withered_lands.entity.projectile.SandDevilWindCharge;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.snow.Snowman;
-import nightkosh.withered_lands.entity.spider.CaveSpider;
+import nightkosh.withered_lands.entity.spider.WLCaveSpider;
 import nightkosh.withered_lands.entity.water.DrownedSailor;
 import nightkosh.withered_lands.entity.swamp.GiantFrog;
 import nightkosh.withered_lands.entity.water.PhantomDiver;
@@ -403,9 +403,9 @@ public class WLEntities {
                                     fromNamespaceAndPath(ModInfo.ID, "hollow_stalker"))));
 
     // spiders
-    public static final DeferredHolder<EntityType<?>, EntityType<CaveSpider>> CAVE_SPIDER =
+    public static final DeferredHolder<EntityType<?>, EntityType<WLCaveSpider>> CAVE_SPIDER =
             ENTITY_TYPES_REGISTER.register("cave_spider",
-                    () -> EntityType.Builder.of(CaveSpider::new, MobCategory.MONSTER)
+                    () -> EntityType.Builder.of(WLCaveSpider::new, MobCategory.MONSTER)
                             .sized(0.7F, 0.5F)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
