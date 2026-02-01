@@ -3,6 +3,8 @@ package nightkosh.withered_lands.core;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -27,362 +29,191 @@ public class WLItems {
             DeferredRegister.create(Registries.ITEM, ModInfo.ID);
 
     // slimes
-    public static final DeferredHolder<Item, Item> VERDANT_SLIME_EGG = ITEMS_REGISTER.register(
-            "verdant_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "verdant_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.VERDANT_SLIME.get())));
+    public static final DeferredHolder<Item, Item> VERDANT_SLIME_EGG =
+            registerEgg(WLEntities.VERDANT_SLIME, "verdant_slime_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> SANDY_SLIME_EGG = ITEMS_REGISTER.register(
-            "sandy_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "sandy_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.SANDY_SLIME.get())));
+    public static final DeferredHolder<Item, Item> SANDY_SLIME_EGG =
+            registerEgg(WLEntities.SANDY_SLIME, "sandy_slime_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> FROZEN_SLIME_EGG = ITEMS_REGISTER.register(
-            "frozen_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "frozen_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.FROZEN_SLIME.get())));
+    public static final DeferredHolder<Item, Item> FROZEN_SLIME_EGG =
+            registerEgg(WLEntities.FROZEN_SLIME, "frozen_slime_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> MUD_SLIME_EGG = ITEMS_REGISTER.register(
-            "mud_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "mud_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.MUD_SLIME.get())));
+    public static final DeferredHolder<Item, Item> MUD_SLIME_EGG =
+            registerEgg(WLEntities.MUD_SLIME, "mud_slime_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> JUNGLE_SLIME_EGG = ITEMS_REGISTER.register(
-            "jungle_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "jungle_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.JUNGLE_SLIME.get())));
+    public static final DeferredHolder<Item, Item> JUNGLE_SLIME_EGG =
+            registerEgg(WLEntities.JUNGLE_SLIME, "jungle_slime_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> CAVE_SLIME_EGG = ITEMS_REGISTER.register(
-            "cave_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "cave_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.CAVE_SLIME.get())));
+    public static final DeferredHolder<Item, Item> CAVE_SLIME_EGG =
+            registerEgg(WLEntities.CAVE_SLIME, "cave_slime_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ABYSSAL_SLIME_EGG = ITEMS_REGISTER.register(
-            "abyssal_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "abyssal_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.ABYSSAL_SLIME.get())));
+    public static final DeferredHolder<Item, Item> ABYSSAL_SLIME_EGG =
+            registerEgg(WLEntities.ABYSSAL_SLIME, "abyssal_slime_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> TOXIC_SLUDGE_EGG = ITEMS_REGISTER.register(
-            "toxic_sludge_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "toxic_sludge_spawn_egg")))
-                    .spawnEgg(WLEntities.TOXIC_SLUDGE.get())));
+    public static final DeferredHolder<Item, Item> TOXIC_SLUDGE_EGG =
+            registerEgg(WLEntities.TOXIC_SLUDGE, "toxic_sludge_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> MOLTEN_SLIME_EGG = ITEMS_REGISTER.register(
-            "molten_slime_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "molten_slime_spawn_egg")))
-                    .spawnEgg(WLEntities.MOLTEN_SLIME.get())));
+    public static final DeferredHolder<Item, Item> MOLTEN_SLIME_EGG =
+            registerEgg(WLEntities.MOLTEN_SLIME, "molten_slime_spawn_egg");
 
     // bats
-    public static final DeferredHolder<Item, Item> CAVE_BAT_EGG = ITEMS_REGISTER.register(
-            "cave_bat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "cave_bat_spawn_egg")))
-                    .spawnEgg(WLEntities.CAVE_BAT.get())));
+    public static final DeferredHolder<Item, Item> CAVE_BAT_EGG =
+            registerEgg(WLEntities.CAVE_BAT, "cave_bat_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> VAMPIRE_BAT_EGG = ITEMS_REGISTER.register(
-            "vampire_bat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "vampire_bat_spawn_egg")))
-                    .spawnEgg(WLEntities.VAMPIRE_BAT.get())));
+    public static final DeferredHolder<Item, Item> VAMPIRE_BAT_EGG =
+            registerEgg(WLEntities.VAMPIRE_BAT, "vampire_bat_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ICE_BAT_EGG = ITEMS_REGISTER.register(
-            "ice_bat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "ice_bat_spawn_egg")))
-                    .spawnEgg(WLEntities.ICE_BAT.get())));
+    public static final DeferredHolder<Item, Item> ICE_BAT_EGG =
+            registerEgg(WLEntities.ICE_BAT, "ice_bat_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> FLYING_FOX_EGG = ITEMS_REGISTER.register(
-            "flying_fox_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "flying_fox_spawn_egg")))
-                    .spawnEgg(WLEntities.FLYING_FOX.get())));
+    public static final DeferredHolder<Item, Item> FLYING_FOX_EGG =
+            registerEgg(WLEntities.FLYING_FOX, "flying_fox_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> BLAZING_BAT_EGG = ITEMS_REGISTER.register(
-            "blazing_bat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "blazing_bat_spawn_egg")))
-                    .spawnEgg(WLEntities.BLAZING_BAT.get())));
+    public static final DeferredHolder<Item, Item> BLAZING_BAT_EGG =
+            registerEgg(WLEntities.BLAZING_BAT, "blazing_bat_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> WITHERED_BAT_EGG = ITEMS_REGISTER.register(
-            "withered_bat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "withered_bat_spawn_egg")))
-                    .spawnEgg(WLEntities.WITHERED_BAT.get())));
+    public static final DeferredHolder<Item, Item> WITHERED_BAT_EGG =
+            registerEgg(WLEntities.WITHERED_BAT, "withered_bat_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> VOLATILE_BAT_EGG = ITEMS_REGISTER.register(
-            "volatile_bat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "volatile_bat_spawn_egg")))
-                    .spawnEgg(WLEntities.VOLATILE_BAT.get())));
+    public static final DeferredHolder<Item, Item> VOLATILE_BAT_EGG =
+            registerEgg(WLEntities.VOLATILE_BAT, "volatile_bat_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> CHORUS_BAT_EGG = ITEMS_REGISTER.register(
-            "chorus_bat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "chorus_bat_spawn_egg")))
-                    .spawnEgg(WLEntities.CHORUS_BAT.get())));
+    public static final DeferredHolder<Item, Item> CHORUS_BAT_EGG =
+            registerEgg(WLEntities.CHORUS_BAT, "chorus_bat_spawn_egg");
 
     // crawlers
-    public static final DeferredHolder<Item, Item> SKELETON_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "skeleton_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.SKELETON_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> SKELETON_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.SKELETON_SKULL_CRAWLER, "skeleton_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> STRAY_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "stray_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "stray_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.STRAY_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> STRAY_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.STRAY_SKULL_CRAWLER, "stray_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> BOGGED_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "bogged_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bogged_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.BOGGED_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> BOGGED_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.BOGGED_SKULL_CRAWLER, "bogged_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> PARCHED_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "parched_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "parched_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.PARCHED_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> PARCHED_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.PARCHED_SKULL_CRAWLER, "parched_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> WITHER_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "wither_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "wither_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.WITHER_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> WITHER_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.WITHER_SKULL_CRAWLER, "wither_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ZOMBIE_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "zombie_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.ZOMBIE_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> ZOMBIE_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.ZOMBIE_SKULL_CRAWLER, "zombie_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> HUSK_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "husk_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "husk_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.HUSK_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> HUSK_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.HUSK_SKULL_CRAWLER, "husk_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> DROWNED_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "drowned_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "drowned_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.DROWNED_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> DROWNED_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.DROWNED_SKULL_CRAWLER, "drowned_skull_crawler_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> PIGLIN_SKULL_CRAWLER_EGG = ITEMS_REGISTER.register(
-            "piglin_skull_crawler_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "piglin_skull_crawler_spawn_egg")))
-                    .spawnEgg(WLEntities.PIGLIN_SKULL_CRAWLER.get())));
+    public static final DeferredHolder<Item, Item> PIGLIN_SKULL_CRAWLER_EGG =
+            registerEgg(WLEntities.PIGLIN_SKULL_CRAWLER, "piglin_skull_crawler_spawn_egg");
 
     // breeze
-    public static final DeferredHolder<Item, Item> THUNDERSTORM_EGG = ITEMS_REGISTER.register(
-            "thunderstorm_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "thunderstorm_spawn_egg")))
-                    .spawnEgg(WLEntities.THUNDERSTORM.get())));
+    public static final DeferredHolder<Item, Item> THUNDERSTORM_EGG =
+            registerEgg(WLEntities.THUNDERSTORM, "thunderstorm_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> BLIZZARD_EGG = ITEMS_REGISTER.register(
-            "blizzard_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "blizzard_spawn_egg")))
-                    .spawnEgg(WLEntities.BLIZZARD.get())));
+    public static final DeferredHolder<Item, Item> BLIZZARD_EGG =
+            registerEgg(WLEntities.BLIZZARD, "blizzard_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> SAND_DEVIL_EGG = ITEMS_REGISTER.register(
-            "sand_devil_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "sand_devil_spawn_egg")))
-                    .spawnEgg(WLEntities.SAND_DEVIL.get())));
+    public static final DeferredHolder<Item, Item> SAND_DEVIL_EGG =
+            registerEgg(WLEntities.SAND_DEVIL, "sand_devil_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> DIRGE_GALE_EGG = ITEMS_REGISTER.register(
-            "dirge_gale_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "dirge_gale_spawn_egg")))
-                    .spawnEgg(WLEntities.DIRGE_GALE.get())));
+    public static final DeferredHolder<Item, Item> DIRGE_GALE_EGG =
+            registerEgg(WLEntities.DIRGE_GALE, "dirge_gale_spawn_egg");
 
     // ghosts
-    public static final DeferredHolder<Item, Item> HOLLOW_STALKER_EGG = ITEMS_REGISTER.register(
-            "hollow_stalker_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "hollow_stalker_spawn_egg")))
-                    .spawnEgg(WLEntities.HOLLOW_STALKER.get())));
+    public static final DeferredHolder<Item, Item> HOLLOW_STALKER_EGG =
+            registerEgg(WLEntities.HOLLOW_STALKER, "hollow_stalker_spawn_egg");
 
     // creepers
-    public static final DeferredHolder<Item, Item> DESERT_CREEPER_EGG = ITEMS_REGISTER.register(
-            "desert_creeper_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "desert_creeper_spawn_egg")))
-                    .spawnEgg(WLEntities.DESERT_CREEPER.get())));
+    public static final DeferredHolder<Item, Item> DESERT_CREEPER_EGG =
+            registerEgg(WLEntities.DESERT_CREEPER, "desert_creeper_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> SNOWY_CREEPER_EGG = ITEMS_REGISTER.register(
-            "snowy_creeper_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "snowy_creeper_spawn_egg")))
-                    .spawnEgg(WLEntities.SNOWY_CREEPER.get())));
+    public static final DeferredHolder<Item, Item> SNOWY_CREEPER_EGG =
+            registerEgg(WLEntities.SNOWY_CREEPER, "snowy_creeper_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> CAVE_CREEPER_EGG = ITEMS_REGISTER.register(
-            "cave_creeper_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "cave_creeper_spawn_egg")))
-                    .spawnEgg(WLEntities.CAVE_CREEPER.get())));
+    public static final DeferredHolder<Item, Item> CAVE_CREEPER_EGG =
+            registerEgg(WLEntities.CAVE_CREEPER, "cave_creeper_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> DEEPSLATE_CREEPER_EGG = ITEMS_REGISTER.register(
-            "deepslate_creeper_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "deepslate_creeper_spawn_egg")))
-                    .spawnEgg(WLEntities.DEEPSLATE_CREEPER.get())));
+    public static final DeferredHolder<Item, Item> DEEPSLATE_CREEPER_EGG =
+            registerEgg(WLEntities.DEEPSLATE_CREEPER, "deepslate_creeper_spawn_egg");
 
     // wolves
-    public static final DeferredHolder<Item, Item> SKELETON_DOG_EGG = ITEMS_REGISTER.register(
-            "skeleton_dog_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_dog_spawn_egg")))
-                    .spawnEgg(WLEntities.SKELETON_DOG.get())));
+    public static final DeferredHolder<Item, Item> SKELETON_DOG_EGG =
+            registerEgg(WLEntities.SKELETON_DOG, "skeleton_dog_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ZOMBIE_DOG_EGG = ITEMS_REGISTER.register(
-            "zombie_dog_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_dog_spawn_egg")))
-                    .spawnEgg(WLEntities.ZOMBIE_DOG.get())));
+    public static final DeferredHolder<Item, Item> ZOMBIE_DOG_EGG =
+            registerEgg(WLEntities.ZOMBIE_DOG, "zombie_dog_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> BARGHEST_EGG = ITEMS_REGISTER.register(
-            "barghest_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "barghest_spawn_egg")))
-                    .spawnEgg(WLEntities.BARGHEST.get())));
+    public static final DeferredHolder<Item, Item> BARGHEST_EGG =
+            registerEgg(WLEntities.BARGHEST, "barghest_spawn_egg");
 
     // cats
-    public static final DeferredHolder<Item, Item> SKELETON_CAT_EGG = ITEMS_REGISTER.register(
-            "skeleton_cat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_cat_spawn_egg")))
-                    .spawnEgg(WLEntities.SKELETON_CAT.get())));
+    public static final DeferredHolder<Item, Item> SKELETON_CAT_EGG =
+            registerEgg(WLEntities.SKELETON_CAT, "skeleton_cat_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ZOMBIE_CAT_EGG = ITEMS_REGISTER.register(
-            "zombie_cat_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_cat_spawn_egg")))
-                    .spawnEgg(WLEntities.ZOMBIE_CAT.get())));
+    public static final DeferredHolder<Item, Item> ZOMBIE_CAT_EGG =
+            registerEgg(WLEntities.ZOMBIE_CAT, "zombie_cat_spawn_egg");
 
     // horses
-    public static final DeferredHolder<Item, Item> SKELETON_HORSE_EGG = ITEMS_REGISTER.register(
-            "skeleton_horse_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_horse_spawn_egg")))
-                    .spawnEgg(WLEntities.SKELETON_HORSE.get())));
+    public static final DeferredHolder<Item, Item> SKELETON_HORSE_EGG =
+            registerEgg(WLEntities.SKELETON_HORSE, "skeleton_horse_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ZOMBIE_HORSE_EGG = ITEMS_REGISTER.register(
-            "zombie_horse_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "zombie_horse_spawn_egg")))
-                    .spawnEgg(WLEntities.ZOMBIE_HORSE.get())));
+    public static final DeferredHolder<Item, Item> ZOMBIE_HORSE_EGG =
+            registerEgg(WLEntities.ZOMBIE_HORSE, "zombie_horse_spawn_egg");
 
     // underwater mobs
-    public static final DeferredHolder<Item, Item> DROWNED_SAILOR_EGG = ITEMS_REGISTER.register(
-            "drowned_sailor_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "drowned_sailor_spawn_egg")))
-                    .spawnEgg(WLEntities.DROWNED_SAILOR.get())));
+    public static final DeferredHolder<Item, Item> DROWNED_SAILOR_EGG =
+            registerEgg(WLEntities.DROWNED_SAILOR, "drowned_sailor_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> PHANTOM_DIVER_EGG = ITEMS_REGISTER.register(
-            "phantom_diver_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "phantom_diver_spawn_egg")))
-                    .spawnEgg(WLEntities.PHANTOM_DIVER.get())));
+    public static final DeferredHolder<Item, Item> PHANTOM_DIVER_EGG =
+            registerEgg(WLEntities.PHANTOM_DIVER, "phantom_diver_spawn_egg");
 
     // swamp
-    public static final DeferredHolder<Item, Item> SWAMP_THING_EGG = ITEMS_REGISTER.register(
-            "swamp_thing_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "swamp_thing_spawn_egg")))
-                    .spawnEgg(WLEntities.SWAMP_THING.get())));
+    public static final DeferredHolder<Item, Item> SWAMP_THING_EGG =
+            registerEgg(WLEntities.SWAMP_THING, "swamp_thing_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> GIANT_FROG_EGG = ITEMS_REGISTER.register(
-            "giant_frog_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "giant_frog_spawn_egg")))
-                    .spawnEgg(WLEntities.GIANT_FROG.get())));
+    public static final DeferredHolder<Item, Item> GIANT_FROG_EGG =
+            registerEgg(WLEntities.GIANT_FROG, "giant_frog_spawn_egg");
 
     // fishes
-    public static final DeferredHolder<Item, Item> MINNOW_EGG = ITEMS_REGISTER.register(
-            "minnow_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "minnow_spawn_egg")))
-                    .spawnEgg(WLEntities.MINNOW.get())));
+    public static final DeferredHolder<Item, Item> MINNOW_EGG =
+            registerEgg(WLEntities.MINNOW, "minnow_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> PIRANHA_EGG = ITEMS_REGISTER.register(
-            "piranha_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "piranha_spawn_egg")))
-                    .spawnEgg(WLEntities.PIRANHA.get())));
+    public static final DeferredHolder<Item, Item> PIRANHA_EGG =
+            registerEgg(WLEntities.PIRANHA, "piranha_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> PIKE_EGG = ITEMS_REGISTER.register(
-            "pike_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "pike_spawn_egg")))
-                    .spawnEgg(WLEntities.PIKE.get())));
+    public static final DeferredHolder<Item, Item> PIKE_EGG =
+            registerEgg(WLEntities.PIKE, "pike_spawn_egg");
 
     // desert
-    public static final DeferredHolder<Item, Item> MUMMY_EGG = ITEMS_REGISTER.register(
-            "mummy_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "mummy_spawn_egg")))
-                    .spawnEgg(WLEntities.MUMMY.get())));
+    public static final DeferredHolder<Item, Item> MUMMY_EGG =
+            registerEgg(WLEntities.MUMMY, "mummy_spawn_egg");
 
     // snow
-    public static final DeferredHolder<Item, Item> SNOWMAN_EGG = ITEMS_REGISTER.register(
-            "snowman_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "snowman_spawn_egg")))
-                    .spawnEgg(WLEntities.SNOWMAN.get())));
+    public static final DeferredHolder<Item, Item> SNOWMAN_EGG =
+            registerEgg(WLEntities.SNOWMAN, "snowman_spawn_egg");
 
     // giants
-    public static final DeferredHolder<Item, Item> HILL_GIANT_EGG = ITEMS_REGISTER.register(
-            "hill_giant_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "hill_giant_spawn_egg")))
-                    .spawnEgg(WLEntities.HILL_GIANT.get())));
+    public static final DeferredHolder<Item, Item> HILL_GIANT_EGG =
+            registerEgg(WLEntities.HILL_GIANT, "hill_giant_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> FROZEN_GIANT_EGG = ITEMS_REGISTER.register(
-            "frozen_giant_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "frozen_giant_spawn_egg")))
-                    .spawnEgg(WLEntities.FROZEN_GIANT.get())));
+    public static final DeferredHolder<Item, Item> FROZEN_GIANT_EGG =
+            registerEgg(WLEntities.FROZEN_GIANT, "frozen_giant_spawn_egg");
 
     // other
-    public static final DeferredHolder<Item, Item> POSSESSED_ARMOR_EGG = ITEMS_REGISTER.register(
-            "possessed_armor_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "possessed_armor_spawn_egg")))
-                    .spawnEgg(WLEntities.POSSESSED_ARMOR.get())));
+    public static final DeferredHolder<Item, Item> POSSESSED_ARMOR_EGG =
+            registerEgg(WLEntities.POSSESSED_ARMOR, "possessed_armor_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> SKELETON_EGG = ITEMS_REGISTER.register(
-            "skeleton_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "skeleton_spawn_egg")))
-                    .spawnEgg(WLEntities.SKELETON.get())));
+    public static final DeferredHolder<Item, Item> SKELETON_EGG =
+            registerEgg(WLEntities.SKELETON, "skeleton_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ILLUSIONER_EGG = ITEMS_REGISTER.register(
-            "illusioner_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "illusioner_spawn_egg")))
-                    .spawnEgg(WLEntities.ILLUSIONER.get())));
+    public static final DeferredHolder<Item, Item> ILLUSIONER_EGG =
+            registerEgg(WLEntities.ILLUSIONER, "illusioner_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> KILLER_BUNNY_EGG = ITEMS_REGISTER.register(
-            "killer_bunny_spawn_egg",
-            () -> new SpawnEggItem(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "killer_bunny_spawn_egg")))
-                    .spawnEgg(WLEntities.KILLER_BUNNY.get())));
+    public static final DeferredHolder<Item, Item> KILLER_BUNNY_EGG =
+            registerEgg(WLEntities.KILLER_BUNNY, "killer_bunny_spawn_egg");
 
     // items
     public static final DeferredHolder<Item, Item> SLIME_GEL = ITEMS_REGISTER.register(
@@ -429,8 +260,16 @@ public class WLItems {
                             .stacksTo(64)
                             .setId(WLBlocks.EXTINGUISHED_SOUL_TORCH_RK)));
 
+    private static DeferredHolder<Item, Item> registerEgg(DeferredHolder entityHolder, String id) {
+        return ITEMS_REGISTER.register(
+                id, () -> new SpawnEggItem(new Item.Properties()
+                        .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, id)))
+                        .spawnEgg(((DeferredHolder<EntityType<?>, EntityType<? extends LivingEntity>>) entityHolder).get())));
+    }
+
     public static void register(IEventBus eventBus) {
         ITEMS_REGISTER.register(eventBus);
     }
+
 
 }
