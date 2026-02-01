@@ -179,6 +179,24 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /summon withered_lands:cave_spider ~ ~ ~ {NoAI:1b}
     ```
 
+### Creepers spawn:
+1. Desert creeper
+    ```
+        /summon withered_lands:desert_creeper ~ ~ ~ {NoAI:1b}
+    ```
+2. Snowy creeper
+    ```
+        /summon withered_lands:snowy_creeper ~ ~ ~ {NoAI:1b}
+    ```
+3. Cave creeper
+    ```
+        /summon withered_lands:cave_creeper ~ ~ ~ {NoAI:1b}
+    ```
+4. Deepslate creeper
+    ```
+        /summon withered_lands:deepslate_creeper ~ ~ ~ {NoAI:1b}
+    ```
+
 ### Giants spawn:
 1. Hill giant
     ```
