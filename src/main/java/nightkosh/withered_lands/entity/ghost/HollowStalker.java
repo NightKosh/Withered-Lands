@@ -38,7 +38,9 @@ public class HollowStalker extends AGhost {
         super.registerGoals();
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(4, new GhostAttackGoal(this));
-        this.goalSelector.addGoal(5, new ExtinguishLightGoal(this, MAX_DEPTH));
+        if (WLConfigs.HOLLOW_STALKER_EXTINGUISH_LIGHT.get()) {
+            this.goalSelector.addGoal(5, new ExtinguishLightGoal(this, MAX_DEPTH));
+        }
         this.goalSelector.addGoal(8, new GhostRandomMoveGoal(this));
         this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Mob.class, 15));
 
