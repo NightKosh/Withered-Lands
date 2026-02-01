@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.AMonster;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -122,6 +123,7 @@ public class ExtinguishLightGoal extends Goal {
                 this.level.setBlock(this.lightSourcePos, newState, 3);
             }
             if (this.level instanceof ServerLevel server) {
+                this.mob.playSound(WLSounds.HOLLOW_STALKER_EXTINGUISH.get(), 1, 1);
                 server.sendParticles(ParticleTypes.POOF,
                         this.lightSourcePos.getX() + 0.5,
                         this.lightSourcePos.getY() + 0.5,

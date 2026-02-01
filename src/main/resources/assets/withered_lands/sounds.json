@@ -86,10 +86,6 @@
         "stream" : true
       },
       {
-        "name" : "withered_lands:ghost/hollow_stalker/ambient_4",
-        "stream" : true
-      },
-      {
         "name" : "withered_lands:ghost/hollow_stalker/swoosh",
         "stream" : true
       },
@@ -104,6 +100,14 @@
     "subtitle": "entity.hollow_stalker.are_you_there",
     "sounds" : [{
       "name" : "withered_lands:ghost/hollow_stalker/are_you_there",
+      "stream" : true
+    }]
+  },
+  "entity.hollow_stalker.extinguish" : {
+    "category": "hostile",
+    "subtitle": "entity.hollow_stalker.extinguish",
+    "sounds" : [{
+      "name" : "withered_lands:ghost/hollow_stalker/extinguish",
       "stream" : true
     }]
   },

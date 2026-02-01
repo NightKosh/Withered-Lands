@@ -56,6 +56,8 @@ public class WLSounds {
             registerSoundEvent("hollow_stalker_ambient", "entity.hollow_stalker.ambient");
     public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_ARE_YOU_THERE =
             registerSoundEvent("hollow_stalker_are_you_there", "entity.hollow_stalker.are_you_there");
+    public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_EXTINGUISH =
+            registerSoundEvent("hollow_stalker_extinguish", "entity.hollow_stalker.extinguish");
     public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_DEATH =
             registerSoundEvent("hollow_stalker_death", "entity.hollow_stalker.death");
     public static final DeferredHolder<SoundEvent, SoundEvent> HOLLOW_STALKER_ATTACK =
