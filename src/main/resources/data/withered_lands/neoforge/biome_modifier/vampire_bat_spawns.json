@@ -4,9 +4,9 @@
   "spawners": [
     {
       "type": "withered_lands:vampire_bat",
-      "weight": 50,
-      "minCount": 4,
-      "maxCount": 8
+      "weight": 40,
+      "minCount": 3,
+      "maxCount": 6
     }
   ]
 }
