@@ -53,7 +53,7 @@ public class SwampThing extends AWaterWalkingMob {
     protected SoundEvent getAmbientSound() {
         return WLSounds.SWAMP_THING_GROWL.get();
     }
-    
+
     @Override
     public boolean checkSpawnRules(@Nonnull LevelAccessor levelAccessor, @Nonnull EntitySpawnReason spawnReason) {
         return true;
