@@ -1,11 +1,6 @@
 package nightkosh.withered_lands.event;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.skeleton.*;
@@ -14,8 +9,6 @@ import net.minecraft.world.entity.monster.zombie.Husk;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -23,7 +16,6 @@ import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
-import net.neoforged.neoforge.event.entity.player.CanPlayerSleepEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -190,41 +182,6 @@ public class WLEventsEntity {
                 WLEnchantmentHelper.applyCurseEffect(player);
             }
         }
-    }
-
-    private static final int MIN_FOOD_TO_SLEEP = 18;
-
-    @SubscribeEvent
-    public static void onCanPlayerSleep(CanPlayerSleepEvent event) {
-        var player = event.getEntity();
-        var level = event.getLevel();
-        if (!player.level().isClientSide() && event.getVanillaProblem() == null) {
-            if (WLConfigs.DEBUG_MODE.get()) {
-                LOGGER.info("CanPlayerSleepEvent event triggered for player {}.", player.getScoreboardName());
-            }
-
-            if (WLConfigs.TO_HUNGRY_TO_SLEEP.get() && player.getFoodData().getFoodLevel() < MIN_FOOD_TO_SLEEP) {
-                denySleep(player, event, Component.translatable("message.withered_lands.to_hungry_to_sleep")
-                        .withStyle(ChatFormatting.RED));
-            } else if (WLConfigs.OPEN_SKY_SLEEP.get() && hasOpenSkyForBed(level, event.getPos())) {
-                denySleep(player, event, Component.translatable("message.withered_lands.open_sky_sleep")
-                        .withStyle(ChatFormatting.RED));
-            }
-        }
-    }
-
-    private static void denySleep(ServerPlayer player, CanPlayerSleepEvent event, Component msg) {
-        event.setProblem(Player.BedSleepingProblem.OTHER_PROBLEM);
-        player.displayClientMessage(msg, true);
-    }
-
-    private static boolean hasOpenSkyForBed(Level level, BlockPos bedPos) {
-        var posAbove = bedPos.above();
-        return level.canSeeSky(posAbove) &&
-                level.canSeeSky(posAbove.north()) &&
-                level.canSeeSky(posAbove.south()) &&
-                level.canSeeSky(posAbove.west()) &&
-                level.canSeeSky(posAbove.east());
     }
 
 }
