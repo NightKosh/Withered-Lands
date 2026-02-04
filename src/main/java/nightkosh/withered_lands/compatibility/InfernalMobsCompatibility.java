@@ -7,6 +7,7 @@ import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
 import nightkosh.withered_lands.entity.crawler.*;
+import nightkosh.withered_lands.entity.ghost.HollowStalker;
 import nightkosh.withered_lands.entity.slime.*;
 import nightkosh.withered_lands.entity.water.fish.Minnow;
 import nightkosh.withered_lands.entity.water.fish.Pike;
@@ -70,6 +71,8 @@ public class InfernalMobsCompatibility {
                 classesAllowedMap.put(HuskSkullCrawler.class.getSimpleName(), false);
                 classesAllowedMap.put(DrownedSkullCrawler.class.getSimpleName(), false);
                 classesAllowedMap.put(PiglinSkullCrawler.class.getSimpleName(), false);
+
+                classesAllowedMap.put(HollowStalker.class.getSimpleName(), false);
 
                 classesAllowedMap.put(SkeletonCat.class.getSimpleName(), false);
                 classesAllowedMap.put(ZombieCat.class.getSimpleName(), false);
