@@ -15,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -22,6 +23,8 @@ import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.ai.goal.AttackIfInWaterGoal;
 import nightkosh.withered_lands.entity.water.AWaterWalkingMob;
 import nightkosh.withered_lands.helper.TimeHelper;
+
+import javax.annotation.Nonnull;
 
 /**
  * Withered Lands
@@ -49,6 +52,11 @@ public class SwampThing extends AWaterWalkingMob {
     @Override
     protected SoundEvent getAmbientSound() {
         return WLSounds.SWAMP_THING_GROWL.get();
+    }
+    
+    @Override
+    public boolean checkSpawnRules(@Nonnull LevelAccessor levelAccessor, @Nonnull EntitySpawnReason spawnReason) {
+        return true;
     }
 
     public static AttributeSupplier createAttributeSupplier() {
