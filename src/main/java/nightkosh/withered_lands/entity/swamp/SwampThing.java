@@ -15,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
@@ -75,7 +76,7 @@ public class SwampThing extends AWaterWalkingMob {
             return false;
         } else {
             boolean flag = levelAccessor.getDifficulty() != Difficulty.PEACEFUL &&
-                    (EntitySpawnReason.ignoresLightRequirements(spawnReason) || isDarkEnoughToSpawn(levelAccessor, blockPos, random)) &&
+                    levelAccessor.getBrightness(LightLayer.BLOCK, blockPos) == 0 &&
                     (EntitySpawnReason.isSpawner(spawnReason) || levelAccessor.getFluidState(blockPos).is(FluidTags.WATER));
             if (!flag || !EntitySpawnReason.isSpawner(spawnReason)) {
                 return flag;
