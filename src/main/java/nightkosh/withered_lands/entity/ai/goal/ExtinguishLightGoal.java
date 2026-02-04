@@ -1,4 +1,4 @@
-package nightkosh.withered_lands.entity.ai;
+package nightkosh.withered_lands.entity.ai.goal;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;

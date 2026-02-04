@@ -1,4 +1,4 @@
-package nightkosh.withered_lands.entity.ai;
+package nightkosh.withered_lands.entity.ai.goal;
 
 import net.minecraft.world.entity.ai.goal.Goal;
 import nightkosh.withered_lands.entity.wolf.Barghest;

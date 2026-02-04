@@ -18,7 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
-import nightkosh.withered_lands.entity.ai.TridentAttackGoal;
+import nightkosh.withered_lands.entity.ai.goal.TridentAttackGoal;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;

@@ -25,7 +25,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
-import nightkosh.withered_lands.entity.ai.BarghestInvisibleGoal;
+import nightkosh.withered_lands.entity.ai.goal.BarghestInvisibleGoal;
 import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;

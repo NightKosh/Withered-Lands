@@ -19,7 +19,7 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
-import nightkosh.withered_lands.entity.ai.AttackIfInWaterGoal;
+import nightkosh.withered_lands.entity.ai.goal.AttackIfInWaterGoal;
 import nightkosh.withered_lands.entity.water.AWaterWalkingMob;
 import nightkosh.withered_lands.helper.TimeHelper;
 

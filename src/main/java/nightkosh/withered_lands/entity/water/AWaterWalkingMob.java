@@ -28,9 +28,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
 import nightkosh.withered_lands.entity.AMonster;
-import nightkosh.withered_lands.entity.ai.GoToBeachGoal;
-import nightkosh.withered_lands.entity.ai.GoToWaterGoal;
-import nightkosh.withered_lands.entity.ai.SwimUpGoal;
+import nightkosh.withered_lands.entity.ai.goal.GoToBeachGoal;
+import nightkosh.withered_lands.entity.ai.goal.GoToWaterGoal;
+import nightkosh.withered_lands.entity.ai.goal.SwimUpGoal;
 import nightkosh.withered_lands.entity.ai.WaterWalkingMoveControl;
 import org.jspecify.annotations.Nullable;
 

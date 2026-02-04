@@ -28,9 +28,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility;
 import nightkosh.withered_lands.entity.AMonster;
-import nightkosh.withered_lands.entity.ai.HideInBonesGoal;
-import nightkosh.withered_lands.entity.ai.HideInPilesOfBonesGoal;
-import nightkosh.withered_lands.entity.ai.SummonSkullCrawlersGoal;
+import nightkosh.withered_lands.entity.ai.goal.HideInBonesGoal;
+import nightkosh.withered_lands.entity.ai.goal.HideInPilesOfBonesGoal;
+import nightkosh.withered_lands.entity.ai.goal.SummonSkullCrawlersGoal;
 
 import javax.annotation.Nonnull;
 
