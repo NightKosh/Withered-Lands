@@ -13,8 +13,7 @@
     "minecraft:sparse_jungle",
     "minecraft:bamboo_jungle",
 
-    "minecraft:nether_wastes",
-    "minecraft:soul_sand_valley"
+    "minecraft:nether_wastes"
   ],
   "spawners": [
     {
