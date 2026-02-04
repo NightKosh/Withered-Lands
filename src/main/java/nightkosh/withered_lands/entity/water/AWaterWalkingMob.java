@@ -64,6 +64,10 @@ public abstract class AWaterWalkingMob extends AMonster {
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 
+        registerTargetGoals();
+    }
+
+    protected void registerTargetGoals() {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false,
                 (entity, level) -> this.okTarget(entity)));

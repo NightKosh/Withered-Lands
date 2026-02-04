@@ -12,10 +12,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
+import nightkosh.withered_lands.entity.ai.AttackIfInWaterGoal;
 import nightkosh.withered_lands.entity.water.AWaterWalkingMob;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -29,6 +32,12 @@ public class SwampThing extends AWaterWalkingMob {
 
     public SwampThing(EntityType<? extends SwampThing> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected void registerTargetGoals() {
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new AttackIfInWaterGoal<>(this, Player.class, false));
     }
 
     @Override
