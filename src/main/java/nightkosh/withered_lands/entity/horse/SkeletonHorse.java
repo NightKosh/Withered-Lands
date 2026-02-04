@@ -82,8 +82,8 @@ public class SkeletonHorse extends AUndeadHorse {
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 15)
-                .add(Attributes.MOVEMENT_SPEED, 0.8)
-                .add(Attributes.ATTACK_DAMAGE, 3)
+                .add(Attributes.MOVEMENT_SPEED, 0.3)
+                .add(Attributes.ATTACK_DAMAGE, 1)
                 .build();
     }
 
