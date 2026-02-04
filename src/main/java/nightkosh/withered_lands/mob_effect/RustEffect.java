@@ -5,7 +5,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility;
 
 import javax.annotation.Nonnull;
@@ -29,13 +28,14 @@ public class RustEffect extends MobEffect {
         if (!level.isClientSide()) {
             if (entity.tickCount % 20 == 0 &&
                     !(GravestoneExtendedCompatibility.loaded() &&
-                            getBoneSkinEffect() != null && entity.hasEffect(getBoneSkinEffect()))) {
-                damageItem(entity.getItemBySlot(EquipmentSlot.MAINHAND));
-                damageItem(entity.getItemBySlot(EquipmentSlot.OFFHAND));
-                damageItem(entity.getItemBySlot(EquipmentSlot.HEAD));
-                damageItem(entity.getItemBySlot(EquipmentSlot.CHEST));
-                damageItem(entity.getItemBySlot(EquipmentSlot.LEGS));
-                damageItem(entity.getItemBySlot(EquipmentSlot.FEET));
+                            getBoneSkinEffect() != null &&
+                            entity.hasEffect(getBoneSkinEffect()))) {
+                damageItem(entity, EquipmentSlot.MAINHAND);
+                damageItem(entity, EquipmentSlot.OFFHAND);
+                damageItem(entity, EquipmentSlot.HEAD);
+                damageItem(entity, EquipmentSlot.CHEST);
+                damageItem(entity, EquipmentSlot.LEGS);
+                damageItem(entity, EquipmentSlot.FEET);
             }
         }
 
@@ -47,9 +47,10 @@ public class RustEffect extends MobEffect {
         return true;
     }
 
-    private void damageItem(ItemStack stack) {
-        if (!stack.isEmpty() && stack.isDamageableItem()) {
-            stack.setDamageValue(stack.getDamageValue() + 1);
+    private void damageItem(LivingEntity entity, EquipmentSlot slot) {
+        var stack = entity.getItemBySlot(slot);
+        if (!stack.isEmpty() && stack.isDamageableItem() && !stack.nextDamageWillBreak()) {
+            stack.hurtAndBreak(1, entity, slot);
         }
     }
 
