@@ -4,7 +4,7 @@
   "spawners": [
     {
       "type": "withered_lands:hollow_stalker",
-      "weight": 30,
+      "weight": 20,
       "minCount": 1,
       "maxCount": 1
     }
