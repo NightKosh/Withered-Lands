@@ -32,7 +32,7 @@ public class HideInPilesOfBonesGoal extends RandomStrollGoal {
     @Override
     public boolean canUse() {
         ticks++;
-        if (ticks >= 100 && !crawler.hideInBonesGoal.isExecuting() && !isNether()) {
+        if (ticks >= 100 && !crawler.hideInBonesGoal.isExecuting() && isNotNether()) {
             if (this.mob.getTarget() != null || !this.mob.getNavigation().isDone()) {
                 return false;
             } else {
@@ -68,7 +68,7 @@ public class HideInPilesOfBonesGoal extends RandomStrollGoal {
     public void start() {
         if (!this.doHide) {
             super.start();
-        } else if (!isNether()) {
+        } else if (isNotNether()) {
             var level = crawler.level();
             var blockPos = crawler.blockPosition().relative(this.selectedDirection);
 
@@ -78,8 +78,8 @@ public class HideInPilesOfBonesGoal extends RandomStrollGoal {
         }
     }
 
-    protected boolean isNether() {
-        return this.crawler.level().dimension() == Level.NETHER;
+    protected boolean isNotNether() {
+        return this.crawler.level().dimension() != Level.NETHER;
     }
 
 }
