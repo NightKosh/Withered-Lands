@@ -30,7 +30,7 @@ import nightkosh.withered_lands.entity.ai.move_control.GhostMoveControl;
  */
 public class HollowStalker extends AGhost {
 
-    public static final int MAX_DEPTH = 45;
+    public static final int MAX_DEPTH = 25;
 
     public HollowStalker(EntityType<? extends HollowStalker> entityType, Level level) {
         super(entityType, level);
