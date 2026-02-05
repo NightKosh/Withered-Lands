@@ -16,10 +16,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
-import nightkosh.withered_lands.entity.ai.*;
 import nightkosh.withered_lands.entity.ai.goal.AttackIfToCloseGoal;
 import nightkosh.withered_lands.entity.ai.goal.ExtinguishLightGoal;
+import nightkosh.withered_lands.entity.ai.goal.GhostAttackGoal;
 import nightkosh.withered_lands.entity.ai.goal.GhostRandomMoveGoal;
+import nightkosh.withered_lands.entity.ai.move_control.GhostMoveControl;
 
 /**
  * Withered Lands

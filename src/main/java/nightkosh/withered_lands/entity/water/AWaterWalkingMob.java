@@ -31,7 +31,7 @@ import nightkosh.withered_lands.entity.AMonster;
 import nightkosh.withered_lands.entity.ai.goal.GoToBeachGoal;
 import nightkosh.withered_lands.entity.ai.goal.GoToWaterGoal;
 import nightkosh.withered_lands.entity.ai.goal.SwimUpGoal;
-import nightkosh.withered_lands.entity.ai.WaterWalkingMoveControl;
+import nightkosh.withered_lands.entity.ai.move_control.WaterWalkingMoveControl;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;

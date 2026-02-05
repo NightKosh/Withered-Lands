@@ -1,4 +1,4 @@
-package nightkosh.withered_lands.entity.ai;
+package nightkosh.withered_lands.entity.ai.move_control;
 
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.attributes.Attributes;
