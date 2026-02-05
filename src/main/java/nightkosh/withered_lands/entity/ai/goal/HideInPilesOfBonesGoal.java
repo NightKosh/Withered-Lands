@@ -72,9 +72,13 @@ public class HideInPilesOfBonesGoal extends RandomStrollGoal {
             var level = crawler.level();
             var blockPos = crawler.blockPosition().relative(this.selectedDirection);
 
-            level.setBlock(blockPos, crawler.getPilesOfBones().defaultBlockState(), 3);
-            crawler.spawnAnim();
-            crawler.discard();
+            if (level.getBlockState(blockPos).canBeReplaced()) {
+                level.setBlock(blockPos, crawler.getPilesOfBones().defaultBlockState(), 3);
+                crawler.spawnAnim();
+                crawler.discard();
+            } else {
+                ticks = 0;
+            }
         }
     }
 
