@@ -4,8 +4,10 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.StandingAndWallBlockItem;
@@ -236,6 +238,62 @@ public class WLItems {
                             .build())
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
 
+    // skulls
+    public static final DeferredHolder<Item, Item> SKULL_HUSK = ITEMS_REGISTER.register(
+            "skull_husk",
+            () -> new BlockItem(
+                    WLBlocks.SKULL_HUSK.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .equippable(EquipmentSlot.HEAD)
+                            .setId(WLBlocks.SKULL_HUSK_RK)));
+
+    public static final DeferredHolder<Item, Item> SKULL_DROWNED = ITEMS_REGISTER.register(
+            "skull_drowned",
+            () -> new BlockItem(
+                    WLBlocks.SKULL_DROWNED.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .equippable(EquipmentSlot.HEAD)
+                            .setId(WLBlocks.SKULL_DROWNED_RK)));
+
+    public static final DeferredHolder<Item, Item> SKULL_STRAY = ITEMS_REGISTER.register(
+            "skull_stray",
+            () -> new BlockItem(
+                    WLBlocks.SKULL_STRAY.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .equippable(EquipmentSlot.HEAD)
+                            .setId(WLBlocks.SKULL_STRAY_RK)));
+
+    public static final DeferredHolder<Item, Item> SKULL_BOGGED = ITEMS_REGISTER.register(
+            "skull_bogged",
+            () -> new BlockItem(
+                    WLBlocks.SKULL_BOGGED.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .equippable(EquipmentSlot.HEAD)
+                            .setId(WLBlocks.SKULL_BOGGED_RK)));
+
+    public static final DeferredHolder<Item, Item> SKULL_PARCHED = ITEMS_REGISTER.register(
+            "skull_parched",
+            () -> new BlockItem(
+                    WLBlocks.SKULL_PARCHED.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .equippable(EquipmentSlot.HEAD)
+                            .setId(WLBlocks.SKULL_PARCHED_RK)));
+
+    public static final DeferredHolder<Item, Item> SKULL_PIGLIN = ITEMS_REGISTER.register(
+            "skull_piglin",
+            () -> new BlockItem(
+                    WLBlocks.SKULL_PIGLIN.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .equippable(EquipmentSlot.HEAD)
+                            .setId(WLBlocks.SKULL_PIGLIN_RK)));
+
+    // torch
     public static final DeferredHolder<Item, Item> EXTINGUISHED_TORCH = ITEMS_REGISTER.register(
             "extinguished_torch",
             () -> new StandingAndWallBlockItem(

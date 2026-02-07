@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "rotation=0": {
+      "model": "withered_lands:block/skull/drowned"
+    },
+    "rotation=1": {
+      "model": "withered_lands:block/skull/drowned_225"
+    },
+    "rotation=2": {
+      "model": "withered_lands:block/skull/drowned_45"
+    },
+    "rotation=3": {
+      "model": "withered_lands:block/skull/drowned_675"
+    },
+    "rotation=4": {
+      "model": "withered_lands:block/skull/drowned",
+      "y": 90
+    },
+    "rotation=5": {
+      "model": "withered_lands:block/skull/drowned_225",
+      "y": 90
+    },
+    "rotation=6": {
+      "model": "withered_lands:block/skull/drowned_45",
+      "y": 90
+    },
+    "rotation=7": {
+      "model": "withered_lands:block/skull/drowned_675",
+      "y": 90
+    },
+    "rotation=8": {
+      "model": "withered_lands:block/skull/drowned",
+      "y": 180
+    },
+    "rotation=9": {
+      "model": "withered_lands:block/skull/drowned_225",
+      "y": 180
+    },
+    "rotation=10": {
+      "model": "withered_lands:block/skull/drowned_45",
+      "y": 180
+    },
+    "rotation=11": {
+      "model": "withered_lands:block/skull/drowned_675",
+      "y": 180
+    },
+    "rotation=12": {
+      "model": "withered_lands:block/skull/drowned",
+      "y": 270
+    },
+    "rotation=13": {
+      "model": "withered_lands:block/skull/drowned_225",
+      "y": 270
+    },
+    "rotation=14": {
+      "model": "withered_lands:block/skull/drowned_45",
+      "y": 270
+    },
+    "rotation=15": {
+      "model": "withered_lands:block/skull/drowned_675",
+      "y": 270
+    }
+  }
+}

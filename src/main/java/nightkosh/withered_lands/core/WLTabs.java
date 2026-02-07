@@ -27,6 +27,16 @@ public class WLTabs {
 
                         output.accept(WLItems.SLIME_GEL.get());
                         output.accept(WLItems.BAT_WING.get());
+
+                        // skulls
+                        output.accept(WLItems.SKULL_HUSK.get());
+                        output.accept(WLItems.SKULL_DROWNED.get());
+                        output.accept(WLItems.SKULL_STRAY.get());
+                        output.accept(WLItems.SKULL_BOGGED.get());
+                        output.accept(WLItems.SKULL_PARCHED.get());
+                        output.accept(WLItems.SKULL_PIGLIN.get());
+
+                        // torch
                         output.accept(WLItems.EXTINGUISHED_TORCH.get());
                         output.accept(WLItems.EXTINGUISHED_COPPER_TORCH.get());
                         output.accept(WLItems.EXTINGUISHED_SOUL_TORCH.get());

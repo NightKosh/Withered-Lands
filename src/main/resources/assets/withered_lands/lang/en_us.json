@@ -113,6 +113,13 @@
   "item.withered_lands.slime_gel": "Slime Gel",
   "item.withered_lands.bat_wing": "Bat Wing",
 
+  "item.withered_lands.skull_husk": "Husk Skull",
+  "item.withered_lands.skull_drowned": "Drowned Skull",
+  "item.withered_lands.skull_stray": "Stray Skull",
+  "item.withered_lands.skull_bogged": "Bogged Skull",
+  "item.withered_lands.skull_parched": "Parched Skull",
+  "item.withered_lands.skull_piglin": "Zombified Piglin Skull",
+
   "item.withered_lands.extinguished_torch": "Extinguished Torch",
   "item.withered_lands.extinguished_copper_torch": "Extinguished Copper Torch",
   "item.withered_lands.extinguished_soul_torch": "Extinguished Soul Torch",

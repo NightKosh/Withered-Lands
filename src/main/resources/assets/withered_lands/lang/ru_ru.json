@@ -113,6 +113,13 @@
   "item.withered_lands.slime_gel": "Гель",
   "item.withered_lands.bat_wing": "Крыло летучей мыши",
 
+  "item.withered_lands.skull_husk": "Череп кадавра",
+  "item.withered_lands.skull_drowned": "Череп утопленника",
+  "item.withered_lands.skull_stray": "Череп зимогора",
+  "item.withered_lands.skull_bogged": "Череп болотника",
+  "item.withered_lands.skull_parched": "Череп пустынника",
+  "item.withered_lands.skull_piglin": "Череп свинозомби",
+
   "item.withered_lands.extinguished_torch": "Погасший факел",
   "item.withered_lands.extinguished_copper_torch": "Погасший медный факел",
   "item.withered_lands.extinguished_soul_torch": "Погасший факел душ",

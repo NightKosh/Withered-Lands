@@ -1,0 +1,7 @@
+{
+  "parent": "withered_lands:block/skull/default_225",
+  "textures": {
+    "texture_skull": "withered_lands:block/skull/husk",
+    "particle": "withered_lands:block/skull/husk"
+  }
+}

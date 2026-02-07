@@ -41,7 +41,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:zombie_head"
+          "name": "withered_lands:skull_drowned"
         }
       ]
     }

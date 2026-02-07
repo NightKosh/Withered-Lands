@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.block.ExtinguishedTorchBlock;
 import nightkosh.withered_lands.block.ExtinguishedWallTorchBlock;
+import nightkosh.withered_lands.block.Skull;
 
 import java.util.function.Supplier;
 
@@ -24,6 +25,36 @@ public class WLBlocks {
 
     public static final DeferredRegister<Block> BLOCKS_REGISTER =
             DeferredRegister.create(Registries.BLOCK, ModInfo.ID);
+
+    public static final ResourceKey SKULL_HUSK_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "skull_husk"));
+    public static final DeferredHolder<Block, Block> SKULL_HUSK = registerBlock(
+            "skull_husk", () -> new Skull(SKULL_HUSK_RK));
+
+    public static final ResourceKey SKULL_DROWNED_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "skull_drowned"));
+    public static final DeferredHolder<Block, Block> SKULL_DROWNED = registerBlock(
+            "skull_drowned", () -> new Skull(SKULL_DROWNED_RK));
+
+    public static final ResourceKey SKULL_STRAY_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "skull_stray"));
+    public static final DeferredHolder<Block, Block> SKULL_STRAY = registerBlock(
+            "skull_stray", () -> new Skull(SKULL_STRAY_RK));
+
+    public static final ResourceKey SKULL_BOGGED_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "skull_bogged"));
+    public static final DeferredHolder<Block, Block> SKULL_BOGGED = registerBlock(
+            "skull_bogged", () -> new Skull(SKULL_BOGGED_RK));
+
+    public static final ResourceKey SKULL_PARCHED_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "skull_parched"));
+    public static final DeferredHolder<Block, Block> SKULL_PARCHED = registerBlock(
+            "skull_parched", () -> new Skull(SKULL_PARCHED_RK));
+
+    public static final ResourceKey SKULL_PIGLIN_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "skull_piglin"));
+    public static final DeferredHolder<Block, Block> SKULL_PIGLIN = registerBlock(
+            "skull_piglin", () -> new Skull(SKULL_PIGLIN_RK));
 
     public static final ResourceKey EXTINGUISHED_WALL_TORCH_RK = ResourceKey.create(
             Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "extinguished_wall_torch"));
