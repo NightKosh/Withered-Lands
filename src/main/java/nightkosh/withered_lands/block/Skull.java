@@ -41,7 +41,6 @@ public class Skull extends Block {
                 .instrument(NoteBlockInstrument.SKELETON)
                 .setId(id)
                 .sound(SoundType.BONE_BLOCK)
-                .lightLevel(state -> 14)
                 .noCollision()
                 .pushReaction(PushReaction.DESTROY)
                 .strength(0.1F, 0));
@@ -54,7 +53,7 @@ public class Skull extends Block {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
+    protected void createBlockStateDefinition(@Nonnull StateDefinition.Builder<Block, BlockState> stateBuilder) {
         super.createBlockStateDefinition(stateBuilder);
         stateBuilder.add(ROTATION);
     }
