@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "has_my_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "withered_lands:skull_parched",
+              "withered_lands:skull_stray",
+              "withered_lands:skull_bogged",
+              "withered_lands:skull_husk",
+              "withered_lands:skull_piglin",
+              "withered_lands:skull_drowned"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "withered_lands:skulls/from_bogged",
+      "withered_lands:skulls/from_drowned",
+      "withered_lands:skulls/from_husk",
+      "withered_lands:skulls/from_parched",
+      "withered_lands:skulls/from_piglin",
+      "withered_lands:skulls/from_stray"
+    ]
+  }
+}
