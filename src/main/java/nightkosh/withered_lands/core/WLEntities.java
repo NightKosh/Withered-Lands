@@ -666,6 +666,7 @@ public class WLEntities {
                     () -> EntityType.Builder.of(WLSkeleton::new, MobCategory.MONSTER)
                             .sized(0.6F, 1.99F)
                             .eyeHeight(1.74F)
+                            .notInPeaceful()
                             .ridingOffset(-0.7F)
                             .clientTrackingRange(8)
                             .build(ResourceKey.create(
