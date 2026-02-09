@@ -7,10 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.skeleton.Skeleton;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.Item;
@@ -49,9 +46,9 @@ public class WLSkeleton extends Skeleton {
 
     @Override
     public boolean hurtServer(@Nonnull ServerLevel level, @Nonnull DamageSource source, float amount) {
-        if (source.getDirectEntity() instanceof AbstractArrow arrow &&
-                this.getOffhandItem().is(Items.SHIELD) &&
-                isInFrontOfMe(arrow)) {
+        if (this.getOffhandItem().is(Items.SHIELD) &&
+                (source.getDirectEntity() instanceof AbstractArrow arrow && isInFrontOfMe(arrow) ||
+                        source.getDirectEntity() instanceof LivingEntity entity && isInFrontOfMe(entity) && level.random.nextInt(4) == 0)) {
             this.level().broadcastEntityEvent(this, (byte) 29);
             this.playSound(SoundEvents.SHIELD_BLOCK.value(), 1, 1);
             // cancel damage
@@ -61,9 +58,9 @@ public class WLSkeleton extends Skeleton {
         }
     }
 
-    private boolean isInFrontOfMe(AbstractArrow arrow) {
+    private boolean isInFrontOfMe(Entity entity) {
         var look = this.getViewVector(1).normalize();
-        var toProjectile = arrow.position().subtract(this.position()).normalize();
+        var toProjectile = entity.position().subtract(this.position()).normalize();
 
         return look.dot(toProjectile) > 0;
     }
