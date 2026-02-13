@@ -231,6 +231,7 @@ public class PossessedArmor extends AMonster {
                 .add(Attributes.FOLLOW_RANGE, 35)
                 .add(Attributes.MOVEMENT_SPEED, 0.25)
                 .add(Attributes.ATTACK_DAMAGE, 4)
+                .add(Attributes.ARMOR, 5)
                 .build();
     }
 
