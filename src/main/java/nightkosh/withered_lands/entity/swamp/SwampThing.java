@@ -6,6 +6,7 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -46,7 +47,7 @@ public class SwampThing extends AWaterWalkingMob {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(net.minecraft.world.effect.MobEffects.SLOWNESS, TimeHelper.SECONDS_15), this);
+        entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_15), this);
     }
 
     @Override
