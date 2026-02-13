@@ -109,6 +109,7 @@ public class WLTabs {
                         output.accept(WLItems.FROZEN_GIANT_EGG.get());
                         // other
                         output.accept(WLItems.POSSESSED_ARMOR_EGG.get());
+                        output.accept(WLItems.MIMIC_EGG.get());
                         output.accept(WLItems.SKELETON_EGG.get());
                         output.accept(WLItems.ILLUSIONER_EGG.get());
                         output.accept(WLItems.KILLER_BUNNY_EGG.get());

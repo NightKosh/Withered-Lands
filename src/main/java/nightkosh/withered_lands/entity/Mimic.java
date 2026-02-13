@@ -1,0 +1,181 @@
+package nightkosh.withered_lands.entity;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AnimationState;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.AABB;
+import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.entity.ai.goal.*;
+import nightkosh.withered_lands.entity.ai.move_control.JumpingMoveControl;
+
+import javax.annotation.Nonnull;
+
+/**
+ * Withered Lands
+ *
+ * @author NightKosh
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ */
+public class Mimic extends AMonster implements IJumpingCube {
+
+    private static final EntityDataAccessor<Boolean> HIDE_ID = SynchedEntityData.defineId(Mimic.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> CAN_HIDE_ID = SynchedEntityData.defineId(Mimic.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<Boolean> IDLE_ID = SynchedEntityData.defineId(Mimic.class, EntityDataSerializers.BOOLEAN);
+
+    public final AnimationState idleAnimation = new AnimationState();
+    public final AnimationState jumpAnimationState = new AnimationState();
+
+    private boolean wasOnGround = false;
+
+
+    public Mimic(EntityType<? extends AMonster> entityType, Level level) {
+        super(entityType, level);
+        this.moveControl = new JumpingMoveControl(this);
+    }
+
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+        this.goalSelector.addGoal(1, new FloatGoal(this));
+        this.goalSelector.addGoal(2, new MimicAttackGoal(this));
+        this.goalSelector.addGoal(3, new HideAsChestGoal(this));
+        this.goalSelector.addGoal(4, new MimicIdleGoal(this));
+        this.goalSelector.addGoal(5, new MimicRandomDirectionGoal(this));
+        this.goalSelector.addGoal(6, new MimicKeepOnJumpingGoal(this));
+
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new AttackIfToCloseGoal(this, Player.class, true, 2));
+    }
+
+    @Override
+    protected void defineSynchedData(@Nonnull SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(HIDE_ID, true);
+        builder.define(CAN_HIDE_ID, true);
+        builder.define(IDLE_ID, false);
+    }
+
+    @Override
+    protected void addAdditionalSaveData(@Nonnull ValueOutput output) {
+        super.addAdditionalSaveData(output);
+        output.putBoolean("was_on_ground", this.wasOnGround);
+    }
+
+    @Override
+    protected void readAdditionalSaveData(@Nonnull ValueInput input) {
+        super.readAdditionalSaveData(input);
+        this.wasOnGround = input.getBooleanOr("was_on_ground", false);
+    }
+
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (this.onGround() && !this.wasOnGround) {
+            this.jumpAnimationState.stop();
+            this.playSound(this.getJumpSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1) / 0.8F);
+        } else if (!this.onGround() && this.wasOnGround) {
+            this.jumpAnimationState.startIfStopped(this.tickCount);
+        }
+
+        this.wasOnGround = this.onGround();
+
+        if (this.isHiding()) {
+            this.jumpAnimationState.stop();
+        }
+        if (this.isIdle()) {
+            this.idleAnimation.startIfStopped(this.tickCount);
+        } else {
+            this.idleAnimation.stop();
+        }
+    }
+
+    public void setCanHide(boolean canHide) {
+        this.entityData.set(CAN_HIDE_ID, canHide);
+    }
+
+    public void setHiding(boolean isHiding) {
+        this.entityData.set(HIDE_ID, isHiding);
+    }
+
+    public boolean canHide() {
+        return this.entityData.get(CAN_HIDE_ID);
+    }
+
+    public boolean isHiding() {
+        return this.entityData.get(HIDE_ID);
+    }
+
+    public void setIdle(boolean idle) {
+        this.entityData.set(IDLE_ID, idle);
+    }
+
+    public boolean isIdle() {
+        return this.entityData.get(IDLE_ID);
+    }
+
+    @Override
+    public int getJumpDelay() {
+        return this.random.nextInt(10) + 5;
+    }
+
+    @Nonnull
+    @Override
+    protected SoundEvent getHurtSound(@Nonnull DamageSource damageSource) {
+        return SoundEvents.WOOD_HIT;
+    }
+
+    @Nonnull
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.WOOD_BREAK;
+    }
+
+    @Override
+    public SoundEvent getJumpSound() {
+        return SoundEvents.WOOD_PLACE;
+    }
+
+    @Override
+    public float getSoundVolume() {
+        return 1;
+    }
+
+    public static AttributeSupplier createAttributeSupplier() {
+        return Mob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 40)
+                .add(Attributes.FOLLOW_RANGE, 35)
+                .add(Attributes.MOVEMENT_SPEED, 0.8)
+                .add(Attributes.ATTACK_DAMAGE, 6)
+                .add(Attributes.ARMOR, 4)
+                .build();
+    }
+
+    public static boolean checkSpawnRules(
+            EntityType<? extends Mimic> entityType, ServerLevelAccessor levelAccessor,
+            EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
+        return WLConfigs.MIMIC_SPAWN.get() &&
+                blockPos.getY() < 10 &&
+                levelAccessor.getEntitiesOfClass(Mimic.class, new AABB(blockPos).inflate(50)).isEmpty() &&
+                checkCommonSpawnRules(levelAccessor, blockPos, random);
+    }
+
+}

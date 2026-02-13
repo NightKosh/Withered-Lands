@@ -208,6 +208,9 @@ public class WLItems {
     public static final DeferredHolder<Item, Item> POSSESSED_ARMOR_EGG =
             registerEgg(WLEntities.POSSESSED_ARMOR, "possessed_armor_spawn_egg");
 
+    public static final DeferredHolder<Item, Item> MIMIC_EGG =
+            registerEgg(WLEntities.MIMIC, "mimic_spawn_egg");
+
     public static final DeferredHolder<Item, Item> SKELETON_EGG =
             registerEgg(WLEntities.SKELETON, "skeleton_spawn_egg");
 

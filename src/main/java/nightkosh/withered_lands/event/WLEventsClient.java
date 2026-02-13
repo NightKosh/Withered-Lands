@@ -8,6 +8,7 @@ import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.renderer.MimicRenderer;
 import nightkosh.withered_lands.renderer.PossessedArmorRenderer;
 import nightkosh.withered_lands.renderer.WLSkeletonRenderer;
 import nightkosh.withered_lands.renderer.bat.*;
@@ -129,6 +130,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.FROZEN_GIANT.get(), FrozenGiantRenderer::new);
         // other
         event.registerEntityRenderer(WLEntities.POSSESSED_ARMOR.get(), PossessedArmorRenderer::new);
+        event.registerEntityRenderer(WLEntities.MIMIC.get(), MimicRenderer::new);
         event.registerEntityRenderer(WLEntities.SKELETON.get(), WLSkeletonRenderer::new);
         event.registerEntityRenderer(WLEntities.ILLUSIONER.get(), IllusionerRenderer::new);
         event.registerEntityRenderer(WLEntities.KILLER_BUNNY.get(), RabbitRenderer::new);
@@ -145,12 +147,12 @@ public class WLEventsClient {
         if (WLConfigs.DEBUG_MODE.get()) {
             LOGGER.info("EntityRenderersEvent.RegisterLayerDefinitions event triggered");
         }
-        // underwater mobs
         event.registerLayerDefinition(PhantomDiverModel.LAYER, PhantomDiverModel::createBodyLayer);
         event.registerLayerDefinition(WLSkeletonModel.LAYER, WLSkeletonModel::createBodyLayer);
         event.registerLayerDefinition(DirgeGaleModel.LAYER, DirgeGaleModel::createBodyLayer);
         event.registerLayerDefinition(HollowStalkerModel.LAYER, HollowStalkerModel::createBodyLayer);
         event.registerLayerDefinition(SkullCrawlerModel.LAYER, SkullCrawlerModel::createBodyLayer);
+        event.registerLayerDefinition(MimicModel.LAYER, MimicModel::createBodyLayer);
     }
 
 }

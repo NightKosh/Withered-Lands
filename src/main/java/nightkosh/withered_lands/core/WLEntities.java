@@ -9,10 +9,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import nightkosh.withered_lands.entity.WLIllusioner;
-import nightkosh.withered_lands.entity.KillerBunny;
-import nightkosh.withered_lands.entity.PossessedArmor;
-import nightkosh.withered_lands.entity.WLSkeleton;
+import nightkosh.withered_lands.entity.*;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.breeze.Blizzard;
 import nightkosh.withered_lands.entity.breeze.DirgeGale;
@@ -660,6 +657,17 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "possessed_armor"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<Mimic>> MIMIC =
+            ENTITY_TYPES_REGISTER.register("mimic",
+                    () -> EntityType.Builder.of(Mimic::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.7F)
+                            .notInPeaceful()
+                            .clientTrackingRange(8)
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "mimic"))));
 
     public static final DeferredHolder<EntityType<?>, EntityType<WLSkeleton>> SKELETON =
             ENTITY_TYPES_REGISTER.register("skeleton",
