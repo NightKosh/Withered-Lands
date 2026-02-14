@@ -192,9 +192,11 @@ public class WLEventsSpawn {
                         var mimic = WLEntities.MIMIC.get().create(level, EntitySpawnReason.TRIGGERED);
                         if (mimic != null) {
                             mimic.setPosRaw(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-                            mimic.lookAt(event.getEntity(), 360, 360);
 
                             level.addFreshEntity(mimic);
+
+                            mimic.setPersistenceRequired();
+                            mimic.lookAt(event.getEntity(), 360, 360);
                         }
                     }
                 }
