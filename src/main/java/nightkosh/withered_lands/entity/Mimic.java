@@ -61,7 +61,7 @@ public class Mimic extends AMonster implements IJumpingCube {
         this.goalSelector.addGoal(6, new MimicKeepOnJumpingGoal(this));
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new AttackIfToCloseGoal(this, Player.class, true, 2));
+        this.targetSelector.addGoal(2, new AttackIfToCloseGoal(this, Player.class, true, 4));
     }
 
     @Override
