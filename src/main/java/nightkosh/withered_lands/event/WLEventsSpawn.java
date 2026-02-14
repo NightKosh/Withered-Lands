@@ -1,6 +1,9 @@
 package nightkosh.withered_lands.event;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.skeleton.*;
@@ -8,18 +11,23 @@ import net.minecraft.world.entity.monster.zombie.Drowned;
 import net.minecraft.world.entity.monster.zombie.Husk;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.WLSkeleton;
 import nightkosh.withered_lands.entity.crawler.ASkullCrawler;
 
+import static net.minecraft.resources.Identifier.withDefaultNamespace;
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
 /**
@@ -152,6 +160,43 @@ public class WLEventsSpawn {
                     crawler.snapTo(entity.getX(), entity.getY() + 1.5, entity.getZ(),
                             entity.getYRot(), entity.getXRot());
                     level.addFreshEntity(crawler);
+                }
+            }
+        }
+    }
+
+    private static final ResourceKey<LootTable> SIMPLE_DUNGEON_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/simple_dungeon"));
+
+    @SubscribeEvent
+    public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
+        if (!event.getLevel().isClientSide() && WLConfigs.MIMIC_SPAWN.get()) {
+            var level = (ServerLevel) event.getLevel();
+            var pos = event.getPos();
+            if (level.getBlockEntity(pos) instanceof ChestBlockEntity chest) {
+                var lootTable = chest.getLootTable();
+                if (lootTable != null) {
+                    if (lootTable.equals(SIMPLE_DUNGEON_CHEST) && level.getRandom().nextInt(3) == 0) {
+                        if (WLConfigs.DEBUG_MODE.get()) {
+                            LOGGER.info("RightClickBlock event triggered for simple_dungeon chest.");
+                            LOGGER.info("Going to replace chest by Mimic!");
+                        }
+                        event.setCanceled(true);
+                        event.setCancellationResult(InteractionResult.FAIL);
+
+                        level.removeBlockEntity(pos);
+                        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+
+                        var mimic = WLEntities.MIMIC.get().create(level, EntitySpawnReason.TRIGGERED);
+                        if (mimic != null) {
+                            mimic.setPosRaw(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                            mimic.lookAt(event.getEntity(), 360, 360);
+
+                            level.addFreshEntity(mimic);
+                        }
+                    }
                 }
             }
         }
