@@ -59,7 +59,7 @@ public class JumpingMoveControl extends MoveControl {
 
                     double boost = 0.15;
                     if (this.isAggressive) {
-                        boost *= 1.8;
+                        boost *= 1.7;
                     }
                     var look = this.mob.getLookAngle();
                     var dm = this.mob.getDeltaMovement();

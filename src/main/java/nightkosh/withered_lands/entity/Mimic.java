@@ -4,19 +4,18 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
@@ -108,6 +107,20 @@ public class Mimic extends AMonster implements IJumpingCube {
         }
     }
 
+    @Override
+    public void playerTouch(@Nonnull Player player) {
+        if (this.level() instanceof ServerLevel level &&
+                this.isAlive() &&
+                this.isWithinMeleeAttackRange(player) &&
+                this.hasLineOfSight(player)) {
+            var damageSource = this.damageSources().mobAttack(this);
+            if (player.hurtServer(level, damageSource, (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE))) {
+                this.playSound(SoundEvents.HOGLIN_ATTACK, 1, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1);
+                EnchantmentHelper.doPostAttackEffects(level, player, damageSource);
+            }
+        }
+    }
+
     public void setCanHide(boolean canHide) {
         this.entityData.set(CAN_HIDE_ID, canHide);
     }
@@ -135,6 +148,11 @@ public class Mimic extends AMonster implements IJumpingCube {
     @Override
     public int getJumpDelay() {
         return this.random.nextInt(10) + 5;
+    }
+
+    @Override
+    public boolean isPushable() {
+        return !this.isHiding() && super.isPushable();
     }
 
     @Nonnull
