@@ -128,6 +128,9 @@ public class WLItems {
     public static final DeferredHolder<Item, Item> HOLLOW_STALKER_EGG =
             registerEgg(WLEntities.HOLLOW_STALKER, "hollow_stalker_spawn_egg");
 
+    public static final DeferredHolder<Item, Item> LOST_SOUL_EGG =
+            registerEgg(WLEntities.LOST_SOUL, "lost_soul_spawn_egg");
+
     // creepers
     public static final DeferredHolder<Item, Item> DESERT_CREEPER_EGG =
             registerEgg(WLEntities.DESERT_CREEPER, "desert_creeper_spawn_egg");

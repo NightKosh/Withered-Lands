@@ -25,6 +25,7 @@ import nightkosh.withered_lands.renderer.creeper.DesertCreeperRenderer;
 import nightkosh.withered_lands.renderer.creeper.SnowyCreeperRenderer;
 import nightkosh.withered_lands.renderer.desert.MummyRenderer;
 import nightkosh.withered_lands.renderer.ghost.HollowStalkerRenderer;
+import nightkosh.withered_lands.renderer.ghost.LostSoulRenderer;
 import nightkosh.withered_lands.renderer.giant.FrozenGiantRenderer;
 import nightkosh.withered_lands.renderer.giant.HillGiantRenderer;
 import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
@@ -95,6 +96,7 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.DIRGE_GALE.get(), DirgeGaleRenderer::new);
         // ghosts
         event.registerEntityRenderer(WLEntities.HOLLOW_STALKER.get(), HollowStalkerRenderer::new);
+        event.registerEntityRenderer(WLEntities.LOST_SOUL.get(), LostSoulRenderer::new);
         // spiders
         event.registerEntityRenderer(WLEntities.CAVE_SPIDER.get(), CaveSpiderRenderer::new);
         // creepers
@@ -151,6 +153,7 @@ public class WLEventsClient {
         event.registerLayerDefinition(WLSkeletonModel.LAYER, WLSkeletonModel::createBodyLayer);
         event.registerLayerDefinition(DirgeGaleModel.LAYER, DirgeGaleModel::createBodyLayer);
         event.registerLayerDefinition(HollowStalkerModel.LAYER, HollowStalkerModel::createBodyLayer);
+        event.registerLayerDefinition(LostSoulModel.LAYER, LostSoulModel::createBodyLayer);
         event.registerLayerDefinition(SkullCrawlerModel.LAYER, SkullCrawlerModel::createBodyLayer);
         event.registerLayerDefinition(MimicModel.LAYER, MimicModel::createBodyLayer);
     }

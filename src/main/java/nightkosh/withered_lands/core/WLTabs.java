@@ -79,6 +79,7 @@ public class WLTabs {
                         output.accept(WLItems.DIRGE_GALE_EGG.get());
                         // ghosts
                         output.accept(WLItems.HOLLOW_STALKER_EGG.get());
+                        output.accept(WLItems.LOST_SOUL_EGG.get());
                         // creepers
                         output.accept(WLItems.DESERT_CREEPER_EGG.get());
                         output.accept(WLItems.SNOWY_CREEPER_EGG.get());

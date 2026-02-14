@@ -3,7 +3,7 @@ package nightkosh.withered_lands.entity.ai.move_control;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.phys.Vec3;
-import nightkosh.withered_lands.entity.AMonster;
+import nightkosh.withered_lands.entity.ghost.AGhost;
 
 /**
  * Withered Lands
@@ -13,9 +13,9 @@ import nightkosh.withered_lands.entity.AMonster;
  */
 public class GhostMoveControl extends MoveControl {
 
-    private final AMonster ghost;
+    private final AGhost ghost;
 
-    public GhostMoveControl(AMonster ghost) {
+    public GhostMoveControl(AGhost ghost) {
         super(ghost);
         this.ghost = ghost;
     }

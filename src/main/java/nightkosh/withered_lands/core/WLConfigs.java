@@ -53,6 +53,7 @@ public class WLConfigs {
     // ghosts
     public static ModConfigSpec.ConfigValue<Boolean> HOLLOW_STALKER_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> HOLLOW_STALKER_EXTINGUISH_LIGHT;
+    public static ModConfigSpec.ConfigValue<Boolean> LOST_SOUL_SPAWN;
 
     // spiders
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_SPIDER_SPAWN;
@@ -151,6 +152,7 @@ public class WLConfigs {
         // ghosts
         HOLLOW_STALKER_SPAWN = BUILDER.define("Hollow Stalkers Spawn", true);
         HOLLOW_STALKER_EXTINGUISH_LIGHT = BUILDER.define("Hollow Stalkers Extinguish Light", true);
+        LOST_SOUL_SPAWN = BUILDER.define("Lost Souls Spawn", true);
 
         // spiders
         CAVE_SPIDER_SPAWN = BUILDER.define("Cave Spiders Spawn", true);

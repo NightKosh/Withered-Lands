@@ -25,6 +25,7 @@ import nightkosh.withered_lands.entity.creeper.DesertCreeper;
 import nightkosh.withered_lands.entity.creeper.SnowyCreeper;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.ghost.HollowStalker;
+import nightkosh.withered_lands.entity.ghost.LostSoul;
 import nightkosh.withered_lands.entity.giant.FrozenGiant;
 import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
@@ -90,6 +91,7 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.DIRGE_GALE.get(), DirgeGale.createAttributeSupplier());
         // ghosts
         event.put(WLEntities.HOLLOW_STALKER.get(), HollowStalker.createAttributeSupplier());
+        event.put(WLEntities.LOST_SOUL.get(), LostSoul.createAttributeSupplier());
         // spiders
         event.put(WLEntities.CAVE_SPIDER.get(), WLCaveSpider.createCaveSpider().build());
         // creepers
@@ -323,6 +325,12 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 HollowStalker::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.LOST_SOUL.get(),
+                SpawnPlacementTypes.ON_GROUND,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                LostSoul::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // spiders

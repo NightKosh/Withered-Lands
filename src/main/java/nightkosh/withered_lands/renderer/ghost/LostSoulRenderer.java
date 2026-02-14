@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import nightkosh.withered_lands.core.WLTextures;
-import nightkosh.withered_lands.entity.ghost.HollowStalker;
-import nightkosh.withered_lands.renderer.model.HollowStalkerModel;
+import nightkosh.withered_lands.entity.ghost.LostSoul;
+import nightkosh.withered_lands.renderer.model.LostSoulModel;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -20,10 +20,10 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class HollowStalkerRenderer extends MobRenderer<HollowStalker, LivingEntityRenderState, HollowStalkerModel> {
+public class LostSoulRenderer extends MobRenderer<LostSoul, LivingEntityRenderState, LostSoulModel> {
 
-    public HollowStalkerRenderer(EntityRendererProvider.Context context) {
-        super(context, new HollowStalkerModel(context.bakeLayer(HollowStalkerModel.LAYER)), 0.3F);
+    public LostSoulRenderer(EntityRendererProvider.Context context) {
+        super(context, new LostSoulModel(context.bakeLayer(LostSoulModel.LAYER)), 0.3F);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class HollowStalkerRenderer extends MobRenderer<HollowStalker, LivingEnti
     }
 
     @Override
-    protected int getBlockLightLevel(HollowStalker entity, @Nonnull BlockPos pos) {
+    protected int getBlockLightLevel(LostSoul entity, @Nonnull BlockPos pos) {
         return 15;
     }
 
@@ -45,7 +45,7 @@ public class HollowStalkerRenderer extends MobRenderer<HollowStalker, LivingEnti
     @Nonnull
     @Override
     public Identifier getTextureLocation(LivingEntityRenderState state) {
-        return WLTextures.HOLLOW_STALKER;
+        return WLTextures.LOST_SOUL;
     }
 
 }

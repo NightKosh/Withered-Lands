@@ -172,6 +172,10 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /summon withered_lands:hollow_stalker ~ ~ ~ {NoAI:1b}
     ```
+2. Lost Soul
+    ```
+        /summon withered_lands:lost_soul ~ ~ ~ {NoAI:1b}
+    ```
 
 ### Spiders spawn:
 1. Cave spider

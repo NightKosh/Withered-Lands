@@ -73,6 +73,7 @@ public final class WLTextures {
     public static final Identifier DIRGE_GALE_WIND = fromNamespaceAndPath(ModInfo.ID, "textures/entity/breeze/dirge_gale/wind.png");
     // ghosts
     public static final Identifier HOLLOW_STALKER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/ghost/hollow_stalker.png");
+    public static final Identifier LOST_SOUL = fromNamespaceAndPath(ModInfo.ID, "textures/entity/ghost/lost_soul.png");
     // creepers
     public static final Identifier DESERT_CREEPER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/creeper/desert.png");
     public static final Identifier SNOWY_CREEPER = fromNamespaceAndPath(ModInfo.ID, "textures/entity/creeper/snowy.png");

@@ -24,6 +24,7 @@ import nightkosh.withered_lands.entity.creeper.DesertCreeper;
 import nightkosh.withered_lands.entity.creeper.SnowyCreeper;
 import nightkosh.withered_lands.entity.desert.Mummy;
 import nightkosh.withered_lands.entity.ghost.HollowStalker;
+import nightkosh.withered_lands.entity.ghost.LostSoul;
 import nightkosh.withered_lands.entity.giant.FrozenGiant;
 import nightkosh.withered_lands.entity.giant.HillGiant;
 import nightkosh.withered_lands.entity.horse.SkeletonHorse;
@@ -398,6 +399,17 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "hollow_stalker"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<LostSoul>> LOST_SOUL =
+            ENTITY_TYPES_REGISTER.register("lost_soul",
+                    () -> EntityType.Builder.of(LostSoul::new, MobCategory.MONSTER)
+                            .sized(0.8F, 0.8F)
+                            .eyeHeight(0.50F)
+                            .notInPeaceful()
+                            .fireImmune()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "lost_soul"))));
 
     // spiders
     public static final DeferredHolder<EntityType<?>, EntityType<WLCaveSpider>> CAVE_SPIDER =
