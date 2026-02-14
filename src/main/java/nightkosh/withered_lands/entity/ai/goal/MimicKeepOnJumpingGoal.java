@@ -23,7 +23,7 @@ public class MimicKeepOnJumpingGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return !this.mimic.isHiding() && !this.mimic.isPassenger();
+        return !this.mimic.isHiding() && !this.mimic.isIdle() && !this.mimic.isPassenger();
     }
 
     @Override

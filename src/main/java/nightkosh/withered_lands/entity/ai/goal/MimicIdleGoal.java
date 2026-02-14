@@ -27,12 +27,15 @@ public class MimicIdleGoal extends Goal {
 
     @Override
     public boolean canContinueToUse() {
-        return canUse() && this.ticks <= TimeHelper.SECONDS_5;
+        return canUse() && this.ticks <= TimeHelper.SECONDS_10;
     }
 
     @Override
     public void tick() {
         this.ticks++;
+        if (this.ticks == TimeHelper.SECONDS_5) {
+            this.mimic.setIdle(false);
+        }
     }
 
     @Override
