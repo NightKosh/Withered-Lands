@@ -269,6 +269,36 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /summon withered_lands:pike ~ ~ ~ {NoAI:1b}
     ``` 
 
+#### Jellyfishes spawn:
+1. White
+    ```
+        /summon withered_lands:jellyfish_white ~ ~ ~ {NoAI:1b}
+    ``` 
+2. Blue
+    ```
+        /summon withered_lands:jellyfish_blue ~ ~ ~ {NoAI:1b}
+    ``` 
+3. Green
+    ```
+        /summon withered_lands:jellyfish_green ~ ~ ~ {NoAI:1b}
+    ``` 
+4. Yellow
+    ```
+        /summon withered_lands:jellyfish_yellow ~ ~ ~ {NoAI:1b}
+    ``` 
+5. Red
+    ```
+        /summon withered_lands:jellyfish_red ~ ~ ~ {NoAI:1b}
+    ``` 
+6. Pink
+    ```
+        /summon withered_lands:jellyfish_pink ~ ~ ~ {NoAI:1b}
+    ``` 
+7. Purple
+    ```
+        /summon withered_lands:jellyfish_purple ~ ~ ~ {NoAI:1b}
+    ``` 
+
 ### Swamp mobs spawn:
 1. Giant Frog
     ```

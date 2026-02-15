@@ -192,6 +192,27 @@ public class WLItems {
     public static final DeferredHolder<Item, Item> PIKE_EGG =
             registerEgg(WLEntities.PIKE, "pike_spawn_egg");
 
+    public static final DeferredHolder<Item, Item> JELLYFISH_WHITE_EGG =
+            registerEgg(WLEntities.JELLYFISH_WHITE, "jellyfish_white_spawn_egg");
+
+    public static final DeferredHolder<Item, Item> JELLYFISH_BLUE_EGG =
+            registerEgg(WLEntities.JELLYFISH_BLUE, "jellyfish_blue_spawn_egg");
+
+    public static final DeferredHolder<Item, Item> JELLYFISH_GREEN_EGG =
+            registerEgg(WLEntities.JELLYFISH_GREEN, "jellyfish_green_spawn_egg");
+
+    public static final DeferredHolder<Item, Item> JELLYFISH_YELLOW_EGG =
+            registerEgg(WLEntities.JELLYFISH_YELLOW, "jellyfish_yellow_spawn_egg");
+
+    public static final DeferredHolder<Item, Item> JELLYFISH_RED_EGG =
+            registerEgg(WLEntities.JELLYFISH_RED, "jellyfish_red_spawn_egg");
+
+    public static final DeferredHolder<Item, Item> JELLYFISH_PINK_EGG =
+            registerEgg(WLEntities.JELLYFISH_PINK, "jellyfish_pink_spawn_egg");
+
+    public static final DeferredHolder<Item, Item> JELLYFISH_PURPLE_EGG =
+            registerEgg(WLEntities.JELLYFISH_PURPLE, "jellyfish_purple_spawn_egg");
+
     // desert
     public static final DeferredHolder<Item, Item> MUMMY_EGG =
             registerEgg(WLEntities.MUMMY, "mummy_spawn_egg");

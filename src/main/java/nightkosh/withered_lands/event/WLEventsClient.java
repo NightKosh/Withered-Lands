@@ -31,6 +31,7 @@ import nightkosh.withered_lands.renderer.giant.HillGiantRenderer;
 import nightkosh.withered_lands.renderer.horse.SkeletonHorseRenderer;
 import nightkosh.withered_lands.renderer.horse.ZombieHorseRenderer;
 import nightkosh.withered_lands.renderer.model.*;
+import nightkosh.withered_lands.renderer.model.jellyfish.*;
 import nightkosh.withered_lands.renderer.slime.*;
 import nightkosh.withered_lands.renderer.snow.SnowmanRenderer;
 import nightkosh.withered_lands.renderer.water.DrownedSailorRenderer;
@@ -40,6 +41,7 @@ import nightkosh.withered_lands.renderer.swamp.SwampThingRenderer;
 import nightkosh.withered_lands.renderer.water.fish.MinnowRenderer;
 import nightkosh.withered_lands.renderer.water.fish.PikeRenderer;
 import nightkosh.withered_lands.renderer.water.fish.PiranhaRenderer;
+import nightkosh.withered_lands.renderer.water.jellyfish.*;
 import nightkosh.withered_lands.renderer.wolf.BarghestRenderer;
 import nightkosh.withered_lands.renderer.wolf.SkeletonDogRenderer;
 import nightkosh.withered_lands.renderer.wolf.ZombieDogRenderer;
@@ -123,6 +125,13 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.MINNOW.get(), MinnowRenderer::new);
         event.registerEntityRenderer(WLEntities.PIRANHA.get(), PiranhaRenderer::new);
         event.registerEntityRenderer(WLEntities.PIKE.get(), PikeRenderer::new);
+        event.registerEntityRenderer(WLEntities.JELLYFISH_WHITE.get(), WhiteJellyfishRenderer::new);
+        event.registerEntityRenderer(WLEntities.JELLYFISH_BLUE.get(), BlueJellyfishRenderer::new);
+        event.registerEntityRenderer(WLEntities.JELLYFISH_GREEN.get(), GreenJellyfishRenderer::new);
+        event.registerEntityRenderer(WLEntities.JELLYFISH_YELLOW.get(), YellowJellyfishRenderer::new);
+        event.registerEntityRenderer(WLEntities.JELLYFISH_RED.get(), RedJellyfishRenderer::new);
+        event.registerEntityRenderer(WLEntities.JELLYFISH_PINK.get(), PinkJellyfishRenderer::new);
+        event.registerEntityRenderer(WLEntities.JELLYFISH_PURPLE.get(), PurpleJellyfishRenderer::new);
         // desert
         event.registerEntityRenderer(WLEntities.MUMMY.get(), MummyRenderer::new);
         // snow
@@ -156,6 +165,13 @@ public class WLEventsClient {
         event.registerLayerDefinition(LostSoulModel.LAYER, LostSoulModel::createBodyLayer);
         event.registerLayerDefinition(SkullCrawlerModel.LAYER, SkullCrawlerModel::createBodyLayer);
         event.registerLayerDefinition(MimicModel.LAYER, MimicModel::createBodyLayer);
+        event.registerLayerDefinition(JellyfishWhiteModel.LAYER, JellyfishWhiteModel::createBodyLayer);
+        event.registerLayerDefinition(JellyfishBlueModel.LAYER, JellyfishBlueModel::createBodyLayer);
+        event.registerLayerDefinition(JellyfishGreenModel.LAYER, JellyfishGreenModel::createBodyLayer);
+        event.registerLayerDefinition(JellyfishYellowModel.LAYER, JellyfishYellowModel::createBodyLayer);
+        event.registerLayerDefinition(JellyfishRedModel.LAYER, JellyfishRedModel::createBodyLayer);
+        event.registerLayerDefinition(JellyfishPinkModel.LAYER, JellyfishPinkModel::createBodyLayer);
+        event.registerLayerDefinition(JellyfishPurpleModel.LAYER, JellyfishPurpleModel::createBodyLayer);
     }
 
 }

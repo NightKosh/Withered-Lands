@@ -40,6 +40,7 @@ import nightkosh.withered_lands.entity.swamp.SwampThing;
 import nightkosh.withered_lands.entity.water.fish.Minnow;
 import nightkosh.withered_lands.entity.water.fish.Pike;
 import nightkosh.withered_lands.entity.water.fish.Piranha;
+import nightkosh.withered_lands.entity.water.jellyfish.*;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
 import nightkosh.withered_lands.entity.wolf.ZombieDog;
@@ -116,6 +117,13 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.MINNOW.get(), Minnow.createAttributeSupplier());
         event.put(WLEntities.PIRANHA.get(), Piranha.createAttributeSupplier());
         event.put(WLEntities.PIKE.get(), Pike.createAttributeSupplier());
+        event.put(WLEntities.JELLYFISH_WHITE.get(), WhiteJellyfish.createAttributeSupplier());
+        event.put(WLEntities.JELLYFISH_BLUE.get(), BlueJellyfish.createAttributeSupplier());
+        event.put(WLEntities.JELLYFISH_GREEN.get(), GreenJellyfish.createAttributeSupplier());
+        event.put(WLEntities.JELLYFISH_YELLOW.get(), YellowJellyfish.createAttributeSupplier());
+        event.put(WLEntities.JELLYFISH_RED.get(), RedJellyfish.createAttributeSupplier());
+        event.put(WLEntities.JELLYFISH_PINK.get(), PinkJellyfish.createAttributeSupplier());
+        event.put(WLEntities.JELLYFISH_PURPLE.get(), PurpleJellyfish.createAttributeSupplier());
         // swamp
         event.put(WLEntities.GIANT_FROG.get(), GiantFrog.createAttributeSupplier());
         event.put(WLEntities.SWAMP_THING.get(), SwampThing.createAttributeSupplier());
@@ -440,6 +448,48 @@ public class WLEventsEntityRegistration {
                 SpawnPlacementTypes.IN_WATER,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 Pike::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.JELLYFISH_WHITE.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                WhiteJellyfish::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.JELLYFISH_BLUE.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                BlueJellyfish::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.JELLYFISH_GREEN.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                GreenJellyfish::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.JELLYFISH_YELLOW.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                YellowJellyfish::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.JELLYFISH_RED.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                RedJellyfish::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.JELLYFISH_PINK.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                PinkJellyfish::checkSpawnRules,
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(WLEntities.JELLYFISH_PURPLE.get(),
+                SpawnPlacementTypes.IN_WATER,
+                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                PurpleJellyfish::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // swamp

@@ -118,6 +118,13 @@ public class WLTabs {
                         output.accept(WLItems.MINNOW_EGG.get());
                         output.accept(WLItems.PIRANHA_EGG.get());
                         output.accept(WLItems.PIKE_EGG.get());
+                        output.accept(WLItems.JELLYFISH_WHITE_EGG.get());
+                        output.accept(WLItems.JELLYFISH_BLUE_EGG.get());
+                        output.accept(WLItems.JELLYFISH_GREEN_EGG.get());
+                        output.accept(WLItems.JELLYFISH_YELLOW_EGG.get());
+                        output.accept(WLItems.JELLYFISH_RED_EGG.get());
+                        output.accept(WLItems.JELLYFISH_PINK_EGG.get());
+                        output.accept(WLItems.JELLYFISH_PURPLE_EGG.get());
                     })
                     .build()
             );

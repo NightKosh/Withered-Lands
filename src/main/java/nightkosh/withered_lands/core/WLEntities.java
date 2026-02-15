@@ -42,6 +42,7 @@ import nightkosh.withered_lands.entity.water.PhantomDiver;
 import nightkosh.withered_lands.entity.swamp.SwampThing;
 import nightkosh.withered_lands.entity.water.fish.Minnow;
 import nightkosh.withered_lands.entity.water.fish.Pike;
+import nightkosh.withered_lands.entity.water.jellyfish.*;
 import nightkosh.withered_lands.entity.water.fish.Piranha;
 import nightkosh.withered_lands.entity.wolf.Barghest;
 import nightkosh.withered_lands.entity.wolf.SkeletonDog;
@@ -658,6 +659,76 @@ public class WLEntities {
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "pike"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<WhiteJellyfish>> JELLYFISH_WHITE =
+            ENTITY_TYPES_REGISTER.register("jellyfish_white",
+                    () -> EntityType.Builder.of(WhiteJellyfish::new, MobCategory.MONSTER)
+                            .sized(0.8F, 1)
+                            .eyeHeight(0.8F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "jellyfish_white"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<BlueJellyfish>> JELLYFISH_BLUE =
+            ENTITY_TYPES_REGISTER.register("jellyfish_blue",
+                    () -> EntityType.Builder.of(BlueJellyfish::new, MobCategory.MONSTER)
+                            .sized(0.8F, 1)
+                            .eyeHeight(0.8F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "jellyfish_blue"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<GreenJellyfish>> JELLYFISH_GREEN =
+            ENTITY_TYPES_REGISTER.register("jellyfish_green",
+                    () -> EntityType.Builder.of(GreenJellyfish::new, MobCategory.MONSTER)
+                            .sized(0.5F, 1)
+                            .eyeHeight(0.6F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "jellyfish_green"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<YellowJellyfish>> JELLYFISH_YELLOW =
+            ENTITY_TYPES_REGISTER.register("jellyfish_yellow",
+                    () -> EntityType.Builder.of(YellowJellyfish::new, MobCategory.MONSTER)
+                            .sized(0.8F, 1)
+                            .eyeHeight(0.8F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "jellyfish_yellow"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<RedJellyfish>> JELLYFISH_RED =
+            ENTITY_TYPES_REGISTER.register("jellyfish_red",
+                    () -> EntityType.Builder.of(RedJellyfish::new, MobCategory.MONSTER)
+                            .sized(0.8F, 1)
+                            .eyeHeight(0.8F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "jellyfish_red"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PinkJellyfish>> JELLYFISH_PINK =
+            ENTITY_TYPES_REGISTER.register("jellyfish_pink",
+                    () -> EntityType.Builder.of(PinkJellyfish::new, MobCategory.MONSTER)
+                            .sized(0.8F, 1)
+                            .eyeHeight(0.8F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "jellyfish_pink"))));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<PurpleJellyfish>> JELLYFISH_PURPLE =
+            ENTITY_TYPES_REGISTER.register("jellyfish_purple",
+                    () -> EntityType.Builder.of(PurpleJellyfish::new, MobCategory.MONSTER)
+                            .sized(0.8F, 1)
+                            .eyeHeight(0.8F)
+                            .notInPeaceful()
+                            .build(ResourceKey.create(
+                                    Registries.ENTITY_TYPE,
+                                    fromNamespaceAndPath(ModInfo.ID, "jellyfish_purple"))));
 
     // other
     public static final DeferredHolder<EntityType<?>, EntityType<PossessedArmor>> POSSESSED_ARMOR =

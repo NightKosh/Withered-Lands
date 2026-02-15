@@ -28,8 +28,26 @@
         {
           "type": "withered_lands:minnow",
           "weight": 100,
-          "minCount": 4,
-          "maxCount": 8
+          "minCount": 3,
+          "maxCount": 5
+        },
+        {
+          "type": "withered_lands:jellyfish_white",
+          "weight": 50,
+          "minCount": 1,
+          "maxCount": 2
+        },
+        {
+          "type": "withered_lands:jellyfish_yellow",
+          "weight": 70,
+          "minCount": 3,
+          "maxCount": 5
+        },
+        {
+          "type": "withered_lands:jellyfish_pink",
+          "weight": 70,
+          "minCount": 3,
+          "maxCount": 5
         }
       ]
     }

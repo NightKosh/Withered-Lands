@@ -84,6 +84,13 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> MINNOW_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> PIRANHA_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> PIKE_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> WHITE_JELLYFISH_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> BLUE_JELLYFISH_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> GREEN_JELLYFISH_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> YELLOW_JELLYFISH_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> RED_JELLYFISH_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> PINK_JELLYFISH_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> PURPLE_JELLYFISH_SPAWN;
 
     // desert
     public static ModConfigSpec.ConfigValue<Boolean> MUMMY_SPAWN;
@@ -183,6 +190,13 @@ public class WLConfigs {
         MINNOW_SPAWN = BUILDER.define("Minnows Spawn", true);
         PIRANHA_SPAWN = BUILDER.define("Piranhas Spawn", true);
         PIKE_SPAWN = BUILDER.define("Pikes Spawn", true);
+        WHITE_JELLYFISH_SPAWN = BUILDER.define("White Jellyfishes Spawn", true);
+        BLUE_JELLYFISH_SPAWN = BUILDER.define("Blue Jellyfishes Spawn", true);
+        GREEN_JELLYFISH_SPAWN = BUILDER.define("Green Jellyfishes Spawn", true);
+        YELLOW_JELLYFISH_SPAWN = BUILDER.define("Yellow Jellyfishes Spawn", true);
+        RED_JELLYFISH_SPAWN = BUILDER.define("Red Jellyfishes Spawn", true);
+        PINK_JELLYFISH_SPAWN = BUILDER.define("Pink Jellyfishes Spawn", true);
+        PURPLE_JELLYFISH_SPAWN = BUILDER.define("Purple Jellyfishes Spawn", true);
 
         // desert
         MUMMY_SPAWN = BUILDER.define("Mummies Spawn", true);

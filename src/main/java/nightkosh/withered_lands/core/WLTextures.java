@@ -103,6 +103,13 @@ public final class WLTextures {
     public static final Identifier MINNOW = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/fish/minnow.png");
     public static final Identifier PIRANHA = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/fish/piranha.png");
     public static final Identifier PIKE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/fish/pike.png");
+    public static final Identifier JELLYFISH_WHITE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/jellyfish/white.png");
+    public static final Identifier JELLYFISH_BLUE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/jellyfish/blue.png");
+    public static final Identifier JELLYFISH_GREEN = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/jellyfish/green.png");
+    public static final Identifier JELLYFISH_YELLOW = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/jellyfish/yellow.png");
+    public static final Identifier JELLYFISH_RED = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/jellyfish/red.png");
+    public static final Identifier JELLYFISH_PINK = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/jellyfish/pink.png");
+    public static final Identifier JELLYFISH_PURPLE = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/jellyfish/purple.png");
     // desert
     public static final Identifier MUMMY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/mummy.png");
     public static final Identifier MUMMY_OVERLAY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/desert/mummy/overlay.png");
