@@ -46,7 +46,7 @@ public class RedJellyfish extends AJellyfish {
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.RED_JELLYFISH_SPAWN.get() &&
                 false &&//TODO
-                checkCommonSpawnRules(levelAccessor, blockPos, random, AJellyfish.class);
+                checkCommonSpawnRules(levelAccessor, blockPos, random, RedJellyfish.class);
     }
 
 }

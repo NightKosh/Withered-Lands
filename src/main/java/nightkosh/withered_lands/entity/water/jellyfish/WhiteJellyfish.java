@@ -45,7 +45,7 @@ public class WhiteJellyfish extends AJellyfish {
             EntityType<? extends AJellyfish> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.WHITE_JELLYFISH_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random, AJellyfish.class);
+                checkCommonSpawnRules(levelAccessor, blockPos, random, WhiteJellyfish.class);
     }
 
 }

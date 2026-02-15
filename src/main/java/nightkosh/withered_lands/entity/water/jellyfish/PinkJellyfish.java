@@ -45,7 +45,7 @@ public class PinkJellyfish extends AJellyfish {
             EntityType<? extends AJellyfish> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.PINK_JELLYFISH_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random, AJellyfish.class);
+                checkCommonSpawnRules(levelAccessor, blockPos, random, PinkJellyfish.class);
     }
 
 }

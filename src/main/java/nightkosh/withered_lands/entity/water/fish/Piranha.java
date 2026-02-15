@@ -70,7 +70,7 @@ public class Piranha extends AHostileFish {
             EntityType<? extends AHostileFish> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.PIRANHA_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random, AHostileFish.class);
+                checkCommonSpawnRules(levelAccessor, blockPos, random, Piranha.class);
     }
 
 }

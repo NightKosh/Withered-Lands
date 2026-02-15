@@ -75,7 +75,7 @@ public class Minnow extends AHostileFish {
             EntityType<? extends AHostileFish> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.MINNOW_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random, AHostileFish.class);
+                checkCommonSpawnRules(levelAccessor, blockPos, random, Minnow.class);
     }
 
 }
