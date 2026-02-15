@@ -75,49 +75,49 @@ public class JellyfishPinkModel<T extends JellyfishRenderState> extends AJellyfi
 
         var tentacles = head.addOrReplaceChild("tentacles", CubeListBuilder.create(), PartPose.offset(1, 0, -3));
 
-        var tentacle_front_1 = tentacles.addOrReplaceChild("tentacle_front_1",
+        tentacles.addOrReplaceChild("tentacle_front_1",
                 CubeListBuilder.create()
                         .texOffs(10, 0)
                         .addBox(-0.5F, 0, 0.1F, 1, 9, 1, new CubeDeformation(0)),
                 PartPose.offsetAndRotation(1, 5, 0, -0.0436F, 0, -0.0873F));
 
-        var tentacle_front_2 = tentacles.addOrReplaceChild("tentacle_front_2",
+        tentacles.addOrReplaceChild("tentacle_front_2",
                 CubeListBuilder.create()
                         .texOffs(0, 0)
                         .addBox(-0.5F, 0, 0.1F, 1, 12, 1, new CubeDeformation(0)),
                 PartPose.offsetAndRotation(-1, 5, 0, -0.0436F, 0, 0));
 
-        var tentacle_front_3 = tentacles.addOrReplaceChild("tentacle_front_3",
+        tentacles.addOrReplaceChild("tentacle_front_3",
                 CubeListBuilder.create()
                         .texOffs(10, 0)
                         .addBox(-0.5F, 0, 0.1F, 1, 9, 1, new CubeDeformation(0)),
                 PartPose.offsetAndRotation(-3, 5, 0, -0.0436F, 0, 0.0436F));
 
-        var tentacle_back_1 = tentacles.addOrReplaceChild("tentacle_back_1",
+        tentacles.addOrReplaceChild("tentacle_back_1",
                 CubeListBuilder.create()
                         .texOffs(10, 0)
                         .addBox(-0.5F, 0, -1.1F, 1, 9, 1, new CubeDeformation(0)),
                 PartPose.offsetAndRotation(1, 5, 6, 0.0436F, 0, -0.0436F));
 
-        var tentacle_back_2 = tentacles.addOrReplaceChild("tentacle_back_2",
+        tentacles.addOrReplaceChild("tentacle_back_2",
                 CubeListBuilder.create()
                         .texOffs(0, 0)
                         .addBox(-0.5F, 0, -1.1F, 1, 12, 1, new CubeDeformation(0)),
                 PartPose.offsetAndRotation(-1, 5, 6, 0.0436F, 0, 0));
 
-        var tentacle_back_3 = tentacles.addOrReplaceChild("tentacle_back_3",
+        tentacles.addOrReplaceChild("tentacle_back_3",
                 CubeListBuilder.create()
                         .texOffs(10, 0)
                         .addBox(-0.5F, 0, -1.1F, 1, 9, 1, new CubeDeformation(0)),
                 PartPose.offsetAndRotation(-3, 5, 6, 0.0436F, 0, 0.0436F));
 
-        var tentacle_right = tentacles.addOrReplaceChild("tentacle_right",
+        tentacles.addOrReplaceChild("tentacle_right",
                 CubeListBuilder.create()
                         .texOffs(5, 0)
                         .addBox(-1.1F, 0, -0.5F, 1, 11, 1, new CubeDeformation(0)),
                 PartPose.offsetAndRotation(2, 5, 3, 0, 0, -0.0436F));
 
-        var tentacle_left = tentacles.addOrReplaceChild("tentacle_left",
+        tentacles.addOrReplaceChild("tentacle_left",
                 CubeListBuilder.create()
                         .texOffs(5, 0)
                         .addBox(0.1F, 0, -0.5F, 1, 11, 1, new CubeDeformation(0)),

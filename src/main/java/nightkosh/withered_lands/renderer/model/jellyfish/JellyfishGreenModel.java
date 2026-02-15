@@ -49,7 +49,7 @@ public class JellyfishGreenModel<T extends JellyfishRenderState> extends AJellyf
                         .addBox(-3.5F, 0, -3.5F, 7, 5, 7, new CubeDeformation(0)), 
                 PartPose.offset(0, 12, 0));
 
-        var tentacles = body.addOrReplaceChild("tentacles", 
+        body.addOrReplaceChild("tentacles",
                 CubeListBuilder.create()
                         .texOffs(0, 20)
                         .addBox(-2.5F, 0, -2.5F, 5, 7, 5, new CubeDeformation(0)), 

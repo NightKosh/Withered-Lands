@@ -673,8 +673,8 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<BlueJellyfish>> JELLYFISH_BLUE =
             ENTITY_TYPES_REGISTER.register("jellyfish_blue",
                     () -> EntityType.Builder.of(BlueJellyfish::new, MobCategory.MONSTER)
-                            .sized(0.8F, 1)
-                            .eyeHeight(0.8F)
+                            .sized(1.1F, 1.7F)
+                            .eyeHeight(1.5F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
