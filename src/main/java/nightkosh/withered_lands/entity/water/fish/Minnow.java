@@ -10,9 +10,12 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.entity.ai.goal.AttackIfInWaterGoal;
 
 import javax.annotation.Nonnull;
 
@@ -26,6 +29,17 @@ public class Minnow extends AHostileFish {
 
     public Minnow(EntityType<? extends AHostileFish> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected void registerTargetGoals() {
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(2, new AttackIfInWaterGoal(this, Player.class, false));
+    }
+
+    @Override
+    protected boolean followBoat() {
+        return false;
     }
 
     @Override
@@ -52,7 +66,7 @@ public class Minnow extends AHostileFish {
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 1)
-                .add(Attributes.MOVEMENT_SPEED, 0.6)
+                .add(Attributes.MOVEMENT_SPEED, 0.7)
                 .add(Attributes.ATTACK_DAMAGE, 0.1)
                 .build();
     }
@@ -61,7 +75,7 @@ public class Minnow extends AHostileFish {
             EntityType<? extends AHostileFish> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.MINNOW_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random);
+                checkCommonSpawnRules(levelAccessor, blockPos, random, AHostileFish.class);
     }
 
 }

@@ -10,6 +10,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.goal.*;
@@ -36,6 +37,10 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
 
     public AHostileFish(EntityType<? extends AHostileFish> entityType, Level level) {
         super(entityType, level);
+        setControl();
+    }
+
+    protected void setControl() {
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.02F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
     }
@@ -43,9 +48,9 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1, false));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1, false));
 
-        this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, 1, 10));
+        this.goalSelector.addGoal(3, new RandomSwimmingGoal(this, 1, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new FollowFlockLeaderGoal(this));
 
@@ -53,8 +58,18 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
         this.goalSelector.addGoal(6, new MeleeAttackGoal(this, 1, true));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
 
-        this.goalSelector.addGoal(8, new FollowBoatGoal(this));
+        if (followBoat()) {
+            this.goalSelector.addGoal(8, new FollowBoatGoal(this));
+        }
 
+        registerTargetGoals();
+    }
+
+    protected boolean followBoat() {
+        return true;
+    }
+
+    protected void registerTargetGoals() {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal(this, Player.class, true));
     }
@@ -78,7 +93,7 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
 
     @Override
     protected void travelInWater(@Nonnull Vec3 vec3, double p_481909_, boolean xz1, double xz2) {
-        this.moveRelative(this.getSpeed(), vec3);
+        this.moveRelative((float) this.getAttributeValue(Attributes.MOVEMENT_SPEED) * this.getSpeed(), vec3);
         this.move(MoverType.SELF, this.getDeltaMovement());
         this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
         if (this.getTarget() == null) {
@@ -114,12 +129,12 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
         return ItemStack.EMPTY;
     }
 
-    protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
-        return level.getDifficulty() != Difficulty.PEACEFUL && checkDensity(level, pos);
+    protected static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random, Class clazz) {
+        return level.getDifficulty() != Difficulty.PEACEFUL && checkDensity(level, pos, clazz);
     }
 
-    protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos) {
-        return level.getEntitiesOfClass(AHostileFish.class, new AABB(pos).inflate(100)).size() <= 25;
+    protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos, Class<AHostileFish> clazz) {
+        return level.getEntitiesOfClass(clazz, new AABB(pos).inflate(100)).size() <= 25;
     }
 
 }

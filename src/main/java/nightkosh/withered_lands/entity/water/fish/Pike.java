@@ -61,7 +61,7 @@ public class Pike extends AHostileFish {
             EntityType<? extends AHostileFish> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
         return WLConfigs.PIKE_SPAWN.get() &&
-                checkCommonSpawnRules(levelAccessor, blockPos, random);
+                checkCommonSpawnRules(levelAccessor, blockPos, random, AHostileFish.class);
     }
 
 }
