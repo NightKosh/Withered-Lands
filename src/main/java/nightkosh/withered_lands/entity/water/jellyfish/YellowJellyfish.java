@@ -36,7 +36,7 @@ public class YellowJellyfish extends AJellyfish {
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 6)
-                .add(Attributes.MOVEMENT_SPEED, 0.2)
+                .add(Attributes.MOVEMENT_SPEED, 0.5)
                 .add(Attributes.ATTACK_DAMAGE, 0.3)
                 .build();
     }

@@ -34,7 +34,7 @@ public class BlueJellyfish extends AJellyfish {
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 8)
-                .add(Attributes.MOVEMENT_SPEED, 0.2)
+                .add(Attributes.MOVEMENT_SPEED, 0.5)
                 .add(Attributes.ATTACK_DAMAGE, 0.4)
                 .build();
     }

@@ -95,7 +95,6 @@ public class AJellyfish extends AHostileFish {
         } else {
             this.inflateAnimation.stop();
         }
-
     }
 
     @Override

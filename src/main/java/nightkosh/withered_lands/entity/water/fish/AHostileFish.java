@@ -93,7 +93,7 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
 
     @Override
     protected void travelInWater(@Nonnull Vec3 vec3, double p_481909_, boolean xz1, double xz2) {
-        this.moveRelative((float) this.getAttributeValue(Attributes.MOVEMENT_SPEED) * this.getSpeed(), vec3);
+        this.moveRelative(this.getSpeed(), vec3);
         this.move(MoverType.SELF, this.getDeltaMovement());
         this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
         if (this.getTarget() == null) {

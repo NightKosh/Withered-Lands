@@ -36,7 +36,7 @@ public class PinkJellyfish extends AJellyfish {
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 4)
-                .add(Attributes.MOVEMENT_SPEED, 0.2)
+                .add(Attributes.MOVEMENT_SPEED, 0.5)
                 .add(Attributes.ATTACK_DAMAGE, 0.2)
                 .build();
     }
