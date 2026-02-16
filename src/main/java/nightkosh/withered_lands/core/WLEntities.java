@@ -663,7 +663,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<WhiteJellyfish>> JELLYFISH_WHITE =
             ENTITY_TYPES_REGISTER.register("jellyfish_white",
                     () -> EntityType.Builder.of(WhiteJellyfish::new, MobCategory.MONSTER)
-                            .sized(2.5F, 4)
+                            .sized(2.5F, 4.3F)
                             .eyeHeight(3.5F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -673,7 +673,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<BlueJellyfish>> JELLYFISH_BLUE =
             ENTITY_TYPES_REGISTER.register("jellyfish_blue",
                     () -> EntityType.Builder.of(BlueJellyfish::new, MobCategory.MONSTER)
-                            .sized(1.1F, 1.7F)
+                            .sized(1.1F, 1.9F)
                             .eyeHeight(1.5F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -693,7 +693,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<YellowJellyfish>> JELLYFISH_YELLOW =
             ENTITY_TYPES_REGISTER.register("jellyfish_yellow",
                     () -> EntityType.Builder.of(YellowJellyfish::new, MobCategory.MONSTER)
-                            .sized(0.8F, 1.2F)
+                            .sized(0.8F, 1.4F)
                             .eyeHeight(0.9F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -713,7 +713,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<PinkJellyfish>> JELLYFISH_PINK =
             ENTITY_TYPES_REGISTER.register("jellyfish_pink",
                     () -> EntityType.Builder.of(PinkJellyfish::new, MobCategory.MONSTER)
-                            .sized(0.8F, 1)
+                            .sized(0.8F, 1.1F)
                             .eyeHeight(0.8F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -723,7 +723,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<PurpleJellyfish>> JELLYFISH_PURPLE =
             ENTITY_TYPES_REGISTER.register("jellyfish_purple",
                     () -> EntityType.Builder.of(PurpleJellyfish::new, MobCategory.MONSTER)
-                            .sized(1, 2)
+                            .sized(1, 2.3F)
                             .eyeHeight(1.5F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
