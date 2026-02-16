@@ -1,6 +1,8 @@
 package nightkosh.withered_lands.entity.water.jellyfish;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AnimationState;
@@ -52,10 +54,35 @@ public class AJellyfish extends AHostileFish {
 
         if (this.isInWater()) {
             // keep underwater
-            if (this.level().getFluidState(this.blockPosition().above()).isEmpty()) {
-                this.setDeltaMovement(this.getDeltaMovement().add(0, -0.05, 0));
+            double surfaceY = findWaterSurface(this.blockPosition());
+            if (surfaceY != Double.NEGATIVE_INFINITY) {
+                double top = this.getY() + this.getBbHeight();
+                double maxTop = surfaceY - 0.15;
+
+                if (top > maxTop) {
+                    var dm = this.getDeltaMovement();
+                    double pushDown = -0.06 - (top - maxTop) * 0.15;
+                    this.setDeltaMovement(dm.x, Math.min(dm.y, pushDown), dm.z);
+                }
             }
         }
+    }
+
+    protected double findWaterSurface(BlockPos start) {
+        var pos = start.mutable();
+        int y = start.getY();
+
+        if (this.level().getFluidState(pos).is(FluidTags.WATER)) {
+            int maxScan = 5;
+            for (int i = 0; i < maxScan; i++) {
+                pos.setY(y + 1);
+                if (!this.level().getFluidState(pos).is(FluidTags.WATER)) {
+                    return y + 1;
+                }
+                y++;
+            }
+        }
+        return Double.NEGATIVE_INFINITY;
     }
 
     @Override

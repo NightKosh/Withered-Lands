@@ -37,7 +37,7 @@ public class WhiteJellyfish extends AJellyfish {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20)
                 .add(Attributes.MOVEMENT_SPEED, 0.2)
-                .add(Attributes.ATTACK_DAMAGE, 2)
+                .add(Attributes.ATTACK_DAMAGE, 3)
                 .build();
     }
 
