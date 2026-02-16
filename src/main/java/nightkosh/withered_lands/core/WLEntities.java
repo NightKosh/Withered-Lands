@@ -703,7 +703,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<RedJellyfish>> JELLYFISH_RED =
             ENTITY_TYPES_REGISTER.register("jellyfish_red",
                     () -> EntityType.Builder.of(RedJellyfish::new, MobCategory.MONSTER)
-                            .sized(0.8F, 1)
+                            .sized(0.8F, 1)//TODO
                             .eyeHeight(0.8F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -723,8 +723,8 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<PurpleJellyfish>> JELLYFISH_PURPLE =
             ENTITY_TYPES_REGISTER.register("jellyfish_purple",
                     () -> EntityType.Builder.of(PurpleJellyfish::new, MobCategory.MONSTER)
-                            .sized(0.8F, 1)
-                            .eyeHeight(0.8F)
+                            .sized(1, 2)
+                            .eyeHeight(1.5F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
