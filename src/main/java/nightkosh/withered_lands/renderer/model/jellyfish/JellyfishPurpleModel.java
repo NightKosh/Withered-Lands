@@ -3,9 +3,11 @@ package nightkosh.withered_lands.renderer.model.jellyfish;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
-import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
 import nightkosh.withered_lands.core.ModInfo;
-import nightkosh.withered_lands.renderer.model.animation.PinkJellyfishAnimations;
 import nightkosh.withered_lands.renderer.model.animation.PurpleJellyfishAnimations;
 import nightkosh.withered_lands.renderer.render_sate.JellyfishRenderState;
 
@@ -63,41 +65,103 @@ public class JellyfishPurpleModel<T extends JellyfishRenderState> extends AJelly
         var meshdefinition = new MeshDefinition();
         var root = meshdefinition.getRoot();
 
-        var body = root.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-7.0F, -30.0F, -7.0F, 14.0F, 8.0F, 14.0F, new CubeDeformation(0.0F))
-                .texOffs(57, 0).addBox(-5.5F, -29.0F, -5.5F, 11.0F, 6.0F, 11.0F, new CubeDeformation(0.0F))
-                .texOffs(102, 0).addBox(-4.0F, -26.0F, 0.0F, 8.0F, 26.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
+        var body = root.addOrReplaceChild("body",
+                CubeListBuilder.create()
+                        .texOffs(0, 0)
+                        .addBox(-7, -30, -7, 14, 8, 14, new CubeDeformation(0))
+                        .texOffs(57, 0)
+                        .addBox(-5.5F, -29, -5.5F, 11, 6, 11, new CubeDeformation(0))
+                        .texOffs(102, 0)
+                        .addBox(-4, -26, 0, 8, 26, 0, new CubeDeformation(0)),
+                PartPose.offset(0, 24, 0));
 
-        body.addOrReplaceChild("fin_1", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, 0.0F, 0.0F, 2.0F, 5.0F, 1.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 0).addBox(-5.0F, 0.0F, 0.0F, 2.0F, 5.0F, 1.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 0).addBox(3.0F, 0.0F, 0.0F, 2.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -26.0F, -7.0F, -0.0873F, 0.0F, 0.0F));
+        body.addOrReplaceChild("fin_1",
+                CubeListBuilder.create()
+                        .texOffs(0, 0)
+                        .addBox(-1, 0, 0, 2, 5, 1, new CubeDeformation(0))
+                        .texOffs(0, 0)
+                        .addBox(-5, 0, 0, 2, 5, 1, new CubeDeformation(0))
+                        .texOffs(0, 0)
+                        .addBox(3, 0, 0, 2, 5, 1, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(0, -26, -7, -0.0873F, 0, 0));
 
-        body.addOrReplaceChild("fin_2", CubeListBuilder.create().texOffs(0, 7).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 5.0F, 1.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 7).addBox(-5.0F, 0.0F, -1.0F, 2.0F, 5.0F, 1.0F, new CubeDeformation(0.0F))
-                .texOffs(0, 7).addBox(3.0F, 0.0F, -1.0F, 2.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, -26.0F, 7.0F, 0.0873F, 0.0F, 0.0F));
+        body.addOrReplaceChild("fin_2",
+                CubeListBuilder.create()
+                        .texOffs(0, 7)
+                        .addBox(-1, 0, -1, 2, 5, 1, new CubeDeformation(0))
+                        .texOffs(0, 7)
+                        .addBox(-5, 0, -1, 2, 5, 1, new CubeDeformation(0))
+                        .texOffs(0, 7)
+                        .addBox(3, 0, -1, 2, 5, 1, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(0, -26, 7, 0.0873F, 0, 0));
 
-        body.addOrReplaceChild("fin_3", CubeListBuilder.create().texOffs(61, 0).addBox(-1.0F, 0.0F, -1.0F, 1.0F, 5.0F, 2.0F, new CubeDeformation(0.0F))
-                .texOffs(61, 0).addBox(-1.0F, 0.0F, -5.0F, 1.0F, 5.0F, 2.0F, new CubeDeformation(0.0F))
-                .texOffs(61, 0).addBox(-1.0F, 0.0F, 3.0F, 1.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(7.0F, -26.0F, 0.0F, 0.0F, 0.0F, -0.0873F));
+        body.addOrReplaceChild("fin_3",
+                CubeListBuilder.create()
+                        .texOffs(61, 0)
+                        .addBox(-1, 0, -1, 1, 5, 2, new CubeDeformation(0))
+                        .texOffs(61, 0)
+                        .addBox(-1, 0, -5, 1, 5, 2, new CubeDeformation(0))
+                        .texOffs(61, 0)
+                        .addBox(-1, 0, 3, 1, 5, 2, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(7, -26, 0, 0, 0, -0.0873F));
 
-        body.addOrReplaceChild("fin_4", CubeListBuilder.create().texOffs(54, 0).addBox(0.0F, 0.0F, -1.0F, 1.0F, 5.0F, 2.0F, new CubeDeformation(0.0F))
-                .texOffs(54, 0).addBox(0.0F, 0.0F, -5.0F, 1.0F, 5.0F, 2.0F, new CubeDeformation(0.0F))
-                .texOffs(54, 0).addBox(0.0F, 0.0F, 3.0F, 1.0F, 5.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-7.0F, -26.0F, 0.0F, 0.0F, 0.0F, 0.0873F));
+        body.addOrReplaceChild("fin_4",
+                CubeListBuilder.create()
+                        .texOffs(54, 0)
+                        .addBox(0, 0, -1, 1, 5, 2, new CubeDeformation(0))
+                        .texOffs(54, 0)
+                        .addBox(0, 0, -5, 1, 5, 2, new CubeDeformation(0))
+                        .texOffs(54, 0)
+                        .addBox(0, 0, 3, 1, 5, 2, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(-7, -26, 0, 0, 0, 0.0873F));
 
-        var tentacles_11 = body.addOrReplaceChild("tentacles_11", CubeListBuilder.create().texOffs(57, 18).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -22.0F, 3.0F, 0.1309F, -0.7854F, 0.0F));
+        var tentacles_11 = body.addOrReplaceChild("tentacles_11",
+                CubeListBuilder.create()
+                        .texOffs(57, 18)
+                        .addBox(-2, 0, 0, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(-3, -22, 3, 0.1309F, -0.7854F, 0));
 
-        tentacles_11.addOrReplaceChild("tentacles_12", CubeListBuilder.create().texOffs(72, 18).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 11.0F, 2.0F, 0.2182F, 0.0F, 0.0F));
+        tentacles_11.addOrReplaceChild("tentacles_12",
+                CubeListBuilder.create()
+                        .texOffs(72, 18)
+                        .addBox(-2, 0, -2, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(0, 11, 2, 0.2182F, 0, 0));
 
-        var tentacles_21 = body.addOrReplaceChild("tentacles_21", CubeListBuilder.create().texOffs(57, 18).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -22.0F, 3.0F, 0.1309F, 0.7854F, 0.0F));
+        var tentacles_21 = body.addOrReplaceChild("tentacles_21",
+                CubeListBuilder.create()
+                        .texOffs(57, 18)
+                        .addBox(-2, 0, 0, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(3, -22, 3, 0.1309F, 0.7854F, 0));
 
-        tentacles_21.addOrReplaceChild("tentacles_22", CubeListBuilder.create().texOffs(72, 18).addBox(4.0F, 0.0F, -2.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-6.0F, 11.0F, 2.0F, 0.2182F, 0.0F, 0.0F));
+        tentacles_21.addOrReplaceChild("tentacles_22",
+                CubeListBuilder.create()
+                        .texOffs(72, 18)
+                        .addBox(4, 0, -2, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(-6, 11, 2, 0.2182F, 0, 0));
 
-        var tentacles_31 = body.addOrReplaceChild("tentacles_31", CubeListBuilder.create().texOffs(57, 18).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -22.0F, -3.0F, 0.1309F, -2.3562F, 0.0F));
+        var tentacles_31 = body.addOrReplaceChild("tentacles_31",
+                CubeListBuilder.create()
+                        .texOffs(57, 18)
+                        .addBox(-2, 0, 0, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(-3, -22, -3, 0.1309F, -2.3562F, 0));
 
-        tentacles_31.addOrReplaceChild("tentacles_32", CubeListBuilder.create().texOffs(72, 18).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 11.0F, 2.0F, 0.2182F, 0.0F, 0.0F));
+        tentacles_31.addOrReplaceChild("tentacles_32",
+                CubeListBuilder.create()
+                        .texOffs(72, 18)
+                        .addBox(-2, 0, -2, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(0, 11, 2, 0.2182F, 0, 0));
 
-        var tentacles_41 = body.addOrReplaceChild("tentacles_41", CubeListBuilder.create().texOffs(57, 18).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -22.0F, -3.0F, 0.1309F, 2.3562F, 0.0F));
+        var tentacles_41 = body.addOrReplaceChild("tentacles_41",
+                CubeListBuilder.create()
+                        .texOffs(57, 18)
+                        .addBox(-2, 0, 0, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(3, -22, -3, 0.1309F, 2.3562F, 0));
 
-        tentacles_41.addOrReplaceChild("tentacles_42", CubeListBuilder.create().texOffs(72, 18).addBox(4.0F, 0.0F, -2.0F, 4.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-6.0F, 11.0F, 2.0F, 0.2182F, 0.0F, 0.0F));
+        tentacles_41.addOrReplaceChild("tentacles_42",
+                CubeListBuilder.create()
+                        .texOffs(72, 18)
+                        .addBox(4, 0, -2, 4, 11, 3, new CubeDeformation(0)),
+                PartPose.offsetAndRotation(-6, 11, 2, 0.2182F, 0, 0));
 
         return LayerDefinition.create(meshdefinition, 128, 32);
     }
