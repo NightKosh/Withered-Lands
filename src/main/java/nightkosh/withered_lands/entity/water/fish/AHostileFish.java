@@ -106,7 +106,7 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
         super.tick();
 
         if (!level().isClientSide() && removeWhenFarAway(0)) {
-            if (level().getNearestPlayer(this, 32) == null) {
+            if (level().getNearestPlayer(this, 50) == null) {
                 this.discard();
                 return;
             }
