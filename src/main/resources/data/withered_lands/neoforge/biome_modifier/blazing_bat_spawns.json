@@ -2,8 +2,7 @@
   "type": "neoforge:add_spawns",
   "biomes": [
     "minecraft:nether_wastes",
-    "minecraft:crimson_forest",
-    "minecraft:warped_forest"
+    "minecraft:crimson_forest"
   ],
   "spawners": [
     {
