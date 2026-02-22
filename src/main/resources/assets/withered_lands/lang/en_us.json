@@ -153,5 +153,7 @@
   "message.withered_lands.slime_rain.start": "Slimes start falling from the sky!",
   "message.withered_lands.slime_rain.end": "Slimes has stopped falling from the sky.",
   "message.withered_lands.blood_moon.start": "The Blood Moon is rising...",
-  "message.withered_lands.blood_moon.sleep": "It's too dangerous to sleep during Blood Moon!"
+  "message.withered_lands.blood_moon.sleep": "It's too dangerous to sleep during Blood Moon!",
+
+  "event.withered_lands.slime_rain": "Slime Rain"
 }

@@ -150,8 +150,10 @@
 
   "message.withered_lands.to_hungry_to_sleep": "Вы слишком голодны, что бы спать!",
   "message.withered_lands.open_sky_sleep": "Вы не можете спать под открытым небом!",
-  "message.withered_lands.slime_rain.start": "С неба начали падать слизни!",
-  "message.withered_lands.slime_rain.end": "Слизни перестали падать с неба.",
+  "message.withered_lands.slime_rain.start": "С небес начали падать слизни!",
+  "message.withered_lands.slime_rain.end": "Слизни перестали падать с небес.",
   "message.withered_lands.blood_moon.start": "На небе восходит кровавая луна...",
-  "message.withered_lands.blood_moon.sleep": "Спать во время кровавой луны слишком опасно!"
+  "message.withered_lands.blood_moon.sleep": "Спать во время кровавой луны слишком опасно!",
+
+  "event.withered_lands.slime_rain": "Слизневый дождь"
 }
