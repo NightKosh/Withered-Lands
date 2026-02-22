@@ -167,7 +167,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<CaveBat>> CAVE_BAT =
             ENTITY_TYPES_REGISTER.register("cave_bat",
                     () -> EntityType.Builder.of(CaveBat::new, MobCategory.MONSTER)
-                            .sized(0.5F, 0.9F)
+                            .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -177,7 +177,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<VampireBat>> VAMPIRE_BAT =
             ENTITY_TYPES_REGISTER.register("vampire_bat",
                     () -> EntityType.Builder.of(VampireBat::new, MobCategory.MONSTER)
-                            .sized(0.5F, 0.9F)
+                            .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -187,7 +187,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<IceBat>> ICE_BAT =
             ENTITY_TYPES_REGISTER.register("ice_bat",
                     () -> EntityType.Builder.of(IceBat::new, MobCategory.MONSTER)
-                            .sized(0.5F, 0.9F)
+                            .sized(0.8F, 0.9F)
                             .immuneTo(Blocks.POWDER_SNOW)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
@@ -208,7 +208,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<BlazingBat>> BLAZING_BAT =
             ENTITY_TYPES_REGISTER.register("blazing_bat",
                     () -> EntityType.Builder.of(BlazingBat::new, MobCategory.MONSTER)
-                            .sized(0.5F, 0.9F)
+                            .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .fireImmune()
                             .notInPeaceful()
@@ -219,7 +219,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<WitheredBat>> WITHERED_BAT =
             ENTITY_TYPES_REGISTER.register("withered_bat",
                     () -> EntityType.Builder.of(WitheredBat::new, MobCategory.MONSTER)
-                            .sized(0.5F, 0.9F)
+                            .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .fireImmune()
                             .notInPeaceful()
@@ -230,7 +230,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<VolatileBat>> VOLATILE_BAT =
             ENTITY_TYPES_REGISTER.register("volatile_bat",
                     () -> EntityType.Builder.of(VolatileBat::new, MobCategory.MONSTER)
-                            .sized(0.5F, 0.9F)
+                            .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .fireImmune()
                             .notInPeaceful()
@@ -241,7 +241,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<ChorusBat>> CHORUS_BAT =
             ENTITY_TYPES_REGISTER.register("chorus_bat",
                     () -> EntityType.Builder.of(ChorusBat::new, MobCategory.MONSTER)
-                            .sized(0.5F, 0.9F)
+                            .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
