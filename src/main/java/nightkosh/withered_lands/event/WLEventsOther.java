@@ -2,8 +2,10 @@ package nightkosh.withered_lands.event;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import nightkosh.withered_lands.core.ModInfo;
+import nightkosh.withered_lands.core.WLCommands;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLItems;
 
@@ -26,6 +28,17 @@ public class WLEventsOther {
         if (event.getItemStack().is(WLItems.SLIME_GEL.get())) {
             event.setBurnTime(100);
         }
+    }
+
+    @SubscribeEvent
+    public static void onRegisterCommands(RegisterCommandsEvent event) {
+        if (WLConfigs.DEBUG_MODE.get()) {
+            LOGGER.info("RegisterCommandsEvent triggered");
+        }
+
+        var dispatcher = event.getDispatcher();
+        var node = dispatcher.register(WLCommands.root());
+        dispatcher.register(WLCommands.getAlias().redirect(node));
     }
 
 }
