@@ -17,6 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLEntities;
 
 import javax.annotation.Nonnull;
 
@@ -50,7 +51,7 @@ public class SkeletonHorse extends AUndeadHorse {
 
     @Override
     protected Monster getJockey(@Nonnull ServerLevelAccessor level) {
-        return EntityType.SKELETON.create(this.level(), EntitySpawnReason.JOCKEY);
+        return WLEntities.SKELETON.get().create(this.level(), EntitySpawnReason.JOCKEY);
     }
 
     @Override
