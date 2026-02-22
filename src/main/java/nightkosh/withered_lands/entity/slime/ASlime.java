@@ -81,7 +81,7 @@ public abstract class ASlime extends Slime {
             var state = this.level().getBlockState(pos);
             var below = pos.below();
 
-            if ((state.isAir() || state.canBeReplaced()) &&
+            if ((state.isAir() || state.canBeReplaced() || state.is(Blocks.MOSS_CARPET)) &&
                     this.level().getBlockState(below).isSolidRender()) {
                 this.level().setBlock(pos, stateToPlace, 3);
             }
