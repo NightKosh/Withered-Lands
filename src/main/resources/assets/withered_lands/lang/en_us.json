@@ -149,5 +149,7 @@
   "enchantment.withered_lands.curse_of_starvation": "Curse of Starvation",
 
   "message.withered_lands.to_hungry_to_sleep": "You are too hungry to sleep!",
-  "message.withered_lands.open_sky_sleep": "You cannot sleep under the open sky!"
+  "message.withered_lands.open_sky_sleep": "You cannot sleep under the open sky!",
+  "message.withered_lands.slime_rain.start": "Slimes start falling from the sky!",
+  "message.withered_lands.slime_rain.end": "Slimes has stopped falling from the sky."
 }

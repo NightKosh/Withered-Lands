@@ -149,5 +149,7 @@
   "enchantment.withered_lands.curse_of_starvation": "Проклятие истощения",
 
   "message.withered_lands.to_hungry_to_sleep": "Вы слишком голодны, что бы спать!",
-  "message.withered_lands.open_sky_sleep": "Вы не можете спать под открытым небом!"
+  "message.withered_lands.open_sky_sleep": "Вы не можете спать под открытым небом!",
+  "message.withered_lands.slime_rain.start": "С неба начали падать слизни!",
+  "message.withered_lands.slime_rain.end": "Слизни перестали падать с неба."
 }
