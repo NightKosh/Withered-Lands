@@ -6,6 +6,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -42,6 +43,14 @@ public class SandySlime extends ASlime {
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
         entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_15), this);
+    }
+
+    @Override
+    public void die(@Nonnull DamageSource damageSource) {
+        super.die(damageSource);
+        if (WLConfigs.SANDY_SLIME_SAND.get()) {
+            placeBlockAtDeath(Blocks.SAND.defaultBlockState());
+        }
     }
 
     @Nonnull

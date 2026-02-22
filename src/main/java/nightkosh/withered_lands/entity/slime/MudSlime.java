@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -22,6 +23,8 @@ import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+import javax.annotation.Nonnull;
+
 /**
  * Withered Lands
  *
@@ -38,6 +41,14 @@ public class MudSlime extends ASlime {
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
         entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_20), this);
+    }
+
+    @Override
+    public void die(@Nonnull DamageSource damageSource) {
+        super.die(damageSource);
+        if (WLConfigs.MUD_SLIME_MUD.get()) {
+            placeBlockAtDeath(Blocks.MUD.defaultBlockState());
+        }
     }
 
     @Override

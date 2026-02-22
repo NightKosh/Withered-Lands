@@ -19,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -47,15 +48,8 @@ public class FrozenSlime extends ASlime {
     @Override
     public void die(@Nonnull DamageSource damageSource) {
         super.die(damageSource);
-        if (!this.level().isClientSide() && WLConfigs.FROZEN_SLIME_SNOW.get() && this.getSize() > 1) {
-            var pos = this.blockPosition();
-            var below = pos.below();
-            var state = this.level().getBlockState(pos);
-
-            if ((state.isAir() || state.is(Blocks.SNOW)) &&
-                    this.level().getBlockState(below).isSolidRender()) {
-                this.level().setBlock(pos, Blocks.POWDER_SNOW.defaultBlockState(), 3);
-            }
+        if (WLConfigs.FROZEN_SLIME_SNOW.get()) {
+            placeBlockAtDeath(Blocks.POWDER_SNOW.defaultBlockState());
         }
     }
 

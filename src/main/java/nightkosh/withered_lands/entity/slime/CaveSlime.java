@@ -5,6 +5,7 @@ import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -43,6 +45,14 @@ public class CaveSlime extends ASlime {
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
         entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, TimeHelper.SECONDS_15), this);
+    }
+
+    @Override
+    public void die(@Nonnull DamageSource damageSource) {
+        super.die(damageSource);
+        if (WLConfigs.CAVE_SLIME_GRAVEL.get()) {
+            placeBlockAtDeath(Blocks.GRAVEL.defaultBlockState());
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

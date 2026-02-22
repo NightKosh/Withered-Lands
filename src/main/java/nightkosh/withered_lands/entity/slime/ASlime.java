@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
@@ -71,6 +73,19 @@ public abstract class ASlime extends Slime {
 
     protected void applyEffect(LivingEntity entity) {
         entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, TimeHelper.SECONDS_25), this);
+    }
+
+    protected void placeBlockAtDeath(BlockState stateToPlace) {
+        if (!this.level().isClientSide() && this.getSize() > 1) {
+            var pos = this.blockPosition();
+            var state = this.level().getBlockState(pos);
+            var below = pos.below();
+
+            if ((state.isAir() || state.canBeReplaced()) &&
+                    this.level().getBlockState(below).isSolidRender()) {
+                this.level().setBlock(pos, stateToPlace, 3);
+            }
+        }
     }
 
     protected static boolean isUndergroundBlock(Block ground) {

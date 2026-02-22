@@ -23,11 +23,15 @@ public class WLConfigs {
     // slimes
     public static ModConfigSpec.ConfigValue<Boolean> VERDANT_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> SANDY_SLIME_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> SANDY_SLIME_SAND;
     public static ModConfigSpec.ConfigValue<Boolean> FROZEN_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> FROZEN_SLIME_SNOW;
     public static ModConfigSpec.ConfigValue<Boolean> MUD_SLIME_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> MUD_SLIME_MUD;
     public static ModConfigSpec.ConfigValue<Boolean> JUNGLE_SLIME_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> JUNGLE_SLIME_MOSS;
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_SLIME_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> CAVE_SLIME_GRAVEL;
     public static ModConfigSpec.ConfigValue<Boolean> ABYSSAL_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_CORROSION;
@@ -129,11 +133,15 @@ public class WLConfigs {
         // slimes
         VERDANT_SLIME_SPAWN = BUILDER.define("Verdant Slimes Spawn", true);
         SANDY_SLIME_SPAWN = BUILDER.define("Sandy Slimes Spawn", true);
+        SANDY_SLIME_SAND = BUILDER.define("Sandy Slimes Create Sand block at death", true);
         FROZEN_SLIME_SPAWN = BUILDER.define("Frozen Slimes Spawn", true);
         FROZEN_SLIME_SNOW = BUILDER.define("Frozen Slimes Create Powder Snow block at death", true);
         MUD_SLIME_SPAWN = BUILDER.define("Mud Slimes Spawn", true);
+        MUD_SLIME_MUD = BUILDER.define("Mud Slimes Create Mud block at death", true);
         JUNGLE_SLIME_SPAWN = BUILDER.define("Jungle Slimes Spawn", true);
+        JUNGLE_SLIME_MOSS = BUILDER.define("Jungle Slimes Create Moss block at death", true);
         CAVE_SLIME_SPAWN = BUILDER.define("Cave Slimes Spawn", true);
+        CAVE_SLIME_GRAVEL = BUILDER.define("Cave Slimes Create Gravel block at death", true);
         ABYSSAL_SLIME_SPAWN = BUILDER.define("Abyssal Slimes Spawn", true);
         TOXIC_SLUDGE_SPAWN = BUILDER.define("Toxic Sludges Spawn", true);
         TOXIC_SLUDGE_CORROSION = BUILDER.define("Toxic Sludges Replace blocks", true);

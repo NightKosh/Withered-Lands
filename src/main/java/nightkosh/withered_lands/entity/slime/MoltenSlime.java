@@ -42,10 +42,12 @@ public class MoltenSlime extends ASlime {
         super.die(damageSource);
         if (!this.level().isClientSide() && WLConfigs.MOLTEN_SLIME_LAVA.get() && this.getSize() > 1) {
             var pos = this.blockPosition();
+            var state = this.level().getBlockState(pos);
+            var below = pos.below();
 
-            if (this.level().getBlockState(pos).getCollisionShape(this.level(), pos).isEmpty() &&
-                    !this.level().getBlockState(pos.below()).isAir() &&
-                    !this.level().getBlockState(pos.below()).is(Blocks.LAVA)) {
+            if ((state.isAir() || state.canBeReplaced()) &&
+                    this.level().getBlockState(below).isSolidRender() &&
+                    !this.level().getBlockState(below).is(Blocks.LAVA)) {
                 this.level().setBlock(pos, Blocks.LAVA.defaultBlockState(), 3);
             }
         }

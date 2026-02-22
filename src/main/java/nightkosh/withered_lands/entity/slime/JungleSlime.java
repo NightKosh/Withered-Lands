@@ -5,6 +5,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -23,6 +24,8 @@ import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+import javax.annotation.Nonnull;
+
 /**
  * Withered Lands
  *
@@ -33,6 +36,14 @@ public class JungleSlime extends ASlime {
 
     public JungleSlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public void die(@Nonnull DamageSource damageSource) {
+        super.die(damageSource);
+        if (WLConfigs.JUNGLE_SLIME_MOSS.get()) {
+            placeBlockAtDeath(Blocks.MOSS_BLOCK.defaultBlockState());
+        }
     }
 
     @Override
