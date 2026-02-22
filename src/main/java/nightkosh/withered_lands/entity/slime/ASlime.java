@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.entity.slime;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.AABB;
 import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
@@ -86,6 +88,10 @@ public abstract class ASlime extends Slime {
         groupData = super.finalizeSpawn(level, difficulty, spawnReason, groupData);
         this.setSize(getDefaultSpawnSize(), true);
         return groupData;
+    }
+
+    protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos, Class clazz) {
+        return level.getEntitiesOfClass(clazz, new AABB(pos).inflate(100)).size() <= 25;
     }
 
     //TODO

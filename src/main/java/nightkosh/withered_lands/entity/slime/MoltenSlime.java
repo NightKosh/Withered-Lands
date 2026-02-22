@@ -13,7 +13,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
@@ -83,7 +82,7 @@ public class MoltenSlime extends ASlime {
     }
 
     protected static boolean checkCommonSpawnRules(
-            EntityType<? extends ASlime> entityType, LevelAccessor level,
+            EntityType<? extends ASlime> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         if (level.getDifficulty() != Difficulty.PEACEFUL) {
             if (EntitySpawnReason.isSpawner(spawnReason)) {
@@ -95,12 +94,13 @@ public class MoltenSlime extends ASlime {
             } else {
                 // Do not check light, otherwise it prevent slime spawn near ruined portals and in lava
                 var ground = level.getBlockState(pos.below());
-                return ground.is(Blocks.NETHERRACK) || ground.is(Blocks.SOUL_SAND) || ground.is(Blocks.BASALT) ||
+                return (ground.is(Blocks.NETHERRACK) || ground.is(Blocks.SOUL_SAND) || ground.is(Blocks.BASALT) ||
                         ground.is(Blocks.MAGMA_BLOCK) || ground.is(Blocks.CRIMSON_NYLIUM) || ground.is(Blocks.WARPED_NYLIUM) ||
                         ground.is(Blocks.OBSIDIAN) || ground.is(Blocks.GOLD_BLOCK) || ground.is(Blocks.LAVA) ||
                         ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.PODZOL) || ground.is(Blocks.MYCELIUM) ||
                         ground.is(Blocks.DIRT) || ground.is(Blocks.MUD) || ground.is(Blocks.GRAVEL) ||
-                        ground.is(Blocks.SAND);
+                        ground.is(Blocks.SAND)) &&
+                        checkDensity(level, pos, FrozenSlime.class);
             }
         }
 

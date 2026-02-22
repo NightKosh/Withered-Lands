@@ -16,7 +16,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -108,7 +107,7 @@ public class FrozenSlime extends ASlime {
     }
 
     protected static boolean checkCommonSpawnRules(
-            EntityType<? extends ASlime> entityType, LevelAccessor level,
+            EntityType<? extends ASlime> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         if (level.getDifficulty() != Difficulty.PEACEFUL) {
             if (EntitySpawnReason.isSpawner(spawnReason)) {
@@ -124,7 +123,7 @@ public class FrozenSlime extends ASlime {
                             ground == Blocks.PODZOL || ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT;
                 } else if (pos.getY() < 50) {
                     // TODO additional checks to avoid spawn near buildings
-                    return isUndergroundBlock(ground);
+                    return isUndergroundBlock(ground) && checkDensity(level, pos, FrozenSlime.class);
                 }
             }
         }
