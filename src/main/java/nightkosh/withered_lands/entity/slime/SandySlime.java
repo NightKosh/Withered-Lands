@@ -114,6 +114,9 @@ public class SandySlime extends ASlime {
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
                     return ground == Blocks.SAND || ground == Blocks.RED_SAND;
+                } else if (pos.getY() < 50) {
+                    // TODO additional checks to avoid spawn near buildings
+                    return isUndergroundBlock(ground);
                 }
             }
         }
