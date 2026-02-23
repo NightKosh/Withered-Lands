@@ -58,7 +58,7 @@ public class Barghest extends AUndeadDog {
     }
 
     @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+    protected void defineSynchedData(@Nonnull SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(INVISIBLE_ID, true);
     }

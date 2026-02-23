@@ -11,15 +11,15 @@ import nightkosh.withered_lands.entity.wolf.Barghest;
  */
 public class BarghestInvisibleGoal extends Goal {
 
-    protected Barghest mob;
+    protected Barghest barghest;
 
     public BarghestInvisibleGoal(Barghest mob) {
-        this.mob = mob;
+        this.barghest = mob;
     }
 
     @Override
     public boolean canUse() {
-        return this.mob.getTarget() == null && this.mob.getLastHurtByMob() == null;
+        return this.barghest.getLastHurtByMob() == null;
     }
 
     @Override
@@ -29,12 +29,12 @@ public class BarghestInvisibleGoal extends Goal {
 
     @Override
     public void start() {
-        this.mob.setBarghestInvisible(true);
+        this.barghest.setBarghestInvisible(true);
     }
 
     @Override
     public void stop() {
-        this.mob.setBarghestInvisible(false);
+        this.barghest.setBarghestInvisible(false);
     }
 
 }
