@@ -15,6 +15,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.item.BatWing;
+import nightkosh.withered_lands.item.SandLayerBlockItem;
 import nightkosh.withered_lands.item.SlimeGel;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
@@ -344,6 +345,14 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .setId(WLBlocks.EXTINGUISHED_SOUL_TORCH_RK)));
+
+    public static final DeferredHolder<Item, Item> SAND_LAYER = ITEMS_REGISTER.register(
+            "sand_layer",
+            () -> new SandLayerBlockItem(
+                    WLBlocks.SAND_LAYER.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .setId(WLBlocks.SAND_LAYER_RK)));
 
     private static DeferredHolder<Item, Item> registerEgg(DeferredHolder entityHolder, String id) {
         return ITEMS_REGISTER.register(

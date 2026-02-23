@@ -41,6 +41,9 @@ public class WLTabs {
                         output.accept(WLItems.EXTINGUISHED_COPPER_TORCH.get());
                         output.accept(WLItems.EXTINGUISHED_SOUL_TORCH.get());
 
+                        // sand
+                        output.accept(WLItems.SAND_LAYER.get());
+
                         // ---------- eggs ----------
 
                         // slimes

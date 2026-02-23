@@ -4,6 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
@@ -19,6 +21,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.neoforged.neoforge.event.EventHooks;
+import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -50,6 +55,26 @@ public class SandySlime extends ASlime {
         super.die(damageSource);
         if (WLConfigs.SANDY_SLIME_SAND.get()) {
             placeBlockAtDeath(Blocks.SAND.defaultBlockState());
+        }
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.level() instanceof ServerLevel level && EventHooks.canEntityGrief(level, this)) {
+            var blockstate = WLBlocks.SAND_LAYER.get().defaultBlockState();
+            for (int i = 0; i < 4; i++) {
+                var blockpos = new BlockPos(
+                        Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
+                        Mth.floor(this.getY()),
+                        Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
+                if (this.level().getBlockState(blockpos).isAir() &&
+                        blockstate.canSurvive(this.level(), blockpos) &&
+                        this.level().getBlockState(this.blockPosition().below()).isSolidRender()) {
+                    this.level().setBlockAndUpdate(blockpos, blockstate);
+                    this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
+                }
+            }
         }
     }
 

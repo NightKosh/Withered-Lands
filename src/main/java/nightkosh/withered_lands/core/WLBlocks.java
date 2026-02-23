@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.block.ExtinguishedTorchBlock;
 import nightkosh.withered_lands.block.ExtinguishedWallTorchBlock;
+import nightkosh.withered_lands.block.SandLayerBlock;
 import nightkosh.withered_lands.block.Skull;
 
 import java.util.function.Supplier;
@@ -87,6 +88,12 @@ public class WLBlocks {
     public static final DeferredHolder<Block, Block> EXTINGUISHED_SOUL_TORCH = registerBlock(
             "extinguished_soul_torch",
             () -> new ExtinguishedTorchBlock(EXTINGUISHED_SOUL_TORCH_RK));
+
+    public static final ResourceKey SAND_LAYER_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "sand_layer"));
+    public static final DeferredHolder<Block, Block> SAND_LAYER = registerBlock(
+            "sand_layer",
+            () -> new SandLayerBlock(SAND_LAYER_RK));
 
     private static <T extends Block> DeferredHolder<Block, T> registerBlock(
             String name, Supplier<T> block, Supplier<Item> itemBlock) {
