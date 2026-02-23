@@ -18,10 +18,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.ai.goal.*;
 import nightkosh.withered_lands.entity.ai.move_control.JumpingMoveControl;
 
@@ -35,6 +37,37 @@ import javax.annotation.Nonnull;
  */
 public class Mimic extends AMonster implements IJumpingCube {
 
+    public enum Type {
+        SIMPLE_DUNGEON("simple_dungeon"),
+        NETHER_BRIDGE("nether_bridge"),
+        DESERT_PYRAMID("desert_pyramid"),
+        SHIPWRECK_TREASURE("shipwreck_treasure"),
+        STRONGHOLD_CORRIDOR("stronghold_corridor"),
+        STRONGHOLD_CROSSING("stronghold_crossing"),
+        STRONGHOLD_LIBRARY("stronghold_library"),
+        BASTION_BRIDGE("bastion_bridge"),
+        BASTION_TREASURE("bastion_treasure");
+
+        private final String name;
+
+        Type(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return this.name;
+        }
+
+        public static Type fromString(String str) {
+            for (var t : values()) {
+                if (t.name.equals(str)) {
+                    return t;
+                }
+            }
+            return SIMPLE_DUNGEON;
+        }
+    }
+
     private static final EntityDataAccessor<Boolean> HIDE_ID = SynchedEntityData.defineId(Mimic.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> CAN_HIDE_ID = SynchedEntityData.defineId(Mimic.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> IDLE_ID = SynchedEntityData.defineId(Mimic.class, EntityDataSerializers.BOOLEAN);
@@ -44,6 +77,7 @@ public class Mimic extends AMonster implements IJumpingCube {
 
     private boolean wasOnGround = false;
 
+    private Type mimicType = Type.SIMPLE_DUNGEON;
 
     public Mimic(EntityType<? extends AMonster> entityType, Level level) {
         super(entityType, level);
@@ -76,12 +110,14 @@ public class Mimic extends AMonster implements IJumpingCube {
     protected void addAdditionalSaveData(@Nonnull ValueOutput output) {
         super.addAdditionalSaveData(output);
         output.putBoolean("was_on_ground", this.wasOnGround);
+        output.putString("mimic_type", this.mimicType.getName());
     }
 
     @Override
     protected void readAdditionalSaveData(@Nonnull ValueInput input) {
         super.readAdditionalSaveData(input);
         this.wasOnGround = input.getBooleanOr("was_on_ground", false);
+        this.mimicType = Type.fromString(input.getStringOr("mimic_type", Type.SIMPLE_DUNGEON.getName()));
     }
 
     @Override
@@ -119,6 +155,10 @@ public class Mimic extends AMonster implements IJumpingCube {
                 EnchantmentHelper.doPostAttackEffects(level, player, damageSource);
             }
         }
+    }
+
+    public void setType(Type type) {
+        this.mimicType = type;
     }
 
     public void setCanHide(boolean canHide) {
@@ -175,6 +215,22 @@ public class Mimic extends AMonster implements IJumpingCube {
     @Override
     public float getSoundVolume() {
         return 1;
+    }
+
+    public static void replaceChestByMimic(ServerLevel level, BlockPos pos, Player player, Type type) {
+        var mimic = WLEntities.MIMIC.get().create(level, EntitySpawnReason.TRIGGERED);
+        if (mimic != null) {
+            level.removeBlockEntity(pos);
+            level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+
+            mimic.setPosRaw(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+
+            level.addFreshEntity(mimic);
+
+            mimic.setType(type);
+            mimic.setPersistenceRequired();
+            mimic.lookAt(player, 360, 360);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

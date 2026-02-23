@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.event;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.monster.zombie.Drowned;
 import net.minecraft.world.entity.monster.zombie.Husk;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -24,6 +26,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.entity.Mimic;
 import nightkosh.withered_lands.entity.WLSkeleton;
 import nightkosh.withered_lands.entity.crawler.ASkullCrawler;
 
@@ -170,6 +173,46 @@ public class WLEventsSpawn {
                     Registries.LOOT_TABLE,
                     withDefaultNamespace("chests/simple_dungeon"));
 
+    private static final ResourceKey<LootTable> DESERT_PYRAMID_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/desert_pyramid"));
+
+    private static final ResourceKey<LootTable> SHIPWRECK_TREASURE_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/shipwreck_treasure"));
+
+    private static final ResourceKey<LootTable> NETHER_BRIDGE_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/nether_bridge"));
+
+    private static final ResourceKey<LootTable> STRONGHOLD_CORRIDOR_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/stronghold_corridor"));
+
+    private static final ResourceKey<LootTable> STRONGHOLD_CROSSING_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/stronghold_crossing"));
+
+    private static final ResourceKey<LootTable> STRONGHOLD_LIBRARY_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/stronghold_library"));
+
+    private static final ResourceKey<LootTable> BASTION_BRIDGE_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/bastion_bridge"));
+
+    private static final ResourceKey<LootTable> BASTION_TREASURE_CHEST =
+            ResourceKey.create(
+                    Registries.LOOT_TABLE,
+                    withDefaultNamespace("chests/bastion_treasure"));
+
     @SubscribeEvent
     public static void onRightClickBlock(PlayerInteractEvent.RightClickBlock event) {
         if (!event.getLevel().isClientSide() && WLConfigs.MIMIC_SPAWN.get()) {
@@ -178,29 +221,42 @@ public class WLEventsSpawn {
             if (level.getBlockEntity(pos) instanceof ChestBlockEntity chest) {
                 var lootTable = chest.getLootTable();
                 if (lootTable != null) {
-                    if (lootTable.equals(SIMPLE_DUNGEON_CHEST) && level.getRandom().nextInt(3) == 0) {
-                        if (WLConfigs.DEBUG_MODE.get()) {
-                            LOGGER.info("RightClickBlock event triggered for simple_dungeon chest.");
-                            LOGGER.info("Going to replace chest by Mimic!");
-                        }
-                        event.setCanceled(true);
-                        event.setCancellationResult(InteractionResult.FAIL);
-
-                        level.removeBlockEntity(pos);
-                        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-
-                        var mimic = WLEntities.MIMIC.get().create(level, EntitySpawnReason.TRIGGERED);
-                        if (mimic != null) {
-                            mimic.setPosRaw(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-
-                            level.addFreshEntity(mimic);
-
-                            mimic.setPersistenceRequired();
-                            mimic.lookAt(event.getEntity(), 360, 360);
-                        }
+                    if (lootTable.equals(SIMPLE_DUNGEON_CHEST)) {
+                        replaceChestByMimic(3, "simple_dungeon", event, level, pos, Mimic.Type.SIMPLE_DUNGEON);//33%
+                    } else if (lootTable.equals(NETHER_BRIDGE_CHEST)) {
+                        replaceChestByMimic(5, "nether_bridge", event, level, pos, Mimic.Type.NETHER_BRIDGE);//20%
+                    } else if (lootTable.equals(DESERT_PYRAMID_CHEST)) {
+                        replaceChestByMimic(5, "desert_pyramid", event, level, pos, Mimic.Type.DESERT_PYRAMID);//20%
+                    } else if (lootTable.equals(SHIPWRECK_TREASURE_CHEST)) {
+                        replaceChestByMimic(7, "shipwreck_treasure", event, level, pos, Mimic.Type.SHIPWRECK_TREASURE);//15%
+                    } else if (lootTable.equals(STRONGHOLD_CORRIDOR_CHEST)) {
+                        replaceChestByMimic(8, "stronghold_corridor", event, level, pos, Mimic.Type.STRONGHOLD_CORRIDOR);//12.5%
+                    } else if (lootTable.equals(STRONGHOLD_CROSSING_CHEST)) {
+                        replaceChestByMimic(8, "stronghold_crossing", event, level, pos, Mimic.Type.STRONGHOLD_CROSSING);//12.5%
+                    } else if (lootTable.equals(STRONGHOLD_LIBRARY_CHEST)) {
+                        replaceChestByMimic(5, "stronghold_library", event, level, pos, Mimic.Type.STRONGHOLD_LIBRARY);//20%
+                    } else if (lootTable.equals(BASTION_BRIDGE_CHEST)) {
+                        replaceChestByMimic(20, "bastion_bridge", event, level, pos, Mimic.Type.BASTION_BRIDGE);//5%
+                    } else if (lootTable.equals(BASTION_TREASURE_CHEST)) {
+                        replaceChestByMimic(10, "bastion_treasure", event, level, pos, Mimic.Type.BASTION_TREASURE);//10%
                     }
                 }
             }
+        }
+    }
+
+    private static void replaceChestByMimic(
+            int chance, String chestNameLog, PlayerInteractEvent.RightClickBlock event,
+            ServerLevel level, BlockPos pos, Mimic.Type type) {
+        if (level.getRandom().nextInt(chance) == 0) {
+            if (WLConfigs.DEBUG_MODE.get()) {
+                LOGGER.info("RightClickBlock event triggered for {} chest.", chestNameLog);
+                LOGGER.info("Going to replace chest by Mimic!");
+            }
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.FAIL);
+
+            Mimic.replaceChestByMimic(level, pos, event.getEntity(), type);
         }
     }
 

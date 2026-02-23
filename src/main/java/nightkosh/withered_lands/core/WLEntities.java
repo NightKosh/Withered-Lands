@@ -747,6 +747,7 @@ public class WLEntities {
                             .sized(0.8F, 0.8F)
                             .eyeHeight(0.7F)
                             .notInPeaceful()
+                            .fireImmune()
                             .clientTrackingRange(8)
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
