@@ -6,6 +6,7 @@ import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.server.permissions.Permissions;
+import nightkosh.withered_lands.world_event.WorldEventManager;
 
 /**
  * Withered Lands
@@ -15,11 +16,11 @@ import net.minecraft.server.permissions.Permissions;
  */
 public class CommandSlimeRain {
 
-    public static final String NAME = "commands_list";
+    public static final String NAME = "slime_rain";
 
     private static int execute(CommandContext<CommandSourceStack> ctx, boolean state) {
         var src = ctx.getSource();
-
+        WorldEventManager.toggleSlimeRain(src.getLevel(), state);
         return 1;
     }
 

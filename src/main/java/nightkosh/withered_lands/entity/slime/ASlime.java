@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -34,6 +33,8 @@ import java.util.List;
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
 public abstract class ASlime extends Slime {
+
+    public static final String TAG_SLIME_RAIN = "slime_rain";
 
     protected static final List<Item> MIDDLE_ITEMS = List.of(
             Items.BONE,
@@ -103,6 +104,13 @@ public abstract class ASlime extends Slime {
         groupData = super.finalizeSpawn(level, difficulty, spawnReason, groupData);
         this.setSize(getDefaultSpawnSize(), true);
         return groupData;
+    }
+
+    @Override
+    public void checkDespawn() {
+        if (this.tickCount >= TimeHelper.SECONDS_10 || !this.getTags().contains(TAG_SLIME_RAIN)) {
+            super.checkDespawn();
+        }
     }
 
     protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos, Class clazz) {
