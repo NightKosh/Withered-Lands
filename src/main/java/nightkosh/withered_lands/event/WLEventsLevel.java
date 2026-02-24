@@ -21,8 +21,7 @@ public class WLEventsLevel {
     public static void onLevelTick(LevelTickEvent.Post e) {
         if (e.getLevel() instanceof ServerLevel level &&
                 level.dimension().equals(Level.OVERWORLD)) {
-            WorldEventManager.INSTANCE.tick(level);
-//            WorldEventManager.get(level).tick(level);
+            WorldEventManager.get(level).tick(level);
         }
     }
 

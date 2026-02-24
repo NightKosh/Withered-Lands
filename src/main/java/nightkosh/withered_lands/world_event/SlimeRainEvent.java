@@ -1,45 +1,42 @@
 package nightkosh.withered_lands.world_event;
 
 import com.google.common.collect.Sets;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.saveddata.SavedData;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.slime.ASlime;
 import nightkosh.withered_lands.helper.TimeHelper;
 
-import java.util.List;
-
-public class SlimeRainEvent extends SavedData {
+public class SlimeRainEvent {
 
     private static final Component SLIME_RAIN_NAME = Component.translatable("event.withered_lands.slime_rain");
     private static final Component SLIME_RAIN_START = Component.translatable("message.withered_lands.slime_rain.start");
     private static final Component SLIME_RAIN_END = Component.translatable("message.withered_lands.slime_rain.end");
-    private static final List<EntityType> SLIMES = List.of(
-            WLEntities.VERDANT_SLIME.get(), WLEntities.VERDANT_SLIME.get(), WLEntities.VERDANT_SLIME.get(),
-            WLEntities.VERDANT_SLIME.get(), WLEntities.VERDANT_SLIME.get(), WLEntities.VERDANT_SLIME.get(),
-            WLEntities.VERDANT_SLIME.get(), WLEntities.VERDANT_SLIME.get(), WLEntities.VERDANT_SLIME.get(),
-            WLEntities.SANDY_SLIME.get(), WLEntities.SANDY_SLIME.get(),
-            WLEntities.SANDY_SLIME.get(), WLEntities.SANDY_SLIME.get(),
-            WLEntities.FROZEN_SLIME.get(), WLEntities.FROZEN_SLIME.get(),
-            WLEntities.FROZEN_SLIME.get(), WLEntities.FROZEN_SLIME.get(),
-            WLEntities.MUD_SLIME.get(), WLEntities.MUD_SLIME.get(),
-            WLEntities.MUD_SLIME.get(), WLEntities.MUD_SLIME.get(),
-            WLEntities.JUNGLE_SLIME.get(), WLEntities.JUNGLE_SLIME.get(), WLEntities.JUNGLE_SLIME.get(),
-            WLEntities.CAVE_SLIME.get(), WLEntities.CAVE_SLIME.get(),
-            WLEntities.ABYSSAL_SLIME.get(), WLEntities.ABYSSAL_SLIME.get(),
-            WLEntities.TOXIC_SLUDGE.get(),
-            WLEntities.MOLTEN_SLIME.get());
+
+    private static final WeightedList<EntityType<?>> SLIMES = WeightedList.<EntityType<?>>builder()
+            .add(WLEntities.VERDANT_SLIME.get(), 9)
+            .add(WLEntities.SANDY_SLIME.get(), 4)
+            .add(WLEntities.FROZEN_SLIME.get(), 4)
+            .add(WLEntities.MUD_SLIME.get(), 4)
+            .add(WLEntities.JUNGLE_SLIME.get(), 3)
+            .add(WLEntities.CAVE_SLIME.get(), 2)
+            .add(WLEntities.ABYSSAL_SLIME.get(), 2)
+            .add(WLEntities.TOXIC_SLUDGE.get(), 1)
+            .add(WLEntities.MOLTEN_SLIME.get(), 1)
+            .build();
 
     private static final int SPAWN_HEIGHT = 320;
-    private static final int SPAWN_RANGE = 80;
-    private static final int SPAWN_RANGE_HALF = SPAWN_RANGE / 2;
+    private static final int SPAWN_RANGE_DIAMETER = 100;
+    private static final int SPAWN_RANGE_HALF = SPAWN_RANGE_DIAMETER / 2;
     private static final int EVENT_TICKS = TimeHelper.SECONDS_180;
 
     private final ServerBossEvent progressBar = new ServerBossEvent(
@@ -47,23 +44,33 @@ public class SlimeRainEvent extends SavedData {
             BossEvent.BossBarColor.GREEN,
             BossEvent.BossBarOverlay.NOTCHED_10);
 
+    public static final Codec<SlimeRainEvent> CODEC = RecordCodecBuilder.create(
+            inst -> inst.group(
+                            Codec.BOOL.fieldOf("is_active").forGetter(e -> e.isActive),
+                            Codec.INT.fieldOf("ticks").forGetter(e -> e.ticks))
+                    .apply(inst, SlimeRainEvent::new));
 
     private boolean isActive;
-    private final int lastEventTime;
     private int ticks;
 
-    public SlimeRainEvent(boolean isActive, int lastEventTime, int ticks) {
+    public SlimeRainEvent(boolean isActive, int ticks) {
         this.isActive = isActive;
-        this.lastEventTime = lastEventTime;
         this.ticks = ticks;
 
-        this.setDirty();
+        if (this.isActive) {
+            this.progressBar.setVisible(true);
+            this.progressBar.setName(SLIME_RAIN_NAME);
+            this.progressBar.setProgress(Mth.clamp(this.ticks / (float) EVENT_TICKS, 0, 1));
+        } else {
+            this.progressBar.setVisible(false);
+        }
     }
 
     protected void start(ServerLevel level) {
         if (!this.isActive) {
             var server = level.getServer();
             this.isActive = true;
+            this.ticks = 0;
             this.progressBar.setProgress(0);
             this.progressBar.setVisible(true);
             this.progressBar.setName(SLIME_RAIN_NAME);
@@ -76,35 +83,39 @@ public class SlimeRainEvent extends SavedData {
         if (this.isActive) {
             var server = level.getServer();
             this.isActive = false;
+            this.ticks = 0;
             this.progressBar.setVisible(false);
             this.progressBar.removeAllPlayers();
+            level.resetWeatherCycle();
             server.getPlayerList().broadcastSystemMessage(SLIME_RAIN_END, false);
         }
     }
 
-    public void tick(ServerLevel level) {
+    public void tick(ServerLevel level, Runnable markDirty) {
         this.ticks++;
-
-        if (this.ticks % TimeHelper.SECONDS_5 == 0) {
-            this.progressBar.setProgress(Mth.clamp(this.ticks / (float) EVENT_TICKS, 0, 1));
-            this.updatePlayers(level);
-            for (var player : this.progressBar.getPlayers()) {
-                for (int i = 0; i < 4; i++) {
-                    var pos = new BlockPos(
-                            player.blockPosition().getX() + level.random.nextInt(SPAWN_RANGE) - SPAWN_RANGE_HALF,
-                            SPAWN_HEIGHT,
-                            player.blockPosition().getZ() + level.random.nextInt(SPAWN_RANGE) - SPAWN_RANGE_HALF);
-                    var slime = (ASlime) SLIMES.get(level.random.nextInt(SLIMES.size())).create(level, EntitySpawnReason.EVENT);
-                    slime.addTag(ASlime.TAG_SLIME_RAIN);
-                    slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
-                    slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
-                    level.addFreshEntity(slime);
-                }
-            }
-        }
 
         if (this.ticks >= EVENT_TICKS) {
             end(level);
+            markDirty.run();
+        } else if (this.ticks % TimeHelper.SECONDS_1 == 0) {
+            this.progressBar.setProgress(Mth.clamp(this.ticks / (float) EVENT_TICKS, 0, 1));
+            this.updatePlayers(level);
+            for (var player : this.progressBar.getPlayers()) {
+                var pos = new BlockPos(
+                        player.blockPosition().getX() + level.random.nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF,
+                        SPAWN_HEIGHT,
+                        player.blockPosition().getZ() + level.random.nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF);
+                var slime = (ASlime) SLIMES.getRandom(level.random)
+                        .orElse(WLEntities.VERDANT_SLIME.get())
+                        .create(level, EntitySpawnReason.EVENT);
+                slime.addTag(ASlime.TAG_SLIME_RAIN);
+                slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
+                slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
+//                    slime.setSize(1, true);
+                level.addFreshEntity(slime);
+            }
+
+            markDirty.run();
         }
     }
 

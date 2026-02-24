@@ -8,6 +8,7 @@ package nightkosh.withered_lands.helper;
  */
 public final class TimeHelper {
 
+    public static final int SECONDS_1 = 20;
     public static final int SECONDS_5 = 100;
     public static final int SECONDS_8 = 160;
     public static final int SECONDS_10 = 200;
