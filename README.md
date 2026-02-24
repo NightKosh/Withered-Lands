@@ -39,6 +39,13 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
         /effect give @e[type=!minecraft:player] minecraft:glowing 1000000 0 true
     ```
 
+### Events:
+1. Slime Rain
+    ```   
+        /wl slime_rain
+        /wl slime_rain <state>
+    ```
+
 ### Slimes spawn:
 1. Verdant slime
     ```
