@@ -17,6 +17,12 @@ import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.slime.ASlime;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+/**
+ * Withered Lands
+ *
+ * @author NightKosh
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ */
 public class SlimeRainEvent {
 
     private static final Component SLIME_RAIN_NAME = Component.translatable("event.withered_lands.slime_rain");
