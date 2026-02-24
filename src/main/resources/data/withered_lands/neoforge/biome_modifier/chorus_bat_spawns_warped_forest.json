@@ -6,7 +6,7 @@
   "spawners": [
     {
       "type": "withered_lands:chorus_bat",
-      "weight": 70,
+      "weight": 80,
       "minCount": 1,
       "maxCount": 3
     }

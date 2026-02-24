@@ -33,7 +33,7 @@ public abstract class ADayMonster extends AMonster {
     public static boolean checkCommonSpawnRules(ServerLevelAccessor level, BlockPos pos, RandomSource random) {
         return level.getDifficulty() != Difficulty.PEACEFUL &&
                 // surface light level should be ignored
-                level.getBrightness(LightLayer.BLOCK, pos) == 0;
+                level.getBrightness(LightLayer.BLOCK, pos) <= level.dimensionType().monsterSpawnBlockLightLimit();
     }
 
 }
