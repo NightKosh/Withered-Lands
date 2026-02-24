@@ -39,6 +39,8 @@ public class SlimeRainEvent {
     private static final int SPAWN_RANGE_HALF = SPAWN_RANGE_DIAMETER / 2;
     private static final int EVENT_TICKS = TimeHelper.MINS_8;
 
+    public static final int MIN_DAYS_BETWEEN_RAINS = 7;
+
     private final ServerBossEvent progressBar = new ServerBossEvent(
             SLIME_RAIN_NAME,
             BossEvent.BossBarColor.GREEN,
@@ -47,15 +49,18 @@ public class SlimeRainEvent {
     public static final Codec<SlimeRainEvent> CODEC = RecordCodecBuilder.create(
             inst -> inst.group(
                             Codec.BOOL.fieldOf("is_active").forGetter(e -> e.isActive),
-                            Codec.INT.fieldOf("ticks").forGetter(e -> e.ticks))
+                            Codec.INT.fieldOf("ticks").forGetter(e -> e.ticks),
+                            Codec.LONG.fieldOf("last_event_day").forGetter(e -> e.lastEventDay))
                     .apply(inst, SlimeRainEvent::new));
 
+    private long lastEventDay;
     private boolean isActive;
     private int ticks;
 
-    public SlimeRainEvent(boolean isActive, int ticks) {
+    public SlimeRainEvent(boolean isActive, int ticks, long lastEventDay) {
         this.isActive = isActive;
         this.ticks = ticks;
+        this.lastEventDay = lastEventDay;
 
         if (this.isActive) {
             this.progressBar.setVisible(true);
@@ -76,6 +81,7 @@ public class SlimeRainEvent {
             this.progressBar.setName(SLIME_RAIN_NAME);
             level.setWeatherParameters(0, EVENT_TICKS, true, false);
             server.getPlayerList().broadcastSystemMessage(SLIME_RAIN_START, false);
+            setLastEventDay(level);
         }
     }
 
@@ -111,7 +117,7 @@ public class SlimeRainEvent {
                 slime.addTag(ASlime.TAG_SLIME_RAIN);
                 slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
-                    slime.setSize(1, true);//TODO
+                slime.setSize(1, true);//TODO
                 level.addFreshEntity(slime);
             }
 
@@ -138,6 +144,25 @@ public class SlimeRainEvent {
 
     public boolean isActive() {
         return isActive;
+    }
+
+    public void setLastEventDay(ServerLevel level) {
+        this.lastEventDay = level.getDayTime() / TimeHelper.DAY;
+    }
+
+    public void tryToStartEvent(ServerLevel level, Runnable markDirty) {
+        if (!level.isRaining() && !level.isThundering()) {
+            long today = level.getDayTime() / TimeHelper.DAY;
+            long daysPassed = today - this.lastEventDay;
+            long daysAfterMinimalTime = daysPassed - MIN_DAYS_BETWEEN_RAINS;
+            if (daysAfterMinimalTime >= 0) {
+                if (this.lastEventDay == 0 || // first time event
+                        level.random.nextInt(100) < Mth.clamp(daysAfterMinimalTime * 8 + 4, 0, 90)) {// 4% + 8% per day, max 90%
+                    this.start(level);
+                    markDirty.run();
+                }
+            }
+        }
     }
 
 }

@@ -34,7 +34,7 @@ public class WorldEventManager extends SavedData {
     private long timeToStarSlimeRainMax = -1;
 
     private WorldEventManager() {
-        this.slimeRain = new SlimeRainEvent(false, 0);
+        this.slimeRain = new SlimeRainEvent(false, 0, -1);
     }
 
     private WorldEventManager(SlimeRainEvent slimeRain) {
@@ -66,10 +66,7 @@ public class WorldEventManager extends SavedData {
         if (this.slimeRain.isActive()) {
             this.slimeRain.tick(level, this::setDirty);
         } else if (time >= this.timeToStarSlimeRainMin && time <= this.timeToStarSlimeRainMax) {
-            if (!level.isRaining() && !level.isThundering()) {
-                this.slimeRain.start(level);
-                this.setDirty();
-            }
+            this.slimeRain.tryToStartEvent(level, this::setDirty);
             this.timeToStarSlimeRainMin = -1;
             this.timeToStarSlimeRainMax = -1;
         }
