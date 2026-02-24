@@ -30,8 +30,6 @@ public class SlimeRainEvent {
             .add(WLEntities.JUNGLE_SLIME.get(), 3)
             .add(WLEntities.CAVE_SLIME.get(), 2)
             .add(WLEntities.ABYSSAL_SLIME.get(), 2)
-            .add(WLEntities.TOXIC_SLUDGE.get(), 1)
-            .add(WLEntities.MOLTEN_SLIME.get(), 1)
             .build();
 
     private static final int SPAWN_HEIGHT = 320;
