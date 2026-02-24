@@ -10,7 +10,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.goal.*;
@@ -23,7 +22,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -98,22 +96,6 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
         this.setDeltaMovement(this.getDeltaMovement().scale(0.9));
         if (this.getTarget() == null) {
             this.setDeltaMovement(this.getDeltaMovement().add(0, -0.005, 0));
-        }
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-
-        if (!level().isClientSide() && removeWhenFarAway(0)) {
-            if (level().getNearestPlayer(this, 50) == null) {
-                this.discard();
-                return;
-            }
-
-            if (this.tickCount > TimeHelper.SECONDS_180) {
-                this.discard();
-            }
         }
     }
 
