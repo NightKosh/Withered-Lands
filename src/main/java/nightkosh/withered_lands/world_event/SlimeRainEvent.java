@@ -56,6 +56,8 @@ public class SlimeRainEvent {
     private long lastEventDay;
     private boolean isActive;
     private int ticks;
+    private int secondPhaseTicks;
+    private int thirdPhaseTicks;
 
     public SlimeRainEvent(boolean isActive, int ticks, long lastEventDay) {
         this.isActive = isActive;
@@ -63,6 +65,7 @@ public class SlimeRainEvent {
         this.lastEventDay = lastEventDay;
 
         if (this.isActive) {
+            this.setPhaseTicks();
             this.progressBar.setVisible(true);
             this.progressBar.setName(SLIME_RAIN_NAME);
             this.progressBar.setProgress(Mth.clamp(this.ticks / (float) EVENT_TICKS, 0, 1));
@@ -71,17 +74,24 @@ public class SlimeRainEvent {
         }
     }
 
+    private void setPhaseTicks() {
+        var phaseTime = EVENT_TICKS / 3;
+        this.secondPhaseTicks = phaseTime;
+        this.thirdPhaseTicks = phaseTime + phaseTime;
+    }
+
     protected void start(ServerLevel level) {
         if (!this.isActive) {
             var server = level.getServer();
             this.isActive = true;
             this.ticks = 0;
+            this.setPhaseTicks();
             this.progressBar.setProgress(0);
             this.progressBar.setVisible(true);
             this.progressBar.setName(SLIME_RAIN_NAME);
             level.setWeatherParameters(0, EVENT_TICKS, true, false);
             server.getPlayerList().broadcastSystemMessage(SLIME_RAIN_START, false);
-            setLastEventDay(level);
+            this.setLastEventDay(level);
         }
     }
 
@@ -117,12 +127,21 @@ public class SlimeRainEvent {
                 slime.addTag(ASlime.TAG_SLIME_RAIN);
                 slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
-                slime.setSize(1, true);//TODO
+                slime.setSize(this.getSlimeSize(), true);
                 level.addFreshEntity(slime);
             }
 
             markDirty.run();
         }
+    }
+
+    private int getSlimeSize() {
+        if (this.ticks >= this.thirdPhaseTicks) {
+            return 4;
+        } else if (this.ticks >= this.secondPhaseTicks) {
+            return 2;
+        }
+        return 1;
     }
 
     private void updatePlayers(ServerLevel level) {
