@@ -1,10 +1,15 @@
 package nightkosh.withered_lands.world_event;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
+import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.helper.TimeHelper;
+
+import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
 /**
  * Withered Lands
@@ -21,10 +26,12 @@ public class WorldEventManager extends SavedData {
                             SlimeRainEvent.CODEC
                                     .fieldOf("slime_rain")
                                     .forGetter(m -> m.slimeRain))
-                    .apply(inst, WorldEventManager::new))
-    );
+                    .apply(inst, WorldEventManager::new)));
 
     private final SlimeRainEvent slimeRain;
+    private long timeToCheckDay = 0;
+    private long timeToStarSlimeRainMin = -1;
+    private long timeToStarSlimeRainMax = -1;
 
     private WorldEventManager() {
         this.slimeRain = new SlimeRainEvent(false, 0);
@@ -42,8 +49,29 @@ public class WorldEventManager extends SavedData {
     }
 
     public void tick(ServerLevel level) {
-        if (slimeRain.isActive()) {
-            slimeRain.tick(level, this::setDirty);
+        long time = level.getDayTime();
+        if (time >= this.timeToCheckDay) {
+            long dayTime = time % TimeHelper.DAY;
+            var globalDayTimeStart = time - dayTime;
+            this.timeToStarSlimeRainMin = globalDayTimeStart + TimeHelper.SECONDS_30;
+            this.timeToStarSlimeRainMax = globalDayTimeStart + TimeHelper.SECONDS_180;
+            this.timeToCheckDay = globalDayTimeStart + TimeHelper.DAY;
+            if (WLConfigs.DEBUG_MODE.get()) {
+                LOGGER.info("WorldEventManager check current day.");
+                LOGGER.info("Global time {}, day time {}, slime rain start time {}, next day check time {} ",
+                        time, dayTime, this.timeToStarSlimeRainMin, this.timeToCheckDay);
+            }
+        }
+
+        if (this.slimeRain.isActive()) {
+            this.slimeRain.tick(level, this::setDirty);
+        } else if (time >= this.timeToStarSlimeRainMin && time <= this.timeToStarSlimeRainMax) {
+            if (!level.isRaining() && !level.isThundering()) {
+                this.slimeRain.start(level);
+                this.setDirty();
+            }
+            this.timeToStarSlimeRainMin = -1;
+            this.timeToStarSlimeRainMax = -1;
         }
     }
 

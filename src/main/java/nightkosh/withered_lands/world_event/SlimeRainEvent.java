@@ -37,7 +37,7 @@ public class SlimeRainEvent {
     private static final int SPAWN_HEIGHT = 320;
     private static final int SPAWN_RANGE_DIAMETER = 100;
     private static final int SPAWN_RANGE_HALF = SPAWN_RANGE_DIAMETER / 2;
-    private static final int EVENT_TICKS = TimeHelper.SECONDS_180;
+    private static final int EVENT_TICKS = TimeHelper.MINS_8;
 
     private final ServerBossEvent progressBar = new ServerBossEvent(
             SLIME_RAIN_NAME,
@@ -111,7 +111,7 @@ public class SlimeRainEvent {
                 slime.addTag(ASlime.TAG_SLIME_RAIN);
                 slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
-//                    slime.setSize(1, true);
+                    slime.setSize(1, true);//TODO
                 level.addFreshEntity(slime);
             }
 
