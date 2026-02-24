@@ -1,6 +1,7 @@
 package nightkosh.withered_lands.core;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -117,6 +118,12 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ZOMBIE_PETS_ATTACK_PETS;
     public static ModConfigSpec.ConfigValue<Boolean> DISABLE_INFERNAL_MOBS;
+
+    // events
+    public static ModConfigSpec.ConfigValue<Boolean> SLIME_RAIN_ENABLE;
+    public static ModConfigSpec.ConfigValue<Integer> SLIME_RAIN_DURATION;
+    public static ModConfigSpec.ConfigValue<Integer> SLIME_RAIN_MIN_DAYS_BETWEEN_RAINS;
+
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
     static {
@@ -226,6 +233,13 @@ public class WLConfigs {
         // other
         SKULL_CRAWLERS_AT_MOBS_DEATH_SPAWN = BUILDER.define("Should spawn skull crawlers at mobs death", true);
         ZOMBIE_PETS_ATTACK_PETS = BUILDER.define("Should zombie pets attack pets", true);
+
+        // events
+        SLIME_RAIN_ENABLE = BUILDER.define("Slime Rain event enable", true);
+        SLIME_RAIN_DURATION = BUILDER.comment("Time counted as ingame ticks. 1 second = 20 ticks. By default slime rain duration = 8 minutes.")
+                .defineInRange("Slime Rain event duration", TimeHelper.MINS_8, TimeHelper.SECONDS_180, TimeHelper.MINS_30);
+        SLIME_RAIN_MIN_DAYS_BETWEEN_RAINS = BUILDER.comment("Minimal amount of days between slime rains.")
+                .define("Slime Rain - minimal amount of days between next slime rain", 7);
 
         DISABLE_INFERNAL_MOBS = BUILDER.comment(
                         "By default some mobs from this mod should never be infernal. " +

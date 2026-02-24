@@ -1,6 +1,5 @@
 package nightkosh.withered_lands.world_event;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;

@@ -12,6 +12,7 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.slime.ASlime;
 import nightkosh.withered_lands.helper.TimeHelper;
@@ -35,9 +36,9 @@ public class SlimeRainEvent {
     private static final int SPAWN_HEIGHT = 320;
     private static final int SPAWN_RANGE_DIAMETER = 100;
     private static final int SPAWN_RANGE_HALF = SPAWN_RANGE_DIAMETER / 2;
-    private static final int EVENT_TICKS = TimeHelper.MINS_8;
+    private static final int EVENT_TICKS = WLConfigs.SLIME_RAIN_DURATION.get();
 
-    public static final int MIN_DAYS_BETWEEN_RAINS = 7;
+    public static final int MIN_DAYS_BETWEEN_RAINS = WLConfigs.SLIME_RAIN_MIN_DAYS_BETWEEN_RAINS.get();
 
     private final ServerBossEvent progressBar = new ServerBossEvent(
             SLIME_RAIN_NAME,
@@ -168,7 +169,7 @@ public class SlimeRainEvent {
     }
 
     public void tryToStartEvent(ServerLevel level, Runnable markDirty) {
-        if (!level.isRaining() && !level.isThundering()) {
+        if (WLConfigs.SLIME_RAIN_ENABLE.get() && !level.isRaining() && !level.isThundering()) {
             long today = level.getDayTime() / TimeHelper.DAY;
             long daysPassed = today - this.lastEventDay;
             long daysAfterMinimalTime = daysPassed - MIN_DAYS_BETWEEN_RAINS;
