@@ -94,19 +94,17 @@ public class FrozenSlime extends ASlime {
                 this.hurtServer(level, this.damageSources().onFire(), 1);
             }
 
-            if (!EventHooks.canEntityGrief(level, this)) {
-                return;
-            }
-
-            var blockstate = Blocks.SNOW.defaultBlockState();
-            for (int i = 0; i < 4; i++) {
-                var blockpos = new BlockPos(
-                        Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
-                        Mth.floor(this.getY()),
-                        Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
-                if (this.level().getBlockState(blockpos).isAir() && blockstate.canSurvive(this.level(), blockpos)) {
-                    this.level().setBlockAndUpdate(blockpos, blockstate);
-                    this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
+            if (WLConfigs.FROZEN_SLIME_SPREAD_SNOW.get() && EventHooks.canEntityGrief(level, this)) {
+                var blockstate = Blocks.SNOW.defaultBlockState();
+                for (int i = 0; i < 4; i++) {
+                    var blockpos = new BlockPos(
+                            Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
+                            Mth.floor(this.getY()),
+                            Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
+                    if (this.level().getBlockState(blockpos).isAir() && blockstate.canSurvive(this.level(), blockpos)) {
+                        this.level().setBlockAndUpdate(blockpos, blockstate);
+                        this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
+                    }
                 }
             }
         }

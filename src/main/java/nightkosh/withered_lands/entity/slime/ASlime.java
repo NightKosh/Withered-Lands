@@ -3,6 +3,7 @@ package nightkosh.withered_lands.entity.slime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -18,7 +19,11 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
+import net.neoforged.neoforge.event.EventHooks;
+import nightkosh.withered_lands.core.WLBlocks;
+import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
@@ -97,6 +102,32 @@ public abstract class ASlime extends Slime {
                 ground == Blocks.BLACKSTONE || ground == Blocks.DEEPSLATE ||
                 ground == Blocks.DIRT || ground == Blocks.GRAVEL ||
                 ground == Blocks.SAND || ground == Blocks.RED_SAND;
+    }
+
+    protected void spreadBlocks(BlockState state) {
+        if (this.level() instanceof ServerLevel level && EventHooks.canEntityGrief(level, this)) {
+            for (int i = 0; i < 4; i++) {
+                var pos = new BlockPos(
+                        Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
+                        Mth.floor(this.getY()),
+                        Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
+                if (this.level().getBlockState(pos).isAir() &&
+                        state.canSurvive(this.level(), pos)) {
+                    var belowState = this.level().getBlockState(this.blockPosition().below());
+                    if (belowState.isSolidRender() && (
+                            !belowState.is(Blocks.SNOW) &&
+                                    !belowState.is(Blocks.SNOW_BLOCK) &&
+                                    !belowState.is(Blocks.POWDER_SNOW) &&
+                                    !belowState.is(Blocks.ICE) &&
+                                    !belowState.is(Blocks.BLUE_ICE) &&
+                                    !belowState.is(Blocks.FROSTED_ICE) &&
+                                    !belowState.is(Blocks.PACKED_ICE))) {
+                        this.level().setBlockAndUpdate(pos, state);
+                        this.level().gameEvent(GameEvent.BLOCK_PLACE, pos, GameEvent.Context.of(this, state));
+                    }
+                }
+            }
+        }
     }
 
     @Override

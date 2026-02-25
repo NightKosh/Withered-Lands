@@ -92,28 +92,8 @@ public class SandySlime extends ASlime {
     @Override
     public void aiStep() {
         super.aiStep();
-        if (this.level() instanceof ServerLevel level && EventHooks.canEntityGrief(level, this)) {
-            var blockstate = WLBlocks.SAND_LAYER.get().defaultBlockState();
-            for (int i = 0; i < 4; i++) {
-                var blockpos = new BlockPos(
-                        Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
-                        Mth.floor(this.getY()),
-                        Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
-                if (this.level().getBlockState(blockpos).isAir() &&
-                        blockstate.canSurvive(this.level(), blockpos)) {
-                    var belowState = this.level().getBlockState(this.blockPosition().below());
-                    if (!belowState.is(Blocks.SNOW) &&
-                            !belowState.is(Blocks.SNOW_BLOCK) &&
-                            !belowState.is(Blocks.POWDER_SNOW) &&
-                            !belowState.is(Blocks.ICE) &&
-                            !belowState.is(Blocks.BLUE_ICE) &&
-                            !belowState.is(Blocks.FROSTED_ICE) &&
-                            !belowState.is(Blocks.PACKED_ICE)) {
-                        this.level().setBlockAndUpdate(blockpos, blockstate);
-                        this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
-                    }
-                }
-            }
+        if (WLConfigs.SANDY_SLIME_SPREAD_SAND.get()) {
+            this.spreadBlocks(WLBlocks.SAND_LAYER.get().defaultBlockState());
         }
     }
 
