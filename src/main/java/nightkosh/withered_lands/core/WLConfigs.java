@@ -43,6 +43,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_LAVA;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_SPREAD_FIRE;
+    public static ModConfigSpec.ConfigValue<Boolean> SLIME_ITEMS_CUSTOM_RENDERER;
 
     // bats
     public static ModConfigSpec.ConfigValue<Boolean> CAVE_BAT_SPAWN;
@@ -164,6 +165,8 @@ public class WLConfigs {
         MOLTEN_SLIME_SPAWN = BUILDER.define("Molten Slimes Spawn", true);
         MOLTEN_SLIME_LAVA = BUILDER.define("Molten Slimes Create LAVA at death", true);
         MOLTEN_SLIME_SPREAD_FIRE = BUILDER.define("Molten Slimes ignites ground", true);
+        SLIME_ITEMS_CUSTOM_RENDERER = BUILDER.comment("Switch to false in case you have any problems with item rendering inside slimes to switch to vanilla renderer")
+                .define("Slime custom item renderer", true);
 
         // bats
         CAVE_BAT_SPAWN = BUILDER.define("Cave Bats Spawn", true);

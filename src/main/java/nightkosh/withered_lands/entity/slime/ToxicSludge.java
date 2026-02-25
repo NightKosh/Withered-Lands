@@ -47,7 +47,6 @@ public class ToxicSludge extends ASlime {
             .add(Items.ARROW, 4)
             .add(Items.STONE_SWORD, 1)
             .add(Items.STONE_PICKAXE, 1)
-            .add(Items.SHIELD, 1)
             .add(Items.BOW, 1)
             // ores
             .add(Items.FLINT, 6)

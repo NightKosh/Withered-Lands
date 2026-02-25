@@ -36,7 +36,6 @@ public class MoltenSlime extends ASlime {
             .add(Items.ARROW, 4)
             .add(Items.STONE_SWORD, 1)
             .add(Items.STONE_PICKAXE, 1)
-            .add(Items.SHIELD, 1)
             // ores
             .add(Items.GOLD_NUGGET, 6)
             .add(Items.QUARTZ, 4)
