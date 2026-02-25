@@ -23,6 +23,7 @@ public abstract class ASlimeRenderer extends MobRenderer<ASlime, WLSlimeRenderSt
     public ASlimeRenderer(EntityRendererProvider.Context context) {
         super(context, new SlimeModel(context.bakeLayer(ModelLayers.SLIME)), 0.25F);
         this.addLayer(new WLSlimeOuterLayer(this, context.getModelSet()));
+        this.addLayer(new ItemInSlimeLayer(this));
     }
 
     @Override
