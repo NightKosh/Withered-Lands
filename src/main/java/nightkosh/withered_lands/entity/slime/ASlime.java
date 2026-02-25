@@ -47,7 +47,7 @@ public abstract class ASlime extends Slime {
     }
 
     protected int getSwallowedItemsChance() {
-        return 12;
+        return 15;
     }
 
     protected int getDefaultSpawnSize() {
