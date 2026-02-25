@@ -6,6 +6,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.damagesource.DamageSource;
@@ -15,6 +16,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -35,8 +38,38 @@ import javax.annotation.Nonnull;
  */
 public class FrozenSlime extends ASlime {
 
+    private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
+            .add(Items.TORCH, 8)
+            .add(Items.STICK, 6)
+            .add(Items.SNOWBALL, 8)
+            // animals
+            .add(Items.BLUE_EGG, 2)
+            .add(Items.FEATHER, 3)
+            .add(Items.CHICKEN, 1)
+            .add(Items.RABBIT, 1)
+            .add(Items.RABBIT_HIDE, 2)
+            // seeds and fruits
+            .add(Items.SWEET_BERRIES, 6)
+            .add(Items.PUMPKIN_SEEDS, 4)
+            .add(Items.BEETROOT_SEEDS, 3)
+            .add(Items.BEETROOT, 2)
+            .add(Items.BROWN_MUSHROOM, 4)
+            .add(Items.RED_MUSHROOM, 4)
+            // saplings
+            .add(Items.SPRUCE_SAPLING, 4)
+            // other
+            .add(Items.BONE, 3)
+            .add(Items.ROTTEN_FLESH, 1)
+            .add(Items.SALMON, 1)
+            .build();
+
     public FrozenSlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected WeightedList<Item> getSwallowedItemList() {
+        return ITEMS;
     }
 
     @Override

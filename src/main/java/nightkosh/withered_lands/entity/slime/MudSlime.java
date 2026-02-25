@@ -3,6 +3,7 @@ package nightkosh.withered_lands.entity.slime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -13,6 +14,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
@@ -33,8 +36,44 @@ import javax.annotation.Nonnull;
  */
 public class MudSlime extends ASlime {
 
+    private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
+            .add(Items.TORCH, 6)
+            .add(Items.STICK, 5)
+            .add(Items.CLAY_BALL, 8)
+            // flowers
+            .add(Items.BLUE_ORCHID, 3)
+            // chicken
+            .add(Items.EGG, 2)
+            .add(Items.FEATHER, 3)
+            .add(Items.CHICKEN, 1)
+            // bee
+            .add(Items.HONEYCOMB, 1)
+            // seeds and fruits
+            .add(Items.CARROT, 2)
+            .add(Items.POTATO, 2)
+            .add(Items.POISONOUS_POTATO, 1)
+            .add(Items.BROWN_MUSHROOM, 4)
+            .add(Items.RED_MUSHROOM, 4)
+            // saplings
+            .add(Items.OAK_SAPLING, 2)
+            .add(Items.MANGROVE_PROPAGULE, 2)
+            .add(Items.SUGAR_CANE, 7)
+            .add(Items.LILY_PAD, 5)
+            .add(Items.VINE, 6)
+            // other
+            .add(Items.BONE, 3)
+            .add(Items.ROTTEN_FLESH, 2)
+            .add(Items.SPIDER_EYE, 3)
+            .add(Items.STRING, 5)
+            .build();
+
     public MudSlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected WeightedList<Item> getSwallowedItemList() {
+        return ITEMS;
     }
 
     @Override

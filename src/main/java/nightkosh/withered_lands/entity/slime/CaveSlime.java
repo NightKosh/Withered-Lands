@@ -4,6 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -14,12 +15,15 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
@@ -32,8 +36,40 @@ import javax.annotation.Nonnull;
  */
 public class CaveSlime extends ASlime {
 
+    private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
+            .add(Items.TORCH, 14)
+            .add(Items.ARROW, 4)
+            .add(Items.STONE_SWORD, 1)
+            .add(Items.STONE_PICKAXE, 1)
+            // ores
+            .add(Items.FLINT, 6)
+            .add(Items.COAL, 4)
+            .add(Items.RAW_COPPER, 2)
+            .add(Items.RAW_IRON, 1)
+            // seeds and fruits
+            .add(Items.GLOW_BERRIES, 3)
+            .add(Items.BROWN_MUSHROOM, 5)
+            .add(Items.RED_MUSHROOM, 5)
+            // other
+            .add(Items.BONE, 5)
+            .add(Items.ROTTEN_FLESH, 2)
+            .add(Items.SPIDER_EYE, 2)
+            .add(Items.STRING, 4)
+            .add(WLItems.BAT_WING.get(), 5)
+            .build();
+
     public CaveSlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected WeightedList<Item> getSwallowedItemList() {
+        return ITEMS;
+    }
+
+    @Override
+    protected int getSwallowedItemsChance() {
+        return 20;
     }
 
     @Override

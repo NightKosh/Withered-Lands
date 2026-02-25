@@ -6,6 +6,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -14,12 +15,13 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.event.EventHooks;
-import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
 
 import javax.annotation.Nonnull;
@@ -32,8 +34,39 @@ import javax.annotation.Nonnull;
  */
 public class MoltenSlime extends ASlime {
 
+    private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
+            .add(Items.SOUL_TORCH, 10)
+            .add(Items.SOUL_LANTERN, 4)
+            .add(Items.ARROW, 4)
+            .add(Items.STONE_SWORD, 1)
+            .add(Items.STONE_PICKAXE, 1)
+            .add(Items.SHIELD, 1)
+            // ores
+            .add(Items.GOLD_NUGGET, 6)
+            .add(Items.QUARTZ, 4)
+            .add(Items.GLOWSTONE_DUST, 2)
+            // seeds and fruits
+            .add(Items.CRIMSON_FUNGUS, 3)
+            .add(Items.WARPED_FUNGUS, 3)
+            .add(Items.WEEPING_VINES, 3)
+            .add(Items.TWISTING_VINES, 3)
+            // other
+            .add(Items.BONE, 5)
+            .add(Items.BLAZE_POWDER, 1)
+            .build();
+
     public MoltenSlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected WeightedList<Item> getSwallowedItemList() {
+        return ITEMS;
+    }
+
+    @Override
+    protected int getSwallowedItemsChance() {
+        return 20;
     }
 
     @Override

@@ -7,6 +7,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -17,6 +18,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -37,11 +40,39 @@ import javax.annotation.Nonnull;
  */
 public class SandySlime extends ASlime {
 
+    private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
+            .add(Items.TORCH, 8)
+            .add(Items.STICK, 6)
+            // animals
+            .add(Items.BROWN_EGG, 2)
+            .add(Items.FEATHER, 3)
+            .add(Items.CHICKEN, 1)
+            .add(Items.RABBIT, 1)
+            .add(Items.RABBIT_HIDE, 2)
+            .add(Items.ARMADILLO_SCUTE, 1)
+            // seeds and fruits
+            .add(Items.CACTUS, 4)
+            .add(Items.CACTUS_FLOWER, 1)
+            .add(Items.DEAD_BUSH, 1)
+            // saplings
+            .add(Items.ACACIA_SAPLING, 3)
+            .add(Items.SUGAR_CANE, 2)
+            // other
+            .add(Items.GOLD_NUGGET, 1)
+            .add(Items.BONE, 3)
+            .add(Items.ROTTEN_FLESH, 1)
+            .build();
+
     private static final BlockParticleOption PARTICLE = new BlockParticleOption(
             ParticleTypes.BLOCK, Blocks.SAND.defaultBlockState());
 
     public SandySlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected WeightedList<Item> getSwallowedItemList() {
+        return ITEMS;
     }
 
     @Override

@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -16,6 +17,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
@@ -24,6 +27,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -37,8 +41,46 @@ import javax.annotation.Nonnull;
  */
 public class ToxicSludge extends ASlime {
 
+    private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
+            .add(Items.TORCH, 8)
+            .add(Items.COPPER_LANTERN.oxidized(), 4)
+            .add(Items.ARROW, 4)
+            .add(Items.STONE_SWORD, 1)
+            .add(Items.STONE_PICKAXE, 1)
+            .add(Items.SHIELD, 1)
+            .add(Items.BOW, 1)
+            // ores
+            .add(Items.FLINT, 6)
+            .add(Items.COAL, 4)
+            .add(Items.RAW_IRON, 3)
+            .add(Items.RAW_GOLD, 2)
+            .add(Items.LAPIS_LAZULI, 4)
+            .add(Items.REDSTONE, 3)
+            .add(Items.AMETHYST_SHARD, 1)
+            // seeds and fruits
+            .add(Items.GLOW_BERRIES, 3)
+            .add(Items.BROWN_MUSHROOM, 5)
+            .add(Items.RED_MUSHROOM, 5)
+            // other
+            .add(Items.BONE, 5)
+            .add(Items.ROTTEN_FLESH, 2)
+            .add(Items.SPIDER_EYE, 2)
+            .add(Items.STRING, 4)
+            .add(WLItems.BAT_WING.get(), 5)
+            .build();
+
     public ToxicSludge(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected WeightedList<Item> getSwallowedItemList() {
+        return ITEMS;
+    }
+
+    @Override
+    protected int getSwallowedItemsChance() {
+        return 25;
     }
 
     @Override

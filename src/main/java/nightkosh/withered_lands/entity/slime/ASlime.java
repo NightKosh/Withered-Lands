@@ -3,16 +3,15 @@ package nightkosh.withered_lands.entity.slime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -24,7 +23,6 @@ import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
-import java.util.List;
 
 /**
  * Withered Lands
@@ -36,16 +34,20 @@ public abstract class ASlime extends Slime {
 
     public static final String TAG_SLIME_RAIN = "slime_rain";
 
-    protected static final List<Item> MIDDLE_ITEMS = List.of(
-            Items.BONE,
-            Items.BONE,
-            Items.ROTTEN_FLESH,
-            Items.ROTTEN_FLESH,
-            Items.ARROW,
-            Items.SPIDER_EYE);
-
     public ASlime(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
+    }
+
+    protected abstract WeightedList<Item> getSwallowedItemList();
+
+    protected ItemStack chooseSwallowedItem() {
+        return this.random.nextInt(100) < getSwallowedItemsChance() ?
+                new ItemStack(getSwallowedItemList().getRandom(this.random).get()) :
+                ItemStack.EMPTY;
+    }
+
+    protected int getSwallowedItemsChance() {
+        return 12;
     }
 
     protected int getDefaultSpawnSize() {
@@ -103,7 +105,28 @@ public abstract class ASlime extends Slime {
             @Nonnull EntitySpawnReason spawnReason, @Nullable SpawnGroupData groupData) {
         groupData = super.finalizeSpawn(level, difficulty, spawnReason, groupData);
         this.setSize(getDefaultSpawnSize(), true);
+
+        if (this.getSize() > 1) {
+            var item = chooseSwallowedItem();
+            if (!item.isEmpty()) {
+                this.setItemSlot(EquipmentSlot.HEAD, item);
+            }
+        }
         return groupData;
+    }
+
+    @Override
+    protected void dropCustomDeathLoot(@Nonnull ServerLevel level, @Nonnull DamageSource source, boolean recentlyHit) {
+        super.dropCustomDeathLoot(level, source, recentlyHit);
+
+        var stack = this.getItemBySlot(EquipmentSlot.HEAD);
+        if (!stack.isEmpty()) {
+            if (stack.isDamageableItem()) {
+                stack.setDamageValue(stack.getMaxDamage() - 10);
+            }
+            this.spawnAtLocation(level, stack.copy());
+            this.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
+        }
     }
 
     @Override
@@ -116,51 +139,5 @@ public abstract class ASlime extends Slime {
     protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos, Class clazz) {
         return level.getEntitiesOfClass(clazz, new AABB(pos).inflate(100)).size() <= 25;
     }
-
-    //TODO
-//    @Nullable
-//    @Override
-//    public SpawnGroupData finalizeSpawn(
-//            @Nonnull ServerLevelAccessor level, @Nonnull DifficultyInstance difficulty,
-//            @Nonnull EntitySpawnReason spawnReason, @Nullable SpawnGroupData groupData) {
-//        groupData = super.finalizeSpawn(level, difficulty, spawnReason, groupData);
-//        livingdata = super.onInitialSpawn(difficulty, livingdata);
-//
-//        if (getSize() > 1) {
-//            this.setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(MIDDLE_ITEMS[RAND.nextInt(MIDDLE_ITEMS.length)], 1 + RAND.nextInt(5)));
-//            this.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(MIDDLE_ITEMS[RAND.nextInt(MIDDLE_ITEMS.length)], 1 + RAND.nextInt(5)));
-//            this.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(MIDDLE_ITEMS[RAND.nextInt(MIDDLE_ITEMS.length)], 1 + RAND.nextInt(5)));
-//            this.setItemStackToSlot(EntityEquipmentSlot.FEET, new ItemStack(MIDDLE_ITEMS[RAND.nextInt(MIDDLE_ITEMS.length)], 1 + RAND.nextInt(5)));
-//            if (getSize() >= 2) {
-//            } else {
-//                this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(MIDDLE_ITEMS[RAND.nextInt(MIDDLE_ITEMS.length)], 1 + RAND.nextInt(5)));
-//            }
-//        }
-//        return livingdata;
-//    }
-//
-//    @Override
-//    protected void dropFewItems(boolean wasRecentlyHit, int lootingModifier) {
-//        super.dropFewItems(wasRecentlyHit, lootingModifier);
-//
-//        this.entityDropItem(this.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND), 0);
-//        this.entityDropItem(this.getItemStackFromSlot(EntityEquipmentSlot.HEAD), 0);
-//        this.entityDropItem(this.getItemStackFromSlot(EntityEquipmentSlot.CHEST), 0);
-//        this.entityDropItem(this.getItemStackFromSlot(EntityEquipmentSlot.LEGS), 0);
-//        this.entityDropItem(this.getItemStackFromSlot(EntityEquipmentSlot.FEET), 0);
-//    }
-//
-//    @Override
-//    public boolean getCanSpawnHere() {
-//        if (this.world.getDifficulty() != EnumDifficulty.PEACEFUL && this.posY <= 30 && this.isValidLightLevel() &&
-//                MobsHelper.isDimensionAllowedForSpawn(this.world)) {
-//            IBlockState state = this.world.getBlockState((new BlockPos(this)).down());
-//            Block block = state.getBlock();
-//            return state.canEntitySpawn(this) &&
-//                    (block == Blocks.STONE || block == Blocks.COBBLESTONE || block == Blocks.DIRT || block == Blocks.GRAVEL);
-//        } else {
-//            return false;
-//        }
-//    }
 
 }
