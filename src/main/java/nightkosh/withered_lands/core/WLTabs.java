@@ -43,6 +43,7 @@ public class WLTabs {
 
                         // sand
                         output.accept(WLItems.SAND_LAYER.get());
+                        output.accept(WLItems.MUD_LAYER.get());
 
                         // ---------- eggs ----------
 

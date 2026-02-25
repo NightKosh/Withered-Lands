@@ -15,6 +15,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nightkosh.withered_lands.item.BatWing;
+import nightkosh.withered_lands.item.MudLayerBlockItem;
 import nightkosh.withered_lands.item.SandLayerBlockItem;
 import nightkosh.withered_lands.item.SlimeGel;
 
@@ -353,6 +354,14 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .setId(WLBlocks.SAND_LAYER_RK)));
+
+    public static final DeferredHolder<Item, Item> MUD_LAYER = ITEMS_REGISTER.register(
+            "mud_layer",
+            () -> new MudLayerBlockItem(
+                    WLBlocks.MUD_LAYER.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .setId(WLBlocks.MUD_LAYER_RK)));
 
     private static DeferredHolder<Item, Item> registerEgg(DeferredHolder entityHolder, String id) {
         return ITEMS_REGISTER.register(

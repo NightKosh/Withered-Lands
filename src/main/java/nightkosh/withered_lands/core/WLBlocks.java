@@ -7,10 +7,7 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import nightkosh.withered_lands.block.ExtinguishedTorchBlock;
-import nightkosh.withered_lands.block.ExtinguishedWallTorchBlock;
-import nightkosh.withered_lands.block.SandLayerBlock;
-import nightkosh.withered_lands.block.Skull;
+import nightkosh.withered_lands.block.*;
 
 import java.util.function.Supplier;
 
@@ -94,6 +91,12 @@ public class WLBlocks {
     public static final DeferredHolder<Block, Block> SAND_LAYER = registerBlock(
             "sand_layer",
             () -> new SandLayerBlock(SAND_LAYER_RK));
+
+    public static final ResourceKey MUD_LAYER_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "mud_layer"));
+    public static final DeferredHolder<Block, Block> MUD_LAYER = registerBlock(
+            "mud_layer",
+            () -> new MudLayerBlock(MUD_LAYER_RK));
 
     private static <T extends Block> DeferredHolder<Block, T> registerBlock(
             String name, Supplier<T> block, Supplier<Item> itemBlock) {

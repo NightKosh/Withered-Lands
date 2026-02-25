@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "withered_lands:block/mud_layer"
+  }
+}
