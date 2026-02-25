@@ -117,8 +117,6 @@ public abstract class ASlime extends Slime {
 
     @Override
     protected void dropCustomDeathLoot(@Nonnull ServerLevel level, @Nonnull DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-
         var stack = this.getItemBySlot(EquipmentSlot.HEAD);
         if (!stack.isEmpty()) {
             if (stack.isDamageableItem()) {
@@ -127,6 +125,8 @@ public abstract class ASlime extends Slime {
             this.spawnAtLocation(level, stack.copy());
             this.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
         }
+
+        super.dropCustomDeathLoot(level, source, recentlyHit);
     }
 
     @Override
