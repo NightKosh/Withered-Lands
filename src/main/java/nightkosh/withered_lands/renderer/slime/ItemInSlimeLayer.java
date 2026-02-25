@@ -8,6 +8,8 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 
+import javax.annotation.Nonnull;
+
 /**
  * Withered Lands
  *
@@ -21,12 +23,13 @@ public class ItemInSlimeLayer extends RenderLayer<WLSlimeRenderState, SlimeModel
     }
 
     @Override
-    public void submit(PoseStack poseStack, SubmitNodeCollector nodeCollector, int packedLight, WLSlimeRenderState state, float yRot, float xRot) {
+    public void submit(@Nonnull PoseStack poseStack, @Nonnull SubmitNodeCollector nodeCollector,
+                       int packedLight, WLSlimeRenderState state, float yRot, float xRot) {
         var stackRenderState = state.headItem;
 
         if (!stackRenderState.isEmpty()) {
             poseStack.pushPose();
-            poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+            poseStack.mulPose(Axis.ZP.rotationDegrees(180));
 
             if (state.size == 2) {
                 float s = 0.35F;
