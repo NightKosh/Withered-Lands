@@ -22,8 +22,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.event.EventHooks;
-import nightkosh.withered_lands.core.WLBlocks;
-import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
@@ -114,8 +112,9 @@ public abstract class ASlime extends Slime {
                 if (this.level().getBlockState(pos).isAir() &&
                         state.canSurvive(this.level(), pos)) {
                     var belowState = this.level().getBlockState(this.blockPosition().below());
-                    if (belowState.isSolidRender() && (
-                            !belowState.is(Blocks.SNOW) &&
+                    if (belowState.isSolidRender() &&
+                            !belowState.canBeReplaced() &&
+                            (!belowState.is(Blocks.SNOW) &&
                                     !belowState.is(Blocks.SNOW_BLOCK) &&
                                     !belowState.is(Blocks.POWDER_SNOW) &&
                                     !belowState.is(Blocks.ICE) &&
@@ -137,13 +136,19 @@ public abstract class ASlime extends Slime {
         groupData = super.finalizeSpawn(level, difficulty, spawnReason, groupData);
         this.setSize(getDefaultSpawnSize(), true);
 
+        tryToSwallowItem();
+        return groupData;
+    }
+
+    public void tryToSwallowItem() {
         if (this.getSize() > 1) {
             var item = chooseSwallowedItem();
             if (!item.isEmpty()) {
                 this.setItemSlot(EquipmentSlot.HEAD, item);
             }
+        } else {
+            this.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
         }
-        return groupData;
     }
 
     @Override
