@@ -180,7 +180,7 @@ public class SlimeRainEvent {
             long daysPassed = today - this.lastEventDay;
             long daysAfterMinimalTime = daysPassed - MIN_DAYS_BETWEEN_RAINS;
             if (daysAfterMinimalTime >= 0) {
-                if (this.lastEventDay == 0 || // first time event
+                if (this.lastEventDay == -1 || // first time event
                         level.random.nextInt(100) < Mth.clamp(daysAfterMinimalTime * 8 + 4, 0, 90)) {// 4% + 8% per day, max 90%
                     this.start(level);
                     markDirty.run();
