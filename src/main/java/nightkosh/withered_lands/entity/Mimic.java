@@ -229,6 +229,7 @@ public class Mimic extends AMonster implements IJumpingCube {
 
             mimic.setType(type);
             mimic.setPersistenceRequired();
+            mimic.setLastHurtByMob(player);
             mimic.lookAt(player, 360, 360);
         }
     }
