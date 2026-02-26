@@ -3,6 +3,7 @@ package nightkosh.withered_lands.compatibility;
 import net.neoforged.fml.ModList;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.entity.KillerBunny;
+import nightkosh.withered_lands.entity.Mimic;
 import nightkosh.withered_lands.entity.bat.*;
 import nightkosh.withered_lands.entity.cat.SkeletonCat;
 import nightkosh.withered_lands.entity.cat.ZombieCat;
@@ -75,6 +76,8 @@ public class InfernalMobsCompatibility {
 
                 classesAllowedMap.put(HollowStalker.class.getSimpleName(), false);
                 classesAllowedMap.put(LostSoul.class.getSimpleName(), false);
+
+                classesAllowedMap.put(Mimic.class.getSimpleName(), false);
 
                 classesAllowedMap.put(SkeletonCat.class.getSimpleName(), false);
                 classesAllowedMap.put(ZombieCat.class.getSimpleName(), false);
