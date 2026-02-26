@@ -98,6 +98,12 @@ public class WLBlocks {
             "mud_layer",
             () -> new MudLayerBlock(MUD_LAYER_RK));
 
+    public static final ResourceKey MOSS_LAYER_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "moss_layer"));
+    public static final DeferredHolder<Block, Block> MOSS_LAYER = registerBlock(
+            "moss_layer",
+            () -> new MossLayerBlock(MOSS_LAYER_RK));
+
     private static <T extends Block> DeferredHolder<Block, T> registerBlock(
             String name, Supplier<T> block, Supplier<Item> itemBlock) {
         WLItems.ITEMS_REGISTER.register(name, itemBlock);

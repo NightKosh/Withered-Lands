@@ -14,16 +14,16 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class SandLayerBlockItem extends BlockItem {
+public class MossLayerBlockItem extends BlockItem {
 
-    public SandLayerBlockItem(Block block, Properties properties) {
+    public MossLayerBlockItem(Block block, Properties properties) {
         super(block, properties);
     }
 
     @Nonnull
     @Override
     public Component getName(@Nonnull ItemStack stack) {
-        return Blocks.SAND.getName();
+        return Blocks.MOSS_CARPET.getName();
     }
 
 }

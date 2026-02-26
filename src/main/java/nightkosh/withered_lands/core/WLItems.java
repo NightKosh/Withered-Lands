@@ -14,10 +14,7 @@ import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import nightkosh.withered_lands.item.BatWing;
-import nightkosh.withered_lands.item.MudLayerBlockItem;
-import nightkosh.withered_lands.item.SandLayerBlockItem;
-import nightkosh.withered_lands.item.SlimeGel;
+import nightkosh.withered_lands.item.*;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
@@ -362,6 +359,14 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .setId(WLBlocks.MUD_LAYER_RK)));
+
+    public static final DeferredHolder<Item, Item> MOSS_LAYER = ITEMS_REGISTER.register(
+            "moss_layer",
+            () -> new MossLayerBlockItem(
+                    WLBlocks.MOSS_LAYER.get(),
+                    new Item.Properties()
+                            .stacksTo(64)
+                            .setId(WLBlocks.MOSS_LAYER_RK)));
 
     private static DeferredHolder<Item, Item> registerEgg(DeferredHolder entityHolder, String id) {
         return ITEMS_REGISTER.register(

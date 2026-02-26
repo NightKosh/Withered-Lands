@@ -8,6 +8,12 @@ import net.minecraft.world.level.block.Blocks;
 
 import javax.annotation.Nonnull;
 
+/**
+ * Withered Lands
+ *
+ * @author NightKosh
+ * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
+ */
 public class MudLayerBlockItem extends BlockItem {
 
     public MudLayerBlockItem(Block block, Properties properties) {

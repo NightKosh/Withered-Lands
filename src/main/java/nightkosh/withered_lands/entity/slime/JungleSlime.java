@@ -20,6 +20,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -80,7 +81,7 @@ public class JungleSlime extends ASlime {
     public void aiStep() {
         super.aiStep();
         if (WLConfigs.JUNGLE_SLIME_SPREAD_MOSS.get()) {
-            this.spreadBlocks(Blocks.MOSS_CARPET.defaultBlockState());
+            this.spreadBlocks(WLBlocks.MOSS_LAYER.get().defaultBlockState());
         }
     }
 
