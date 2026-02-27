@@ -17,6 +17,8 @@ import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.slime.ASlime;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
+
 /**
  * Withered Lands
  *
@@ -176,16 +178,28 @@ public class SlimeRainEvent {
     }
 
     public void tryToStartEvent(ServerLevel level, Runnable markDirty) {
-        if (WLConfigs.SLIME_RAIN_ENABLE.get() && !level.isRaining() && !level.isThundering()) {
-            long today = level.getDayTime() / TimeHelper.DAY;
-            long daysPassed = today - this.lastEventDay;
-            long daysAfterMinimalTime = daysPassed - MIN_DAYS_BETWEEN_RAINS;
-            if (daysAfterMinimalTime >= 0) {
-                if (this.lastEventDay == -1 || // first time event
-                        level.random.nextInt(100) < Mth.clamp(daysAfterMinimalTime * 8 + 4, 0, 90)) {// 4% + 8% per day, max 90%
-                    this.start(level);
-                    markDirty.run();
+        if (WLConfigs.SLIME_RAIN_ENABLE.get()) {
+            if (!level.isRaining() && !level.isThundering()) {
+                long today = level.getDayTime() / TimeHelper.DAY;
+                long daysPassed = today - this.lastEventDay;
+                long daysAfterMinimalTime = daysPassed - MIN_DAYS_BETWEEN_RAINS;
+                if (daysAfterMinimalTime >= 0) {
+                    var chance = level.random.nextInt(100);
+                    var maxChance = Mth.clamp(daysAfterMinimalTime * 8 + 4, 0, 90);// 4% + 8% per day, max 90%
+                    if (WLConfigs.DEBUG_MODE.get()) {
+                        LOGGER.info("Slime Rain chance {}, required range 0 - {}", chance, maxChance);
+                    }
+                    if (this.lastEventDay == -1 || // first time event
+                            chance < maxChance) {
+                        this.start(level);
+                        markDirty.run();
+                    }
+                } else if (WLConfigs.DEBUG_MODE.get()) {
+                    LOGGER.info("Can't start Slime Rain - minimal amount of days still not passed");
+                    LOGGER.info("Today {}, daysPassed {}, daysAfterMinimalTime {}", today, daysPassed, daysAfterMinimalTime);
                 }
+            } else if (WLConfigs.DEBUG_MODE.get()) {
+                LOGGER.info("Can't try to start Slime Rain - bad weather!");
             }
         }
     }

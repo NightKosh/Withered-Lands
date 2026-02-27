@@ -57,7 +57,7 @@ public class WorldEventManager extends SavedData {
             this.timeToCheckDay = globalDayTimeStart + TimeHelper.DAY;
             if (WLConfigs.DEBUG_MODE.get()) {
                 LOGGER.info("WorldEventManager check current day.");
-                LOGGER.info("Global time {}, day time {}, slime rain start time {}, next day check time {} ",
+                LOGGER.info("Global time {}, day time {}, Slime Rain potential start time {}, next day check time {} ",
                         time, dayTime, this.timeToStarSlimeRainMin, this.timeToCheckDay);
             }
         }
