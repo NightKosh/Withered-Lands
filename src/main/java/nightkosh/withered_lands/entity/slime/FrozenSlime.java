@@ -22,7 +22,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLConfigs;
