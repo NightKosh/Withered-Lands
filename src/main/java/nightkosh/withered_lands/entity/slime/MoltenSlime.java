@@ -61,7 +61,7 @@ public class MoltenSlime extends ASlime {
 
     @Override
     protected int getSwallowedItemsChance() {
-        return 20;
+        return 60;
     }
 
     @Override

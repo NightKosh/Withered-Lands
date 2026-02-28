@@ -130,6 +130,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Integer> SLIME_RAIN_DURATION;
     public static ModConfigSpec.ConfigValue<Integer> SLIME_RAIN_MIN_DAYS_BETWEEN_RAINS;
     public static ModConfigSpec.ConfigValue<Integer> SLIME_RAIN_CHANCE;
+    public static ModConfigSpec.ConfigValue<Boolean> SLIME_RAIN_SWALLOWED_ITEMS_CHANCE_INCREASED;
 
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
@@ -256,6 +257,8 @@ public class WLConfigs {
                 .define("Slime Rain - minimal amount of days between next slime rain", 7);
         SLIME_RAIN_CHANCE = BUILDER.comment("After the minimum number of days between events has passed, there is a 4% chance per day for the next Slime Rain to be triggered. Day 1 – 4%, Day 2 – 8%, Day 3 – 12%, etc. The maximum chance is capped at 90%.")
                 .defineInRange("Slime Rain chance", 4, 1, 90);
+        SLIME_RAIN_SWALLOWED_ITEMS_CHANCE_INCREASED = BUILDER.comment("By default, all medium and large slimes have a chance to contain a random slime-specific item. If enabled, this chance is tripled during Slime Rain.")
+                .define("Slime Rain - increased slime items chance", true);
 
         DISABLE_INFERNAL_MOBS = BUILDER.comment(
                         "By default some mobs from this mod should never be infernal. " +

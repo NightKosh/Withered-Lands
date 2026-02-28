@@ -135,7 +135,7 @@ public class SlimeRainEvent {
                 slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
                 slime.setSize(this.getSlimeSize(), true);
-                slime.tryToSwallowItem();
+                slime.tryToSwallowItem(WLConfigs.SLIME_RAIN_SWALLOWED_ITEMS_CHANCE_INCREASED.get());
                 level.addFreshEntity(slime);
             }
 

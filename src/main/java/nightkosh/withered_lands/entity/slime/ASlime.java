@@ -43,8 +43,11 @@ public abstract class ASlime extends Slime {
 
     protected abstract WeightedList<Item> getSwallowedItemList();
 
-    protected ItemStack chooseSwallowedItem() {
-        return this.random.nextInt(100) < getSwallowedItemsChance() ?
+    protected ItemStack chooseSwallowedItem(boolean increasedChance) {
+        var requiredChance = increasedChance ?
+                getSwallowedItemsChance() * 3 :
+                getSwallowedItemsChance();
+        return this.random.nextInt(100) < requiredChance ?
                 new ItemStack(getSwallowedItemList().getRandom(this.random).get()) :
                 ItemStack.EMPTY;
     }
@@ -136,13 +139,16 @@ public abstract class ASlime extends Slime {
         groupData = super.finalizeSpawn(level, difficulty, spawnReason, groupData);
         this.setSize(getDefaultSpawnSize(), true);
 
-        tryToSwallowItem();
+        // in case of Slime Rain it will be done on the event side
+        if (spawnReason != EntitySpawnReason.EVENT) {
+            tryToSwallowItem(false);
+        }
         return groupData;
     }
 
-    public void tryToSwallowItem() {
+    public void tryToSwallowItem(boolean increasedChance) {
         if (this.getSize() > 1) {
-            var item = chooseSwallowedItem();
+            var item = chooseSwallowedItem(increasedChance);
             if (!item.isEmpty()) {
                 this.setItemSlot(EquipmentSlot.HEAD, item);
             }
