@@ -185,7 +185,8 @@ public class SlimeRainEvent {
                 long daysAfterMinimalTime = daysPassed - MIN_DAYS_BETWEEN_RAINS;
                 if (daysAfterMinimalTime >= 0) {
                     var chance = level.random.nextInt(100);
-                    var maxChance = Mth.clamp(daysAfterMinimalTime * 8 + 4, 0, 90);// 4% + 8% per day, max 90%
+                    // 4% + 4% per day, max 90%
+                    var maxChance = Mth.clamp((daysAfterMinimalTime + 1) * WLConfigs.SLIME_RAIN_CHANCE.get(), 0, 90);
                     if (WLConfigs.DEBUG_MODE.get()) {
                         LOGGER.info("Slime Rain chance {}, required range 0 - {}", chance, maxChance);
                     }
