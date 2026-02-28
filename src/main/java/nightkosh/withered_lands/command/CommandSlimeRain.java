@@ -20,7 +20,7 @@ public class CommandSlimeRain {
 
     private static int execute(CommandContext<CommandSourceStack> ctx, boolean state) {
         var src = ctx.getSource();
-        WorldEventManager.get(src.getLevel()).toggleSlimeRain(src.getLevel(), state);
+        WorldEventManager.get(src.getLevel()).toggleSlimeRain(src.getLevel(), state, true);
         return 1;
     }
 

@@ -87,7 +87,7 @@ public class SlimeRainEvent {
         this.thirdPhaseTicks = phaseTime + phaseTime;
     }
 
-    protected void start(ServerLevel level) {
+    protected boolean start(ServerLevel level, boolean changeLastDayCounter) {
         if (!this.isActive) {
             var server = level.getServer();
             this.isActive = true;
@@ -98,8 +98,12 @@ public class SlimeRainEvent {
             this.progressBar.setName(SLIME_RAIN_NAME);
             level.setWeatherParameters(0, EVENT_TICKS, true, false);
             server.getPlayerList().broadcastSystemMessage(SLIME_RAIN_START, false);
-            this.setLastEventDay(level);
+            if (changeLastDayCounter) {
+                this.setLastEventDay(level);
+            }
+            return true;
         }
+        return false;
     }
 
     protected void end(ServerLevel level) {
@@ -192,7 +196,7 @@ public class SlimeRainEvent {
                     }
                     if (this.lastEventDay == -1 || // first time event
                             chance < maxChance) {
-                        this.start(level);
+                        this.start(level, true);
                         markDirty.run();
                     }
                 } else if (WLConfigs.DEBUG_MODE.get()) {

@@ -71,13 +71,15 @@ public class WorldEventManager extends SavedData {
         }
     }
 
-    public void toggleSlimeRain(ServerLevel level, boolean state) {
+    public boolean toggleSlimeRain(ServerLevel level, boolean state, boolean changeLastDayCounter) {
+        boolean iventActivated = false;
         if (state) {
-            slimeRain.start(level);
+            iventActivated = slimeRain.start(level, changeLastDayCounter);
         } else {
             slimeRain.end(level);
         }
         this.setDirty();
+        return iventActivated;
     }
 
 }

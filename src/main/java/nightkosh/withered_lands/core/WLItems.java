@@ -7,10 +7,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
-import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -263,6 +260,13 @@ public class WLItems {
                             .saturationModifier(0.2F)
                             .build())
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
+
+    public static final DeferredHolder<Item, Item> SLIME_CROWN = ITEMS_REGISTER.register(
+            "slime_crown",
+            () -> new SlimeCrown(new Item.Properties()
+                    .stacksTo(64)
+                    .rarity(Rarity.RARE)
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_crown")))));
 
     // skulls
     public static final DeferredHolder<Item, Item> SKULL_HUSK = ITEMS_REGISTER.register(
