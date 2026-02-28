@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "has_my_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond",
+              "minecraft:emerald",
+              "minecraft:gold_block",
+              "withered_lands:slime_gel"
+            ]
+          }
+        ]
+      },
+      "neoforge:conditions": [
+        {
+          "type": "withered_lands:slime_crown_recipe_enabled"
+        }
+      ]
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "withered_lands:slime_crown"
+    ]
+  }
+}

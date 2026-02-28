@@ -33,6 +33,7 @@ public class WitheredLandsMod {
         WLTabs.register(eventBus);
         WLMobEffects.register(eventBus);
         WLSensorTypes.register(eventBus);
+        WLConditions.register(eventBus);
     }
 
 }

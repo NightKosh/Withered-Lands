@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "neoforge:conditions": [
+    {
+      "type": "withered_lands:slime_crown_recipe_enabled"
+    }
+  ],
+  "pattern": [
+    "EDE",
+    "SGS",
+    "SSS"
+  ],
+  "key": {
+    "D": "minecraft:diamond",
+    "E": "minecraft:emerald",
+    "G": "minecraft:gold_block",
+    "S": "withered_lands:slime_gel"
+  },
+  "result": {
+    "id": "withered_lands:slime_crown"
+  }
+}

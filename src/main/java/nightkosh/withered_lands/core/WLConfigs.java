@@ -132,6 +132,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Integer> SLIME_RAIN_CHANCE;
     public static ModConfigSpec.ConfigValue<Boolean> SLIME_RAIN_SWALLOWED_ITEMS_CHANCE_INCREASED;
     public static ModConfigSpec.ConfigValue<Boolean> SLIME_RAIN_DROP_SLIME_CROWN;
+    public static ModConfigSpec.ConfigValue<Boolean> SLIME_RAIN_CRAFTABLE_CROWN;
 
     public static ModConfigSpec.ConfigValue<Boolean> DEBUG_MODE;
 
@@ -262,6 +263,7 @@ public class WLConfigs {
                 .define("Slime Rain - increased slime items chance", true);
         SLIME_RAIN_DROP_SLIME_CROWN = BUILDER.comment("Gives a small chance for all medium and large slimes spawned during Slime Rain to contain the Crown of the Slime King.")
                 .define("Slime Rain - slimes can drop Crown of the Slime King", true);
+        SLIME_RAIN_CRAFTABLE_CROWN = BUILDER.define("Slime Rain - enable Crown of the Slime King crafting recipe", true);
 
         DISABLE_INFERNAL_MOBS = BUILDER.comment(
                         "By default some mobs from this mod should never be infernal. " +
