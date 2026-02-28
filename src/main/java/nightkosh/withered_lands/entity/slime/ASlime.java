@@ -150,11 +150,13 @@ public abstract class ASlime extends Slime {
         if (this.getSize() > 1) {
             var item = chooseSwallowedItem(increasedChance);
             if (!item.isEmpty()) {
-                this.setItemSlot(EquipmentSlot.HEAD, item);
+                this.swallowItem(item);
             }
-        } else {
-            this.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
         }
+    }
+
+    public void swallowItem(ItemStack item) {
+        this.setItemSlot(EquipmentSlot.HEAD, item);
     }
 
     @Override

@@ -12,8 +12,10 @@ import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.ItemStack;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
+import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.entity.slime.ASlime;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -132,14 +134,19 @@ public class SlimeRainEvent {
                         player.blockPosition().getX() + level.random.nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF,
                         SPAWN_HEIGHT,
                         player.blockPosition().getZ() + level.random.nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF);
+                var size = this.getSlimeSize();
                 var slime = (ASlime) SLIMES.getRandom(level.random)
                         .orElse(WLEntities.VERDANT_SLIME.get())
                         .create(level, EntitySpawnReason.EVENT);
                 slime.addTag(ASlime.TAG_SLIME_RAIN);
                 slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
-                slime.setSize(this.getSlimeSize(), true);
-                slime.tryToSwallowItem(WLConfigs.SLIME_RAIN_SWALLOWED_ITEMS_CHANCE_INCREASED.get());
+                slime.setSize(size, true);
+                if (WLConfigs.SLIME_RAIN_DROP_SLIME_CROWN.get() && size > 1 && level.random.nextInt(1000) < 8) {//0.8%
+                    slime.swallowItem(new ItemStack(WLItems.SLIME_CROWN.get()));
+                } else {
+                    slime.tryToSwallowItem(WLConfigs.SLIME_RAIN_SWALLOWED_ITEMS_CHANCE_INCREASED.get());
+                }
                 level.addFreshEntity(slime);
             }
 
