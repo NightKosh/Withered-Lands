@@ -28,6 +28,7 @@ import nightkosh.withered_lands.entity.ai.goal.*;
 import nightkosh.withered_lands.entity.ai.move_control.JumpingMoveControl;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * Withered Lands
@@ -210,6 +211,14 @@ public class Mimic extends AMonster implements IJumpingCube {
     @Override
     public SoundEvent getJumpSound() {
         return SoundEvents.WOOD_PLACE;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return this.isHiding() ?
+                null :
+                SoundEvents.HOGLIN_ATTACK;
     }
 
     @Override
