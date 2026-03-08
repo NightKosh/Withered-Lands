@@ -3,6 +3,7 @@ package nightkosh.withered_lands.world_event;
 import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerBossEvent;
@@ -32,8 +33,10 @@ import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 public class SlimeRainEvent {
 
     private static final Component SLIME_RAIN_NAME = Component.translatable("event.withered_lands.slime_rain");
-    private static final Component SLIME_RAIN_START = Component.translatable("message.withered_lands.slime_rain.start");
-    private static final Component SLIME_RAIN_END = Component.translatable("message.withered_lands.slime_rain.end");
+    private static final Component SLIME_RAIN_START = Component.translatable("message.withered_lands.slime_rain.start")
+            .withStyle(ChatFormatting.GREEN);
+    private static final Component SLIME_RAIN_END = Component.translatable("message.withered_lands.slime_rain.end")
+            .withStyle(ChatFormatting.GREEN);
 
     private static final WeightedList<EntityType<?>> SLIMES = WeightedList.<EntityType<?>>builder()
             .add(WLEntities.VERDANT_SLIME.get(), 9)
