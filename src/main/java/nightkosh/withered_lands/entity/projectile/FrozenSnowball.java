@@ -6,6 +6,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Blaze;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+import nightkosh.withered_lands.core.WLAdvancements;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -66,6 +68,10 @@ public class FrozenSnowball extends ThrowableItemProjectile {
         int damage = entity instanceof Blaze ? 3 : 1;
         entity.hurt(this.damageSources().thrown(this, this.getOwner()), damage);
         entity.setTicksFrozen(Math.min(entity.getTicksFrozen() + TimeHelper.SECONDS_10, 400));
+
+        if (entity instanceof Player player) {
+            WLAdvancements.giveAdvancement(player, player.level(), WLAdvancements.FRIENDLY_FIRE);
+        }
     }
 
     @Override

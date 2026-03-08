@@ -1,0 +1,79 @@
+{
+  "parent": "withered_lands:supernatural",
+  "display": {
+    "icon": { "id": "withered_lands:skeleton_cat_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.pet_sematary" },
+    "description": { "translate": "advancement.withered_lands.pet_sematary.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:skeleton_dog": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:skeleton_dog"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:zombie_dog": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:zombie_dog"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:skeleton_cat": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:skeleton_cat"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:zombie_cat": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:zombie_cat"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:skeleton_dog",
+      "withered_lands:zombie_dog",
+      "withered_lands:skeleton_cat",
+      "withered_lands:zombie_cat"
+    ]
+  ]
+}

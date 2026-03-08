@@ -24,6 +24,7 @@ import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import nightkosh.withered_lands.core.ModInfo;
+import nightkosh.withered_lands.core.WLAdvancements;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.entity.Mimic;
@@ -257,6 +258,8 @@ public class WLEventsSpawn {
             event.setCancellationResult(InteractionResult.FAIL);
 
             Mimic.replaceChestByMimic(level, pos, event.getEntity(), type);
+
+            WLAdvancements.giveAdvancement(event.getEntity(), level, WLAdvancements.ITS_A_TRAP);
         }
     }
 

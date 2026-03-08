@@ -1,0 +1,17 @@
+{
+  "parent": "withered_lands:slime_exterminator",
+  "display": {
+    "icon": { "id": "withered_lands:slime_crown" },
+    "title": { "translate": "advancement.withered_lands.slimepocalypse" },
+    "description": { "translate": "advancement.withered_lands.slimepocalypse.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "withered_lands:somethings_wrong",
+  "display": {
+    "icon": { "id": "withered_lands:illusioner_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.smoke_and_mirrors" },
+    "description": { "translate": "advancement.withered_lands.smoke_and_mirrors.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:illusioner": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:illusioner"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:illusioner"
+    ]
+  ]
+}

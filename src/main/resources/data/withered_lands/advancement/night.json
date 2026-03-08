@@ -1,0 +1,17 @@
+{
+  "parent": "withered_lands:root",
+  "display": {
+    "icon": { "id": "minecraft:structure_void" },
+    "title": { "translate": "advancement.withered_lands.empty" },
+    "description": { "translate": "advancement.withered_lands.empty.desc" },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "triggered": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

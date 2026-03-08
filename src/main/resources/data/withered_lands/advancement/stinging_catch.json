@@ -1,0 +1,124 @@
+{
+  "parent": "withered_lands:thats_not_a_cod",
+  "display": {
+    "icon": { "id": "withered_lands:jellyfish_pink_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.stinging_catch" },
+    "description": { "translate": "advancement.withered_lands.stinging_catch.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:jellyfish_white": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:jellyfish_white"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:jellyfish_blue": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:jellyfish_blue"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:jellyfish_green": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:jellyfish_green"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:jellyfish_yellow": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:jellyfish_yellow"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:jellyfish_red": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:jellyfish_red"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:jellyfish_pink": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:jellyfish_pink"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:jellyfish_purple": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:jellyfish_purple"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:jellyfish_white",
+      "withered_lands:jellyfish_blue",
+      "withered_lands:jellyfish_green",
+      "withered_lands:jellyfish_yellow",
+      "withered_lands:jellyfish_red",
+      "withered_lands:jellyfish_pink",
+      "withered_lands:jellyfish_purple"
+    ]
+  ]
+}

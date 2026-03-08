@@ -1,0 +1,34 @@
+{
+  "parent": "withered_lands:somethings_wrong",
+  "display": {
+    "icon": { "id": "withered_lands:killer_bunny_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.bring_out_the_holy_hand_grenade" },
+    "description": { "translate": "advancement.withered_lands.bring_out_the_holy_hand_grenade.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:killer_bunny": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:killer_bunny"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:killer_bunny"
+    ]
+  ]
+}

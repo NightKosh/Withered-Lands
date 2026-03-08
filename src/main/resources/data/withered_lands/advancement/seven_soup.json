@@ -1,0 +1,26 @@
+{
+  "parent": "withered_lands:slime_season",
+  "display": {
+    "icon": { "id": "withered_lands:slime_soup" },
+    "title": { "translate": "advancement.withered_lands.seven_soup" },
+    "description": { "translate": "advancement.withered_lands.seven_soup.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "start": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "withered_lands:slime_soup"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

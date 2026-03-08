@@ -23,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import nightkosh.withered_lands.core.WLAdvancements;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLSounds;
 import nightkosh.withered_lands.entity.ai.goal.BarghestInvisibleGoal;
@@ -92,6 +93,10 @@ public class Barghest extends AUndeadDog {
     @Override
     protected void applyEffect(LivingEntity entity) {
         entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, TimeHelper.SECONDS_10), this);
+
+        if (entity instanceof Player player) {
+            WLAdvancements.giveAdvancement(player, this.level(), WLAdvancements.EYES_IN_THE_DARK);
+        }
     }
 
     public void setBarghestInvisible(boolean isInvisible) {

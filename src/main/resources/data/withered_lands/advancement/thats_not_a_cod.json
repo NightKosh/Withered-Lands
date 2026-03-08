@@ -1,0 +1,64 @@
+{
+  "parent": "withered_lands:somethings_wrong",
+  "display": {
+    "icon": { "id": "minecraft:cod" },
+    "title": { "translate": "advancement.withered_lands.thats_not_a_cod" },
+    "description": { "translate": "advancement.withered_lands.thats_not_a_cod.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:minnow": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:minnow"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:piranha": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:piranha"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:pike": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:pike"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:minnow",
+      "withered_lands:piranha",
+      "withered_lands:pike"
+    ]
+  ]
+}

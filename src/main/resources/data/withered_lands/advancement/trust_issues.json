@@ -1,0 +1,34 @@
+{
+  "parent": "withered_lands:its_a_trap",
+  "display": {
+    "icon": { "id": "withered_lands:mimic_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.trust_issues" },
+    "description": { "translate": "advancement.withered_lands.trust_issues.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:mimic": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:mimic"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:mimic"
+    ]
+  ]
+}

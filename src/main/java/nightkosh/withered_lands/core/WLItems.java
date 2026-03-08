@@ -372,6 +372,32 @@ public class WLItems {
                             .stacksTo(64)
                             .setId(WLBlocks.MOSS_LAYER_RK)));
 
+    // technical items for advancements
+    public static final DeferredHolder<Item, Item> SLIME_SOUP = ITEMS_REGISTER.register(
+            "slime_soup",
+            () -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_soup")))));
+
+    public static final DeferredHolder<Item, Item> SLIME_GEL_CHUNK = ITEMS_REGISTER.register(
+            "slime_gel_chunk",
+            () -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel_chunk")))));
+
+    public static final DeferredHolder<Item, Item> RUSTED_AWAY = ITEMS_REGISTER.register(
+            "rusted_away",
+            () -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "rusted_away")))));
+
+    public static final DeferredHolder<Item, Item> EYES_IN_THE_DARK = ITEMS_REGISTER.register(
+            "eyes_in_the_dark",
+            () -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "eyes_in_the_dark")))));
+
+    public static final DeferredHolder<Item, Item> CALL_OF_THE_ABYSS = ITEMS_REGISTER.register(
+            "call_of_the_abyss",
+            () -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "call_of_the_abyss")))));
+
     private static DeferredHolder<Item, Item> registerEgg(DeferredHolder entityHolder, String id) {
         return ITEMS_REGISTER.register(
                 id, () -> new SpawnEggItem(new Item.Properties()

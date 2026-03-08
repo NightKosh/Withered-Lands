@@ -1,0 +1,30 @@
+{
+  "parent": "withered_lands:supernatural",
+  "display": {
+    "icon": { "id": "minecraft:enchanted_book" },
+    "title": { "translate": "advancement.withered_lands.a_cursed_reward" },
+    "description": { "translate": "advancement.withered_lands.a_cursed_reward.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "wear_or_have": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:enchantments": [
+                {
+                  "enchantments": "withered_lands:curse_of_starvation"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

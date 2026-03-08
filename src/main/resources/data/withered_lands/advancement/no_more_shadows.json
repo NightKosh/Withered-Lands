@@ -1,0 +1,34 @@
+{
+  "parent": "withered_lands:lingering_shadow",
+  "display": {
+    "icon": { "id": "withered_lands:hollow_stalker_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.no_more_shadows" },
+    "description": { "translate": "advancement.withered_lands.no_more_shadows.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:hollow_stalker": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:hollow_stalker"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:hollow_stalker"
+    ]
+  ]
+}

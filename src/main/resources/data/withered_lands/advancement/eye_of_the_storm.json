@@ -1,0 +1,85 @@
+{
+  "parent": "withered_lands:whispers_of_the_dead",
+  "display": {
+    "icon": { "id": "withered_lands:thunderstorm_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.eye_of_the_storm" },
+    "description": { "translate": "advancement.withered_lands.eye_of_the_storm.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:thunderstorm": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:thunderstorm"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:blizzard": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:blizzard"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:sand_devil": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:sand_devil"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "withered_lands:dirge_gale": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:dirge_gale"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:thunderstorm"
+    ],
+    [
+      "withered_lands:blizzard"
+    ],
+    [
+      "withered_lands:sand_devil"
+    ],
+    [
+      "withered_lands:dirge_gale"
+    ]
+  ]
+}

@@ -13,6 +13,8 @@ import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import nightkosh.withered_lands.core.WLAdvancements;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLEntities;
 import nightkosh.withered_lands.core.WLItems;
@@ -117,6 +119,11 @@ public class SlimeRainEvent {
             this.progressBar.removeAllPlayers();
             level.resetWeatherCycle();
             server.getPlayerList().broadcastSystemMessage(SLIME_RAIN_END, false);
+            for (var player : server.getPlayerList().getPlayers()) {
+                if (player.level().dimension().equals(Level.OVERWORLD)) {
+                    WLAdvancements.giveAdvancement(player, level, WLAdvancements.SLIMEPOCALYPSE);
+                }
+            }
         }
     }
 

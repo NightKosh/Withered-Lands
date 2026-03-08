@@ -1,0 +1,34 @@
+{
+  "parent": "withered_lands:eyes_in_the_dark",
+  "display": {
+    "icon": { "id": "withered_lands:barghest_spawn_egg" },
+    "title": { "translate": "advancement.withered_lands.whos_a_good_boy" },
+    "description": { "translate": "advancement.withered_lands.whos_a_good_boy.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:barghest": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:barghest"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:barghest"
+    ]
+  ]
+}

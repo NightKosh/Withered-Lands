@@ -1,0 +1,34 @@
+{
+  "parent": "withered_lands:thats_not_a_cod",
+  "display": {
+    "icon": { "id": "withered_lands:call_of_the_abyss" },
+    "title": { "translate": "advancement.withered_lands.call_of_the_abyss" },
+    "description": { "translate": "advancement.withered_lands.call_of_the_abyss.desc" },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:phantom_diver": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:phantom_diver"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:phantom_diver"
+    ]
+  ]
+}

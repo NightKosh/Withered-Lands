@@ -1,0 +1,34 @@
+{
+  "parent": "withered_lands:kamikaze",
+  "display": {
+    "icon": { "id": "minecraft:ender_pearl" },
+    "title": { "translate": "advancement.withered_lands.chaotic_blink" },
+    "description": { "translate": "advancement.withered_lands.chaotic_blink.desc" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "withered_lands:chorus_bat": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "withered_lands:chorus_bat"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "withered_lands:chorus_bat"
+    ]
+  ]
+}

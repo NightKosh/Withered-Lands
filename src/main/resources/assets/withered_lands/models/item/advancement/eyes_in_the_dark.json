@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "withered_lands:item/advancement/eyes_in_the_dark"
+  }
+}

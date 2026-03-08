@@ -1,0 +1,32 @@
+{
+  "parent": "withered_lands:restless_bones",
+  "display": {
+    "icon": { "id": "withered_lands:skull_husk" },
+    "title": { "translate": "advancement.withered_lands.proof_of_the_hunt" },
+    "description": { "translate": "advancement.withered_lands.proof_of_the_hunt.desc" },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "sends_telemetry_event": true,
+  "criteria": {
+    "start": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "withered_lands:skull_husk",
+              "withered_lands:skull_drowned",
+              "withered_lands:skull_stray",
+              "withered_lands:skull_bogged",
+              "withered_lands:skull_parched",
+              "withered_lands:skull_piglin"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
