@@ -26,7 +26,9 @@ public class VampireBat extends AHostileBat {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_30), this);
+        if (WLConfigs.VAMPIRE_BAT_BLEEDING_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_20), this);
+        }
     }
 
     public static boolean checkSpawnRules(

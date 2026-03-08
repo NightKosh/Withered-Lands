@@ -30,7 +30,9 @@ public class RedJellyfish extends AJellyfish {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, TimeHelper.SECONDS_5), this);
+        if (WLConfigs.RED_JELLYFISH_WITHER_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.WITHER, TimeHelper.SECONDS_5), this);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

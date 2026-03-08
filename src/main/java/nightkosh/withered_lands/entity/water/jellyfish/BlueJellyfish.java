@@ -28,7 +28,9 @@ public class BlueJellyfish extends AJellyfish {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_15);
+        if (WLConfigs.BLUE_JELLYFISH_FREEZING_DEBUFF.get()) {
+            entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_15);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
+import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.AMonster;
 import nightkosh.withered_lands.entity.ai.BatAiStep;
@@ -79,7 +80,9 @@ public abstract class AHostileBat extends AMonster {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_5), this);
+        if (WLConfigs.BATS_BLEEDING_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_5), this);
+        }
     }
 
     @Override

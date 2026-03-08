@@ -84,7 +84,9 @@ public class ToxicSludge extends ASlime {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.RUST, TimeHelper.SECONDS_5), this);
+        if (WLConfigs.TOXIC_SLUDGE_RUST_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(WLMobEffects.RUST, TimeHelper.SECONDS_5), this);
+        }
     }
 
     @Override

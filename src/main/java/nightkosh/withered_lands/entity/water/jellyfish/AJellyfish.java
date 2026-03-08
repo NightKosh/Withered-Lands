@@ -11,6 +11,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.entity.ai.goal.AttackIfInWaterGoal;
 import nightkosh.withered_lands.entity.ai.goal.KeepUnderwaterSwimmingGoal;
 import nightkosh.withered_lands.entity.water.fish.AHostileFish;
@@ -99,7 +100,9 @@ public class AJellyfish extends AHostileFish {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, TimeHelper.SECONDS_25), this);
+        if (WLConfigs.JELLYFISH_HUNGER_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, TimeHelper.SECONDS_25), this);
+        }
     }
 
     @Override

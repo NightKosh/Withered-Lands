@@ -42,7 +42,9 @@ public class BlazingBat extends AHostileBat {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.igniteForSeconds(3);
+        if (WLConfigs.BLAZING_BAT_FIRE_DEBUFF.get()) {
+            entity.igniteForSeconds(3);
+        }
     }
 
     public static boolean checkSpawnRules(

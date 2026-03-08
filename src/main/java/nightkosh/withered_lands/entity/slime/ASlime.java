@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.event.EventHooks;
+import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
@@ -81,7 +82,9 @@ public abstract class ASlime extends Slime {
     }
 
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, TimeHelper.SECONDS_25), this);
+        if (WLConfigs.SLIMES_HUNGER_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.HUNGER, TimeHelper.SECONDS_25), this);
+        }
     }
 
     protected void placeBlockAtDeath(BlockState stateToPlace) {

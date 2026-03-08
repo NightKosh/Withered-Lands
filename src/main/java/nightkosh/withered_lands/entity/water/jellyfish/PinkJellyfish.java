@@ -30,7 +30,9 @@ public class PinkJellyfish extends AJellyfish {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, TimeHelper.SECONDS_10), this);
+        if (WLConfigs.PINK_JELLYFISH_WEAKNESS_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, TimeHelper.SECONDS_10), this);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

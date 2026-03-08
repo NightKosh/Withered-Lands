@@ -74,7 +74,9 @@ public class FrozenSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_15);
+        if (WLConfigs.FROZEN_SLIME_FREEZING_DEBUFF.get()) {
+            entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_10);
+        }
     }
 
     @Override

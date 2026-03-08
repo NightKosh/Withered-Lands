@@ -42,7 +42,9 @@ public class IceBat extends AHostileBat {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_15);
+        if (WLConfigs.ICE_BAT_FREEZING_DEBUFF.get()) {
+            entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_10);
+        }
     }
 
     public static boolean checkSpawnRules(

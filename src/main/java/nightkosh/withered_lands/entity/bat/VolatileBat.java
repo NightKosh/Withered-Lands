@@ -46,8 +46,10 @@ public class VolatileBat extends AHostileBat {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        this.explode();
-        this.discard();
+        if (WLConfigs.VOLATILE_BAT_EXPLOSION.get()) {
+            this.explode();
+            this.discard();
+        }
     }
 
     private void explode() {

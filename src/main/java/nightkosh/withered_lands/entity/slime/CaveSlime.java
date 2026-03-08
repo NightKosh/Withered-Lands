@@ -80,7 +80,9 @@ public class CaveSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, TimeHelper.SECONDS_15), this);
+        if (WLConfigs.CAVE_SLIME_WEAKNESS_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, TimeHelper.SECONDS_10), this);
+        }
     }
 
     @Override

@@ -67,7 +67,9 @@ public class MoltenSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.igniteForSeconds(3);
+        if (WLConfigs.MOLTEN_SLIME_FIRE_DEBUFF.get()) {
+            entity.igniteForSeconds(3);
+        }
     }
 
     @Override

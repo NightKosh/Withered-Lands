@@ -30,7 +30,9 @@ public class WhiteJellyfish extends AJellyfish {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_10), this);
+        if (WLConfigs.WHITE_JELLYFISH_SLOWNESS_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_10), this);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

@@ -88,7 +88,9 @@ public class JungleSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.POISON, TimeHelper.SECONDS_15), this);
+        if (WLConfigs.JUNGLE_SLIME_POISON_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.POISON, TimeHelper.SECONDS_5), this);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

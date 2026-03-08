@@ -34,7 +34,9 @@ public class Piranha extends AHostileFish {
 
     @Override
     protected void applyEffect(LivingEntity entity) {
-        entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_30), this);
+        if (WLConfigs.PIRANHA_BLEEDING_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_15), this);
+        }
     }
 
     @Override

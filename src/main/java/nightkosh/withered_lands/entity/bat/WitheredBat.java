@@ -45,7 +45,9 @@ public class WitheredBat extends AHostileBat {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.WITHER, TimeHelper.SECONDS_8), this);
+        if (WLConfigs.WITHERED_BAT_WITHER_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.WITHER, TimeHelper.SECONDS_8), this);
+        }
     }
 
     public static boolean checkSpawnRules(

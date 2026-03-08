@@ -30,7 +30,9 @@ public class PurpleJellyfish extends AJellyfish {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, TimeHelper.SECONDS_8), this);
+        if (WLConfigs.PURPLE_JELLYFISH_BLINDNESS_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, TimeHelper.SECONDS_8), this);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

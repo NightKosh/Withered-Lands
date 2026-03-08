@@ -27,7 +27,9 @@ public class CaveBat extends AHostileBat {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_15), this);
+        if (WLConfigs.CAVE_BAT_NAUSEA_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_10), this);
+        }
     }
 
     public static boolean checkSpawnRules(

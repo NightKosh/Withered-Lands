@@ -74,7 +74,9 @@ public class SandySlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_15), this);
+        if (WLConfigs.SANDY_SLIME_SLOWNESS_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_5), this);
+        }
     }
 
     @Override

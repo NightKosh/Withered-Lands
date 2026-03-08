@@ -80,7 +80,9 @@ public class MudSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_20), this);
+        if (WLConfigs.MUD_SLIME_NAUSEA_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_10), this);
+        }
     }
 
     @Override

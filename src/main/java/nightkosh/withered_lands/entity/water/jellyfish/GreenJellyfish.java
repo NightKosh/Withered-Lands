@@ -30,7 +30,9 @@ public class GreenJellyfish extends AJellyfish {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.POISON, TimeHelper.SECONDS_8), this);
+        if (WLConfigs.GREEN_JELLYFISH_POISON_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.POISON, TimeHelper.SECONDS_8), this);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {

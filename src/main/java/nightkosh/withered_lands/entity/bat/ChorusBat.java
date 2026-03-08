@@ -39,7 +39,9 @@ public class ChorusBat extends AHostileBat {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        teleport(entity.level(), entity);
+        if (WLConfigs.CHORUS_BAT_TELEPORTATION.get()) {
+            teleport(entity.level(), entity);
+        }
     }
 
     private void teleport(Level level, LivingEntity entity) {

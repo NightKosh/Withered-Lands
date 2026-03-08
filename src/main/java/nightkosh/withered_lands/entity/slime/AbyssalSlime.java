@@ -83,7 +83,9 @@ public class AbyssalSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, TimeHelper.SECONDS_30), this);
+        if (WLConfigs.ABYSSAL_SLIME_DARKNESS_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.DARKNESS, TimeHelper.SECONDS_30), this);
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {
