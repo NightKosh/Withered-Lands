@@ -26,8 +26,10 @@ public class WLTabs {
                     .displayItems((parameters, output) -> {
 
                         output.accept(WLItems.SLIME_GEL.get());
-                        output.accept(WLItems.BAT_WING.get());
+                        output.accept(WLItems.SLIME_GEL_CHUNK.get());
+                        output.accept(WLItems.SLIME_SOUP.get());
                         output.accept(WLItems.SLIME_CROWN.get());
+                        output.accept(WLItems.BAT_WING.get());
 
                         // skulls
                         output.accept(WLItems.SKULL_HUSK.get());

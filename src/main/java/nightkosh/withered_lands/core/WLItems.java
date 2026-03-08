@@ -251,6 +251,30 @@ public class WLItems {
                             .build())
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel")))));
 
+    public static final DeferredHolder<Item, Item> SLIME_GEL_CHUNK = ITEMS_REGISTER.register(
+            "slime_gel_chunk",
+            () -> new Item(new Item.Properties()
+                    .stacksTo(64)
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel_chunk")))));
+
+    public static final DeferredHolder<Item, Item> SLIME_SOUP = ITEMS_REGISTER.register(
+            "slime_soup",
+            () -> new Item(new Item.Properties()
+                    .stacksTo(1)
+                    .food(new FoodProperties.Builder()
+                            .nutrition(6)
+                            .saturationModifier(0.4F)
+                            .build())
+                    .usingConvertsTo(Items.BOWL)
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_soup")))));
+
+    public static final DeferredHolder<Item, Item> SLIME_CROWN = ITEMS_REGISTER.register(
+            "slime_crown",
+            () -> new SlimeCrown(new Item.Properties()
+                    .stacksTo(64)
+                    .rarity(Rarity.RARE)
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_crown")))));
+
     public static final DeferredHolder<Item, Item> BAT_WING = ITEMS_REGISTER.register(
             "bat_wing",
             () -> new BatWing(new Item.Properties()
@@ -260,13 +284,6 @@ public class WLItems {
                             .saturationModifier(0.2F)
                             .build())
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
-
-    public static final DeferredHolder<Item, Item> SLIME_CROWN = ITEMS_REGISTER.register(
-            "slime_crown",
-            () -> new SlimeCrown(new Item.Properties()
-                    .stacksTo(64)
-                    .rarity(Rarity.RARE)
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_crown")))));
 
     // skulls
     public static final DeferredHolder<Item, Item> SKULL_HUSK = ITEMS_REGISTER.register(
@@ -373,15 +390,6 @@ public class WLItems {
                             .setId(WLBlocks.MOSS_LAYER_RK)));
 
     // technical items for advancements
-    public static final DeferredHolder<Item, Item> SLIME_SOUP = ITEMS_REGISTER.register(
-            "slime_soup",
-            () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_soup")))));
-
-    public static final DeferredHolder<Item, Item> SLIME_GEL_CHUNK = ITEMS_REGISTER.register(
-            "slime_gel_chunk",
-            () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel_chunk")))));
 
     public static final DeferredHolder<Item, Item> RUSTED_AWAY = ITEMS_REGISTER.register(
             "rusted_away",

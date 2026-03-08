@@ -27,6 +27,8 @@ public class WLEventsOther {
         }
         if (event.getItemStack().is(WLItems.SLIME_GEL.get())) {
             event.setBurnTime(100);
+        } else if (event.getItemStack().is(WLItems.SLIME_GEL_CHUNK.get())) {
+            event.setBurnTime(1600);
         }
     }
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:bowl",
+    "withered_lands:slime_gel",
+    "withered_lands:slime_gel",
+    "withered_lands:slime_gel",
+    "withered_lands:slime_gel",
+    "withered_lands:slime_gel",
+    "withered_lands:slime_gel"
+  ],
+  "result": {
+    "id": "withered_lands:slime_soup"
+  }
+}

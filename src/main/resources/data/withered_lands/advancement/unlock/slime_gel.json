@@ -6,8 +6,7 @@
         "items": [
           {
             "items": [
-              "withered_lands:slime_gel",
-              "minecraft:stick"
+              "withered_lands:slime_gel"
             ]
           }
         ]
@@ -16,7 +15,10 @@
   },
   "rewards": {
     "recipes": [
-      "withered_lands:slime_gel_to_torch"
+      "withered_lands:slime_gel_to_torch",
+      "withered_lands:slime_gel_chunk",
+      "withered_lands:slime_chunk_to_gel",
+      "withered_lands:slime_soup"
     ]
   }
 }

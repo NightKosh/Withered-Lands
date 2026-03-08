@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "withered_lands:slime_gel_chunk"
+  ],
+  "result": {
+    "id": "withered_lands:slime_gel",
+    "count" : 9
+  }
+}
