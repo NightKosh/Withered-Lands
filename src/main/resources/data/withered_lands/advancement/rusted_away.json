@@ -1,5 +1,5 @@
 {
-  "parent": "withered_lands:slime_season",
+  "parent": "withered_lands:slimepocalypse",
   "display": {
     "icon": { "id": "withered_lands:rusted_away" },
     "title": { "translate": "advancement.withered_lands.rusted_away" },

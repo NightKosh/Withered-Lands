@@ -4,7 +4,7 @@
     "icon": { "id": "withered_lands:bat_wing" },
     "title": { "translate": "advancement.withered_lands.master_of_the_night" },
     "description": { "translate": "advancement.withered_lands.master_of_the_night.desc" },
-    "frame": "goal",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false

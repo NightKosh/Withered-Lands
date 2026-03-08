@@ -1,5 +1,5 @@
 {
-  "parent": "withered_lands:supernatural",
+  "parent": "withered_lands:a_cursed_reward",
   "display": {
     "icon": { "id": "minecraft:lantern" },
     "title": { "translate": "advancement.withered_lands.lingering_shadow" },

@@ -1,5 +1,5 @@
 {
-  "parent": "withered_lands:restless_bones",
+  "parent": "withered_lands:proof_of_the_hunt",
   "display": {
     "icon": { "id": "withered_lands:wither_skull_crawler_spawn_egg" },
     "title": { "translate": "advancement.withered_lands.skull_hunter" },

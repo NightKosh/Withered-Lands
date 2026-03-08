@@ -1,5 +1,5 @@
 {
-  "parent": "withered_lands:somethings_wrong",
+  "parent": "withered_lands:friendly_fire",
   "display": {
     "icon": { "id": "minecraft:wind_charge" },
     "title": { "translate": "advancement.withered_lands.the_wind_changes" },
