@@ -23,6 +23,9 @@ public class GravestoneExtendedCompatibility {
 
     public static final String MOD_ID = "gravestone_extended";
 
+    // liquid
+    public static final Block BLIGHTWATER = getBlock("blightwater");
+
     // blocks
     public static final Block PILE_OF_BONES = getBlock("pile_of_bones");
     public static final Block PILE_OF_BONES_SKULL_SKELETON_CRAWLER = getBlock("pile_of_bones_skull_skeleton_crawler");

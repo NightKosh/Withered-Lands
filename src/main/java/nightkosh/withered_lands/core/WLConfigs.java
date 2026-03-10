@@ -46,6 +46,7 @@ public class WLConfigs {
     public static ModConfigSpec.ConfigValue<Boolean> ABYSSAL_SLIME_SPAWN;
     public static ModConfigSpec.ConfigValue<Boolean> ABYSSAL_SLIME_DARKNESS_DEBUFF;
     public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_SPAWN;
+    public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_BLIGHTWATER;
     public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_RUST_DEBUFF;
     public static ModConfigSpec.ConfigValue<Boolean> TOXIC_SLUDGE_CORROSION;
     public static ModConfigSpec.ConfigValue<Boolean> MOLTEN_SLIME_SPAWN;
@@ -198,6 +199,7 @@ public class WLConfigs {
         ABYSSAL_SLIME_SPAWN = BUILDER.define("Abyssal Slimes Spawn", true);
         ABYSSAL_SLIME_DARKNESS_DEBUFF = BUILDER.define("Enable Abyssal Slimes Darkness Debuff", true);
         TOXIC_SLUDGE_SPAWN = BUILDER.define("Toxic Sludges Spawn", true);
+        TOXIC_SLUDGE_BLIGHTWATER = BUILDER.define("Toxic Sludges Create Blightwater at death", true);
         TOXIC_SLUDGE_RUST_DEBUFF = BUILDER.define("Enable Toxic Sludges Rust Debuff", true);
         TOXIC_SLUDGE_CORROSION = BUILDER.define("Toxic Sludges Replace blocks", true);
         MOLTEN_SLIME_SPAWN = BUILDER.define("Molten Slimes Spawn", true);

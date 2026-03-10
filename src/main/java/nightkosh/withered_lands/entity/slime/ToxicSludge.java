@@ -10,6 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -26,6 +27,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.event.EventHooks;
+import nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibility;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.core.WLMobEffects;
@@ -86,6 +88,16 @@ public class ToxicSludge extends ASlime {
     protected void applyEffect(LivingEntity entity) {
         if (WLConfigs.TOXIC_SLUDGE_RUST_DEBUFF.get()) {
             entity.addEffect(new MobEffectInstance(WLMobEffects.RUST, TimeHelper.SECONDS_5), this);
+        }
+    }
+
+    @Override
+    public void die(@Nonnull DamageSource damageSource) {
+        super.die(damageSource);
+        if (WLConfigs.TOXIC_SLUDGE_BLIGHTWATER.get() &&
+                GravestoneExtendedCompatibility.loaded() &&
+                GravestoneExtendedCompatibility.BLIGHTWATER != null) {
+            placeBlockAtDeath(GravestoneExtendedCompatibility.BLIGHTWATER.defaultBlockState());
         }
     }
 
