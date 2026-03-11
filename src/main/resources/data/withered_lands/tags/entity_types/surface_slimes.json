@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "withered_lands:verdant_slime",
+    "withered_lands:sandy_slime",
+    "withered_lands:frozen_slime",
+    "withered_lands:mud_slime",
+    "withered_lands:jungle_slime"
+  ]
+}
