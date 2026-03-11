@@ -13,15 +13,19 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLEnchantments;
 import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.ai.goal.TridentAttackGoal;
 import nightkosh.withered_lands.helper.TimeHelper;
+import nightkosh.withered_lands.helper.WLEnchantmentHelper;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -62,8 +66,14 @@ public class PhantomDiver extends DrownedSailor implements RangedAttackMob {
     @Override
     protected void populateDefaultEquipmentSlots(@Nonnull RandomSource randomSource, @Nonnull DifficultyInstance difficulty) {
         if (randomSource.nextBoolean()) {
-            this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.TRIDENT));
+            this.setItemSlot(EquipmentSlot.MAINHAND, getItem(Items.TRIDENT));
         }
+    }
+
+    private ItemStack getItem(Item item) {
+        var stack = new ItemStack(item);
+        stack.enchant(WLEnchantmentHelper.getEnchantmentHolder(this.level(), WLEnchantments.CURSE_OF_STARVATION), 1);
+        return stack;
     }
 
     @Override
