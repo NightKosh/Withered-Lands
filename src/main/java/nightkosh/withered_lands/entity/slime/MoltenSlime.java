@@ -137,7 +137,7 @@ public class MoltenSlime extends ASlime {
                         ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.PODZOL) || ground.is(Blocks.MYCELIUM) ||
                         ground.is(Blocks.DIRT) || ground.is(Blocks.MUD) || ground.is(Blocks.GRAVEL) ||
                         ground.is(Blocks.SAND)) &&
-                        checkDensity(level, pos, FrozenSlime.class);
+                        checkDensity(level, pos, MoltenSlime.class);
             }
         }
 
