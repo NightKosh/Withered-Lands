@@ -4,9 +4,9 @@
   "spawners": [
     {
       "type": "withered_lands:lost_soul",
-      "weight": 60,
-      "minCount": 2,
-      "maxCount": 5
+      "weight": 30,
+      "minCount": 1,
+      "maxCount": 4
     }
   ]
 }
