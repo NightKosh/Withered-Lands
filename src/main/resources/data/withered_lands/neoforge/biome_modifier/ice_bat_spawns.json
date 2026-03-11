@@ -21,7 +21,7 @@
       "type": "withered_lands:ice_bat",
       "weight": 40,
       "minCount": 3,
-      "maxCount": 6
+      "maxCount": 5
     }
   ]
 }

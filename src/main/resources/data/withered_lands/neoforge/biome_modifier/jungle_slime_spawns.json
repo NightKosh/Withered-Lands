@@ -3,14 +3,15 @@
   "biomes": [
     "minecraft:jungle",
     "minecraft:sparse_jungle",
-    "minecraft:bamboo_jungle"
+    "minecraft:bamboo_jungle",
+    "minecraft:lush_caves"
   ],
   "spawners": [
     {
       "type": "withered_lands:jungle_slime",
       "weight": 100,
       "minCount": 3,
-      "maxCount": 7
+      "maxCount": 5
     }
   ]
 }

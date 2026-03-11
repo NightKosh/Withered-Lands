@@ -3,7 +3,10 @@
   "biomes": [
     "minecraft:jungle",
     "minecraft:sparse_jungle",
-    "minecraft:bamboo_jungle"
+    "minecraft:bamboo_jungle",
+    "minecraft:swamp",
+    "minecraft:mangrove_swamp",
+    "minecraft:lush_caves"
   ],
   "spawners": [
     {
