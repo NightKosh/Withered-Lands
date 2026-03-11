@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -18,7 +19,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.core.WLMobEffects;
 import nightkosh.withered_lands.entity.ai.goal.TridentAttackGoal;
+import nightkosh.withered_lands.helper.TimeHelper;
 import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -33,6 +36,11 @@ public class PhantomDiver extends DrownedSailor implements RangedAttackMob {
 
     public PhantomDiver(EntityType<? extends PhantomDiver> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    protected void applyEffect(LivingEntity entity) {
+        entity.addEffect(new MobEffectInstance(WLMobEffects.CALL_OF_THE_ABYSS, TimeHelper.SECONDS_15), this);
     }
 
     @Override
