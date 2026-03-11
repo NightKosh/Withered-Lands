@@ -144,9 +144,10 @@ public class FrozenSlime extends ASlime {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
-                    return ground == Blocks.SNOW_BLOCK || ground == Blocks.SNOW || ground == Blocks.POWDER_SNOW ||
+                    return (ground == Blocks.SNOW_BLOCK || ground == Blocks.SNOW || ground == Blocks.POWDER_SNOW ||
                             ground == Blocks.ICE || ground == Blocks.BLUE_ICE || ground == Blocks.FROSTED_ICE || ground == Blocks.PACKED_ICE ||
-                            ground == Blocks.PODZOL || ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT;
+                            ground == Blocks.PODZOL || ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT) &&
+                            checkDensity(level, pos, FrozenSlime.class);
                 } else if (pos.getY() < 50) {
                     // TODO additional checks to avoid spawn near buildings
                     return isUndergroundBlock(ground) && checkDensity(level, pos, FrozenSlime.class);

@@ -4,12 +4,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingLookControl;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.goal.*;
@@ -22,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jspecify.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
@@ -116,7 +115,7 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
     }
 
     protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos, Class<AHostileFish> clazz) {
-        return level.getEntitiesOfClass(clazz, new AABB(pos).inflate(100)).size() <= 25;
+        return level.getEntitiesOfClass(clazz, new AABB(pos).inflate(150)).size() <= 10;
     }
 
 }

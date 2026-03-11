@@ -17,7 +17,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
@@ -125,7 +124,7 @@ public class MudSlime extends ASlime {
     }
 
     protected static boolean checkCommonSpawnRules(
-            EntityType<? extends ASlime> entityType, LevelAccessor level,
+            EntityType<? extends ASlime> entityType, ServerLevelAccessor level,
             EntitySpawnReason spawnReason, BlockPos pos, RandomSource random) {
         if (level.getDifficulty() != Difficulty.PEACEFUL) {
             if (EntitySpawnReason.isSpawner(spawnReason)) {
@@ -136,10 +135,11 @@ public class MudSlime extends ASlime {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
-                    return ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.MUD;
+                    return (ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.MUD) &&
+                            checkDensity(level, pos, MudSlime.class);
                 } else if (pos.getY() < 50) {
                     // TODO additional checks to avoid spawn near buildings
-                    return isUndergroundBlock(ground);
+                    return isUndergroundBlock(ground) && checkDensity(level, pos, MudSlime.class);
                 }
             }
         }

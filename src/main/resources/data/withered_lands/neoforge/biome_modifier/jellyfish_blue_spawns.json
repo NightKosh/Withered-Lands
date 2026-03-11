@@ -9,9 +9,9 @@
   "spawners": [
     {
       "type": "withered_lands:jellyfish_blue",
-      "weight": 100,
+      "weight": 50,
       "minCount": 2,
-      "maxCount": 5
+      "maxCount": 4
     }
   ]
 }

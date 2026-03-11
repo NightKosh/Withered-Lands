@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "withered_lands:jellyfish_white",
+    "withered_lands:jellyfish_blue",
+    "withered_lands:jellyfish_green",
+    "withered_lands:jellyfish_yellow",
+    "withered_lands:jellyfish_red",
+    "withered_lands:jellyfish_pink",
+    "withered_lands:jellyfish_purple"
+  ]
+}

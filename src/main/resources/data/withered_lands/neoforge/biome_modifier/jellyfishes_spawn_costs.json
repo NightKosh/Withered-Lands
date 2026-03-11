@@ -1,0 +1,9 @@
+{
+  "type": "neoforge:add_spawn_costs",
+  "biomes": "#c:is_overworld",
+  "entity_types": "#withered_lands:jellyfishes",
+  "spawn_cost": {
+    "energy_budget": 1,
+    "charge": 0.4
+  }
+}

@@ -99,9 +99,9 @@ public class VerdantSlime extends ASlime {
                     level.getBrightness(LightLayer.SKY, pos) > 0) {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 // TODO additional checks to avoid spawn near buildings
-                return ground == Blocks.GRASS_BLOCK || ground == Blocks.PODZOL || ground == Blocks.MYCELIUM ||
-                        ground == Blocks.DIRT || ground == Blocks.MUD || ground == Blocks.GRAVEL ||
-                        ground == Blocks.SAND;
+                return (ground == Blocks.GRASS_BLOCK || ground == Blocks.PODZOL || ground == Blocks.MYCELIUM ||
+                        ground == Blocks.DIRT || ground == Blocks.MUD || ground == Blocks.GRAVEL || ground == Blocks.SAND) &&
+                        checkDensity(level, pos, VerdantSlime.class);
             }
         }
 

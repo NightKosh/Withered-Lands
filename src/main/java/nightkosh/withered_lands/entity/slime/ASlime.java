@@ -184,7 +184,7 @@ public abstract class ASlime extends Slime {
     }
 
     protected static boolean checkDensity(ServerLevelAccessor level, BlockPos pos, Class clazz) {
-        return level.getEntitiesOfClass(clazz, new AABB(pos).inflate(100)).size() <= 25;
+        return level.getEntitiesOfClass(clazz, new AABB(pos).inflate(150)).size() <= 10;
     }
 
 }

@@ -130,10 +130,11 @@ public class SandySlime extends ASlime {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
-                    return ground == Blocks.SAND || ground == Blocks.RED_SAND;
+                    return (ground == Blocks.SAND || ground == Blocks.RED_SAND) &&
+                            checkDensity(level, pos, SandySlime.class);
                 } else if (pos.getY() < 50) {
                     // TODO additional checks to avoid spawn near buildings
-                    return isUndergroundBlock(ground);
+                    return isUndergroundBlock(ground) && checkDensity(level, pos, SandySlime.class);
                 }
             }
         }
