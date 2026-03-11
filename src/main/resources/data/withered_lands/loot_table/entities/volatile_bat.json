@@ -3,36 +3,45 @@
   "pools": [
     {
       "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance_with_enchanted_bonus",
+          "enchantment": "minecraft:looting",
+          "unenchanted_chance": 0.3,
+          "enchanted_chance": {
+            "type": "minecraft:linear",
+            "base": 0.2,
+            "per_level_above_first": 0.1
+          }
+        }
+      ],
       "entries": [
         {
           "weight": 30,
           "type": "item",
-          "name": "withered_lands:bat_wing",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
-              }
-            }
-          ]
-        },
+          "name": "withered_lands:bat_wing"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance_with_enchanted_bonus",
+          "enchantment": "minecraft:looting",
+          "unenchanted_chance": 0.1,
+          "enchanted_chance": {
+            "type": "minecraft:linear",
+            "base": 0.2,
+            "per_level_above_first": 0.1
+          }
+        }
+      ],
+      "entries": [
         {
           "weight": 10,
           "type": "minecraft:item",
-          "name": "minecraft:gunpowder",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "type": "minecraft:uniform",
-                "min": 1,
-                "max": 1
-              }
-            }
-          ]
+          "name": "minecraft:gunpowder"
         }
       ]
     }
