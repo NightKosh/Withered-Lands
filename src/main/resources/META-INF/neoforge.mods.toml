@@ -85,7 +85,7 @@ side="BOTH"
 modId="gravestone_extended"
 type="optional"
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="[2.0.0b12,)"
+versionRange="[2.0.0b13,)"
 ordering="BEFORE"
 side="BOTH"
 
