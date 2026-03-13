@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:lantern",
+    "withered_lands:ethereal_dust"
+  ],
+  "result" : {
+    "id": "minecraft:soul_lantern"
+  }
+}

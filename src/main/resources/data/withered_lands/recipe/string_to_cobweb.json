@@ -1,0 +1,16 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "sds",
+    "dsd",
+    "sds"
+  ],
+  "key": {
+    "s": "minecraft:string",
+    "d": "withered_lands:ethereal_dust"
+  },
+  "result" : {
+    "id": "minecraft:cobweb"
+  }
+}

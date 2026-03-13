@@ -1,0 +1,16 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "pdp",
+    "dpd",
+    "pdp"
+  ],
+  "key": {
+    "p": "minecraft:poisonous_potato",
+    "d": "withered_lands:ethereal_dust"
+  },
+  "result" : {
+    "id": "minecraft:slime_ball"
+  }
+}

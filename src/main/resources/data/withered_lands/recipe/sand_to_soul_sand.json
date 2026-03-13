@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "minecraft:sand",
+    "withered_lands:ethereal_dust"
+  ],
+  "result": {
+    "id": "minecraft:soul_sand"
+  }
+}

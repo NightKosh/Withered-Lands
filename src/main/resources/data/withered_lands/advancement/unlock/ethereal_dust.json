@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "has_my_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "withered_lands:ethereal_dust"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "withered_lands:snow_to_ice",
+      "withered_lands:dirt_to_soul_soil",
+      "withered_lands:sand_to_soul_sand",
+      "withered_lands:andesite_to_tuff",
+      "withered_lands:diorite_to_calcite",
+      "withered_lands:stone_to_deepslate",
+      "withered_lands:deepslate_to_blackstone",
+      "withered_lands:string_to_cobweb",
+      "withered_lands:ink_sac_to_glow_ink_sac",
+      "withered_lands:poisonous_potato_to_slime_ball",
+      "withered_lands:red_mushroom_to_crimson_fungus",
+      "withered_lands:brown_mushroom_to_warped_fungus",
+      "withered_lands:redstone_to_glowstone_dust",
+      "withered_lands:torch_to_soul_torch",
+      "withered_lands:lantern_to_soul_lantern"
+    ]
+  }
+}

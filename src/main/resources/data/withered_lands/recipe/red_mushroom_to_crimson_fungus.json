@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:red_mushroom",
+    "withered_lands:ethereal_dust"
+  ],
+  "result": {
+    "id": "minecraft:crimson_fungus"
+  }
+}

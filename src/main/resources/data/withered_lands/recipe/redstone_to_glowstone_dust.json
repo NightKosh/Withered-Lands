@@ -1,0 +1,16 @@
+{
+  "type" : "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " d ",
+    "drd",
+    " d "
+  ],
+  "key": {
+    "r": "minecraft:redstone",
+    "d": "withered_lands:ethereal_dust"
+  },
+  "result" : {
+    "id": "minecraft:glowstone_dust"
+  }
+}
