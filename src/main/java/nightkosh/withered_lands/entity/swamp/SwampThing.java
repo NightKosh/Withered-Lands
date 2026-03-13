@@ -42,7 +42,7 @@ public class SwampThing extends AWaterWalkingMob {
     @Override
     protected void registerTargetGoals() {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
-        this.targetSelector.addGoal(2, new AttackIfInWaterGoal<>(this, Player.class, false));
+        this.targetSelector.addGoal(2, new AttackIfInWaterGoal<>(this, Player.class, false, true));
     }
 
     @Override

@@ -1,5 +1,5 @@
 {
-  "parent": "withered_lands:thats_not_a_cod",
+  "parent": "withered_lands:get_out_of_my_swamp",
   "display": {
     "icon": { "id": "withered_lands:call_of_the_abyss" },
     "title": { "translate": "advancement.withered_lands.call_of_the_abyss" },

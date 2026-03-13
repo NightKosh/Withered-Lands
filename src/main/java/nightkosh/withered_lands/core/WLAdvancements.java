@@ -36,6 +36,7 @@ public class WLAdvancements {
     public static final Identifier THATS_NOT_A_COD = fromNamespaceAndPath(ModInfo.ID, "thats_not_a_cod");
     public static final Identifier STINGING_CATCH = fromNamespaceAndPath(ModInfo.ID, "stinging_catch");
     public static final Identifier JELLYFISH_JAM = fromNamespaceAndPath(ModInfo.ID, "jellyfish_jam");
+    public static final Identifier GET_OUT_OF_MY_SWAMP = fromNamespaceAndPath(ModInfo.ID, "get_out_of_my_swamp");
     public static final Identifier CALL_OF_THE_ABYSS = fromNamespaceAndPath(ModInfo.ID, "call_of_the_abyss");
 
     public static final Identifier SOMETHINGS_WRONG = fromNamespaceAndPath(ModInfo.ID, "somethings_wrong");

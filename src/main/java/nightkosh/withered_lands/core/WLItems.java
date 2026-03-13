@@ -410,6 +410,11 @@ public class WLItems {
             () -> new Item(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "eyes_in_the_dark")))));
 
+    public static final DeferredHolder<Item, Item> GET_OUT_OF_MY_SWAMP = ITEMS_REGISTER.register(
+            "get_out_of_my_swamp",
+            () -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "get_out_of_my_swamp")))));
+
     public static final DeferredHolder<Item, Item> CALL_OF_THE_ABYSS = ITEMS_REGISTER.register(
             "call_of_the_abyss",
             () -> new Item(new Item.Properties()
