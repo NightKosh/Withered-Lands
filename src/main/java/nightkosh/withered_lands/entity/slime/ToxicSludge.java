@@ -58,6 +58,8 @@ public class ToxicSludge extends ASlime {
             .add(Items.LAPIS_LAZULI, 4)
             .add(Items.REDSTONE, 3)
             .add(Items.AMETHYST_SHARD, 1)
+            .add(Items.EMERALD, 1)
+            .add(Items.DIAMOND, 1)
             // seeds and fruits
             .add(Items.GLOW_BERRIES, 3)
             .add(Items.BROWN_MUSHROOM, 5)
