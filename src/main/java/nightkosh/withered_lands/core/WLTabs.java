@@ -30,6 +30,7 @@ public class WLTabs {
                         output.accept(WLItems.SLIME_SOUP.get());
                         output.accept(WLItems.SLIME_CROWN.get());
                         output.accept(WLItems.BAT_WING.get());
+                        output.accept(WLItems.ETHEREAL_DUST.get());
 
                         // skulls
                         output.accept(WLItems.SKULL_HUSK.get());

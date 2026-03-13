@@ -37,16 +37,25 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:soul_sand",
+          "name": "withered_lands:ethereal_dust",
           "functions": [
             {
               "add": false,
               "count": {
-                "min": 0,
-                "max": 3,
+                "min": 1,
+                "max": 4,
                 "type": "minecraft:uniform"
               },
               "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1,
+                "min": 0
+              },
+              "enchantment": "minecraft:looting",
+              "function": "minecraft:enchanted_count_increase"
             }
           ]
         }

@@ -285,6 +285,12 @@ public class WLItems {
                             .build())
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "bat_wing")))));
 
+    public static final DeferredHolder<Item, Item> ETHEREAL_DUST = ITEMS_REGISTER.register(
+            "ethereal_dust",
+            () -> new Item(new Item.Properties()
+                    .stacksTo(64)
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "ethereal_dust")))));
+
     // skulls
     public static final DeferredHolder<Item, Item> SKULL_HUSK = ITEMS_REGISTER.register(
             "skull_husk",
