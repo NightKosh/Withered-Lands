@@ -38,6 +38,10 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
     ```
         /effect give @e[type=!minecraft:player] minecraft:glowing 1000000 0 true
     ```
+3. Spawn dungeon chest
+    ```
+        /setblock ~ ~ ~ minecraft:chest{LootTable:"minecraft:chests/simple_dungeon"}
+    ```
 
 ### Events:
 1. Slime Rain
