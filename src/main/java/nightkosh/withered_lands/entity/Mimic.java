@@ -127,7 +127,7 @@ public class Mimic extends AMonster implements IJumpingCube {
 
         if (this.onGround() && !this.wasOnGround) {
             this.jumpAnimationState.stop();
-            this.playSound(this.getJumpSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1) / 0.8F);
+            this.playSound(this.getJumpEndSound(), this.getSoundVolume(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1) / 0.8F);
         } else if (!this.onGround() && this.wasOnGround) {
             this.jumpAnimationState.startIfStopped(this.tickCount);
         }
@@ -208,8 +208,14 @@ public class Mimic extends AMonster implements IJumpingCube {
         return SoundEvents.WOOD_BREAK;
     }
 
+    @Nullable
     @Override
-    public SoundEvent getJumpSound() {
+    public SoundEvent getJumpStartSound() {
+        return SoundEvents.HOGLIN_ATTACK;
+    }
+
+    @Override
+    public SoundEvent getJumpEndSound() {
         return SoundEvents.WOOD_PLACE;
     }
 

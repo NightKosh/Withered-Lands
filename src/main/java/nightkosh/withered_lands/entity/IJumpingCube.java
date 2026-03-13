@@ -14,6 +14,8 @@ public interface IJumpingCube {
 
     float getSoundVolume();
 
-    SoundEvent getJumpSound();
+    SoundEvent getJumpStartSound();
+
+    SoundEvent getJumpEndSound();
 
 }

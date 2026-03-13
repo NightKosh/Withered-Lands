@@ -70,7 +70,7 @@ public class JumpingMoveControl extends MoveControl {
                     );
 
                     this.mob.playSound(
-                            jumpingMob.getJumpSound(), jumpingMob.getSoundVolume(),
+                            jumpingMob.getJumpStartSound(), jumpingMob.getSoundVolume(),
                             ((this.mob.getRandom().nextFloat() - this.mob.getRandom().nextFloat()) * 0.2F + 1) * 0.8F);
                 } else {
                     this.mob.xxa = 0;
