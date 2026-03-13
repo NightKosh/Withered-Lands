@@ -15,10 +15,10 @@
   },
   "rewards": {
     "recipes": [
-      "withered_lands:slime_gel_to_torch",
-      "withered_lands:slime_gel_chunk",
-      "withered_lands:slime_chunk_to_gel",
-      "withered_lands:slime_soup"
+      "withered_lands:slime/slime_gel_to_torch",
+      "withered_lands:slime/slime_gel_chunk",
+      "withered_lands:slime/slime_chunk_to_gel",
+      "withered_lands:slime/slime_soup"
     ]
   }
 }

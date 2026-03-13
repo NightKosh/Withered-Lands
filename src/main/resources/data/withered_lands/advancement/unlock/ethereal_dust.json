@@ -15,21 +15,21 @@
   },
   "rewards": {
     "recipes": [
-      "withered_lands:snow_to_ice",
-      "withered_lands:dirt_to_soul_soil",
-      "withered_lands:sand_to_soul_sand",
-      "withered_lands:andesite_to_tuff",
-      "withered_lands:diorite_to_calcite",
-      "withered_lands:stone_to_deepslate",
-      "withered_lands:deepslate_to_blackstone",
-      "withered_lands:string_to_cobweb",
-      "withered_lands:ink_sac_to_glow_ink_sac",
-      "withered_lands:poisonous_potato_to_slime_ball",
-      "withered_lands:red_mushroom_to_crimson_fungus",
-      "withered_lands:brown_mushroom_to_warped_fungus",
-      "withered_lands:redstone_to_glowstone_dust",
-      "withered_lands:torch_to_soul_torch",
-      "withered_lands:lantern_to_soul_lantern"
+      "withered_lands:ethereal_dust/snow_to_ice",
+      "withered_lands:ethereal_dust/dirt_to_soul_soil",
+      "withered_lands:ethereal_dust/sand_to_soul_sand",
+      "withered_lands:ethereal_dust/andesite_to_tuff",
+      "withered_lands:ethereal_dust/diorite_to_calcite",
+      "withered_lands:ethereal_dust/stone_to_deepslate",
+      "withered_lands:ethereal_dust/deepslate_to_blackstone",
+      "withered_lands:ethereal_dust/string_to_cobweb",
+      "withered_lands:ethereal_dust/ink_sac_to_glow_ink_sac",
+      "withered_lands:ethereal_dust/poisonous_potato_to_slime_ball",
+      "withered_lands:ethereal_dust/red_mushroom_to_crimson_fungus",
+      "withered_lands:ethereal_dust/brown_mushroom_to_warped_fungus",
+      "withered_lands:ethereal_dust/redstone_to_glowstone_dust",
+      "withered_lands:ethereal_dust/torch_to_soul_torch",
+      "withered_lands:ethereal_dust/lantern_to_soul_lantern"
     ]
   }
 }

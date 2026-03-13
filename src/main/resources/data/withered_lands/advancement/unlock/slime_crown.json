@@ -23,7 +23,7 @@
   },
   "rewards": {
     "recipes": [
-      "withered_lands:slime_crown"
+      "withered_lands:slime/slime_crown"
     ]
   }
 }
