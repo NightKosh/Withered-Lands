@@ -11,7 +11,10 @@ import net.minecraft.world.item.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import nightkosh.withered_lands.item.*;
+import nightkosh.withered_lands.item.MossLayerBlockItem;
+import nightkosh.withered_lands.item.MudLayerBlockItem;
+import nightkosh.withered_lands.item.SandLayerBlockItem;
+import nightkosh.withered_lands.item.SlimeCrown;
 
 import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 
@@ -243,7 +246,7 @@ public class WLItems {
     // items
     public static final DeferredHolder<Item, Item> SLIME_GEL = ITEMS_REGISTER.register(
             "slime_gel",
-            () -> new SlimeGel(new Item.Properties()
+            () -> new Item(new Item.Properties()
                     .stacksTo(64)
                     .food(new FoodProperties.Builder()
                             .nutrition(1)
@@ -277,7 +280,7 @@ public class WLItems {
 
     public static final DeferredHolder<Item, Item> BAT_WING = ITEMS_REGISTER.register(
             "bat_wing",
-            () -> new BatWing(new Item.Properties()
+            () -> new Item(new Item.Properties()
                     .stacksTo(64)
                     .food(new FoodProperties.Builder()
                             .nutrition(1)
