@@ -15,7 +15,7 @@ import org.jspecify.annotations.Nullable;
  */
 public class AttackIfInWaterGoal<T extends LivingEntity> extends NearestAttackableTargetGoal<T> {
 
-    private boolean giveAchievement;
+    private final boolean giveAchievement;
 
     public AttackIfInWaterGoal(Mob mob, Class<T> targetType, boolean mustSee) {
         this(mob, targetType, mustSee, false);
