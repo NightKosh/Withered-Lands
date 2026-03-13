@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group" : "torch",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:torch"
+  ],
+  "result" : {
+    "id": "withered_lands:extinguished_torch"
+  }
+}

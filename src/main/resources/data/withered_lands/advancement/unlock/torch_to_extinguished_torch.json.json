@@ -7,8 +7,8 @@
           {
             "items": [
               "minecraft:torch",
-              "minecraft:copper_ingot",
-              "minecraft:copper_nugget"
+              "minecraft:copper_torch",
+              "minecraft:soul_torch"
             ]
           }
         ]
@@ -17,7 +17,9 @@
   },
   "rewards": {
     "recipes": [
-      "withered_lands:torch/torch_to_copper_torch"
+      "withered_lands:torch/torch_to_extinguished_torch",
+      "withered_lands:torch/copper_torch_to_extinguished_copper_torch",
+      "withered_lands:torch/soul_torch_to_extinguished_soul_torch"
     ]
   }
 }
