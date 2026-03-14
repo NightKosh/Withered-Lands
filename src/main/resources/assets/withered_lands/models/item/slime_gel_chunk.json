@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/slime_block",
-  "textures": {
-    "particle": "withered_lands:item/slime_gel_chunk",
-    "texture": "withered_lands:item/slime_gel_chunk"
-  }
-}

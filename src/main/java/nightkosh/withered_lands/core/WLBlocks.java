@@ -4,6 +4,9 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -23,6 +26,16 @@ public class WLBlocks {
 
     public static final DeferredRegister<Block> BLOCKS_REGISTER =
             DeferredRegister.create(Registries.BLOCK, ModInfo.ID);
+
+    public static final ResourceKey SLIME_GEL_CHUNK_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "slime_gel_chunk"));
+    public static final DeferredHolder<Block, Block> SLIME_GEL_CHUNK = registerBlock(
+            "slime_gel_chunk", () -> new Block(BlockBehaviour.Properties.of()
+                    .sound(SoundType.SLIME_BLOCK)
+                    .mapColor(MapColor.GRASS)
+                    .friction(0.8F)
+                    .noOcclusion()
+                    .setId(SLIME_GEL_CHUNK_RK)));
 
     public static final ResourceKey SKULL_HUSK_RK = ResourceKey.create(
             Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "skull_husk"));

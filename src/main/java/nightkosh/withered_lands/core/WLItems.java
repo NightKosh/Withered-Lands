@@ -256,9 +256,9 @@ public class WLItems {
 
     public static final DeferredHolder<Item, Item> SLIME_GEL_CHUNK = ITEMS_REGISTER.register(
             "slime_gel_chunk",
-            () -> new Item(new Item.Properties()
+            () -> new BlockItem(WLBlocks.SLIME_GEL_CHUNK.get(), new Item.Properties()
                     .stacksTo(64)
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "slime_gel_chunk")))));
+                    .setId(WLBlocks.SLIME_GEL_CHUNK_RK)));
 
     public static final DeferredHolder<Item, Item> SLIME_SOUP = ITEMS_REGISTER.register(
             "slime_soup",

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slime_block",
+  "render_type": "translucent",
+  "textures": {
+    "particle": "withered_lands:block/slime_gel_chunk",
+    "texture": "withered_lands:block/slime_gel_chunk"
+  }
+}
