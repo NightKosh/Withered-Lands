@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sugar",
+    "minecraft:snowball",
+    "withered_lands:ethereal_dust"
+  ],
+  "result": {
+    "id": "withered_lands:ethereal_ice_cream"
+  }
+}

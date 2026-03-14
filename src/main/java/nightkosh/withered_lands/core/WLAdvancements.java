@@ -49,6 +49,7 @@ public class WLAdvancements {
 
     public static final Identifier SUPERNATURAL = fromNamespaceAndPath(ModInfo.ID, "supernatural");
     public static final Identifier A_CURSED_REWARD = fromNamespaceAndPath(ModInfo.ID, "a_cursed_reward");
+    public static final Identifier DELICIOUS_IN_DUNGEON = fromNamespaceAndPath(ModInfo.ID, "delicious_in_dungeon");
     public static final Identifier PET_SEMATARY = fromNamespaceAndPath(ModInfo.ID, "pet_sematary");
     public static final Identifier EYES_IN_THE_DARK = fromNamespaceAndPath(ModInfo.ID, "eyes_in_the_dark");
     public static final Identifier WHOS_A_GOOD_BOY = fromNamespaceAndPath(ModInfo.ID, "whos_a_good_boy");

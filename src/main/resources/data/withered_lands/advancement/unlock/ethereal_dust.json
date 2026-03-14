@@ -15,6 +15,7 @@
   },
   "rewards": {
     "recipes": [
+      "withered_lands:ethereal_dust/ethereal_ice_cream",
       "withered_lands:ethereal_dust/snow_to_ice",
       "withered_lands:ethereal_dust/dirt_to_soul_soil",
       "withered_lands:ethereal_dust/sand_to_soul_sand",

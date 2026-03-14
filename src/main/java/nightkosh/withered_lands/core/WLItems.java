@@ -294,6 +294,16 @@ public class WLItems {
                     .stacksTo(64)
                     .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "ethereal_dust")))));
 
+    public static final DeferredHolder<Item, Item> ETHEREAL_ICE_CREAM = ITEMS_REGISTER.register(
+            "ethereal_ice_cream",
+            () -> new Item(new Item.Properties()
+                    .stacksTo(64)
+                    .food(new FoodProperties.Builder()
+                            .nutrition(7)
+                            .saturationModifier(0.4F)
+                            .build())
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "ethereal_ice_cream")))));
+
     // skulls
     public static final DeferredHolder<Item, Item> SKULL_HUSK = ITEMS_REGISTER.register(
             "skull_husk",
