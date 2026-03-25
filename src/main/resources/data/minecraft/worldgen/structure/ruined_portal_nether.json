@@ -18,7 +18,7 @@
       "bounding_box": "piece",
       "spawns": [
         {
-          "type": "withered_lands:molten_slime",
+          "type": "withered_lands:slime_molten",
           "weight": 200,
           "minCount": 7,
           "maxCount": 10

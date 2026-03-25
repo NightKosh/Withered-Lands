@@ -1,12 +1,15 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,9 +19,12 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -28,29 +34,35 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class MoltenSlime extends ASlime {
+public class SlimeSandy extends ASlime {
 
     private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
-            .add(Items.SOUL_TORCH, 10)
-            .add(Items.SOUL_LANTERN, 4)
-            .add(Items.ARROW, 4)
-            .add(Items.STONE_SWORD, 1)
-            .add(Items.STONE_PICKAXE, 1)
-            // ores
-            .add(Items.GOLD_NUGGET, 6)
-            .add(Items.QUARTZ, 4)
-            .add(Items.GLOWSTONE_DUST, 2)
+            .add(Items.TORCH, 8)
+            .add(Items.STICK, 6)
+            // animals
+            .add(Items.BROWN_EGG, 2)
+            .add(Items.FEATHER, 3)
+            .add(Items.CHICKEN, 1)
+            .add(Items.RABBIT, 1)
+            .add(Items.RABBIT_HIDE, 2)
+            .add(Items.ARMADILLO_SCUTE, 1)
             // seeds and fruits
-            .add(Items.CRIMSON_FUNGUS, 3)
-            .add(Items.WARPED_FUNGUS, 3)
-            .add(Items.WEEPING_VINES, 3)
-            .add(Items.TWISTING_VINES, 3)
+            .add(Items.CACTUS, 4)
+            .add(Items.CACTUS_FLOWER, 1)
+            .add(Items.DEAD_BUSH, 1)
+            // saplings
+            .add(Items.ACACIA_SAPLING, 3)
+            .add(Items.SUGAR_CANE, 2)
             // other
-            .add(Items.BONE, 5)
-            .add(Items.BLAZE_POWDER, 1)
+            .add(Items.GOLD_NUGGET, 1)
+            .add(Items.BONE, 3)
+            .add(Items.ROTTEN_FLESH, 1)
             .build();
 
-    public MoltenSlime(EntityType<? extends ASlime> entityType, Level level) {
+    private static final BlockParticleOption PARTICLE = new BlockParticleOption(
+            ParticleTypes.BLOCK, Blocks.SAND.defaultBlockState());
+
+    public SlimeSandy(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -60,47 +72,33 @@ public class MoltenSlime extends ASlime {
     }
 
     @Override
-    protected int getSwallowedItemsChance() {
-        return 60;
-    }
-
-    @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        if (WLConfigs.MOLTEN_SLIME_FIRE_DEBUFF.get()) {
-            entity.igniteForSeconds(3);
+        if (WLConfigs.SANDY_SLIME_SLOWNESS_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, TimeHelper.SECONDS_5), this);
         }
     }
 
     @Override
     public void die(@Nonnull DamageSource damageSource) {
         super.die(damageSource);
-        if (WLConfigs.MOLTEN_SLIME_LAVA.get()) {
-            placeBlockAtDeath(Blocks.LAVA.defaultBlockState());
+        if (WLConfigs.SANDY_SLIME_SAND.get()) {
+            placeBlockAtDeath(Blocks.SAND.defaultBlockState());
         }
     }
 
     @Override
     public void aiStep() {
         super.aiStep();
-        if (WLConfigs.MOLTEN_SLIME_SPREAD_FIRE.get()) {
-            this.spreadBlocks(Blocks.FIRE.defaultBlockState());
-        }
-    }
-
-    @Override
-    public void tick() {
-        super.tick();
-
-        if (!level().isClientSide() && this.isInWater()) {
-            this.hurt(this.damageSources().freeze(), 1);
+        if (WLConfigs.SANDY_SLIME_SPREAD_SAND.get()) {
+            this.spreadBlocks(WLBlocks.LAYER_SAND.get().defaultBlockState());
         }
     }
 
     @Nonnull
     @Override
     protected ParticleOptions getParticleType() {
-        return ParticleTypes.SMALL_FLAME;
+        return PARTICLE;
     }
 
     public static AttributeSupplier createAttributeSupplier() {
@@ -114,7 +112,7 @@ public class MoltenSlime extends ASlime {
     public static boolean checkSpawnRules(
             EntityType<? extends ASlime> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.MOLTEN_SLIME_SPAWN.get() &&
+        return WLConfigs.SANDY_SLIME_SPAWN.get() &&
                 checkCommonSpawnRules(entityType, levelAccessor, spawnReason, blockPos, random);
     }
 
@@ -125,19 +123,19 @@ public class MoltenSlime extends ASlime {
             if (EntitySpawnReason.isSpawner(spawnReason)) {
                 return checkMobSpawnRules(entityType, level, spawnReason, pos, random);
             }
-            if (level instanceof Level l && l.dimension() != Level.NETHER) {
-                // avoid additional checks out of the nether
-                return true;
-            } else {
-                // Do not check light, otherwise it prevent slime spawn near ruined portals and in lava
-                var ground = level.getBlockState(pos.below());
-                return (ground.is(Blocks.NETHERRACK) || ground.is(Blocks.SOUL_SAND) || ground.is(Blocks.BASALT) ||
-                        ground.is(Blocks.MAGMA_BLOCK) || ground.is(Blocks.CRIMSON_NYLIUM) || ground.is(Blocks.WARPED_NYLIUM) ||
-                        ground.is(Blocks.OBSIDIAN) || ground.is(Blocks.GOLD_BLOCK) || ground.is(Blocks.LAVA) ||
-                        ground.is(Blocks.GRASS_BLOCK) || ground.is(Blocks.PODZOL) || ground.is(Blocks.MYCELIUM) ||
-                        ground.is(Blocks.DIRT) || ground.is(Blocks.MUD) || ground.is(Blocks.GRAVEL) ||
-                        ground.is(Blocks.SAND)) &&
-                        checkDensity(level, pos, MoltenSlime.class);
+
+            if (level.canSeeSky(pos) &&
+                    level.getBrightness(LightLayer.BLOCK, pos) == 0 &&
+                    level.getBrightness(LightLayer.SKY, pos) > 0) {
+                var ground = level.getBlockState(pos.below()).getBlock();
+                if (level.canSeeSky(pos)) {
+                    // TODO additional checks to avoid spawn near buildings
+                    return (ground == Blocks.SAND || ground == Blocks.RED_SAND) &&
+                            checkDensity(level, pos, SlimeSandy.class);
+                } else if (pos.getY() < 50) {
+                    // TODO additional checks to avoid spawn near buildings
+                    return isUndergroundBlock(ground) && checkDensity(level, pos, SlimeSandy.class);
+                }
             }
         }
 

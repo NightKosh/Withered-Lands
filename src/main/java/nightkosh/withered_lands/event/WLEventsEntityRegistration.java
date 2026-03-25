@@ -57,15 +57,15 @@ public class WLEventsEntityRegistration {
     @SubscribeEvent
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
         // slimes
-        event.put(WLEntities.VERDANT_SLIME.get(), VerdantSlime.createAttributeSupplier());
-        event.put(WLEntities.SANDY_SLIME.get(), SandySlime.createAttributeSupplier());
-        event.put(WLEntities.FROZEN_SLIME.get(), FrozenSlime.createAttributeSupplier());
-        event.put(WLEntities.MUD_SLIME.get(), MudSlime.createAttributeSupplier());
-        event.put(WLEntities.JUNGLE_SLIME.get(), JungleSlime.createAttributeSupplier());
-        event.put(WLEntities.CAVE_SLIME.get(), CaveSlime.createAttributeSupplier());
-        event.put(WLEntities.ABYSSAL_SLIME.get(), AbyssalSlime.createAttributeSupplier());
-        event.put(WLEntities.TOXIC_SLUDGE.get(), ToxicSludge.createAttributeSupplier());
-        event.put(WLEntities.MOLTEN_SLIME.get(), MoltenSlime.createAttributeSupplier());
+        event.put(WLEntities.SLIME_VERDANT.get(), SlimeVerdant.createAttributeSupplier());
+        event.put(WLEntities.SLIME_SANDY.get(), SlimeSandy.createAttributeSupplier());
+        event.put(WLEntities.SLIME_FROZEN.get(), SlimeFrozen.createAttributeSupplier());
+        event.put(WLEntities.SLIME_MUD.get(), SlimeMud.createAttributeSupplier());
+        event.put(WLEntities.SLIME_JUNGLE.get(), SlimeJungle.createAttributeSupplier());
+        event.put(WLEntities.SLIME_CAVE.get(), SlimeCave.createAttributeSupplier());
+        event.put(WLEntities.SLIME_ABYSSAL.get(), SlimeAbyssal.createAttributeSupplier());
+        event.put(WLEntities.SLIME_TOXIC_SLUDGE.get(), SlimeToxicSludge.createAttributeSupplier());
+        event.put(WLEntities.SLIME_MOLTEN.get(), SlimeMolten.createAttributeSupplier());
         // bats
         event.put(WLEntities.CAVE_BAT.get(), CaveBat.createAttributeSupplier());
         event.put(WLEntities.VAMPIRE_BAT.get(), VampireBat.createAttributeSupplier());
@@ -145,58 +145,58 @@ public class WLEventsEntityRegistration {
     @SubscribeEvent
     public static void registerSpawnPlacement(RegisterSpawnPlacementsEvent event) {
         // slimes
-        event.register(WLEntities.VERDANT_SLIME.get(),
+        event.register(WLEntities.SLIME_VERDANT.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                VerdantSlime::checkSpawnRules,
+                SlimeVerdant::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.SANDY_SLIME.get(),
+        event.register(WLEntities.SLIME_SANDY.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
-                SandySlime::checkSpawnRules,
+                SlimeSandy::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.FROZEN_SLIME.get(),
+        event.register(WLEntities.SLIME_FROZEN.get(),
                 SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.WORLD_SURFACE,
-                FrozenSlime::checkSpawnRules,
+                SlimeFrozen::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.MUD_SLIME.get(),
+        event.register(WLEntities.SLIME_MUD.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
-                MudSlime::checkSpawnRules,
+                SlimeMud::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.JUNGLE_SLIME.get(),
+        event.register(WLEntities.SLIME_JUNGLE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.WORLD_SURFACE,
-                JungleSlime::checkSpawnRules,
+                SlimeJungle::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.CAVE_SLIME.get(),
+        event.register(WLEntities.SLIME_CAVE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                CaveSlime::checkSpawnRules,
+                SlimeCave::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.ABYSSAL_SLIME.get(),
+        event.register(WLEntities.SLIME_ABYSSAL.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                AbyssalSlime::checkSpawnRules,
+                SlimeAbyssal::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.TOXIC_SLUDGE.get(),
+        event.register(WLEntities.SLIME_TOXIC_SLUDGE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                ToxicSludge::checkSpawnRules,
+                SlimeToxicSludge::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.MOLTEN_SLIME.get(),
+        event.register(WLEntities.SLIME_MOLTEN.get(),
                 SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.WORLD_SURFACE,
-                MoltenSlime::checkSpawnRules,
+                SlimeMolten::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // bats

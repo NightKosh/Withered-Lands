@@ -11,14 +11,14 @@
   },
   "sends_telemetry_event": true,
   "criteria": {
-    "withered_lands:molten_slime": {
+    "withered_lands:slime_molten": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:molten_slime"
+              "type": "withered_lands:slime_molten"
             }
           }
         ]
@@ -28,7 +28,7 @@
   },
   "requirements": [
     [
-      "withered_lands:molten_slime"
+      "withered_lands:slime_molten"
     ]
   ]
 }

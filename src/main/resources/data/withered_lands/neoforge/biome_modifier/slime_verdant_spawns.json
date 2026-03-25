@@ -31,7 +31,7 @@
   ],
   "spawners": [
     {
-      "type": "withered_lands:verdant_slime",
+      "type": "withered_lands:slime_verdant",
       "weight": 100,
       "minCount": 3,
       "maxCount": 5

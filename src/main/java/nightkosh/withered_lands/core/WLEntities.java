@@ -62,106 +62,106 @@ public class WLEntities {
             DeferredRegister.create(Registries.ENTITY_TYPE, ModInfo.ID);
 
     // slimes
-    public static final DeferredHolder<EntityType<?>, EntityType<VerdantSlime>> VERDANT_SLIME =
-            ENTITY_TYPES_REGISTER.register("verdant_slime",
-                    () -> EntityType.Builder.of(VerdantSlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeVerdant>> SLIME_VERDANT =
+            ENTITY_TYPES_REGISTER.register("slime_verdant",
+                    () -> EntityType.Builder.of(SlimeVerdant::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "verdant_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_verdant"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<SandySlime>> SANDY_SLIME =
-            ENTITY_TYPES_REGISTER.register("sandy_slime",
-                    () -> EntityType.Builder.of(SandySlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeSandy>> SLIME_SANDY =
+            ENTITY_TYPES_REGISTER.register("slime_sandy",
+                    () -> EntityType.Builder.of(SlimeSandy::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "sandy_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_sandy"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<FrozenSlime>> FROZEN_SLIME =
-            ENTITY_TYPES_REGISTER.register("frozen_slime",
-                    () -> EntityType.Builder.of(FrozenSlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeFrozen>> SLIME_FROZEN =
+            ENTITY_TYPES_REGISTER.register("slime_frozen",
+                    () -> EntityType.Builder.of(SlimeFrozen::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
                             .immuneTo(Blocks.POWDER_SNOW)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "frozen_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_frozen"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<MudSlime>> MUD_SLIME =
-            ENTITY_TYPES_REGISTER.register("mud_slime",
-                    () -> EntityType.Builder.of(MudSlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeMud>> SLIME_MUD =
+            ENTITY_TYPES_REGISTER.register("slime_mud",
+                    () -> EntityType.Builder.of(SlimeMud::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "mud_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_mud"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<JungleSlime>> JUNGLE_SLIME =
-            ENTITY_TYPES_REGISTER.register("jungle_slime",
-                    () -> EntityType.Builder.of(JungleSlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeJungle>> SLIME_JUNGLE =
+            ENTITY_TYPES_REGISTER.register("slime_jungle",
+                    () -> EntityType.Builder.of(SlimeJungle::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "jungle_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_jungle"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<CaveSlime>> CAVE_SLIME =
-            ENTITY_TYPES_REGISTER.register("cave_slime",
-                    () -> EntityType.Builder.of(CaveSlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeCave>> SLIME_CAVE =
+            ENTITY_TYPES_REGISTER.register("slime_cave",
+                    () -> EntityType.Builder.of(SlimeCave::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "cave_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_cave"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<AbyssalSlime>> ABYSSAL_SLIME =
-            ENTITY_TYPES_REGISTER.register("abyssal_slime",
-                    () -> EntityType.Builder.of(AbyssalSlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeAbyssal>> SLIME_ABYSSAL =
+            ENTITY_TYPES_REGISTER.register("slime_abyssal",
+                    () -> EntityType.Builder.of(SlimeAbyssal::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "abyssal_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_abyssal"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<ToxicSludge>> TOXIC_SLUDGE =
-            ENTITY_TYPES_REGISTER.register("toxic_sludge",
-                    () -> EntityType.Builder.of(ToxicSludge::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeToxicSludge>> SLIME_TOXIC_SLUDGE =
+            ENTITY_TYPES_REGISTER.register("slime_toxic_sludge",
+                    () -> EntityType.Builder.of(SlimeToxicSludge::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "toxic_sludge"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_toxic_sludge"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<MoltenSlime>> MOLTEN_SLIME =
-            ENTITY_TYPES_REGISTER.register("molten_slime",
-                    () -> EntityType.Builder.of(MoltenSlime::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<SlimeMolten>> SLIME_MOLTEN =
+            ENTITY_TYPES_REGISTER.register("slime_molten",
+                    () -> EntityType.Builder.of(SlimeMolten::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .spawnDimensionsScale(4.0F)
+                            .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
                             .fireImmune()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "molten_slime"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "slime_molten"))));
 
     // bats
     public static final DeferredHolder<EntityType<?>, EntityType<CaveBat>> CAVE_BAT =

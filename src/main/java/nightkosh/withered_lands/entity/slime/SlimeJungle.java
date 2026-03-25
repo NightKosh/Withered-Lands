@@ -1,7 +1,6 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
@@ -20,8 +19,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.gameevent.GameEvent;
-import net.neoforged.neoforge.event.EventHooks;
 import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
@@ -34,40 +31,35 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class MudSlime extends ASlime {
+public class SlimeJungle extends ASlime {
 
     private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
             .add(Items.TORCH, 6)
             .add(Items.STICK, 5)
-            .add(Items.CLAY_BALL, 8)
-            // flowers
-            .add(Items.BLUE_ORCHID, 3)
             // chicken
-            .add(Items.EGG, 2)
+            .add(Items.BROWN_EGG, 2)
             .add(Items.FEATHER, 3)
             .add(Items.CHICKEN, 1)
             // bee
             .add(Items.HONEYCOMB, 1)
             // seeds and fruits
-            .add(Items.CARROT, 2)
-            .add(Items.POTATO, 2)
-            .add(Items.POISONOUS_POTATO, 1)
-            .add(Items.BROWN_MUSHROOM, 4)
-            .add(Items.RED_MUSHROOM, 4)
+            .add(Items.MELON_SEEDS, 2)
+            .add(Items.MELON_SLICE, 2)
+            .add(Items.COCOA_BEANS, 3)
             // saplings
-            .add(Items.OAK_SAPLING, 2)
-            .add(Items.MANGROVE_PROPAGULE, 2)
-            .add(Items.SUGAR_CANE, 7)
-            .add(Items.LILY_PAD, 5)
-            .add(Items.VINE, 6)
+            .add(Items.JUNGLE_SAPLING, 2)
+            .add(Items.BAMBOO, 2)
+            .add(Items.SUGAR_CANE, 4)
+            .add(Items.VINE, 5)
             // other
+            .add(Items.TROPICAL_FISH, 1)
             .add(Items.BONE, 3)
             .add(Items.ROTTEN_FLESH, 2)
-            .add(Items.SPIDER_EYE, 3)
-            .add(Items.STRING, 5)
+            .add(Items.SPIDER_EYE, 2)
+            .add(Items.STRING, 3)
             .build();
 
-    public MudSlime(EntityType<? extends ASlime> entityType, Level level) {
+    public SlimeJungle(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -77,34 +69,26 @@ public class MudSlime extends ASlime {
     }
 
     @Override
-    protected void applyEffect(LivingEntity entity) {
-        super.applyEffect(entity);
-        if (WLConfigs.MUD_SLIME_NAUSEA_DEBUFF.get()) {
-            entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_10), this);
-        }
-    }
-
-    @Override
     public void die(@Nonnull DamageSource damageSource) {
         super.die(damageSource);
-        if (WLConfigs.MUD_SLIME_MUD.get()) {
-            placeBlockAtDeath(Blocks.MUD.defaultBlockState());
+        if (WLConfigs.JUNGLE_SLIME_MOSS.get()) {
+            placeBlockAtDeath(Blocks.MOSS_BLOCK.defaultBlockState());
         }
     }
 
     @Override
     public void aiStep() {
         super.aiStep();
-        if (this.level() instanceof ServerLevel level && EventHooks.canEntityGrief(level, this)) {
-            var blockstate = Blocks.MUD.defaultBlockState();
-            var blockpos = this.blockPosition().below();
-            if (this.level().getBlockState(blockpos).is(Blocks.DIRT)) {
-                this.level().setBlockAndUpdate(blockpos, blockstate);
-                this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
-            }
+        if (WLConfigs.JUNGLE_SLIME_SPREAD_MOSS.get()) {
+            this.spreadBlocks(WLBlocks.LAYER_MOSS.get().defaultBlockState());
         }
-        if (WLConfigs.MUD_SLIME_SPREAD_MUD.get()) {
-            this.spreadBlocks(WLBlocks.LAYER_MUD.get().defaultBlockState());
+    }
+
+    @Override
+    protected void applyEffect(LivingEntity entity) {
+        super.applyEffect(entity);
+        if (WLConfigs.JUNGLE_SLIME_POISON_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.POISON, TimeHelper.SECONDS_5), this);
         }
     }
 
@@ -119,7 +103,7 @@ public class MudSlime extends ASlime {
     public static boolean checkSpawnRules(
             EntityType<? extends ASlime> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.MUD_SLIME_SPAWN.get() &&
+        return WLConfigs.JUNGLE_SLIME_SPAWN.get() &&
                 checkCommonSpawnRules(entityType, levelAccessor, spawnReason, blockPos, random);
     }
 
@@ -135,11 +119,12 @@ public class MudSlime extends ASlime {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
-                    return (ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.MUD) &&
-                            checkDensity(level, pos, MudSlime.class);
+                    return (ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.MUD ||
+                            ground == Blocks.PODZOL || ground == Blocks.JUNGLE_LEAVES) &&
+                            checkDensity(level, pos, SlimeJungle.class);
                 } else if (pos.getY() < 50) {
                     // TODO additional checks to avoid spawn near buildings
-                    return isUndergroundBlock(ground) && checkDensity(level, pos, MudSlime.class);
+                    return isUndergroundBlock(ground) && checkDensity(level, pos, SlimeJungle.class);
                 }
             }
         }

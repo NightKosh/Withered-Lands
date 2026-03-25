@@ -31,32 +31,32 @@ public class WLItems {
             DeferredRegister.create(Registries.ITEM, ModInfo.ID);
 
     // slimes
-    public static final DeferredHolder<Item, Item> VERDANT_SLIME_EGG =
-            registerEgg(WLEntities.VERDANT_SLIME, "verdant_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_VERDANT_EGG =
+            registerEgg(WLEntities.SLIME_VERDANT, "slime_verdant_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> SANDY_SLIME_EGG =
-            registerEgg(WLEntities.SANDY_SLIME, "sandy_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_SANDY_EGG =
+            registerEgg(WLEntities.SLIME_SANDY, "slime_sandy_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> FROZEN_SLIME_EGG =
-            registerEgg(WLEntities.FROZEN_SLIME, "frozen_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_FROZEN_EGG =
+            registerEgg(WLEntities.SLIME_FROZEN, "slime_frozen_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> MUD_SLIME_EGG =
-            registerEgg(WLEntities.MUD_SLIME, "mud_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_MUD_EGG =
+            registerEgg(WLEntities.SLIME_MUD, "slime_mud_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> JUNGLE_SLIME_EGG =
-            registerEgg(WLEntities.JUNGLE_SLIME, "jungle_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_JUNGLE_EGG =
+            registerEgg(WLEntities.SLIME_JUNGLE, "slime_jungle_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> CAVE_SLIME_EGG =
-            registerEgg(WLEntities.CAVE_SLIME, "cave_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_CAVE_EGG =
+            registerEgg(WLEntities.SLIME_CAVE, "slime_cave_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ABYSSAL_SLIME_EGG =
-            registerEgg(WLEntities.ABYSSAL_SLIME, "abyssal_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_ABYSSAL_EGG =
+            registerEgg(WLEntities.SLIME_ABYSSAL, "slime_abyssal_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> TOXIC_SLUDGE_EGG =
-            registerEgg(WLEntities.TOXIC_SLUDGE, "toxic_sludge_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_TOXIC_SLUDGE_EGG =
+            registerEgg(WLEntities.SLIME_TOXIC_SLUDGE, "slime_toxic_sludge_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> MOLTEN_SLIME_EGG =
-            registerEgg(WLEntities.MOLTEN_SLIME, "molten_slime_spawn_egg");
+    public static final DeferredHolder<Item, Item> SLIME_MOLTEN_EGG =
+            registerEgg(WLEntities.SLIME_MOLTEN, "slime_molten_spawn_egg");
 
     // bats
     public static final DeferredHolder<Item, Item> CAVE_BAT_EGG =

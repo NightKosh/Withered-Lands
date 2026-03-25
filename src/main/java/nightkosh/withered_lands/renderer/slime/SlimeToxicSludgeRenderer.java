@@ -12,21 +12,21 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class FrozenSlimeRenderer extends ASlimeRenderer {
+public class SlimeToxicSludgeRenderer extends ASlimeRenderer {
 
-    public FrozenSlimeRenderer(EntityRendererProvider.Context context) {
+    public SlimeToxicSludgeRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Nonnull
     @Override
     public Identifier getTextureLocation(WLSlimeRenderState state) {
-        return WLTextures.FROZEN_SLIME_INNER;
+        return WLTextures.SLIME_TOXIC_SLUDGE_INNER;
     }
 
     @Override
     public Identifier getOuterTextureLocation(WLSlimeRenderState state) {
-        return WLTextures.FROZEN_SLIME_OUTER;
+        return WLTextures.SLIME_TOXIC_SLUDGE_OUTER;
     }
 
 }

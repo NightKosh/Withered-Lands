@@ -11,14 +11,14 @@
   },
   "sends_telemetry_event": true,
   "criteria": {
-    "withered_lands:toxic_sludge": {
+    "withered_lands:slime_toxic_sludge": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:toxic_sludge"
+              "type": "withered_lands:slime_toxic_sludge"
             }
           }
         ]
@@ -28,7 +28,7 @@
   },
   "requirements": [
     [
-      "withered_lands:toxic_sludge"
+      "withered_lands:slime_toxic_sludge"
     ]
   ]
 }

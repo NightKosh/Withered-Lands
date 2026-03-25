@@ -41,7 +41,7 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class ToxicSludge extends ASlime {
+public class SlimeToxicSludge extends ASlime {
 
     private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
             .add(Items.TORCH, 8)
@@ -72,7 +72,7 @@ public class ToxicSludge extends ASlime {
             .add(WLItems.BAT_WING.get(), 5)
             .build();
 
-    public ToxicSludge(EntityType<? extends ASlime> entityType, Level level) {
+    public SlimeToxicSludge(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
     }
 

@@ -41,13 +41,13 @@ public class SlimeRainEvent {
             .withStyle(ChatFormatting.GREEN);
 
     private static final WeightedList<EntityType<?>> SLIMES = WeightedList.<EntityType<?>>builder()
-            .add(WLEntities.VERDANT_SLIME.get(), 9)
-            .add(WLEntities.SANDY_SLIME.get(), 4)
-            .add(WLEntities.FROZEN_SLIME.get(), 4)
-            .add(WLEntities.MUD_SLIME.get(), 4)
-            .add(WLEntities.JUNGLE_SLIME.get(), 3)
-            .add(WLEntities.CAVE_SLIME.get(), 2)
-            .add(WLEntities.ABYSSAL_SLIME.get(), 2)
+            .add(WLEntities.SLIME_VERDANT.get(), 9)
+            .add(WLEntities.SLIME_SANDY.get(), 4)
+            .add(WLEntities.SLIME_FROZEN.get(), 4)
+            .add(WLEntities.SLIME_MUD.get(), 4)
+            .add(WLEntities.SLIME_JUNGLE.get(), 3)
+            .add(WLEntities.SLIME_CAVE.get(), 2)
+            .add(WLEntities.SLIME_ABYSSAL.get(), 2)
             .build();
 
     private static final int SPAWN_HEIGHT = 320;
@@ -149,7 +149,7 @@ public class SlimeRainEvent {
                         player.blockPosition().getZ() + level.getRandom().nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF);
                 var size = this.getSlimeSize();
                 var slime = (ASlime) SLIMES.getRandom(level.getRandom())
-                        .orElse(WLEntities.VERDANT_SLIME.get())
+                        .orElse(WLEntities.SLIME_VERDANT.get())
                         .create(level, EntitySpawnReason.EVENT);
                 slime.addTag(ASlime.TAG_SLIME_RAIN);
                 slime.snapTo(pos.getX(), pos.getY(), pos.getZ());

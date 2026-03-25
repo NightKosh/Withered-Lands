@@ -54,15 +54,15 @@ public class WLTabs {
                         // ---------- eggs ----------
 
                         // slimes
-                        output.accept(WLItems.VERDANT_SLIME_EGG.get());
-                        output.accept(WLItems.SANDY_SLIME_EGG.get());
-                        output.accept(WLItems.FROZEN_SLIME_EGG.get());
-                        output.accept(WLItems.MUD_SLIME_EGG.get());
-                        output.accept(WLItems.JUNGLE_SLIME_EGG.get());
-                        output.accept(WLItems.CAVE_SLIME_EGG.get());
-                        output.accept(WLItems.ABYSSAL_SLIME_EGG.get());
-                        output.accept(WLItems.TOXIC_SLUDGE_EGG.get());
-                        output.accept(WLItems.MOLTEN_SLIME_EGG.get());
+                        output.accept(WLItems.SLIME_VERDANT_EGG.get());
+                        output.accept(WLItems.SLIME_SANDY_EGG.get());
+                        output.accept(WLItems.SLIME_FROZEN_EGG.get());
+                        output.accept(WLItems.SLIME_MUD_EGG.get());
+                        output.accept(WLItems.SLIME_JUNGLE_EGG.get());
+                        output.accept(WLItems.SLIME_CAVE_EGG.get());
+                        output.accept(WLItems.SLIME_ABYSSAL_EGG.get());
+                        output.accept(WLItems.SLIME_TOXIC_SLUDGE_EGG.get());
+                        output.accept(WLItems.SLIME_MOLTEN_EGG.get());
                         // bats
                         output.accept(WLItems.CAVE_BAT_EGG.get());
                         output.accept(WLItems.VAMPIRE_BAT_EGG.get());

@@ -18,7 +18,7 @@
   ],
   "spawners": [
     {
-      "type": "withered_lands:frozen_slime",
+      "type": "withered_lands:slime_frozen",
       "weight": 100,
       "minCount": 3,
       "maxCount": 5

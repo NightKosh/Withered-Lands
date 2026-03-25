@@ -7,7 +7,7 @@
   ],
   "spawners": [
     {
-      "type": "withered_lands:mud_slime",
+      "type": "withered_lands:slime_mud",
       "weight": 100,
       "minCount": 3,
       "maxCount": 7

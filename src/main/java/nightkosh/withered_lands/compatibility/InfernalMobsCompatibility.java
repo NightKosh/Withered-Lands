@@ -45,15 +45,15 @@ public class InfernalMobsCompatibility {
                 var classesAllowedMap = (HashMap<String, Boolean>) field.get(result);
 
 
-                classesAllowedMap.put(VerdantSlime.class.getSimpleName(), false);
-                classesAllowedMap.put(SandySlime.class.getSimpleName(), false);
-                classesAllowedMap.put(FrozenSlime.class.getSimpleName(), false);
-                classesAllowedMap.put(MudSlime.class.getSimpleName(), false);
-                classesAllowedMap.put(JungleSlime.class.getSimpleName(), false);
-                classesAllowedMap.put(CaveSlime.class.getSimpleName(), false);
-                classesAllowedMap.put(AbyssalSlime.class.getSimpleName(), false);
-                classesAllowedMap.put(ToxicSludge.class.getSimpleName(), false);
-                classesAllowedMap.put(MoltenSlime.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeVerdant.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeSandy.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeFrozen.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeMud.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeJungle.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeCave.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeAbyssal.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeToxicSludge.class.getSimpleName(), false);
+                classesAllowedMap.put(SlimeMolten.class.getSimpleName(), false);
 
                 classesAllowedMap.put(CaveBat.class.getSimpleName(), false);
                 classesAllowedMap.put(VampireBat.class.getSimpleName(), false);

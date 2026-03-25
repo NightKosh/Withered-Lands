@@ -3,7 +3,7 @@
   "biomes": "#c:is_overworld",
   "spawners": [
     {
-      "type": "withered_lands:toxic_sludge",
+      "type": "withered_lands:slime_toxic_sludge",
       "weight": 35,
       "minCount": 1,
       "maxCount": 3

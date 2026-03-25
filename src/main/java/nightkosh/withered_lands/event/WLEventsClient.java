@@ -63,15 +63,15 @@ public class WLEventsClient {
             LOGGER.info("EntityRenderersEvent.RegisterRenderers event triggered");
         }
         // slimes
-        event.registerEntityRenderer(WLEntities.VERDANT_SLIME.get(), VerdantSlimeRenderer::new);
-        event.registerEntityRenderer(WLEntities.SANDY_SLIME.get(), SandySlimeRenderer::new);
-        event.registerEntityRenderer(WLEntities.FROZEN_SLIME.get(), FrozenSlimeRenderer::new);
-        event.registerEntityRenderer(WLEntities.MUD_SLIME.get(), MudSlimeRenderer::new);
-        event.registerEntityRenderer(WLEntities.JUNGLE_SLIME.get(), JungleSlimeRenderer::new);
-        event.registerEntityRenderer(WLEntities.CAVE_SLIME.get(), CaveSlimeRenderer::new);
-        event.registerEntityRenderer(WLEntities.ABYSSAL_SLIME.get(), AbyssalSlimeRenderer::new);
-        event.registerEntityRenderer(WLEntities.TOXIC_SLUDGE.get(), ToxicSludgeRenderer::new);
-        event.registerEntityRenderer(WLEntities.MOLTEN_SLIME.get(), MoltenSlimeRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_VERDANT.get(), SlimeVerdantRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_SANDY.get(), SlimeSandyRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_FROZEN.get(), SlimeFrozenRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_MUD.get(), SlimeMudRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_JUNGLE.get(), SlimeJungleRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_CAVE.get(), SlimeCaveRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_ABYSSAL.get(), SlimeAbyssalRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_TOXIC_SLUDGE.get(), SlimeToxicSludgeRenderer::new);
+        event.registerEntityRenderer(WLEntities.SLIME_MOLTEN.get(), SlimeMoltenRenderer::new);
         // bats
         event.registerEntityRenderer(WLEntities.CAVE_BAT.get(), CaveBatRenderer::new);
         event.registerEntityRenderer(WLEntities.VAMPIRE_BAT.get(), VampireBatRenderer::new);

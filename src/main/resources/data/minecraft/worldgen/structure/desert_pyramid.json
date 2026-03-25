@@ -12,7 +12,7 @@
           "maxCount": 7
         },
         {
-          "type": "withered_lands:sandy_slime",
+          "type": "withered_lands:slime_sandy",
           "weight": 100,
           "minCount": 7,
           "maxCount": 10

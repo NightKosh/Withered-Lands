@@ -1,15 +1,13 @@
 package nightkosh.withered_lands.entity.slime;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleOptions;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -24,6 +22,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.event.EventHooks;
+import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
@@ -35,34 +34,40 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class FrozenSlime extends ASlime {
+public class SlimeMud extends ASlime {
 
     private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
-            .add(Items.TORCH, 8)
-            .add(Items.STICK, 6)
-            .add(Items.SNOWBALL, 8)
-            // animals
-            .add(Items.BLUE_EGG, 2)
+            .add(Items.TORCH, 6)
+            .add(Items.STICK, 5)
+            .add(Items.CLAY_BALL, 8)
+            // flowers
+            .add(Items.BLUE_ORCHID, 3)
+            // chicken
+            .add(Items.EGG, 2)
             .add(Items.FEATHER, 3)
             .add(Items.CHICKEN, 1)
-            .add(Items.RABBIT, 1)
-            .add(Items.RABBIT_HIDE, 2)
+            // bee
+            .add(Items.HONEYCOMB, 1)
             // seeds and fruits
-            .add(Items.SWEET_BERRIES, 6)
-            .add(Items.PUMPKIN_SEEDS, 4)
-            .add(Items.BEETROOT_SEEDS, 3)
-            .add(Items.BEETROOT, 2)
+            .add(Items.CARROT, 2)
+            .add(Items.POTATO, 2)
+            .add(Items.POISONOUS_POTATO, 1)
             .add(Items.BROWN_MUSHROOM, 4)
             .add(Items.RED_MUSHROOM, 4)
             // saplings
-            .add(Items.SPRUCE_SAPLING, 4)
+            .add(Items.OAK_SAPLING, 2)
+            .add(Items.MANGROVE_PROPAGULE, 2)
+            .add(Items.SUGAR_CANE, 7)
+            .add(Items.LILY_PAD, 5)
+            .add(Items.VINE, 6)
             // other
             .add(Items.BONE, 3)
-            .add(Items.ROTTEN_FLESH, 1)
-            .add(Items.SALMON, 1)
+            .add(Items.ROTTEN_FLESH, 2)
+            .add(Items.SPIDER_EYE, 3)
+            .add(Items.STRING, 5)
             .build();
 
-    public FrozenSlime(EntityType<? extends ASlime> entityType, Level level) {
+    public SlimeMud(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -74,47 +79,33 @@ public class FrozenSlime extends ASlime {
     @Override
     protected void applyEffect(LivingEntity entity) {
         super.applyEffect(entity);
-        if (WLConfigs.FROZEN_SLIME_FREEZING_DEBUFF.get()) {
-            entity.setTicksFrozen(entity.getTicksFrozen() + TimeHelper.SECONDS_10);
+        if (WLConfigs.MUD_SLIME_NAUSEA_DEBUFF.get()) {
+            entity.addEffect(new MobEffectInstance(MobEffects.NAUSEA, TimeHelper.SECONDS_10), this);
         }
     }
 
     @Override
     public void die(@Nonnull DamageSource damageSource) {
         super.die(damageSource);
-        if (WLConfigs.FROZEN_SLIME_SNOW.get()) {
-            placeBlockAtDeath(Blocks.POWDER_SNOW.defaultBlockState());
+        if (WLConfigs.MUD_SLIME_MUD.get()) {
+            placeBlockAtDeath(Blocks.MUD.defaultBlockState());
         }
     }
 
     @Override
     public void aiStep() {
         super.aiStep();
-        if (this.level() instanceof ServerLevel level) {
-            if (level.environmentAttributes().getValue(EnvironmentAttributes.SNOW_GOLEM_MELTS, this.position())) {
-                this.hurtServer(level, this.damageSources().onFire(), 1);
-            }
-
-            if (WLConfigs.FROZEN_SLIME_SPREAD_SNOW.get() && EventHooks.canEntityGrief(level, this)) {
-                var blockstate = Blocks.SNOW.defaultBlockState();
-                for (int i = 0; i < 4; i++) {
-                    var blockpos = new BlockPos(
-                            Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
-                            Mth.floor(this.getY()),
-                            Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
-                    if (this.level().getBlockState(blockpos).isAir() && blockstate.canSurvive(this.level(), blockpos)) {
-                        this.level().setBlockAndUpdate(blockpos, blockstate);
-                        this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
-                    }
-                }
+        if (this.level() instanceof ServerLevel level && EventHooks.canEntityGrief(level, this)) {
+            var blockstate = Blocks.MUD.defaultBlockState();
+            var blockpos = this.blockPosition().below();
+            if (this.level().getBlockState(blockpos).is(Blocks.DIRT)) {
+                this.level().setBlockAndUpdate(blockpos, blockstate);
+                this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
             }
         }
-    }
-
-    @Nonnull
-    @Override
-    protected ParticleOptions getParticleType() {
-        return ParticleTypes.SNOWFLAKE;
+        if (WLConfigs.MUD_SLIME_SPREAD_MUD.get()) {
+            this.spreadBlocks(WLBlocks.LAYER_MUD.get().defaultBlockState());
+        }
     }
 
     public static AttributeSupplier createAttributeSupplier() {
@@ -128,7 +119,7 @@ public class FrozenSlime extends ASlime {
     public static boolean checkSpawnRules(
             EntityType<? extends ASlime> entityType, ServerLevelAccessor levelAccessor,
             EntitySpawnReason spawnReason, BlockPos blockPos, RandomSource random) {
-        return WLConfigs.FROZEN_SLIME_SPAWN.get() &&
+        return WLConfigs.MUD_SLIME_SPAWN.get() &&
                 checkCommonSpawnRules(entityType, levelAccessor, spawnReason, blockPos, random);
     }
 
@@ -144,13 +135,11 @@ public class FrozenSlime extends ASlime {
                 var ground = level.getBlockState(pos.below()).getBlock();
                 if (level.canSeeSky(pos)) {
                     // TODO additional checks to avoid spawn near buildings
-                    return (ground == Blocks.SNOW_BLOCK || ground == Blocks.SNOW || ground == Blocks.POWDER_SNOW ||
-                            ground == Blocks.ICE || ground == Blocks.BLUE_ICE || ground == Blocks.FROSTED_ICE || ground == Blocks.PACKED_ICE ||
-                            ground == Blocks.PODZOL || ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT) &&
-                            checkDensity(level, pos, FrozenSlime.class);
+                    return (ground == Blocks.GRASS_BLOCK || ground == Blocks.DIRT || ground == Blocks.MUD) &&
+                            checkDensity(level, pos, SlimeMud.class);
                 } else if (pos.getY() < 50) {
                     // TODO additional checks to avoid spawn near buildings
-                    return isUndergroundBlock(ground) && checkDensity(level, pos, FrozenSlime.class);
+                    return isUndergroundBlock(ground) && checkDensity(level, pos, SlimeMud.class);
                 }
             }
         }

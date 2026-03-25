@@ -3,8 +3,8 @@
   "biomes": "#c:is_overworld",
   "spawners": [
     {
-      "type": "withered_lands:abyssal_slime",
-      "weight": 50,
+      "type": "withered_lands:slime_cave",
+      "weight": 70,
       "minCount": 3,
       "maxCount": 5
     }

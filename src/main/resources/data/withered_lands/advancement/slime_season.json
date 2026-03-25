@@ -1,7 +1,7 @@
 {
   "parent": "withered_lands:root",
   "display": {
-    "icon": { "id": "withered_lands:verdant_slime_spawn_egg" },
+    "icon": { "id": "withered_lands:slime_verdant_spawn_egg" },
     "title": { "translate": "advancement.withered_lands.slime_season" },
     "description": { "translate": "advancement.withered_lands.slime_season.desc" },
     "frame": "task",
@@ -10,126 +10,126 @@
     "hidden": false
   },
   "criteria": {
-    "withered_lands:verdant_slime": {
+    "withered_lands:slime_verdant": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:verdant_slime"
+              "type": "withered_lands:slime_verdant"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:sandy_slime": {
+    "withered_lands:slime_sandy": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:sandy_slime"
+              "type": "withered_lands:slime_sandy"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:frozen_slime": {
+    "withered_lands:slime_frozen": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:frozen_slime"
+              "type": "withered_lands:slime_frozen"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:mud_slime": {
+    "withered_lands:slime_mud": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:mud_slime"
+              "type": "withered_lands:slime_mud"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:jungle_slime": {
+    "withered_lands:slime_jungle": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jungle_slime"
+              "type": "withered_lands:slime_jungle"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:cave_slime": {
+    "withered_lands:slime_cave": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:cave_slime"
+              "type": "withered_lands:slime_cave"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:abyssal_slime": {
+    "withered_lands:slime_abyssal": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:abyssal_slime"
+              "type": "withered_lands:slime_abyssal"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:toxic_sludge": {
+    "withered_lands:slime_toxic_sludge": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:toxic_sludge"
+              "type": "withered_lands:slime_toxic_sludge"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:molten_slime": {
+    "withered_lands:slime_molten": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:molten_slime"
+              "type": "withered_lands:slime_molten"
             }
           }
         ]
@@ -139,15 +139,15 @@
   },
   "requirements": [
     [
-      "withered_lands:verdant_slime",
-      "withered_lands:sandy_slime",
-      "withered_lands:frozen_slime",
-      "withered_lands:mud_slime",
-      "withered_lands:jungle_slime",
-      "withered_lands:cave_slime",
-      "withered_lands:abyssal_slime",
-      "withered_lands:toxic_sludge",
-      "withered_lands:molten_slime"
+      "withered_lands:slime_verdant",
+      "withered_lands:slime_sandy",
+      "withered_lands:slime_frozen",
+      "withered_lands:slime_mud",
+      "withered_lands:slime_jungle",
+      "withered_lands:slime_cave",
+      "withered_lands:slime_abyssal",
+      "withered_lands:slime_toxic_sludge",
+      "withered_lands:slime_molten"
     ]
   ]
 }

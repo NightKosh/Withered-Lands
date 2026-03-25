@@ -32,7 +32,7 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class AbyssalSlime extends ASlime {
+public class SlimeAbyssal extends ASlime {
 
     private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
             .add(Items.TORCH, 8)
@@ -62,7 +62,7 @@ public class AbyssalSlime extends ASlime {
             .add(WLItems.BAT_WING.get(), 5)
             .build();
 
-    public AbyssalSlime(EntityType<? extends ASlime> entityType, Level level) {
+    public SlimeAbyssal(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
     }
 

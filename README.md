@@ -53,39 +53,39 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 ### Slimes spawn:
 1. Verdant slime
     ```
-        /summon withered_lands:verdant_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_verdant ~ ~ ~ {NoAI:1b}
     ```
 2. Sandy slime
     ```
-        /summon withered_lands:sandy_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_sandy ~ ~ ~ {NoAI:1b}
     ```
 3. Frozen slime
     ```
-        /summon withered_lands:frozen_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_frozen ~ ~ ~ {NoAI:1b}
     ```
 4. Mud slime
     ```
-        /summon withered_lands:mud_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_mud ~ ~ ~ {NoAI:1b}
     ```
 5. Jungle slime
     ```
-        /summon withered_lands:jungle_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_jungle ~ ~ ~ {NoAI:1b}
     ```
 6. Cave slime
     ```
-        /summon withered_lands:cave_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_cave ~ ~ ~ {NoAI:1b}
     ```
 7. Abyssal slime
     ```
-        /summon withered_lands:abyssal_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_abyssal ~ ~ ~ {NoAI:1b}
     ```
 8. Toxic Sludge
     ```
-        /summon withered_lands:toxic_sludge ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_toxic_sludge ~ ~ ~ {NoAI:1b}
     ```
 9. Molten slime
     ```
-        /summon withered_lands:molten_slime ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:slime_molten ~ ~ ~ {NoAI:1b}
     ```
 
 ### Bats spawn:

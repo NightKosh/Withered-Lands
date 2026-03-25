@@ -23,7 +23,7 @@ import nightkosh.withered_lands.core.WLConfigs;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class VerdantSlime extends ASlime {
+public class SlimeVerdant extends ASlime {
 
     private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
             .add(Items.TORCH, 12)
@@ -62,7 +62,7 @@ public class VerdantSlime extends ASlime {
             .add(Items.CHERRY_SAPLING, 1)
             .build();
 
-    public VerdantSlime(EntityType<? extends ASlime> entityType, Level level) {
+    public SlimeVerdant(EntityType<? extends ASlime> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -101,7 +101,7 @@ public class VerdantSlime extends ASlime {
                 // TODO additional checks to avoid spawn near buildings
                 return (ground == Blocks.GRASS_BLOCK || ground == Blocks.PODZOL || ground == Blocks.MYCELIUM ||
                         ground == Blocks.DIRT || ground == Blocks.MUD || ground == Blocks.GRAVEL || ground == Blocks.SAND) &&
-                        checkDensity(level, pos, VerdantSlime.class);
+                        checkDensity(level, pos, SlimeVerdant.class);
             }
         }
 

@@ -6,7 +6,7 @@
   ],
   "spawners": [
     {
-      "type": "withered_lands:molten_slime",
+      "type": "withered_lands:slime_molten",
       "weight": 70,
       "minCount": 3,
       "maxCount": 5
