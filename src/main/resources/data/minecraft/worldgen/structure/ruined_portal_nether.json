@@ -24,7 +24,7 @@
           "maxCount": 10
         },
         {
-          "type": "withered_lands:blazing_bat",
+          "type": "withered_lands:bat_blazing",
           "weight": 100,
           "minCount": 5,
           "maxCount": 10

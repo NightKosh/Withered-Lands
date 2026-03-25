@@ -64,14 +64,14 @@ public class WLTabs {
                         output.accept(WLItems.SLIME_TOXIC_SLUDGE_EGG.get());
                         output.accept(WLItems.SLIME_MOLTEN_EGG.get());
                         // bats
-                        output.accept(WLItems.CAVE_BAT_EGG.get());
-                        output.accept(WLItems.VAMPIRE_BAT_EGG.get());
-                        output.accept(WLItems.ICE_BAT_EGG.get());
-                        output.accept(WLItems.FLYING_FOX_EGG.get());
-                        output.accept(WLItems.BLAZING_BAT_EGG.get());
-                        output.accept(WLItems.WITHERED_BAT_EGG.get());
-                        output.accept(WLItems.VOLATILE_BAT_EGG.get());
-                        output.accept(WLItems.CHORUS_BAT_EGG.get());
+                        output.accept(WLItems.BAT_CAVE_EGG.get());
+                        output.accept(WLItems.BAT_VAMPIRE_EGG.get());
+                        output.accept(WLItems.BAT_ICE_EGG.get());
+                        output.accept(WLItems.BAT_FLYING_FOX_EGG.get());
+                        output.accept(WLItems.BAT_BLAZING_EGG.get());
+                        output.accept(WLItems.BAT_WITHERED_EGG.get());
+                        output.accept(WLItems.BAT_VOLATILE_EGG.get());
+                        output.accept(WLItems.BAT_CHORUS_EGG.get());
                         // crawlers
                         output.accept(WLItems.SKELETON_SKULL_CRAWLER_EGG.get());
                         output.accept(WLItems.STRAY_SKULL_CRAWLER_EGG.get());

@@ -9,7 +9,7 @@ import nightkosh.withered_lands.core.WLTextures;
 
 import javax.annotation.Nonnull;
 
-import static nightkosh.withered_lands.core.WLTextures.VOLATILE_BAT;
+import static nightkosh.withered_lands.core.WLTextures.ICE_BAT;
 
 /**
  * Withered Lands
@@ -17,18 +17,18 @@ import static nightkosh.withered_lands.core.WLTextures.VOLATILE_BAT;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class VolatileBatRenderer extends HostileBatRender {
+public class BatIceRenderer extends HostileBatRender {
 
-    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.VOLATILE_BAT_EYES);
+    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.ICE_BAT_EYES);
 
-    public VolatileBatRenderer(EntityRendererProvider.Context context) {
+    public BatIceRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Nonnull
     @Override
     public Identifier getTextureLocation(@Nonnull BatRenderState batRenderState) {
-        return VOLATILE_BAT;
+        return ICE_BAT;
     }
 
     @Override

@@ -21,11 +21,11 @@ import nightkosh.withered_lands.core.WLConfigs;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class VolatileBat extends AHostileBat {
+public class BatVolatile extends AHostileBat {
 
     private static final float EXPLOSION_RADIUS = 0.5F;
 
-    public VolatileBat(EntityType<? extends AHostileBat> entityType, Level level) {
+    public BatVolatile(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
     }
 

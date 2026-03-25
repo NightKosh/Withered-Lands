@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.renderer.bat;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.BatRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
@@ -9,7 +10,7 @@ import nightkosh.withered_lands.core.WLTextures;
 
 import javax.annotation.Nonnull;
 
-import static nightkosh.withered_lands.core.WLTextures.ICE_BAT;
+import static nightkosh.withered_lands.core.WLTextures.FLYING_FOX;
 
 /**
  * Withered Lands
@@ -17,18 +18,23 @@ import static nightkosh.withered_lands.core.WLTextures.ICE_BAT;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class IceBatRenderer extends HostileBatRender {
+public class BatFlyingFoxRenderer extends HostileBatRender {
 
-    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.ICE_BAT_EYES);
+    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.FLYING_FOX_EYES);
 
-    public IceBatRenderer(EntityRendererProvider.Context context) {
+    public BatFlyingFoxRenderer(EntityRendererProvider.Context context) {
         super(context);
+    }
+
+    @Override
+    protected void scale(BatRenderState state, PoseStack poseStack) {
+        poseStack.scale(3, 3, 3);
     }
 
     @Nonnull
     @Override
     public Identifier getTextureLocation(@Nonnull BatRenderState batRenderState) {
-        return ICE_BAT;
+        return FLYING_FOX;
     }
 
     @Override

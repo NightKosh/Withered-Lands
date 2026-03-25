@@ -6,7 +6,7 @@
   ],
   "spawners": [
     {
-      "type": "withered_lands:blazing_bat",
+      "type": "withered_lands:bat_blazing",
       "weight": 50,
       "minCount": 2,
       "maxCount": 4

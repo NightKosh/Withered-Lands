@@ -28,11 +28,11 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class ChorusBat extends AHostileBat {
+public class BatChorus extends AHostileBat {
 
     private static final int DIAMETER = 16;
 
-    public ChorusBat(EntityType<? extends AHostileBat> entityType, Level level) {
+    public BatChorus(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
     }
 

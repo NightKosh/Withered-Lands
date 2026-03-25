@@ -91,35 +91,35 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 ### Bats spawn:
 1. Cave bat
     ```
-        /summon withered_lands:cave_bat ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_cave ~ ~ ~ {NoAI:1b}
     ```
 2. Vampire bat
     ```
-        /summon withered_lands:vampire_bat ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_vampire ~ ~ ~ {NoAI:1b}
     ```
 3. Ice bat
     ```
-        /summon withered_lands:ice_bat ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_ice ~ ~ ~ {NoAI:1b}
     ```
 4. Flying fox
     ```
-        /summon withered_lands:flying_fox ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_flying_fox ~ ~ ~ {NoAI:1b}
     ```
 5. Blazing bat
     ```
-        /summon withered_lands:blazing_bat ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_blazing ~ ~ ~ {NoAI:1b}
     ```
 6. Withered bat
     ```
-        /summon withered_lands:withered_bat ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_withered ~ ~ ~ {NoAI:1b}
     ```
 7. Volatile bat
     ```
-        /summon withered_lands:volatile_bat ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_volatile ~ ~ ~ {NoAI:1b}
     ```
 8. Chorus bat
     ```
-        /summon withered_lands:chorus_bat ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:bat_chorus ~ ~ ~ {NoAI:1b}
     ```
    
 ### Skull crawlers spawn:

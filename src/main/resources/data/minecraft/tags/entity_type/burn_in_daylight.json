@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "withered_lands:vampire_bat",
+    "withered_lands:bat_vampire",
     "withered_lands:skeleton_skull_crawler",
     "withered_lands:stray_skull_crawler",
     "withered_lands:bogged_skull_crawler",

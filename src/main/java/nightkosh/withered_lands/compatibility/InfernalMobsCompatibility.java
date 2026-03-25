@@ -55,14 +55,14 @@ public class InfernalMobsCompatibility {
                 classesAllowedMap.put(SlimeToxicSludge.class.getSimpleName(), false);
                 classesAllowedMap.put(SlimeMolten.class.getSimpleName(), false);
 
-                classesAllowedMap.put(CaveBat.class.getSimpleName(), false);
-                classesAllowedMap.put(VampireBat.class.getSimpleName(), false);
-                classesAllowedMap.put(IceBat.class.getSimpleName(), false);
-                classesAllowedMap.put(FlyingFox.class.getSimpleName(), false);
-                classesAllowedMap.put(BlazingBat.class.getSimpleName(), false);
-                classesAllowedMap.put(WitheredBat.class.getSimpleName(), false);
-                classesAllowedMap.put(VolatileBat.class.getSimpleName(), false);
-                classesAllowedMap.put(ChorusBat.class.getSimpleName(), false);
+                classesAllowedMap.put(BatCave.class.getSimpleName(), false);
+                classesAllowedMap.put(BatVampire.class.getSimpleName(), false);
+                classesAllowedMap.put(BatIce.class.getSimpleName(), false);
+                classesAllowedMap.put(BatFlyingFox.class.getSimpleName(), false);
+                classesAllowedMap.put(BatBlazing.class.getSimpleName(), false);
+                classesAllowedMap.put(BatWithered.class.getSimpleName(), false);
+                classesAllowedMap.put(BatVolatile.class.getSimpleName(), false);
+                classesAllowedMap.put(BatChorus.class.getSimpleName(), false);
 
                 classesAllowedMap.put(SkeletonSkullCrawler.class.getSimpleName(), false);
                 classesAllowedMap.put(StraySkullCrawler.class.getSimpleName(), false);

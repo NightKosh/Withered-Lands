@@ -9,7 +9,7 @@ import nightkosh.withered_lands.core.WLTextures;
 
 import javax.annotation.Nonnull;
 
-import static nightkosh.withered_lands.core.WLTextures.CHORUS_BAT;
+import static nightkosh.withered_lands.core.WLTextures.VAMPIRE_BAT;
 
 /**
  * Withered Lands
@@ -17,18 +17,18 @@ import static nightkosh.withered_lands.core.WLTextures.CHORUS_BAT;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class ChorusBatRenderer extends HostileBatRender {
+public class BatVampireRenderer extends HostileBatRender {
 
-    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.CHORUS_BAT_EYES);
+    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.VAMPIRE_BAT_EYES);
 
-    public ChorusBatRenderer(EntityRendererProvider.Context context) {
+    public BatVampireRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Nonnull
     @Override
     public Identifier getTextureLocation(@Nonnull BatRenderState batRenderState) {
-        return CHORUS_BAT;
+        return VAMPIRE_BAT;
     }
 
     @Override

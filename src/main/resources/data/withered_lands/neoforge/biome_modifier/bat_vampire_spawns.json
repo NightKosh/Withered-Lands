@@ -3,7 +3,7 @@
   "biomes": "#c:is_overworld",
   "spawners": [
     {
-      "type": "withered_lands:vampire_bat",
+      "type": "withered_lands:bat_vampire",
       "weight": 40,
       "minCount": 3,
       "maxCount": 5

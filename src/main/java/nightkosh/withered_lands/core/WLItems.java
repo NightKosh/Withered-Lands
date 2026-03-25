@@ -59,29 +59,29 @@ public class WLItems {
             registerEgg(WLEntities.SLIME_MOLTEN, "slime_molten_spawn_egg");
 
     // bats
-    public static final DeferredHolder<Item, Item> CAVE_BAT_EGG =
-            registerEgg(WLEntities.CAVE_BAT, "cave_bat_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_CAVE_EGG =
+            registerEgg(WLEntities.BAT_CAVE, "bat_cave_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> VAMPIRE_BAT_EGG =
-            registerEgg(WLEntities.VAMPIRE_BAT, "vampire_bat_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_VAMPIRE_EGG =
+            registerEgg(WLEntities.BAT_VAMPIRE, "bat_vampire_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ICE_BAT_EGG =
-            registerEgg(WLEntities.ICE_BAT, "ice_bat_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_ICE_EGG =
+            registerEgg(WLEntities.BAT_ICE, "bat_ice_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> FLYING_FOX_EGG =
-            registerEgg(WLEntities.FLYING_FOX, "flying_fox_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_FLYING_FOX_EGG =
+            registerEgg(WLEntities.BAT_FLYING_FOX, "bat_flying_fox_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> BLAZING_BAT_EGG =
-            registerEgg(WLEntities.BLAZING_BAT, "blazing_bat_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_BLAZING_EGG =
+            registerEgg(WLEntities.BAT_BLAZING, "bat_blazing_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> WITHERED_BAT_EGG =
-            registerEgg(WLEntities.WITHERED_BAT, "withered_bat_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_WITHERED_EGG =
+            registerEgg(WLEntities.BAT_WITHERED, "bat_withered_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> VOLATILE_BAT_EGG =
-            registerEgg(WLEntities.VOLATILE_BAT, "volatile_bat_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_VOLATILE_EGG =
+            registerEgg(WLEntities.BAT_VOLATILE, "bat_volatile_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> CHORUS_BAT_EGG =
-            registerEgg(WLEntities.CHORUS_BAT, "chorus_bat_spawn_egg");
+    public static final DeferredHolder<Item, Item> BAT_CHORUS_EGG =
+            registerEgg(WLEntities.BAT_CHORUS, "bat_chorus_spawn_egg");
 
     // crawlers
     public static final DeferredHolder<Item, Item> SKELETON_SKULL_CRAWLER_EGG =

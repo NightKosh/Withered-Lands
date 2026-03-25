@@ -11,112 +11,112 @@
   },
   "sends_telemetry_event": true,
   "criteria": {
-    "withered_lands:cave_bat": {
+    "withered_lands:bat_cave": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:cave_bat"
+              "type": "withered_lands:bat_cave"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:vampire_bat": {
+    "withered_lands:bat_vampire": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:vampire_bat"
+              "type": "withered_lands:bat_vampire"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:ice_bat": {
+    "withered_lands:bat_ice": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:ice_bat"
+              "type": "withered_lands:bat_ice"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:flying_fox": {
+    "withered_lands:bat_flying_fox": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:flying_fox"
+              "type": "withered_lands:bat_flying_fox"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:blazing_bat": {
+    "withered_lands:bat_blazing": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:blazing_bat"
+              "type": "withered_lands:bat_blazing"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:withered_bat": {
+    "withered_lands:bat_withered": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:withered_bat"
+              "type": "withered_lands:bat_withered"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:volatile_bat": {
+    "withered_lands:bat_volatile": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:volatile_bat"
+              "type": "withered_lands:bat_volatile"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:chorus_bat": {
+    "withered_lands:bat_chorus": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:chorus_bat"
+              "type": "withered_lands:bat_chorus"
             }
           }
         ]
@@ -126,28 +126,28 @@
   },
   "requirements": [
     [
-      "withered_lands:cave_bat"
+      "withered_lands:bat_cave"
     ],
     [
-      "withered_lands:vampire_bat"
+      "withered_lands:bat_vampire"
     ],
     [
-      "withered_lands:ice_bat"
+      "withered_lands:bat_ice"
     ],
     [
-      "withered_lands:flying_fox"
+      "withered_lands:bat_flying_fox"
     ],
     [
-      "withered_lands:blazing_bat"
+      "withered_lands:bat_blazing"
     ],
     [
-      "withered_lands:withered_bat"
+      "withered_lands:bat_withered"
     ],
     [
-      "withered_lands:volatile_bat"
+      "withered_lands:bat_volatile"
     ],
     [
-      "withered_lands:chorus_bat"
+      "withered_lands:bat_chorus"
     ]
   ]
 }

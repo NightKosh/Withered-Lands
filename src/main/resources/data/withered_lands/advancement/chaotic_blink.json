@@ -11,14 +11,14 @@
   },
   "sends_telemetry_event": true,
   "criteria": {
-    "withered_lands:chorus_bat": {
+    "withered_lands:bat_chorus": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:chorus_bat"
+              "type": "withered_lands:bat_chorus"
             }
           }
         ]
@@ -28,7 +28,7 @@
   },
   "requirements": [
     [
-      "withered_lands:chorus_bat"
+      "withered_lands:bat_chorus"
     ]
   ]
 }

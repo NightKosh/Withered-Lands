@@ -3,7 +3,7 @@
   "biomes": "#c:is_end",
   "spawners": [
     {
-      "type": "withered_lands:chorus_bat",
+      "type": "withered_lands:bat_chorus",
       "weight": 2,
       "minCount": 1,
       "maxCount": 1

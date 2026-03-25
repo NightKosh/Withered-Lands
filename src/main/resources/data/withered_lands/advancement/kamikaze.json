@@ -11,14 +11,14 @@
   },
   "sends_telemetry_event": true,
   "criteria": {
-    "withered_lands:volatile_bat": {
+    "withered_lands:bat_volatile": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:volatile_bat"
+              "type": "withered_lands:bat_volatile"
             }
           }
         ]
@@ -28,7 +28,7 @@
   },
   "requirements": [
     [
-      "withered_lands:volatile_bat"
+      "withered_lands:bat_volatile"
     ]
   ]
 }

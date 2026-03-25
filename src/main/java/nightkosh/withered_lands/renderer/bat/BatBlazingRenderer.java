@@ -4,12 +4,14 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.state.BatRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import nightkosh.withered_lands.core.WLTextures;
+import nightkosh.withered_lands.entity.bat.AHostileBat;
 
 import javax.annotation.Nonnull;
 
-import static nightkosh.withered_lands.core.WLTextures.CAVE_BAT;
+import static nightkosh.withered_lands.core.WLTextures.BLAZING_BAT;
 
 /**
  * Withered Lands
@@ -17,18 +19,23 @@ import static nightkosh.withered_lands.core.WLTextures.CAVE_BAT;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class CaveBatRenderer extends HostileBatRender {
+public class BatBlazingRenderer extends HostileBatRender {
 
-    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.CAVE_BAT_EYES);
+    private static final RenderType BAT_EYES = RenderTypes.eyes(WLTextures.BLAZING_BAT_EYES);
 
-    public CaveBatRenderer(EntityRendererProvider.Context context) {
+    public BatBlazingRenderer(EntityRendererProvider.Context context) {
         super(context);
+    }
+
+    @Override
+    protected int getBlockLightLevel(AHostileBat entity, @Nonnull BlockPos pos) {
+        return 10;
     }
 
     @Nonnull
     @Override
     public Identifier getTextureLocation(@Nonnull BatRenderState batRenderState) {
-        return CAVE_BAT;
+        return BLAZING_BAT;
     }
 
     @Override

@@ -67,14 +67,14 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.SLIME_TOXIC_SLUDGE.get(), SlimeToxicSludge.createAttributeSupplier());
         event.put(WLEntities.SLIME_MOLTEN.get(), SlimeMolten.createAttributeSupplier());
         // bats
-        event.put(WLEntities.CAVE_BAT.get(), CaveBat.createAttributeSupplier());
-        event.put(WLEntities.VAMPIRE_BAT.get(), VampireBat.createAttributeSupplier());
-        event.put(WLEntities.ICE_BAT.get(), IceBat.createAttributeSupplier());
-        event.put(WLEntities.FLYING_FOX.get(), FlyingFox.createAttributeSupplier());
-        event.put(WLEntities.BLAZING_BAT.get(), BlazingBat.createAttributeSupplier());
-        event.put(WLEntities.WITHERED_BAT.get(), WitheredBat.createAttributeSupplier());
-        event.put(WLEntities.VOLATILE_BAT.get(), VolatileBat.createAttributeSupplier());
-        event.put(WLEntities.CHORUS_BAT.get(), ChorusBat.createAttributeSupplier());
+        event.put(WLEntities.BAT_CAVE.get(), BatCave.createAttributeSupplier());
+        event.put(WLEntities.BAT_VAMPIRE.get(), BatVampire.createAttributeSupplier());
+        event.put(WLEntities.BAT_ICE.get(), BatIce.createAttributeSupplier());
+        event.put(WLEntities.BAT_FLYING_FOX.get(), BatFlyingFox.createAttributeSupplier());
+        event.put(WLEntities.BAT_BLAZING.get(), BatBlazing.createAttributeSupplier());
+        event.put(WLEntities.BAT_WITHERED.get(), BatWithered.createAttributeSupplier());
+        event.put(WLEntities.BAT_VOLATILE.get(), BatVolatile.createAttributeSupplier());
+        event.put(WLEntities.BAT_CHORUS.get(), BatChorus.createAttributeSupplier());
         // crawlers
         event.put(WLEntities.SKELETON_SKULL_CRAWLER.get(), SkeletonSkullCrawler.createAttributeSupplier());
         event.put(WLEntities.STRAY_SKULL_CRAWLER.get(), StraySkullCrawler.createAttributeSupplier());
@@ -200,52 +200,52 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // bats
-        event.register(WLEntities.CAVE_BAT.get(),
+        event.register(WLEntities.BAT_CAVE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                CaveBat::checkSpawnRules,
+                BatCave::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.VAMPIRE_BAT.get(),
+        event.register(WLEntities.BAT_VAMPIRE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                VampireBat::checkSpawnRules,
+                BatVampire::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.ICE_BAT.get(),
+        event.register(WLEntities.BAT_ICE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                IceBat::checkSpawnRules,
+                BatIce::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.FLYING_FOX.get(),
+        event.register(WLEntities.BAT_FLYING_FOX.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                FlyingFox::checkSpawnRules,
+                BatFlyingFox::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.BLAZING_BAT.get(),
+        event.register(WLEntities.BAT_BLAZING.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                BlazingBat::checkSpawnRules,
+                BatBlazing::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.WITHERED_BAT.get(),
+        event.register(WLEntities.BAT_WITHERED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                WitheredBat::checkSpawnRules,
+                BatWithered::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.VOLATILE_BAT.get(),
+        event.register(WLEntities.BAT_VOLATILE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                VolatileBat::checkSpawnRules,
+                BatVolatile::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.CHORUS_BAT.get(),
+        event.register(WLEntities.BAT_CHORUS.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                ChorusBat::checkSpawnRules,
+                BatChorus::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // crawlers

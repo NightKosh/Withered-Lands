@@ -73,14 +73,14 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.SLIME_TOXIC_SLUDGE.get(), SlimeToxicSludgeRenderer::new);
         event.registerEntityRenderer(WLEntities.SLIME_MOLTEN.get(), SlimeMoltenRenderer::new);
         // bats
-        event.registerEntityRenderer(WLEntities.CAVE_BAT.get(), CaveBatRenderer::new);
-        event.registerEntityRenderer(WLEntities.VAMPIRE_BAT.get(), VampireBatRenderer::new);
-        event.registerEntityRenderer(WLEntities.ICE_BAT.get(), IceBatRenderer::new);
-        event.registerEntityRenderer(WLEntities.FLYING_FOX.get(), FlyingFoxRenderer::new);
-        event.registerEntityRenderer(WLEntities.BLAZING_BAT.get(), BlazingBatRenderer::new);
-        event.registerEntityRenderer(WLEntities.WITHERED_BAT.get(), WitheredBatRenderer::new);
-        event.registerEntityRenderer(WLEntities.VOLATILE_BAT.get(), VolatileBatRenderer::new);
-        event.registerEntityRenderer(WLEntities.CHORUS_BAT.get(), ChorusBatRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_CAVE.get(), BatCaveRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_VAMPIRE.get(), BatVampireRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_ICE.get(), BatIceRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_FLYING_FOX.get(), BatFlyingFoxRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_BLAZING.get(), BatBlazingRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_WITHERED.get(), BatWitheredRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_VOLATILE.get(), BatVolatileRenderer::new);
+        event.registerEntityRenderer(WLEntities.BAT_CHORUS.get(), BatChorusRenderer::new);
         // crawlers
         event.registerEntityRenderer(WLEntities.SKELETON_SKULL_CRAWLER.get(), SkeletonSkullCrawlerRenderer::new);
         event.registerEntityRenderer(WLEntities.STRAY_SKULL_CRAWLER.get(), StraySkullCrawlerRenderer::new);

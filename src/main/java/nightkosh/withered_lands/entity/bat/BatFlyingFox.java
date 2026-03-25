@@ -2,15 +2,14 @@ package nightkosh.withered_lands.entity.bat;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import nightkosh.withered_lands.core.WLConfigs;
-import nightkosh.withered_lands.core.WLMobEffects;
-import nightkosh.withered_lands.helper.TimeHelper;
 
 /**
  * Withered Lands
@@ -18,17 +17,18 @@ import nightkosh.withered_lands.helper.TimeHelper;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class VampireBat extends AHostileBat {
+public class BatFlyingFox extends AHostileBat {
 
-    public VampireBat(EntityType<? extends AHostileBat> entityType, Level level) {
+    public BatFlyingFox(EntityType<? extends AHostileBat> entityType, Level level) {
         super(entityType, level);
     }
 
-    @Override
-    protected void applyEffect(LivingEntity entity) {
-        if (WLConfigs.VAMPIRE_BAT_BLEEDING_DEBUFF.get()) {
-            entity.addEffect(new MobEffectInstance(WLMobEffects.BLEEDING, TimeHelper.SECONDS_20), this);
-        }
+    public static AttributeSupplier createAttributeSupplier() {
+        return Mob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 15)
+                .add(Attributes.FOLLOW_RANGE, 30)
+                .add(Attributes.ATTACK_DAMAGE, 3)
+                .build();
     }
 
     public static boolean checkSpawnRules(

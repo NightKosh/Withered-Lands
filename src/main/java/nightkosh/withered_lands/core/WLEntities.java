@@ -164,89 +164,89 @@ public class WLEntities {
                                     fromNamespaceAndPath(ModInfo.ID, "slime_molten"))));
 
     // bats
-    public static final DeferredHolder<EntityType<?>, EntityType<CaveBat>> CAVE_BAT =
-            ENTITY_TYPES_REGISTER.register("cave_bat",
-                    () -> EntityType.Builder.of(CaveBat::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatCave>> BAT_CAVE =
+            ENTITY_TYPES_REGISTER.register("bat_cave",
+                    () -> EntityType.Builder.of(BatCave::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "cave_bat"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_cave"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<VampireBat>> VAMPIRE_BAT =
-            ENTITY_TYPES_REGISTER.register("vampire_bat",
-                    () -> EntityType.Builder.of(VampireBat::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatVampire>> BAT_VAMPIRE =
+            ENTITY_TYPES_REGISTER.register("bat_vampire",
+                    () -> EntityType.Builder.of(BatVampire::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "vampire_bat"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_vampire"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<IceBat>> ICE_BAT =
-            ENTITY_TYPES_REGISTER.register("ice_bat",
-                    () -> EntityType.Builder.of(IceBat::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatIce>> BAT_ICE =
+            ENTITY_TYPES_REGISTER.register("bat_ice",
+                    () -> EntityType.Builder.of(BatIce::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
                             .immuneTo(Blocks.POWDER_SNOW)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "ice_bat"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_ice"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<FlyingFox>> FLYING_FOX =
-            ENTITY_TYPES_REGISTER.register("flying_fox",
-                    () -> EntityType.Builder.of(FlyingFox::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatFlyingFox>> BAT_FLYING_FOX =
+            ENTITY_TYPES_REGISTER.register("bat_flying_fox",
+                    () -> EntityType.Builder.of(BatFlyingFox::new, MobCategory.MONSTER)
                             .sized(1.5F, 2.7F)
                             .eyeHeight(0.9F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "flying_fox"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_flying_fox"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<BlazingBat>> BLAZING_BAT =
-            ENTITY_TYPES_REGISTER.register("blazing_bat",
-                    () -> EntityType.Builder.of(BlazingBat::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatBlazing>> BAT_BLAZING =
+            ENTITY_TYPES_REGISTER.register("bat_blazing",
+                    () -> EntityType.Builder.of(BatBlazing::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .fireImmune()
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "blazing_bat"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_blazing"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<WitheredBat>> WITHERED_BAT =
-            ENTITY_TYPES_REGISTER.register("withered_bat",
-                    () -> EntityType.Builder.of(WitheredBat::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatWithered>> BAT_WITHERED =
+            ENTITY_TYPES_REGISTER.register("bat_withered",
+                    () -> EntityType.Builder.of(BatWithered::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .fireImmune()
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "withered_bat"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_withered"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<VolatileBat>> VOLATILE_BAT =
-            ENTITY_TYPES_REGISTER.register("volatile_bat",
-                    () -> EntityType.Builder.of(VolatileBat::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatVolatile>> BAT_VOLATILE =
+            ENTITY_TYPES_REGISTER.register("bat_volatile",
+                    () -> EntityType.Builder.of(BatVolatile::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .fireImmune()
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "volatile_bat"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_volatile"))));
 
-    public static final DeferredHolder<EntityType<?>, EntityType<ChorusBat>> CHORUS_BAT =
-            ENTITY_TYPES_REGISTER.register("chorus_bat",
-                    () -> EntityType.Builder.of(ChorusBat::new, MobCategory.MONSTER)
+    public static final DeferredHolder<EntityType<?>, EntityType<BatChorus>> BAT_CHORUS =
+            ENTITY_TYPES_REGISTER.register("bat_chorus",
+                    () -> EntityType.Builder.of(BatChorus::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
-                                    fromNamespaceAndPath(ModInfo.ID, "chorus_bat"))));
+                                    fromNamespaceAndPath(ModInfo.ID, "bat_chorus"))));
 
     // crawlers
     public static final DeferredHolder<EntityType<?>, EntityType<SkeletonSkullCrawler>> SKELETON_SKULL_CRAWLER =
