@@ -46,7 +46,7 @@ public class WLEventsSleep {
 
     private static void denySleep(ServerPlayer player, CanPlayerSleepEvent event, Component msg) {
         event.setProblem(Player.BedSleepingProblem.OTHER_PROBLEM);
-        player.displayClientMessage(msg, true);
+        player.sendOverlayMessage(msg);
     }
 
     private static boolean hasOpenSkyForBed(Level level, BlockPos bedPos) {

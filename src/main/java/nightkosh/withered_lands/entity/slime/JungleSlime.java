@@ -80,7 +80,7 @@ public class JungleSlime extends ASlime {
     public void aiStep() {
         super.aiStep();
         if (WLConfigs.JUNGLE_SLIME_SPREAD_MOSS.get()) {
-            this.spreadBlocks(WLBlocks.MOSS_LAYER.get().defaultBlockState());
+            this.spreadBlocks(WLBlocks.LAYER_MOSS.get().defaultBlockState());
         }
     }
 

@@ -1,6 +1,5 @@
 package nightkosh.withered_lands.entity.swamp;
 
-import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -11,7 +10,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.profiling.Profiler;
 import net.minecraft.util.profiling.ProfilerFiller;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -21,7 +19,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.SmoothSwimmingMoveControl;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -47,8 +44,11 @@ import java.util.OptionalInt;
 public class GiantFrog extends ADayMonster {
 
     private static final EntityDataAccessor<OptionalInt> DATA_TONGUE_TARGET_ID = SynchedEntityData.defineId(
-            GiantFrog.class, EntityDataSerializers.OPTIONAL_UNSIGNED_INT
-    );
+            GiantFrog.class, EntityDataSerializers.OPTIONAL_UNSIGNED_INT);
+
+    private static final Brain.Provider<GiantFrog> BRAIN_PROVIDER = Brain.provider(
+            GiantFrogAi.SENSOR_TYPES,
+            v -> GiantFrogAi.getActivities());
 
     public final AnimationState jumpAnimationState = new AnimationState();
     public final AnimationState croakAnimationState = new AnimationState();
@@ -65,14 +65,8 @@ public class GiantFrog extends ADayMonster {
 
     @Nonnull
     @Override
-    protected Brain.Provider<GiantFrog> brainProvider() {
-        return Brain.provider(GiantFrogAi.MEMORY_TYPES, GiantFrogAi.SENSOR_TYPES);
-    }
-
-    @Nonnull
-    @Override
-    protected Brain<?> makeBrain(@Nonnull Dynamic<?> dynamic) {
-        return GiantFrogAi.makeBrain(this.brainProvider().makeBrain(dynamic));
+    protected Brain<GiantFrog> makeBrain(Brain.Packed packedBrain) {
+        return BRAIN_PROVIDER.makeBrain(this, packedBrain);
     }
 
     @Nonnull

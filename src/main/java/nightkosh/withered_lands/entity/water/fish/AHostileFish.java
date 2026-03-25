@@ -15,6 +15,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.fish.AbstractSchoolingFish;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.vehicle.boat.AbstractBoat;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -56,7 +57,7 @@ public abstract class AHostileFish extends AbstractSchoolingFish {
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8));
 
         if (followBoat()) {
-            this.goalSelector.addGoal(8, new FollowBoatGoal(this));
+            this.goalSelector.addGoal(8, new FollowPlayerRiddenEntityGoal(this, AbstractBoat.class));
         }
 
         registerTargetGoals();

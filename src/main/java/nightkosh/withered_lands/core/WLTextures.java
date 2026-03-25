@@ -98,7 +98,7 @@ public final class WLTextures {
     // swamp
     public static final Identifier SWAMP_THING = fromNamespaceAndPath(ModInfo.ID, "textures/entity/swamp/swamp_thing/swamp_thing.png");
     public static final Identifier SWAMP_THING_OVERLAY = fromNamespaceAndPath(ModInfo.ID, "textures/entity/swamp/swamp_thing/overlay.png");
-    public static final Identifier GIANT_FROG = withDefaultNamespace("textures/entity/frog/cold_frog.png");
+    public static final Identifier GIANT_FROG = withDefaultNamespace("textures/entity/frog/frog_cold.png");
     // fishes
     public static final Identifier MINNOW = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/fish/minnow.png");
     public static final Identifier PIRANHA = fromNamespaceAndPath(ModInfo.ID, "textures/entity/water/fish/piranha.png");

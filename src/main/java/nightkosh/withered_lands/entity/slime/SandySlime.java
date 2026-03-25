@@ -91,7 +91,7 @@ public class SandySlime extends ASlime {
     public void aiStep() {
         super.aiStep();
         if (WLConfigs.SANDY_SLIME_SPREAD_SAND.get()) {
-            this.spreadBlocks(WLBlocks.SAND_LAYER.get().defaultBlockState());
+            this.spreadBlocks(WLBlocks.LAYER_SAND.get().defaultBlockState());
         }
     }
 

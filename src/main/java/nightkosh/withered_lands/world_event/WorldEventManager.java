@@ -1,13 +1,16 @@
 package nightkosh.withered_lands.world_event;
 
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.SavedData;
 import net.minecraft.world.level.saveddata.SavedDataType;
+import nightkosh.withered_lands.core.ModInfo;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+import static net.minecraft.resources.Identifier.fromNamespaceAndPath;
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
 /**
@@ -19,7 +22,7 @@ import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 public class WorldEventManager extends SavedData {
 
     public static final SavedDataType<WorldEventManager> ID = new SavedDataType<>(
-            "withered_lands/world_events",
+            fromNamespaceAndPath(ModInfo.ID, "world_events"),
             WorldEventManager::new,
             RecordCodecBuilder.create(inst -> inst.group(
                             SlimeRainEvent.CODEC
@@ -48,7 +51,7 @@ public class WorldEventManager extends SavedData {
     }
 
     public void tick(ServerLevel level) {
-        long time = level.getDayTime();
+        long time = level.getOverworldClockTime();
         if (time >= this.timeToCheckDay) {
             long dayTime = time % TimeHelper.DAY;
             var globalDayTimeStart = time - dayTime;

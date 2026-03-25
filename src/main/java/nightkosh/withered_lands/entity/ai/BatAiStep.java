@@ -24,8 +24,8 @@ public class BatAiStep {
         if (bat.isResting()) {
             boolean flag = bat.isSilent();
             if (level.getBlockState(upPos).isRedstoneConductor(level, pos)) {
-                if (level.random.nextInt(200) == 0) {
-                    bat.yHeadRot = level.random.nextInt(360);
+                if (level.getRandom().nextInt(200) == 0) {
+                    bat.yHeadRot = level.getRandom().nextInt(360);
                 }
 
                 if (bat.getTarget() != null || level.getNearestPlayer(BAT_RESTING_TARGETING, bat) != null) {
@@ -49,12 +49,12 @@ public class BatAiStep {
             if (bat.getTarget() != null) {
                 bat.setTargetPosition(bat.getTarget().blockPosition().above());
             } else if (bat.getTargetPosition() == null ||
-                    level.random.nextInt(30) == 0 ||
+                    level.getRandom().nextInt(30) == 0 ||
                     bat.getTargetPosition().closerToCenterThan(bat.position(), 2)) {
                 bat.setTargetPosition(BlockPos.containing(
-                        bat.getX() + level.random.nextInt(7) - level.random.nextInt(7),
-                        bat.getY() + level.random.nextInt(6) - 2,
-                        bat.getZ() + level.random.nextInt(7) - level.random.nextInt(7)));
+                        bat.getX() + level.getRandom().nextInt(7) - level.getRandom().nextInt(7),
+                        bat.getY() + level.getRandom().nextInt(6) - 2,
+                        bat.getZ() + level.getRandom().nextInt(7) - level.getRandom().nextInt(7)));
             }
 
             double d0 = bat.getTargetPosition().getX() + 0.5 - bat.getX();
@@ -73,7 +73,7 @@ public class BatAiStep {
             bat.zza = 0.5F;
             bat.setYRot(bat.getYRot() + f1);
 
-            if (level.random.nextInt(100) == 0 && level.getBlockState(upPos).isRedstoneConductor(level, upPos)) {
+            if (level.getRandom().nextInt(100) == 0 && level.getBlockState(upPos).isRedstoneConductor(level, upPos)) {
                 bat.setResting(true);
             }
         }

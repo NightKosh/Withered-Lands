@@ -29,7 +29,7 @@ public class HollowStalkerRenderer extends MobRenderer<HollowStalker, LivingEnti
     @Override
     protected @Nullable RenderType getRenderType(
             LivingEntityRenderState state, boolean bodyVisible, boolean translucent, boolean glowing) {
-        return RenderTypes.itemEntityTranslucentCull(this.getTextureLocation(state));
+        return RenderTypes.entityTranslucentCullItemTarget(this.getTextureLocation(state));
     }
 
     @Override

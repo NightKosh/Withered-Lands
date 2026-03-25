@@ -1,7 +1,7 @@
 {
   "parent": "withered_lands:pet_sematary",
   "display": {
-    "icon": { "id": "withered_lands:eyes_in_the_dark" },
+    "icon": { "id": "withered_lands:advancement_eyes_in_the_dark" },
     "title": { "translate": "advancement.withered_lands.eyes_in_the_dark" },
     "description": { "translate": "advancement.withered_lands.eyes_in_the_dark.desc" },
     "frame": "task",

@@ -4,6 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
@@ -13,6 +15,9 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.neoforged.neoforge.event.EventHooks;
+import nightkosh.withered_lands.core.WLBlocks;
 import nightkosh.withered_lands.core.WLConfigs;
 import nightkosh.withered_lands.entity.projectile.AWindCharge;
 import nightkosh.withered_lands.entity.projectile.SandDevilWindCharge;
@@ -30,6 +35,28 @@ public class SandDevil extends ABreeze {
 
     public SandDevil(EntityType<? extends ABreeze> entityType, Level level) {
         super(entityType, level);
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.level() instanceof ServerLevel level) {
+            if (!EventHooks.canEntityGrief(level, this)) {
+                return;
+            }
+
+            var blockstate = WLBlocks.LAYER_SAND.get().defaultBlockState();
+            for (int i = 0; i < 4; i++) {
+                var blockpos = new BlockPos(
+                        Mth.floor(this.getX() + (i % 2 * 2 - 1) * 0.25F),
+                        Mth.floor(this.getY()),
+                        Mth.floor(this.getZ() + (i / 2 % 2 * 2 - 1) * 0.25F));
+                if (this.level().getBlockState(blockpos).isAir() && blockstate.canSurvive(this.level(), blockpos)) {
+                    this.level().setBlockAndUpdate(blockpos, blockstate);
+                    this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
+                }
+            }
+        }
     }
 
     @Override

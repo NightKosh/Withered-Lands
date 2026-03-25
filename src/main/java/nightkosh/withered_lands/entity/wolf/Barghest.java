@@ -109,7 +109,7 @@ public class Barghest extends AUndeadDog {
 
     @Override
     protected void playStepSound(@Nonnull BlockPos pos, @Nonnull BlockState blockIn) {
-        this.playSound(SoundEvents.WOLF_STEP, 0.15F, 1);
+        this.playSound(SoundEvents.WOLF_STEP.value(), 0.15F, 1);
     }
 
     @Override

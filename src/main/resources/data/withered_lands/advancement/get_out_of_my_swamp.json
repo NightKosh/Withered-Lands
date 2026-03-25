@@ -1,7 +1,7 @@
 {
   "parent": "withered_lands:thats_not_a_cod",
   "display": {
-    "icon": { "id": "withered_lands:get_out_of_my_swamp" },
+    "icon": { "id": "withered_lands:advancement_get_out_of_my_swamp" },
     "title": { "translate": "advancement.withered_lands.get_out_of_my_swamp" },
     "description": { "translate": "advancement.withered_lands.get_out_of_my_swamp.desc" },
     "frame": "task",

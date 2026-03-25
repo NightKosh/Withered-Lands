@@ -22,6 +22,8 @@ import nightkosh.withered_lands.core.WLItems;
 import nightkosh.withered_lands.entity.slime.ASlime;
 import nightkosh.withered_lands.helper.TimeHelper;
 
+import java.util.UUID;
+
 import static nightkosh.withered_lands.WitheredLandsMod.LOGGER;
 
 /**
@@ -56,6 +58,7 @@ public class SlimeRainEvent {
     public static final int MIN_DAYS_BETWEEN_RAINS = WLConfigs.SLIME_RAIN_MIN_DAYS_BETWEEN_RAINS.get();
 
     private final ServerBossEvent progressBar = new ServerBossEvent(
+            UUID.fromString("02b5ae77-5f16-4f8a-b36b-f1632b0e186d"),
             SLIME_RAIN_NAME,
             BossEvent.BossBarColor.GREEN,
             BossEvent.BossBarOverlay.NOTCHED_10);
@@ -103,7 +106,7 @@ public class SlimeRainEvent {
             this.progressBar.setProgress(0);
             this.progressBar.setVisible(true);
             this.progressBar.setName(SLIME_RAIN_NAME);
-            level.setWeatherParameters(0, EVENT_TICKS, true, false);
+            server.setWeatherParameters(0, EVENT_TICKS, true, false);
             server.getPlayerList().broadcastSystemMessage(SLIME_RAIN_START, false);
             if (changeLastDayCounter) {
                 this.setLastEventDay(level);
@@ -141,18 +144,18 @@ public class SlimeRainEvent {
             this.updatePlayers(level);
             for (var player : this.progressBar.getPlayers()) {
                 var pos = new BlockPos(
-                        player.blockPosition().getX() + level.random.nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF,
+                        player.blockPosition().getX() + level.getRandom().nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF,
                         SPAWN_HEIGHT,
-                        player.blockPosition().getZ() + level.random.nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF);
+                        player.blockPosition().getZ() + level.getRandom().nextInt(SPAWN_RANGE_DIAMETER) - SPAWN_RANGE_HALF);
                 var size = this.getSlimeSize();
-                var slime = (ASlime) SLIMES.getRandom(level.random)
+                var slime = (ASlime) SLIMES.getRandom(level.getRandom())
                         .orElse(WLEntities.VERDANT_SLIME.get())
                         .create(level, EntitySpawnReason.EVENT);
                 slime.addTag(ASlime.TAG_SLIME_RAIN);
                 slime.snapTo(pos.getX(), pos.getY(), pos.getZ());
                 slime.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), EntitySpawnReason.EVENT, null);
                 slime.setSize(size, true);
-                if (WLConfigs.SLIME_RAIN_DROP_SLIME_CROWN.get() && size > 1 && level.random.nextInt(1000) < 8) {//0.8%
+                if (WLConfigs.SLIME_RAIN_DROP_SLIME_CROWN.get() && size > 1 && level.getRandom().nextInt(1000) < 8) {//0.8%
                     slime.swallowItem(new ItemStack(WLItems.SLIME_CROWN.get()));
                 } else {
                     slime.tryToSwallowItem(WLConfigs.SLIME_RAIN_SWALLOWED_ITEMS_CHANCE_INCREASED.get());
@@ -195,17 +198,17 @@ public class SlimeRainEvent {
     }
 
     public void setLastEventDay(ServerLevel level) {
-        this.lastEventDay = level.getDayTime() / TimeHelper.DAY;
+        this.lastEventDay = level.getOverworldClockTime() / TimeHelper.DAY;
     }
 
     public void tryToStartEvent(ServerLevel level, Runnable markDirty) {
         if (WLConfigs.SLIME_RAIN_ENABLE.get()) {
             if (!level.isRaining() && !level.isThundering()) {
-                long today = level.getDayTime() / TimeHelper.DAY;
+                long today = level.getOverworldClockTime() / TimeHelper.DAY;
                 long daysPassed = today - this.lastEventDay;
                 long daysAfterMinimalTime = daysPassed - MIN_DAYS_BETWEEN_RAINS;
                 if (daysAfterMinimalTime >= 0) {
-                    var chance = level.random.nextInt(100);
+                    var chance = level.getRandom().nextInt(100);
                     // 4% + 4% per day, max 90%
                     var maxChance = Mth.clamp((daysAfterMinimalTime + 1) * WLConfigs.SLIME_RAIN_CHANCE.get(), 0, 90);
                     if (WLConfigs.DEBUG_MODE.get()) {

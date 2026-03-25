@@ -45,10 +45,10 @@ public class FrozenSnowball extends ThrowableItemProjectile {
     }
 
     private ParticleOptions getParticle() {
-        ItemStack itemstack = this.getItem();
+        var itemstack = this.getItem();
         return itemstack.isEmpty() ?
                 ParticleTypes.ITEM_SNOWBALL :
-                new ItemParticleOption(ParticleTypes.ITEM, itemstack);
+                new ItemParticleOption(ParticleTypes.ITEM, itemstack.getItem());
     }
 
     @Override

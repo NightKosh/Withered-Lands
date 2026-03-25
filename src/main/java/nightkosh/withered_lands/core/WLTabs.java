@@ -47,9 +47,9 @@ public class WLTabs {
                         output.accept(WLItems.EXTINGUISHED_SOUL_TORCH.get());
 
                         // sand
-                        output.accept(WLItems.SAND_LAYER.get());
-                        output.accept(WLItems.MUD_LAYER.get());
-                        output.accept(WLItems.MOSS_LAYER.get());
+                        output.accept(WLItems.LAYER_SAND.get());
+                        output.accept(WLItems.LAYER_MUD.get());
+                        output.accept(WLItems.LAYER_MOSS.get());
 
                         // ---------- eggs ----------
 

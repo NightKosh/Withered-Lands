@@ -99,23 +99,23 @@ public class WLBlocks {
             "extinguished_soul_torch",
             () -> new ExtinguishedTorchBlock(EXTINGUISHED_SOUL_TORCH_RK));
 
-    public static final ResourceKey SAND_LAYER_RK = ResourceKey.create(
-            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "sand_layer"));
-    public static final DeferredHolder<Block, Block> SAND_LAYER = registerBlock(
-            "sand_layer",
-            () -> new SandLayerBlock(SAND_LAYER_RK));
+    public static final ResourceKey LAYER_SAND_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "layer_sand"));
+    public static final DeferredHolder<Block, Block> LAYER_SAND = registerBlock(
+            "layer_sand",
+            () -> new SandLayerBlock(LAYER_SAND_RK));
 
-    public static final ResourceKey MUD_LAYER_RK = ResourceKey.create(
-            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "mud_layer"));
-    public static final DeferredHolder<Block, Block> MUD_LAYER = registerBlock(
-            "mud_layer",
-            () -> new MudLayerBlock(MUD_LAYER_RK));
+    public static final ResourceKey LAYER_MUD_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "layer_mud"));
+    public static final DeferredHolder<Block, Block> LAYER_MUD = registerBlock(
+            "layer_mud",
+            () -> new MudLayerBlock(LAYER_MUD_RK));
 
-    public static final ResourceKey MOSS_LAYER_RK = ResourceKey.create(
-            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "moss_layer"));
-    public static final DeferredHolder<Block, Block> MOSS_LAYER = registerBlock(
-            "moss_layer",
-            () -> new MossLayerBlock(MOSS_LAYER_RK));
+    public static final ResourceKey LAYER_MOSS_RK = ResourceKey.create(
+            Registries.BLOCK, fromNamespaceAndPath(ModInfo.ID, "layer_moss"));
+    public static final DeferredHolder<Block, Block> LAYER_MOSS = registerBlock(
+            "layer_moss",
+            () -> new MossLayerBlock(LAYER_MOSS_RK));
 
     private static <T extends Block> DeferredHolder<Block, T> registerBlock(
             String name, Supplier<T> block, Supplier<Item> itemBlock) {

@@ -1,7 +1,7 @@
 {
   "parent": "withered_lands:get_out_of_my_swamp",
   "display": {
-    "icon": { "id": "withered_lands:call_of_the_abyss" },
+    "icon": { "id": "withered_lands:advancement_call_of_the_abyss" },
     "title": { "translate": "advancement.withered_lands.call_of_the_abyss" },
     "description": { "translate": "advancement.withered_lands.call_of_the_abyss.desc" },
     "frame": "goal",

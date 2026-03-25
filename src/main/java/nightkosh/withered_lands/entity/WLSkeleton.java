@@ -48,7 +48,7 @@ public class WLSkeleton extends Skeleton {
     public boolean hurtServer(@Nonnull ServerLevel level, @Nonnull DamageSource source, float amount) {
         if (this.getOffhandItem().is(Items.SHIELD) &&
                 (source.getDirectEntity() instanceof AbstractArrow arrow && isInFrontOfMe(arrow) ||
-                        source.getDirectEntity() instanceof LivingEntity entity && isInFrontOfMe(entity) && level.random.nextInt(4) == 0)) {
+                        source.getDirectEntity() instanceof LivingEntity entity && isInFrontOfMe(entity) && level.getRandom().nextInt(4) == 0)) {
             this.level().broadcastEntityEvent(this, (byte) 29);
             this.playSound(SoundEvents.SHIELD_BLOCK.value(), 1, 1);
             // cancel damage

@@ -178,7 +178,7 @@ public abstract class ASlime extends Slime {
 
     @Override
     public void checkDespawn() {
-        if (this.tickCount >= TimeHelper.SECONDS_8 || !this.getTags().contains(TAG_SLIME_RAIN)) {
+        if (this.tickCount >= TimeHelper.SECONDS_8 || !this.entityTags().contains(TAG_SLIME_RAIN)) {
             super.checkDespawn();
         }
     }

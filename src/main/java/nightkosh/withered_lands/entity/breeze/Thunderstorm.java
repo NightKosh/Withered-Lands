@@ -1,6 +1,5 @@
 package nightkosh.withered_lands.entity.breeze;
 
-import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -43,9 +42,10 @@ public class Thunderstorm extends ABreeze {
         return ParticleTypes.ELECTRIC_SPARK;
     }
 
+    @Nonnull
     @Override
-    protected Brain<?> makeBrain(Dynamic<?> dynamic) {
-        return BreezeAi.makeBrain(this, this.brainProvider().makeBrain(dynamic), true);
+    protected Brain<?> makeBrain(@Nonnull Brain.Packed input) {
+        return BreezeAi.makeBrain(this, BRAIN_PROVIDER.makeBrain(this, input), true);
     }
 
     @Override

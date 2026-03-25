@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -258,7 +259,7 @@ public class WLItems {
             "slime_gel_chunk",
             () -> new BlockItem(WLBlocks.SLIME_GEL_CHUNK.get(), new Item.Properties()
                     .stacksTo(64)
-                    .setId(WLBlocks.SLIME_GEL_CHUNK_RK)));
+                    .setId(blockIdToItemId(WLBlocks.SLIME_GEL_CHUNK_RK))));
 
     public static final DeferredHolder<Item, Item> SLIME_SOUP = ITEMS_REGISTER.register(
             "slime_soup",
@@ -312,7 +313,7 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .equippable(EquipmentSlot.HEAD)
-                            .setId(WLBlocks.SKULL_HUSK_RK)));
+                            .setId(blockIdToItemId(WLBlocks.SKULL_HUSK_RK))));
 
     public static final DeferredHolder<Item, Item> SKULL_DROWNED = ITEMS_REGISTER.register(
             "skull_drowned",
@@ -321,7 +322,7 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .equippable(EquipmentSlot.HEAD)
-                            .setId(WLBlocks.SKULL_DROWNED_RK)));
+                            .setId(blockIdToItemId(WLBlocks.SKULL_DROWNED_RK))));
 
     public static final DeferredHolder<Item, Item> SKULL_STRAY = ITEMS_REGISTER.register(
             "skull_stray",
@@ -330,7 +331,7 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .equippable(EquipmentSlot.HEAD)
-                            .setId(WLBlocks.SKULL_STRAY_RK)));
+                            .setId(blockIdToItemId(WLBlocks.SKULL_STRAY_RK))));
 
     public static final DeferredHolder<Item, Item> SKULL_BOGGED = ITEMS_REGISTER.register(
             "skull_bogged",
@@ -339,7 +340,7 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .equippable(EquipmentSlot.HEAD)
-                            .setId(WLBlocks.SKULL_BOGGED_RK)));
+                            .setId(blockIdToItemId(WLBlocks.SKULL_BOGGED_RK))));
 
     public static final DeferredHolder<Item, Item> SKULL_PARCHED = ITEMS_REGISTER.register(
             "skull_parched",
@@ -348,7 +349,7 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .equippable(EquipmentSlot.HEAD)
-                            .setId(WLBlocks.SKULL_PARCHED_RK)));
+                            .setId(blockIdToItemId(WLBlocks.SKULL_PARCHED_RK))));
 
     public static final DeferredHolder<Item, Item> SKULL_PIGLIN = ITEMS_REGISTER.register(
             "skull_piglin",
@@ -357,7 +358,7 @@ public class WLItems {
                     new Item.Properties()
                             .stacksTo(64)
                             .equippable(EquipmentSlot.HEAD)
-                            .setId(WLBlocks.SKULL_PIGLIN_RK)));
+                            .setId(blockIdToItemId(WLBlocks.SKULL_PIGLIN_RK))));
 
     // torch
     public static final DeferredHolder<Item, Item> EXTINGUISHED_TORCH = ITEMS_REGISTER.register(
@@ -366,7 +367,7 @@ public class WLItems {
                     WLBlocks.EXTINGUISHED_TORCH.get(), WLBlocks.EXTINGUISHED_WALL_TORCH.get(), Direction.DOWN,
                     new Item.Properties()
                             .stacksTo(64)
-                            .setId(WLBlocks.EXTINGUISHED_TORCH_RK)));
+                            .setId(blockIdToItemId(WLBlocks.EXTINGUISHED_TORCH_RK))));
 
     public static final DeferredHolder<Item, Item> EXTINGUISHED_COPPER_TORCH = ITEMS_REGISTER.register(
             "extinguished_copper_torch",
@@ -374,7 +375,7 @@ public class WLItems {
                     WLBlocks.EXTINGUISHED_COPPER_TORCH.get(), WLBlocks.EXTINGUISHED_COPPER_WALL_TORCH.get(), Direction.DOWN,
                     new Item.Properties()
                             .stacksTo(64)
-                            .setId(WLBlocks.EXTINGUISHED_COPPER_TORCH_RK)));
+                            .setId(blockIdToItemId(WLBlocks.EXTINGUISHED_COPPER_TORCH_RK))));
 
     public static final DeferredHolder<Item, Item> EXTINGUISHED_SOUL_TORCH = ITEMS_REGISTER.register(
             "extinguished_soul_torch",
@@ -382,53 +383,53 @@ public class WLItems {
                     WLBlocks.EXTINGUISHED_SOUL_TORCH.get(), WLBlocks.EXTINGUISHED_SOUL_WALL_TORCH.get(), Direction.DOWN,
                     new Item.Properties()
                             .stacksTo(64)
-                            .setId(WLBlocks.EXTINGUISHED_SOUL_TORCH_RK)));
+                            .setId(blockIdToItemId(WLBlocks.EXTINGUISHED_SOUL_TORCH_RK))));
 
-    public static final DeferredHolder<Item, Item> SAND_LAYER = ITEMS_REGISTER.register(
-            "sand_layer",
+    public static final DeferredHolder<Item, Item> LAYER_SAND = ITEMS_REGISTER.register(
+            "layer_sand",
             () -> new SandLayerBlockItem(
-                    WLBlocks.SAND_LAYER.get(),
+                    WLBlocks.LAYER_SAND.get(),
                     new Item.Properties()
                             .stacksTo(64)
-                            .setId(WLBlocks.SAND_LAYER_RK)));
+                            .setId(blockIdToItemId(WLBlocks.LAYER_SAND_RK))));
 
-    public static final DeferredHolder<Item, Item> MUD_LAYER = ITEMS_REGISTER.register(
-            "mud_layer",
+    public static final DeferredHolder<Item, Item> LAYER_MUD = ITEMS_REGISTER.register(
+            "layer_mud",
             () -> new MudLayerBlockItem(
-                    WLBlocks.MUD_LAYER.get(),
+                    WLBlocks.LAYER_MUD.get(),
                     new Item.Properties()
                             .stacksTo(64)
-                            .setId(WLBlocks.MUD_LAYER_RK)));
+                            .setId(blockIdToItemId(WLBlocks.LAYER_MUD_RK))));
 
-    public static final DeferredHolder<Item, Item> MOSS_LAYER = ITEMS_REGISTER.register(
-            "moss_layer",
+    public static final DeferredHolder<Item, Item> LAYER_MOSS = ITEMS_REGISTER.register(
+            "layer_moss",
             () -> new MossLayerBlockItem(
-                    WLBlocks.MOSS_LAYER.get(),
+                    WLBlocks.LAYER_MOSS.get(),
                     new Item.Properties()
                             .stacksTo(64)
-                            .setId(WLBlocks.MOSS_LAYER_RK)));
+                            .setId(blockIdToItemId(WLBlocks.LAYER_MOSS_RK))));
 
     // technical items for advancements
 
-    public static final DeferredHolder<Item, Item> RUSTED_AWAY = ITEMS_REGISTER.register(
-            "rusted_away",
+    public static final DeferredHolder<Item, Item> ADVANCEMENT_RUSTED_AWAY = ITEMS_REGISTER.register(
+            "advancement_rusted_away",
             () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "rusted_away")))));
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "advancement_rusted_away")))));
 
-    public static final DeferredHolder<Item, Item> EYES_IN_THE_DARK = ITEMS_REGISTER.register(
-            "eyes_in_the_dark",
+    public static final DeferredHolder<Item, Item> ADVANCEMENT_EYES_IN_THE_DARK = ITEMS_REGISTER.register(
+            "advancement_eyes_in_the_dark",
             () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "eyes_in_the_dark")))));
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "advancement_eyes_in_the_dark")))));
 
-    public static final DeferredHolder<Item, Item> GET_OUT_OF_MY_SWAMP = ITEMS_REGISTER.register(
-            "get_out_of_my_swamp",
+    public static final DeferredHolder<Item, Item> ADVANCEMENT_GET_OUT_OF_MY_SWAMP = ITEMS_REGISTER.register(
+            "advancement_get_out_of_my_swamp",
             () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "get_out_of_my_swamp")))));
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "advancement_get_out_of_my_swamp")))));
 
-    public static final DeferredHolder<Item, Item> CALL_OF_THE_ABYSS = ITEMS_REGISTER.register(
-            "call_of_the_abyss",
+    public static final DeferredHolder<Item, Item> ADVANCEMENT_CALL_OF_THE_ABYSS = ITEMS_REGISTER.register(
+            "advancement_call_of_the_abyss",
             () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "call_of_the_abyss")))));
+                    .setId(ResourceKey.create(Registries.ITEM, fromNamespaceAndPath(ModInfo.ID, "advancement_call_of_the_abyss")))));
 
     private static DeferredHolder<Item, Item> registerEgg(DeferredHolder entityHolder, String id) {
         return ITEMS_REGISTER.register(
@@ -441,5 +442,8 @@ public class WLItems {
         ITEMS_REGISTER.register(eventBus);
     }
 
+    private static ResourceKey<Item> blockIdToItemId(ResourceKey<Block> blockName) {
+        return ResourceKey.create(Registries.ITEM, blockName.identifier());
+    }
 
 }

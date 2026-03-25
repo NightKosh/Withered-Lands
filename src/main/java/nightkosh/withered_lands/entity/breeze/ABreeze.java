@@ -1,6 +1,5 @@
 package nightkosh.withered_lands.entity.breeze;
 
-import com.mojang.serialization.Dynamic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -13,7 +12,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.debug.DebugBreezeInfo;
 import net.minecraft.util.debug.DebugSubscriptions;
 import net.minecraft.util.profiling.Profiler;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.Brain;
@@ -21,7 +19,6 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
@@ -59,6 +56,10 @@ public abstract class ABreeze extends ADayMonster {
     public AnimationState shoot = new AnimationState();
     public AnimationState inhale = new AnimationState();
 
+    protected static final Brain.Provider<ABreeze> BRAIN_PROVIDER = Brain.provider(
+            BreezeAi.SENSOR_TYPES,
+            BreezeAi::getActivities);
+
     private static final ProjectileDeflection PROJECTILE_DEFLECTION = (projectile, entity, randomSource) -> {
         entity.level().playSound(null, entity, SoundEvents.BREEZE_DEFLECT, entity.getSoundSource(), 1, 1);
         ProjectileDeflection.REVERSE.deflect(projectile, entity, randomSource);
@@ -66,23 +67,20 @@ public abstract class ABreeze extends ADayMonster {
 
     public ABreeze(EntityType<? extends ABreeze> entityType, Level level) {
         super(entityType, level);
-        this.setPathfindingMalus(PathType.DAMAGE_FIRE, -1);
+        this.setPathfindingMalus(PathType.FIRE, -1);
         this.xpReward = 10;
     }
 
+    @Nonnull
     @Override
-    protected Brain<?> makeBrain(Dynamic<?> dynamic) {
-        return BreezeAi.makeBrain(this, this.brainProvider().makeBrain(dynamic), false);
+    protected Brain<?> makeBrain(@Nonnull Brain.Packed input) {
+        return BreezeAi.makeBrain(this, BRAIN_PROVIDER.makeBrain(this, input), false);
     }
 
+    @Nonnull
     @Override
     public Brain<ABreeze> getBrain() {
         return (Brain<ABreeze>) super.getBrain();
-    }
-
-    @Override
-    protected Brain.Provider<ABreeze> brainProvider() {
-        return Brain.provider(BreezeAi.MEMORY_TYPES, BreezeAi.SENSOR_TYPES);
     }
 
     @Override
@@ -200,9 +198,8 @@ public abstract class ABreeze extends ADayMonster {
     @Nonnull
     @Override
     public ProjectileDeflection deflection(Projectile projectile) {
-        if (projectile.getType() != EntityType.BREEZE_WIND_CHARGE &&
-                projectile.getType() != EntityType.WIND_CHARGE) {
-            return this.getType().is(EntityTypeTags.DEFLECTS_PROJECTILES) ? PROJECTILE_DEFLECTION : ProjectileDeflection.NONE;
+        if (!projectile.is(EntityType.BREEZE_WIND_CHARGE) && !projectile.is(EntityType.WIND_CHARGE)) {
+            return this.is(EntityTypeTags.DEFLECTS_PROJECTILES) ? PROJECTILE_DEFLECTION : ProjectileDeflection.NONE;
         } else {
             return ProjectileDeflection.NONE;
         }
@@ -257,8 +254,8 @@ public abstract class ABreeze extends ADayMonster {
     }
 
     @Override
-    public boolean canAttackType(@Nonnull EntityType<?> entityType) {
-        return entityType == EntityType.PLAYER || entityType == EntityType.IRON_GOLEM;
+    public boolean canAttack(LivingEntity target) {
+        return target.is(EntityType.PLAYER) || target.is(EntityType.IRON_GOLEM);
     }
 
     @Override

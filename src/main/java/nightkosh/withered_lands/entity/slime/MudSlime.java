@@ -104,7 +104,7 @@ public class MudSlime extends ASlime {
             }
         }
         if (WLConfigs.MUD_SLIME_SPREAD_MUD.get()) {
-            this.spreadBlocks(WLBlocks.MUD_LAYER.get().defaultBlockState());
+            this.spreadBlocks(WLBlocks.LAYER_MUD.get().defaultBlockState());
         }
     }
 

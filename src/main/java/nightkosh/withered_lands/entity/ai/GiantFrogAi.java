@@ -12,6 +12,7 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.ActivityData;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.behavior.declarative.BehaviorBuilder;
@@ -28,6 +29,8 @@ import nightkosh.withered_lands.entity.ai.behavior.GiantFrogCroak;
 import nightkosh.withered_lands.entity.ai.behavior.GiantFrogShootTongue;
 import nightkosh.withered_lands.entity.swamp.GiantFrog;
 
+import java.util.List;
+
 /**
  * Withered Lands
  *
@@ -42,6 +45,10 @@ public class GiantFrogAi {
             WLSensorTypes.GIANT_FROG.get(),
             SensorType.IS_IN_WATER
     );
+
+    public static List<ActivityData<GiantFrog>> getActivities() {
+        return List.of(initCoreActivity(), initIdleActivity(), initSwimActivity(), initTongueActivity(), initJumpActivity());
+    }
 
     public static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
             MemoryModuleType.LOOK_TARGET,
@@ -70,20 +77,8 @@ public class GiantFrogAi {
         frog.getBrain().setMemory(MemoryModuleType.LONG_JUMP_COOLDOWN_TICKS, TIME_BETWEEN_LONG_JUMPS.sample(random));
     }
 
-    public static Brain<?> makeBrain(Brain<GiantFrog> brain) {
-        initCoreActivity(brain);
-        initIdleActivity(brain);
-        initSwimActivity(brain);
-        initTongueActivity(brain);
-        initJumpActivity(brain);
-        brain.setCoreActivities(ImmutableSet.of(Activity.CORE));
-        brain.setDefaultActivity(Activity.IDLE);
-        brain.useDefaultActivity();
-        return brain;
-    }
-
-    private static void initCoreActivity(Brain<GiantFrog> brain) {
-        brain.addActivity(
+    private static ActivityData<GiantFrog> initCoreActivity() {
+        return ActivityData.create(
                 Activity.CORE,
                 0,
                 ImmutableList.of(
@@ -93,69 +88,69 @@ public class GiantFrogAi {
         );
     }
 
-    private static void initIdleActivity(Brain<GiantFrog> brain) {
-        brain.addActivityWithConditions(
+    private static ActivityData<GiantFrog> initIdleActivity() {
+        return ActivityData.create(
                 Activity.IDLE,
                 ImmutableList.of(
                         Pair.of(0, SetEntityLookTargetSometimes.create(EntityType.PLAYER, 6, UniformInt.of(30, 60))),
                         Pair.of(2, StartAttacking.create(
-                                        (level, frog) -> canAttack(frog),
-                                        (level, frog) -> frog.getBrain()
-                                                .getMemory(MemoryModuleType.NEAREST_ATTACKABLE))),
+                                (level, frog) -> canAttack(frog),
+                                (level, frog) -> frog.getBrain()
+                                        .getMemory(MemoryModuleType.NEAREST_ATTACKABLE))),
                         Pair.of(3, TryFindLand.create(6, 1)),
                         Pair.of(4, new RunOne<>(
-                                        ImmutableMap.of(MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT),
-                                        ImmutableList.of(
-                                                Pair.of(RandomStroll.stroll(1), 1),
-                                                Pair.of(SetWalkTargetFromLookTarget.create(1, 3), 1),
-                                                Pair.of(new GiantFrogCroak(), 3),
-                                                Pair.of(BehaviorBuilder.triggerIf(Entity::onGround), 2))))),
+                                ImmutableMap.of(MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT),
+                                ImmutableList.of(
+                                        Pair.of(RandomStroll.stroll(1), 1),
+                                        Pair.of(SetWalkTargetFromLookTarget.create(1, 3), 1),
+                                        Pair.of(new GiantFrogCroak(), 3),
+                                        Pair.of(BehaviorBuilder.triggerIf(Entity::onGround), 2))))),
                 ImmutableSet.of(
                         Pair.of(MemoryModuleType.LONG_JUMP_MID_JUMP, MemoryStatus.VALUE_ABSENT),
                         Pair.of(MemoryModuleType.IS_IN_WATER, MemoryStatus.VALUE_ABSENT))
         );
     }
 
-    private static void initSwimActivity(Brain<GiantFrog> brain) {
-        brain.addActivityWithConditions(
+    private static ActivityData<GiantFrog> initSwimActivity() {
+        return ActivityData.create(
                 Activity.SWIM,
                 ImmutableList.of(
                         Pair.of(0, SetEntityLookTargetSometimes.create(EntityType.PLAYER, 6, UniformInt.of(30, 60))),
                         Pair.of(2, StartAttacking.create(
-                                        (level, frog) -> canAttack(frog),
-                                        (level, frog) -> frog.getBrain()
-                                                .getMemory(MemoryModuleType.NEAREST_ATTACKABLE))),
+                                (level, frog) -> canAttack(frog),
+                                (level, frog) -> frog.getBrain()
+                                        .getMemory(MemoryModuleType.NEAREST_ATTACKABLE))),
                         Pair.of(3, TryFindLand.create(8, 1.5F)),
                         Pair.of(5, new GateBehavior<>(
-                                        ImmutableMap.of(MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT),
-                                        ImmutableSet.of(),
-                                        GateBehavior.OrderPolicy.ORDERED,
-                                        GateBehavior.RunningPolicy.TRY_ALL,
-                                        ImmutableList.of(
-                                                Pair.of(RandomStroll.swim(SPEED_MULTIPLIER_IN_WATER), 1),
-                                                Pair.of(RandomStroll.stroll(1, true), 1),
-                                                Pair.of(SetWalkTargetFromLookTarget.create(1, 3), 1),
-                                                Pair.of(BehaviorBuilder.triggerIf(Entity::isInWater), 5))))),
+                                ImmutableMap.of(MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT),
+                                ImmutableSet.of(),
+                                GateBehavior.OrderPolicy.ORDERED,
+                                GateBehavior.RunningPolicy.TRY_ALL,
+                                ImmutableList.of(
+                                        Pair.of(RandomStroll.swim(SPEED_MULTIPLIER_IN_WATER), 1),
+                                        Pair.of(RandomStroll.stroll(1, true), 1),
+                                        Pair.of(SetWalkTargetFromLookTarget.create(1, 3), 1),
+                                        Pair.of(BehaviorBuilder.triggerIf(Entity::isInWater), 5))))),
                 ImmutableSet.of(
                         Pair.of(MemoryModuleType.LONG_JUMP_MID_JUMP, MemoryStatus.VALUE_ABSENT),
                         Pair.of(MemoryModuleType.IS_IN_WATER, MemoryStatus.VALUE_PRESENT))
         );
     }
 
-    private static void initJumpActivity(Brain<GiantFrog> brain) {
-        brain.addActivityWithConditions(
+    private static ActivityData<GiantFrog> initJumpActivity() {
+        return ActivityData.create(
                 Activity.LONG_JUMP,
                 ImmutableList.of(
                         Pair.of(0, new LongJumpMidJump(TIME_BETWEEN_LONG_JUMPS, SoundEvents.FROG_STEP)),
                         Pair.of(1, new LongJumpToPreferredBlock<>(
-                                        TIME_BETWEEN_LONG_JUMPS,
-                                        MAX_LONG_JUMP_HEIGHT,
-                                        MAX_LONG_JUMP_WIDTH,
-                                        MAX_JUMP_VELOCITY_MULTIPLIER,
-                                        frog -> SoundEvents.FROG_LONG_JUMP,
-                                        BlockTags.FROG_PREFER_JUMP_TO,
-                                        0.5F,
-                                        GiantFrogAi::isAcceptableLandingSpot))),
+                                TIME_BETWEEN_LONG_JUMPS,
+                                MAX_LONG_JUMP_HEIGHT,
+                                MAX_LONG_JUMP_WIDTH,
+                                MAX_JUMP_VELOCITY_MULTIPLIER,
+                                frog -> SoundEvents.FROG_LONG_JUMP,
+                                BlockTags.FROG_PREFER_JUMP_TO,
+                                0.5F,
+                                GiantFrogAi::isAcceptableLandingSpot))),
                 ImmutableSet.of(
                         Pair.of(MemoryModuleType.LONG_JUMP_COOLDOWN_TICKS, MemoryStatus.VALUE_ABSENT),
                         Pair.of(MemoryModuleType.IS_IN_WATER, MemoryStatus.VALUE_ABSENT)
@@ -163,8 +158,8 @@ public class GiantFrogAi {
         );
     }
 
-    private static void initTongueActivity(Brain<GiantFrog> brain) {
-        brain.addActivityAndRemoveMemoryWhenStopped(
+    private static ActivityData<GiantFrog> initTongueActivity() {
+        return ActivityData.create(
                 Activity.TONGUE,
                 0,
                 ImmutableList.of(

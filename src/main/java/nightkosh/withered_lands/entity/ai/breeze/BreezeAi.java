@@ -3,6 +3,7 @@ package nightkosh.withered_lands.entity.ai.breeze;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.datafixers.util.Pair;
+import net.minecraft.world.entity.ai.ActivityData;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -12,6 +13,7 @@ import net.minecraft.world.entity.ai.sensing.SensorType;
 import net.minecraft.world.entity.schedule.Activity;
 import nightkosh.withered_lands.core.WLSensorTypes;
 import nightkosh.withered_lands.entity.breeze.ABreeze;
+import nightkosh.withered_lands.entity.breeze.Thunderstorm;
 
 import java.util.List;
 import java.util.Set;
@@ -55,24 +57,28 @@ public class BreezeAi {
     );
 
     public static Brain<?> makeBrain(ABreeze breeze, Brain<ABreeze> brain, boolean isThunder) {
-        initCoreActivity(brain);
-        initIdleActivity(brain);
-        initFightActivity(breeze, brain, isThunder);
+        initCoreActivity();
+        initIdleActivity();
+        initFightActivity(breeze, isThunder);
         brain.setCoreActivities(Set.of(Activity.CORE));
         brain.setDefaultActivity(Activity.FIGHT);
         brain.useDefaultActivity();
         return brain;
     }
 
-    private static void initCoreActivity(Brain<ABreeze> brain) {
-        brain.addActivity(Activity.CORE, 0,
+    public static List<ActivityData<ABreeze>> getActivities(ABreeze breeze) {
+        return List.of(initCoreActivity(), initIdleActivity(), initFightActivity(breeze, breeze instanceof Thunderstorm));
+    }
+
+    private static ActivityData<ABreeze> initCoreActivity() {
+        return ActivityData.<ABreeze>create(Activity.CORE, 0,
                 ImmutableList.of(
                         new Swim<>(0.8F),
                         new LookAtTargetSink(45, 90)));
     }
 
-    private static void initIdleActivity(Brain<ABreeze> brain) {
-        brain.addActivity(
+    private static ActivityData<ABreeze> initIdleActivity() {
+        return ActivityData.<ABreeze>create(
                 Activity.IDLE,
                 ImmutableList.of(
                         Pair.of(0, StartAttacking.create((level, breeze) ->
@@ -81,24 +87,23 @@ public class BreezeAi {
                         Pair.of(2, new SlideToTargetSink(20, 40)),
                         Pair.of(3, new RunOne<>(ImmutableList.of(
                                 Pair.of(new DoNothing(20, TICKS_TO_REMEMBER_SEEN_TARGET), 1),
-                                Pair.of(RandomStroll.stroll(SPEED_MULTIPLIER_WHEN_SLIDING), 2)))))
-        );
+                                Pair.of(RandomStroll.stroll(SPEED_MULTIPLIER_WHEN_SLIDING), 2))))));
     }
 
-    private static void initFightActivity(ABreeze breeze, Brain<ABreeze> brain, boolean isThunder) {
-        brain.addActivityWithConditions(
+    private static ActivityData<ABreeze> initFightActivity(ABreeze breeze, boolean isThunder) {
+        return ActivityData.<ABreeze>create(
                 Activity.FIGHT,
                 ImmutableList.of(
                         Pair.of(0, StopAttackingIfTargetInvalid.create(
-                                Sensor.wasEntityAttackableLastNTicks(breeze, TICKS_TO_REMEMBER_SEEN_TARGET).negate()::test)),
+                                Sensor.wasEntityAttackableLastNTicks(breeze, TICKS_TO_REMEMBER_SEEN_TARGET)
+                                        .negate()::test)),
                         Pair.of(1, isThunder ? new ThunderStrike() : new BreezeShoot()),
                         Pair.of(2, isThunder ? new ThunderTeleportation() : new LongJump()),
                         Pair.of(3, new ShootWhenStuck()),
                         Pair.of(4, new Slide())),
                 ImmutableSet.of(
                         Pair.of(MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT),
-                        Pair.of(MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT))
-        );
+                        Pair.of(MemoryModuleType.WALK_TARGET, MemoryStatus.VALUE_ABSENT)));
     }
 
     public static void updateActivity(ABreeze breeze) {

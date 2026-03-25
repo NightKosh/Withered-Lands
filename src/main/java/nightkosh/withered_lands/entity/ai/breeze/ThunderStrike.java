@@ -19,9 +19,9 @@ public class ThunderStrike extends BreezeShoot {
         var pos = target.blockPosition();
         BreezeUtil.createLightning(
                 level,
-                pos.getX() + 2.5 - level.random.nextInt(5),
+                pos.getX() + 2.5 - level.getRandom().nextInt(5),
                 pos.getY(),
-                pos.getZ() + 2.5 - level.random.nextInt(5));
+                pos.getZ() + 2.5 - level.getRandom().nextInt(5));
     }
 
     @Override

@@ -9,7 +9,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "minecraft:moss_carpet",
+              "name": "withered_lands:layer_mud",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -30,7 +30,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "minecraft:moss_block",
+              "name": "minecraft:mud",
               "conditions": [
                 {
                   "condition": "minecraft:random_chance",

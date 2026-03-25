@@ -9,7 +9,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "withered_lands:sand_layer",
+              "name": "withered_lands:layer_sand",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",

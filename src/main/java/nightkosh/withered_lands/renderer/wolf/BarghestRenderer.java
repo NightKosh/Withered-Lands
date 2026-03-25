@@ -49,7 +49,7 @@ public class BarghestRenderer extends MobRenderer<Barghest, BarghestRenderState,
             BarghestRenderState state, boolean bodyVisible, boolean translucent, boolean glowing) {
         var identifier = this.getTextureLocation(state);
         if (state.isInvisible) {
-            return RenderTypes.itemEntityTranslucentCull(identifier);
+            return RenderTypes.entityTranslucentCullItemTarget(identifier);
         } else {
             return this.model.renderType(identifier);
         }

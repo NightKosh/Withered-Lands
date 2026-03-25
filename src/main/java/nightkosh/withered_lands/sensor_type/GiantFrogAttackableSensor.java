@@ -1,5 +1,6 @@
 package nightkosh.withered_lands.sensor_type;
 
+import com.google.common.collect.Sets;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.player.Player;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Withered Lands
@@ -29,6 +31,7 @@ public class GiantFrogAttackableSensor extends NearestVisibleLivingEntitySensor 
                 target.closerThan(frog, TARGET_DETECTION_DISTANCE);
     }
 
+
     private boolean isUnreachableAttackTarget(LivingEntity attacker, LivingEntity target) {
         return attacker.getBrain()
                 .getMemory(MemoryModuleType.UNREACHABLE_TONGUE_TARGETS)
@@ -38,8 +41,13 @@ public class GiantFrogAttackableSensor extends NearestVisibleLivingEntitySensor 
 
     @Nonnull
     @Override
-    protected MemoryModuleType getMemory() {
+    protected MemoryModuleType<LivingEntity> getMemoryToSet() {
         return MemoryModuleType.NEAREST_ATTACKABLE;
+    }
+
+    @Override
+    public Set<MemoryModuleType<?>> requires() {
+        return Sets.union(super.requires(), Set.of(MemoryModuleType.UNREACHABLE_TONGUE_TARGETS));
     }
 
 }

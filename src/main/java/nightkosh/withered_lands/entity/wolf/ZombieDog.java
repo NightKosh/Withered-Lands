@@ -83,24 +83,24 @@ public class ZombieDog extends AUndeadDog {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.ANGRY).ambientSound().value();
+        return SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.ANGRY).adultSounds().ambientSound().value();
     }
 
     @Nonnull
     @Override
     protected SoundEvent getHurtSound(@Nonnull DamageSource damageSource) {
-        return SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.ANGRY).hurtSound().value();
+        return SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.ANGRY).adultSounds().hurtSound().value();
     }
 
     @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.ANGRY).deathSound().value();
+        return SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.ANGRY).adultSounds().deathSound().value();
     }
 
     @Override
     protected void playStepSound(@Nonnull BlockPos pos, @Nonnull BlockState state) {
-        this.playSound(SoundEvents.WOLF_STEP, 0.15F, 1);
+        this.playSound(SoundEvents.WOLF_STEP.value(), 0.15F, 1);
     }
 
     public static AttributeSupplier createAttributeSupplier() {

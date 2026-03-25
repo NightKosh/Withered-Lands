@@ -10,7 +10,7 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.Identifier;
@@ -78,7 +78,7 @@ public abstract class ASlimeRenderer extends MobRenderer<ASlime, WLSlimeRenderSt
     public void submit(WLSlimeRenderState state, @Nonnull PoseStack poseStack,
                        @Nonnull SubmitNodeCollector collector, @Nonnull CameraRenderState cameraState) {
         if (WLConfigs.SLIME_ITEMS_CUSTOM_RENDERER.get() && !state.headItem.isEmpty()) {
-            var sprite = state.headItem.pickParticleIcon(state.slime.getRandom());
+            var sprite = state.headItem.pickParticleMaterial(state.slime.getRandom());
             if (sprite != null) {
                 poseStack.pushPose();
 
@@ -90,8 +90,8 @@ public abstract class ASlimeRenderer extends MobRenderer<ASlime, WLSlimeRenderSt
                 collector.order(-1)
                         .submitCustomGeometry(
                                 poseStack,
-                                RenderTypes.entityCutoutNoCull(sprite.atlasLocation()),
-                                (pose, vc) -> renderSpriteQuad(pose, vc, sprite, state.lightCoords, OverlayTexture.NO_OVERLAY));
+                                RenderTypes.entityCutout(sprite.sprite().atlasLocation()),
+                                (pose, vc) -> renderSpriteQuad(pose, vc, sprite.sprite(), state.lightCoords, OverlayTexture.NO_OVERLAY));
 
                 poseStack.popPose();
             }

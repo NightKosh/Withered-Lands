@@ -1,7 +1,7 @@
 {
   "parent": "withered_lands:slimepocalypse",
   "display": {
-    "icon": { "id": "withered_lands:rusted_away" },
+    "icon": { "id": "withered_lands:advancement_rusted_away" },
     "title": { "translate": "advancement.withered_lands.rusted_away" },
     "description": { "translate": "advancement.withered_lands.rusted_away.desc" },
     "frame": "task",
