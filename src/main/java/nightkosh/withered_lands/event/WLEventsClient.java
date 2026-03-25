@@ -82,15 +82,15 @@ public class WLEventsClient {
         event.registerEntityRenderer(WLEntities.BAT_VOLATILE.get(), BatVolatileRenderer::new);
         event.registerEntityRenderer(WLEntities.BAT_CHORUS.get(), BatChorusRenderer::new);
         // crawlers
-        event.registerEntityRenderer(WLEntities.SKELETON_SKULL_CRAWLER.get(), SkeletonSkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.STRAY_SKULL_CRAWLER.get(), StraySkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.BOGGED_SKULL_CRAWLER.get(), BoggedSkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.PARCHED_SKULL_CRAWLER.get(), ParchedSkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.WITHER_SKULL_CRAWLER.get(), WitherSkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.ZOMBIE_SKULL_CRAWLER.get(), ZombieSkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.DROWNED_SKULL_CRAWLER.get(), DrownedSkullCrawlerRenderer::new);
-        event.registerEntityRenderer(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawlerRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_SKELETON.get(), SkullCrawlerSkeletonRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_STRAY.get(), SkullCrawlerStrayRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_BOGGED.get(), SkullCrawlerBoggedRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_PARCHED.get(), SkullCrawlerParchedRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_WITHER.get(), SkullCrawlerWitherRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_ZOMBIE.get(), SkullCrawlerZombieRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_HUSK.get(), SkullCrawlerHuskRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_DROWNED.get(), SkullCrawlerDrownedRenderer::new);
+        event.registerEntityRenderer(WLEntities.SKULL_CRAWLER_PIGLIN.get(), SkullCrawlerPiglinRenderer::new);
         // breeze
         event.registerEntityRenderer(WLEntities.THUNDERSTORM.get(), ThunderstormRenderer::new);
         event.registerEntityRenderer(WLEntities.BLIZZARD.get(), BlizzardRenderer::new);

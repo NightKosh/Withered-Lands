@@ -3,12 +3,16 @@ package nightkosh.withered_lands.entity.crawler;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import nightkosh.withered_lands.helper.TimeHelper;
 
 import javax.annotation.Nonnull;
 
@@ -20,44 +24,49 @@ import static nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibi
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class PiglinSkullCrawler extends ZombieSkullCrawler {
+public class SkullCrawlerBogged extends SkullCrawlerSkeleton {
 
-    public PiglinSkullCrawler(EntityType<? extends ASkullCrawler> entityType, Level level) {
+    public SkullCrawlerBogged(EntityType<? extends ASkullCrawler> entityType, Level level) {
         super(entityType, level);
     }
 
     @Override
     public Block getPilesOfBones() {
-        return PILE_OF_BONES_SKULL_PIGLIN_CRAWLER;
+        return PILE_OF_BONES_SKULL_BOGGED_CRAWLER;
     }
 
     @Override
     public Block getBoneSkullBlock() {
-        return BONE_BLOCK_SKULL_PIGLIN_CRAWLER;
+        return BONE_BLOCK_SKULL_BOGGED_CRAWLER;
+    }
+
+    @Override
+    protected void applyEffect(LivingEntity entity) {
+        entity.addEffect(new MobEffectInstance(MobEffects.POISON, TimeHelper.SECONDS_5), this);
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.ZOMBIFIED_PIGLIN_AMBIENT;
+        return SoundEvents.BOGGED_AMBIENT;
     }
 
     @Nonnull
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return SoundEvents.ZOMBIFIED_PIGLIN_HURT;
+        return SoundEvents.BOGGED_HURT;
     }
 
     @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.ZOMBIFIED_PIGLIN_DEATH;
+        return SoundEvents.BOGGED_DEATH;
     }
 
     public static AttributeSupplier createAttributeSupplier() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 6)
-                .add(Attributes.MOVEMENT_SPEED, 0.25)
-                .add(Attributes.ATTACK_DAMAGE, 1)
+                .add(Attributes.MOVEMENT_SPEED, 0.3)
+                .add(Attributes.ATTACK_DAMAGE, 0.5)
                 .build();
     }
 

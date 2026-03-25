@@ -64,15 +64,15 @@ public class InfernalMobsCompatibility {
                 classesAllowedMap.put(BatVolatile.class.getSimpleName(), false);
                 classesAllowedMap.put(BatChorus.class.getSimpleName(), false);
 
-                classesAllowedMap.put(SkeletonSkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(StraySkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(BoggedSkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(ParchedSkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(WitherSkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(ZombieSkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(HuskSkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(DrownedSkullCrawler.class.getSimpleName(), false);
-                classesAllowedMap.put(PiglinSkullCrawler.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerSkeleton.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerStray.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerBogged.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerParched.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerWither.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerZombie.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerHusk.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerDrowned.class.getSimpleName(), false);
+                classesAllowedMap.put(SkullCrawlerPiglin.class.getSimpleName(), false);
 
                 classesAllowedMap.put(HollowStalker.class.getSimpleName(), false);
                 classesAllowedMap.put(LostSoul.class.getSimpleName(), false);

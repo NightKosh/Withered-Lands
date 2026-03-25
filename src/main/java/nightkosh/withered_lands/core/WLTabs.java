@@ -21,7 +21,7 @@ public class WLTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> WITHERED_LANDS =
             WL_TAB.register("withered_lands", () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(WLItems.WITHER_SKULL_CRAWLER_EGG))
+                    .icon(() -> new ItemStack(WLItems.SKULL_CRAWLER_WITHER_EGG))
                     .title(Component.translatable("itemGroup." + ModInfo.ID))
                     .displayItems((parameters, output) -> {
 
@@ -73,15 +73,15 @@ public class WLTabs {
                         output.accept(WLItems.BAT_VOLATILE_EGG.get());
                         output.accept(WLItems.BAT_CHORUS_EGG.get());
                         // crawlers
-                        output.accept(WLItems.SKELETON_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.STRAY_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.BOGGED_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.PARCHED_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.WITHER_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.ZOMBIE_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.HUSK_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.DROWNED_SKULL_CRAWLER_EGG.get());
-                        output.accept(WLItems.PIGLIN_SKULL_CRAWLER_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_SKELETON_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_STRAY_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_BOGGED_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_PARCHED_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_WITHER_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_ZOMBIE_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_HUSK_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_DROWNED_EGG.get());
+                        output.accept(WLItems.SKULL_CRAWLER_PIGLIN_EGG.get());
                         // breeze
                         output.accept(WLItems.THUNDERSTORM_EGG.get());
                         output.accept(WLItems.BLIZZARD_EGG.get());

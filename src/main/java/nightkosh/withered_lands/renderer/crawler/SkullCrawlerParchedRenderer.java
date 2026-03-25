@@ -13,16 +13,16 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class PiglinSkullCrawlerRenderer extends ASkullCrawlerRenderer {
+public class SkullCrawlerParchedRenderer extends ASkullCrawlerRenderer {
 
-    public PiglinSkullCrawlerRenderer(EntityRendererProvider.Context context) {
+    public SkullCrawlerParchedRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Nonnull
     @Override
     public Identifier getTextureLocation(LivingEntityRenderState state) {
-        return WLTextures.PIGLIN_SKULL_CRAWLER;
+        return WLTextures.PARCHED_SKULL_CRAWLER;
     }
 
 }

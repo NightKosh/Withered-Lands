@@ -12,8 +12,6 @@ import net.minecraft.world.entity.monster.zombie.Drowned;
 import net.minecraft.world.entity.monster.zombie.Husk;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.monster.zombie.ZombifiedPiglin;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.neoforged.bus.api.EventPriority;
@@ -127,33 +125,33 @@ public class WLEventsSpawn {
                 ASkullCrawler crawler = null;
                 if (entity instanceof AbstractSkeleton skeleton) {
                     if (skeleton instanceof WitherSkeleton) {
-                        crawler = WLEntities.WITHER_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_WITHER.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else if (skeleton instanceof Stray) {
-                        crawler = WLEntities.STRAY_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_STRAY.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else if (skeleton instanceof Bogged) {
-                        crawler = WLEntities.BOGGED_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_BOGGED.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else if (skeleton instanceof Parched) {
-                        crawler = WLEntities.PARCHED_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_PARCHED.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else {
-                        crawler = WLEntities.SKELETON_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_SKELETON.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     }
                 } else if (entity instanceof Zombie zombie) {
                     if (zombie instanceof Husk) {
-                        crawler = WLEntities.HUSK_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_HUSK.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else if (entity instanceof Drowned) {
-                        crawler = WLEntities.DROWNED_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_DROWNED.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else if (entity instanceof ZombifiedPiglin) {
-                        crawler = WLEntities.PIGLIN_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_PIGLIN.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     } else {
-                        crawler = WLEntities.ZOMBIE_SKULL_CRAWLER.get()
+                        crawler = WLEntities.SKULL_CRAWLER_ZOMBIE.get()
                                 .create(level, EntitySpawnReason.TRIGGERED);
                     }
                 }

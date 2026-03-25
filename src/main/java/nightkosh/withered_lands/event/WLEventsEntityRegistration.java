@@ -76,15 +76,15 @@ public class WLEventsEntityRegistration {
         event.put(WLEntities.BAT_VOLATILE.get(), BatVolatile.createAttributeSupplier());
         event.put(WLEntities.BAT_CHORUS.get(), BatChorus.createAttributeSupplier());
         // crawlers
-        event.put(WLEntities.SKELETON_SKULL_CRAWLER.get(), SkeletonSkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.STRAY_SKULL_CRAWLER.get(), StraySkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.BOGGED_SKULL_CRAWLER.get(), BoggedSkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.PARCHED_SKULL_CRAWLER.get(), ParchedSkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.WITHER_SKULL_CRAWLER.get(), WitherSkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.ZOMBIE_SKULL_CRAWLER.get(), ZombieSkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.HUSK_SKULL_CRAWLER.get(), HuskSkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.DROWNED_SKULL_CRAWLER.get(), DrownedSkullCrawler.createAttributeSupplier());
-        event.put(WLEntities.PIGLIN_SKULL_CRAWLER.get(), PiglinSkullCrawler.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_SKELETON.get(), SkullCrawlerSkeleton.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_STRAY.get(), SkullCrawlerStray.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_BOGGED.get(), SkullCrawlerBogged.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_PARCHED.get(), SkullCrawlerParched.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_WITHER.get(), SkullCrawlerWither.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_ZOMBIE.get(), SkullCrawlerZombie.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_HUSK.get(), SkullCrawlerHusk.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_DROWNED.get(), SkullCrawlerDrowned.createAttributeSupplier());
+        event.put(WLEntities.SKULL_CRAWLER_PIGLIN.get(), SkullCrawlerPiglin.createAttributeSupplier());
         // breeze
         event.put(WLEntities.THUNDERSTORM.get(), Thunderstorm.createAttributeSupplier());
         event.put(WLEntities.BLIZZARD.get(), Blizzard.createAttributeSupplier());
@@ -249,55 +249,55 @@ public class WLEventsEntityRegistration {
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
         // crawlers
-        event.register(WLEntities.SKELETON_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_SKELETON.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.STRAY_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_STRAY.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.BOGGED_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_BOGGED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.PARCHED_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_PARCHED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.WITHER_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_WITHER.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.ZOMBIE_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_ZOMBIE.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.HUSK_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_HUSK.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.DROWNED_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_DROWNED.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,
                 RegisterSpawnPlacementsEvent.Operation.OR);
 
-        event.register(WLEntities.PIGLIN_SKULL_CRAWLER.get(),
+        event.register(WLEntities.SKULL_CRAWLER_PIGLIN.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 ASkullCrawler::checkSpawnRules,

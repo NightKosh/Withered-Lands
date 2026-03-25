@@ -125,39 +125,39 @@ For more information, look at "minecraft NeoForge" README.txt file (it's not inc
 ### Skull crawlers spawn:
 1. skeleton skull crawler
     ```
-        /summon withered_lands:skeleton_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_skeleton ~ ~ ~ {NoAI:1b}
     ```
 2. Stray skull crawler
     ```
-        /summon withered_lands:stray_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_stray ~ ~ ~ {NoAI:1b}
     ```
 3. Bogged skull crawler
     ```
-        /summon withered_lands:bogged_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_bogged ~ ~ ~ {NoAI:1b}
     ```
 4. Parched skull crawler
     ```
-        /summon withered_lands:parched_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_parched ~ ~ ~ {NoAI:1b}
     ```
 5. Wither skull crawler
     ```
-        /summon withered_lands:wither_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_wither ~ ~ ~ {NoAI:1b}
     ```
 6. Zombie skull crawler
     ```
-        /summon withered_lands:zombie_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_zombie ~ ~ ~ {NoAI:1b}
     ```
 7. Husk skull crawler
     ```
-        /summon withered_lands:husk_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_husk ~ ~ ~ {NoAI:1b}
     ```
 8. Drowned skull crawler
     ```
-        /summon withered_lands:drowned_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_drowned ~ ~ ~ {NoAI:1b}
     ```
 9. Zombified Piglin skull crawler
     ```
-        /summon withered_lands:piglin_skull_crawler ~ ~ ~ {NoAI:1b}
+        /summon withered_lands:skull_crawler_piglin ~ ~ ~ {NoAI:1b}
     ```
 
 ### Breezes spawn:

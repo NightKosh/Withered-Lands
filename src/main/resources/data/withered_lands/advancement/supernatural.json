@@ -67,126 +67,126 @@
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:skeleton_skull_crawler": {
+    "withered_lands:skull_crawler_skeleton": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skeleton_skull_crawler"
+              "type": "withered_lands:skull_crawler_skeleton"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:stray_skull_crawler": {
+    "withered_lands:skull_crawler_stray": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:stray_skull_crawler"
+              "type": "withered_lands:skull_crawler_stray"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:bogged_skull_crawler": {
+    "withered_lands:skull_crawler_bogged": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bogged_skull_crawler"
+              "type": "withered_lands:skull_crawler_bogged"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:parched_skull_crawler": {
+    "withered_lands:skull_crawler_parched": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:parched_skull_crawler"
+              "type": "withered_lands:skull_crawler_parched"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:wither_skull_crawler": {
+    "withered_lands:skull_crawler_wither": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:wither_skull_crawler"
+              "type": "withered_lands:skull_crawler_wither"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:zombie_skull_crawler": {
+    "withered_lands:skull_crawler_zombie": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:zombie_skull_crawler"
+              "type": "withered_lands:skull_crawler_zombie"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:husk_skull_crawler": {
+    "withered_lands:skull_crawler_husk": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:husk_skull_crawler"
+              "type": "withered_lands:skull_crawler_husk"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:drowned_skull_crawler": {
+    "withered_lands:skull_crawler_drowned": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:drowned_skull_crawler"
+              "type": "withered_lands:skull_crawler_drowned"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "withered_lands:piglin_skull_crawler": {
+    "withered_lands:skull_crawler_piglin": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:piglin_skull_crawler"
+              "type": "withered_lands:skull_crawler_piglin"
             }
           }
         ]
@@ -256,15 +256,15 @@
       "withered_lands:zombie_dog",
       "withered_lands:skeleton_cat",
       "withered_lands:zombie_cat",
-      "withered_lands:skeleton_skull_crawler",
-      "withered_lands:stray_skull_crawler",
-      "withered_lands:bogged_skull_crawler",
-      "withered_lands:parched_skull_crawler",
-      "withered_lands:wither_skull_crawler",
-      "withered_lands:zombie_skull_crawler",
-      "withered_lands:husk_skull_crawler",
-      "withered_lands:drowned_skull_crawler",
-      "withered_lands:piglin_skull_crawler",
+      "withered_lands:skull_crawler_skeleton",
+      "withered_lands:skull_crawler_stray",
+      "withered_lands:skull_crawler_bogged",
+      "withered_lands:skull_crawler_parched",
+      "withered_lands:skull_crawler_wither",
+      "withered_lands:skull_crawler_zombie",
+      "withered_lands:skull_crawler_husk",
+      "withered_lands:skull_crawler_drowned",
+      "withered_lands:skull_crawler_piglin",
       "withered_lands:possessed_armor",
       "withered_lands:hollow_stalker",
       "withered_lands:barghest",

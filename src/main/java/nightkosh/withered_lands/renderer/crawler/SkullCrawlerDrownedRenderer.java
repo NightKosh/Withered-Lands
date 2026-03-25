@@ -13,16 +13,16 @@ import javax.annotation.Nonnull;
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class ZombieSkullCrawlerRenderer extends ASkullCrawlerRenderer {
+public class SkullCrawlerDrownedRenderer extends ASkullCrawlerRenderer {
 
-    public ZombieSkullCrawlerRenderer(EntityRendererProvider.Context context) {
+    public SkullCrawlerDrownedRenderer(EntityRendererProvider.Context context) {
         super(context);
     }
 
     @Nonnull
     @Override
     public Identifier getTextureLocation(LivingEntityRenderState state) {
-        return WLTextures.ZOMBIE_SKULL_CRAWLER;
+        return WLTextures.DROWNED_SKULL_CRAWLER;
     }
 
 }

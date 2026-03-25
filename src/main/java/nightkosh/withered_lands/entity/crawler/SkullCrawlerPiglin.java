@@ -20,37 +20,37 @@ import static nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibi
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class DrownedSkullCrawler extends ZombieSkullCrawler {
+public class SkullCrawlerPiglin extends SkullCrawlerZombie {
 
-    public DrownedSkullCrawler(EntityType<? extends ASkullCrawler> entityType, Level level) {
+    public SkullCrawlerPiglin(EntityType<? extends ASkullCrawler> entityType, Level level) {
         super(entityType, level);
     }
 
     @Override
     public Block getPilesOfBones() {
-        return PILE_OF_BONES_SKULL_DROWNED_CRAWLER;
+        return PILE_OF_BONES_SKULL_PIGLIN_CRAWLER;
     }
 
     @Override
     public Block getBoneSkullBlock() {
-        return BONE_BLOCK_SKULL_DROWNED_CRAWLER;
+        return BONE_BLOCK_SKULL_PIGLIN_CRAWLER;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.DROWNED_AMBIENT;
+        return SoundEvents.ZOMBIFIED_PIGLIN_AMBIENT;
     }
 
     @Nonnull
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return SoundEvents.DROWNED_HURT;
+        return SoundEvents.ZOMBIFIED_PIGLIN_HURT;
     }
 
     @Nonnull
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.DROWNED_DEATH;
+        return SoundEvents.ZOMBIFIED_PIGLIN_DEATH;
     }
 
     public static AttributeSupplier createAttributeSupplier() {

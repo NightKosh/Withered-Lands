@@ -84,32 +84,32 @@ public class WLItems {
             registerEgg(WLEntities.BAT_CHORUS, "bat_chorus_spawn_egg");
 
     // crawlers
-    public static final DeferredHolder<Item, Item> SKELETON_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.SKELETON_SKULL_CRAWLER, "skeleton_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_SKELETON_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_SKELETON, "skull_crawler_skeleton_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> STRAY_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.STRAY_SKULL_CRAWLER, "stray_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_STRAY_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_STRAY, "skull_crawler_stray_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> BOGGED_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.BOGGED_SKULL_CRAWLER, "bogged_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_BOGGED_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_BOGGED, "skull_crawler_bogged_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> PARCHED_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.PARCHED_SKULL_CRAWLER, "parched_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_PARCHED_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_PARCHED, "skull_crawler_parched_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> WITHER_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.WITHER_SKULL_CRAWLER, "wither_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_WITHER_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_WITHER, "skull_crawler_wither_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> ZOMBIE_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.ZOMBIE_SKULL_CRAWLER, "zombie_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_ZOMBIE_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_ZOMBIE, "skull_crawler_zombie_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> HUSK_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.HUSK_SKULL_CRAWLER, "husk_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_HUSK_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_HUSK, "skull_crawler_husk_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> DROWNED_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.DROWNED_SKULL_CRAWLER, "drowned_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_DROWNED_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_DROWNED, "skull_crawler_drowned_spawn_egg");
 
-    public static final DeferredHolder<Item, Item> PIGLIN_SKULL_CRAWLER_EGG =
-            registerEgg(WLEntities.PIGLIN_SKULL_CRAWLER, "piglin_skull_crawler_spawn_egg");
+    public static final DeferredHolder<Item, Item> SKULL_CRAWLER_PIGLIN_EGG =
+            registerEgg(WLEntities.SKULL_CRAWLER_PIGLIN, "skull_crawler_piglin_spawn_egg");
 
     // breeze
     public static final DeferredHolder<Item, Item> THUNDERSTORM_EGG =

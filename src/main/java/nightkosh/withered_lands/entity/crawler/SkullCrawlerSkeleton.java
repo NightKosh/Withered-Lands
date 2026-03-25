@@ -20,9 +20,9 @@ import static nightkosh.withered_lands.compatibility.GravestoneExtendedCompatibi
  * @author NightKosh
  * @license Lesser GNU Public License v3 (http://www.gnu.org/licenses/lgpl.html)
  */
-public class SkeletonSkullCrawler extends ASkullCrawler {
+public class SkullCrawlerSkeleton extends ASkullCrawler {
 
-    public SkeletonSkullCrawler(EntityType<? extends ASkullCrawler> entityType, Level level) {
+    public SkullCrawlerSkeleton(EntityType<? extends ASkullCrawler> entityType, Level level) {
         super(entityType, level);
     }
 

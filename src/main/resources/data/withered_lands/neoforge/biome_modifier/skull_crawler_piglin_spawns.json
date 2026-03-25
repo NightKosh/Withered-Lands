@@ -5,7 +5,7 @@
   ],
   "spawners": [
     {
-      "type": "withered_lands:piglin_skull_crawler",
+      "type": "withered_lands:skull_crawler_piglin",
       "weight": 15,
       "minCount": 1,
       "maxCount": 3
