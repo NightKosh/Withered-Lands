@@ -198,7 +198,7 @@ public abstract class ABreeze extends ADayMonster {
     @Nonnull
     @Override
     public ProjectileDeflection deflection(Projectile projectile) {
-        if (!projectile.is(EntityType.BREEZE_WIND_CHARGE) && !projectile.is(EntityType.WIND_CHARGE)) {
+        if (!projectile.is(EntityTypes.BREEZE_WIND_CHARGE) && !projectile.is(EntityTypes.WIND_CHARGE)) {
             return this.is(EntityTypeTags.DEFLECTS_PROJECTILES) ? PROJECTILE_DEFLECTION : ProjectileDeflection.NONE;
         } else {
             return ProjectileDeflection.NONE;
@@ -239,7 +239,7 @@ public abstract class ABreeze extends ADayMonster {
     }
 
     public boolean withinInnerCircleRange(Vec3 pos) {
-        return pos.closerThan(this.blockPosition().getCenter(), 4, JUMP_CIRCLE_DISTANCE_Y);
+        return pos.closerThan(Vec3.atCenterOf(this.blockPosition()), 4, JUMP_CIRCLE_DISTANCE_Y);
     }
 
     @Override
@@ -255,7 +255,7 @@ public abstract class ABreeze extends ADayMonster {
 
     @Override
     public boolean canAttack(LivingEntity target) {
-        return target.is(EntityType.PLAYER) || target.is(EntityType.IRON_GOLEM);
+        return target.is(EntityTypes.PLAYER) || target.is(EntityTypes.IRON_GOLEM);
     }
 
     @Override

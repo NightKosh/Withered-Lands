@@ -2,6 +2,7 @@ package nightkosh.withered_lands.core;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.Level;
@@ -88,7 +89,7 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("slime_frozen",
                     () -> EntityType.Builder.of(SlimeFrozen::new, MobCategory.MONSTER)
                             .sized(0.52F, 0.52F)
-                            .immuneTo(Blocks.POWDER_SNOW)
+                            .immuneTo(BlockTags.SNOW_GOLEM_IMMUNE_TO)
                             .spawnDimensionsScale(4)
                             .eyeHeight(0.325F)
                             .notInPeaceful()
@@ -188,7 +189,7 @@ public class WLEntities {
             ENTITY_TYPES_REGISTER.register("bat_ice",
                     () -> EntityType.Builder.of(BatIce::new, MobCategory.MONSTER)
                             .sized(0.8F, 0.9F)
-                            .immuneTo(Blocks.POWDER_SNOW)
+                            .immuneTo(BlockTags.SNOW_GOLEM_IMMUNE_TO)
                             .eyeHeight(0.45F)
                             .notInPeaceful()
                             .build(ResourceKey.create(
@@ -262,7 +263,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<SkullCrawlerStray>> SKULL_CRAWLER_STRAY =
             ENTITY_TYPES_REGISTER.register("skull_crawler_stray",
                     () -> EntityType.Builder.of(SkullCrawlerStray::new, MobCategory.MONSTER)
-                            .immuneTo(Blocks.POWDER_SNOW)
+                            .immuneTo(BlockTags.STRAY_IMMUNE_TO)
                             .sized(0.8F, 0.8F)
                             .eyeHeight(0.5F)
                             .notInPeaceful()
@@ -359,7 +360,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<Blizzard>> BLIZZARD =
             ENTITY_TYPES_REGISTER.register("blizzard",
                     () -> EntityType.Builder.of(Blizzard::new, MobCategory.MONSTER)
-                            .immuneTo(Blocks.POWDER_SNOW)
+                            .immuneTo(BlockTags.SNOW_GOLEM_IMMUNE_TO)
                             .sized(0.6F, 1.77F)
                             .eyeHeight(1.3452F)
                             .notInPeaceful()
@@ -380,7 +381,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<DirgeGale>> DIRGE_GALE =
             ENTITY_TYPES_REGISTER.register("dirge_gale",
                     () -> EntityType.Builder.of(DirgeGale::new, MobCategory.MONSTER)
-                            .immuneTo(Blocks.WITHER_ROSE)
+                            .immuneTo(BlockTags.WITHER_SKELETON_IMMUNE_TO)
                             .sized(0.6F, 1.77F)
                             .eyeHeight(1.3452F)
                             .notInPeaceful()
@@ -492,7 +493,7 @@ public class WLEntities {
                             .sized(1.2F, 1.7F)
                             .eyeHeight(1.36F)
                             .notInPeaceful()
-                            .immuneTo(Blocks.WITHER_ROSE)
+                            .immuneTo(BlockTags.WITHER_SKELETON_IMMUNE_TO)
                             .build(ResourceKey.create(
                                     Registries.ENTITY_TYPE,
                                     fromNamespaceAndPath(ModInfo.ID, "barghest"))));
@@ -597,7 +598,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<Snowman>> SNOWMAN =
             ENTITY_TYPES_REGISTER.register("snowman",
                     () -> EntityType.Builder.of(Snowman::new, MobCategory.MONSTER)
-                            .immuneTo(Blocks.POWDER_SNOW)
+                            .immuneTo(BlockTags.SNOW_GOLEM_IMMUNE_TO)
                             .sized(0.7F, 1.9F)
                             .eyeHeight(1.7F)
                             .notInPeaceful()
@@ -620,7 +621,7 @@ public class WLEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<FrozenGiant>> FROZEN_GIANT =
             ENTITY_TYPES_REGISTER.register("frozen_giant",
                     () -> EntityType.Builder.of(FrozenGiant::new, MobCategory.MONSTER)
-                            .immuneTo(Blocks.POWDER_SNOW)
+                            .immuneTo(BlockTags.SNOW_GOLEM_IMMUNE_TO)
                             .sized(3.6F, 12)
                             .ridingOffset(-3.75F)
                             .eyeHeight(10.44F)

@@ -7,10 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -87,7 +84,7 @@ public class ZombieHorse extends AUndeadHorse {
 
     @Override
     protected Monster getJockey(@Nonnull ServerLevelAccessor level) {
-        return EntityType.ZOMBIE.create(this.level(), EntitySpawnReason.JOCKEY);
+        return EntityTypes.ZOMBIE.create(this.level(), EntitySpawnReason.JOCKEY);
     }
 
     @Override

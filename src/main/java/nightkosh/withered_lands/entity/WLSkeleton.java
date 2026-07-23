@@ -74,7 +74,7 @@ public class WLSkeleton extends Skeleton {
     @Nonnull
     @Override
     protected Component getTypeName() {
-        return EntityType.SKELETON.getDescription();
+        return EntityTypes.SKELETON.getDescription();
     }
 
     public static boolean checkSpawnRules(

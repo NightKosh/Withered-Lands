@@ -11,6 +11,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.ActivityData;
 import net.minecraft.world.entity.ai.Brain;
@@ -92,7 +93,7 @@ public class GiantFrogAi {
         return ActivityData.create(
                 Activity.IDLE,
                 ImmutableList.of(
-                        Pair.of(0, SetEntityLookTargetSometimes.create(EntityType.PLAYER, 6, UniformInt.of(30, 60))),
+                        Pair.of(0, SetEntityLookTargetSometimes.create(EntityTypes.PLAYER, 6, UniformInt.of(30, 60))),
                         Pair.of(2, StartAttacking.create(
                                 (level, frog) -> canAttack(frog),
                                 (level, frog) -> frog.getBrain()
@@ -115,7 +116,7 @@ public class GiantFrogAi {
         return ActivityData.create(
                 Activity.SWIM,
                 ImmutableList.of(
-                        Pair.of(0, SetEntityLookTargetSometimes.create(EntityType.PLAYER, 6, UniformInt.of(30, 60))),
+                        Pair.of(0, SetEntityLookTargetSometimes.create(EntityTypes.PLAYER, 6, UniformInt.of(30, 60))),
                         Pair.of(2, StartAttacking.create(
                                 (level, frog) -> canAttack(frog),
                                 (level, frog) -> frog.getBrain()

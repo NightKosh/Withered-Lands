@@ -5,6 +5,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.ClipContext;
@@ -37,7 +38,7 @@ public class BreezeUtil {
 
     public static void createLightning(
             @Nonnull ServerLevel level, double x, double y, double z) {
-        var lightning = EntityType.LIGHTNING_BOLT.create(level, EntitySpawnReason.EVENT);
+        var lightning = EntityTypes.LIGHTNING_BOLT.create(level, EntitySpawnReason.EVENT);
         if (lightning != null) {
             lightning.snapTo(x, y, z);
             level.addFreshEntity(lightning);

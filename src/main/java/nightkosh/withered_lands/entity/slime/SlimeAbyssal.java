@@ -36,7 +36,7 @@ public class SlimeAbyssal extends ASlime {
 
     private static final WeightedList<Item> ITEMS = WeightedList.<Item>builder()
             .add(Items.TORCH, 8)
-            .add(Items.COPPER_LANTERN.oxidized(), 4)
+            .add(Items.COPPER_LANTERN.weathering().oxidized(), 4)
             .add(Items.ARROW, 4)
             .add(Items.STONE_SWORD, 1)
             .add(Items.STONE_PICKAXE, 1)

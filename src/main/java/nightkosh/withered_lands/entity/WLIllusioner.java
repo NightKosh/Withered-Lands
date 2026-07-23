@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.monster.illager.Illusioner;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -27,7 +28,7 @@ public class WLIllusioner extends Illusioner {
     @Nonnull
     @Override
     protected Component getTypeName() {
-        return EntityType.ILLUSIONER.getDescription();
+        return EntityTypes.ILLUSIONER.getDescription();
     }
 
     public static boolean checkSpawnRules(

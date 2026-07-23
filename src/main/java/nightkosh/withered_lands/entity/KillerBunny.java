@@ -6,6 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.animal.rabbit.Rabbit;
 import net.minecraft.world.level.Level;
@@ -40,7 +41,7 @@ public class KillerBunny extends Rabbit {
     @Nonnull
     @Override
     protected Component getTypeName() {
-        return EntityType.RABBIT.getDescription();
+        return EntityTypes.RABBIT.getDescription();
     }
 
     public static boolean checkSpawnRules(
