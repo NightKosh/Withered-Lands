@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skeleton_dog"
+              "minecraft:entity_type": "withered_lands:skeleton_dog"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:zombie_dog"
+              "minecraft:entity_type": "withered_lands:zombie_dog"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skeleton_cat"
+              "minecraft:entity_type": "withered_lands:skeleton_cat"
             }
           }
         ]
@@ -60,7 +60,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:zombie_cat"
+              "minecraft:entity_type": "withered_lands:zombie_cat"
             }
           }
         ]

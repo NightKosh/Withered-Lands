@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skeleton"
+              "minecraft:entity_type": "withered_lands:skeleton"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:snowman"
+              "minecraft:entity_type": "withered_lands:snowman"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:giant_frog"
+              "minecraft:entity_type": "withered_lands:giant_frog"
             }
           }
         ]
@@ -60,7 +60,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:cave_spider"
+              "minecraft:entity_type": "withered_lands:cave_spider"
             }
           }
         ]
@@ -74,7 +74,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:desert_creeper"
+              "minecraft:entity_type": "withered_lands:desert_creeper"
             }
           }
         ]
@@ -88,7 +88,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:snowy_creeper"
+              "minecraft:entity_type": "withered_lands:snowy_creeper"
             }
           }
         ]
@@ -102,7 +102,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:cave_creeper"
+              "minecraft:entity_type": "withered_lands:cave_creeper"
             }
           }
         ]
@@ -116,7 +116,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:deepslate_creeper"
+              "minecraft:entity_type": "withered_lands:deepslate_creeper"
             }
           }
         ]
@@ -130,7 +130,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:illusioner"
+              "minecraft:entity_type": "withered_lands:illusioner"
             }
           }
         ]
@@ -144,7 +144,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:killer_bunny"
+              "minecraft:entity_type": "withered_lands:killer_bunny"
             }
           }
         ]
@@ -158,7 +158,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:thunderstorm"
+              "minecraft:entity_type": "withered_lands:thunderstorm"
             }
           }
         ]
@@ -172,7 +172,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:blizzard"
+              "minecraft:entity_type": "withered_lands:blizzard"
             }
           }
         ]
@@ -186,7 +186,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:sand_devil"
+              "minecraft:entity_type": "withered_lands:sand_devil"
             }
           }
         ]
@@ -200,7 +200,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:dirge_gale"
+              "minecraft:entity_type": "withered_lands:dirge_gale"
             }
           }
         ]
@@ -214,7 +214,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:minnow"
+              "minecraft:entity_type": "withered_lands:minnow"
             }
           }
         ]
@@ -228,7 +228,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:piranha"
+              "minecraft:entity_type": "withered_lands:piranha"
             }
           }
         ]
@@ -242,7 +242,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:pike"
+              "minecraft:entity_type": "withered_lands:pike"
             }
           }
         ]

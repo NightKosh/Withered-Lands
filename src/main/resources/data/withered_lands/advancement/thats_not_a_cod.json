@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:minnow"
+              "minecraft:entity_type": "withered_lands:minnow"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:piranha"
+              "minecraft:entity_type": "withered_lands:piranha"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:pike"
+              "minecraft:entity_type": "withered_lands:pike"
             }
           }
         ]

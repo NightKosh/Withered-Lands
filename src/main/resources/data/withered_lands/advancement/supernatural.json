@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skeleton_dog"
+              "minecraft:entity_type": "withered_lands:skeleton_dog"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:zombie_dog"
+              "minecraft:entity_type": "withered_lands:zombie_dog"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skeleton_cat"
+              "minecraft:entity_type": "withered_lands:skeleton_cat"
             }
           }
         ]
@@ -60,7 +60,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:zombie_cat"
+              "minecraft:entity_type": "withered_lands:zombie_cat"
             }
           }
         ]
@@ -74,7 +74,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_skeleton"
+              "minecraft:entity_type": "withered_lands:skull_crawler_skeleton"
             }
           }
         ]
@@ -88,7 +88,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_stray"
+              "minecraft:entity_type": "withered_lands:skull_crawler_stray"
             }
           }
         ]
@@ -102,7 +102,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_bogged"
+              "minecraft:entity_type": "withered_lands:skull_crawler_bogged"
             }
           }
         ]
@@ -116,7 +116,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_parched"
+              "minecraft:entity_type": "withered_lands:skull_crawler_parched"
             }
           }
         ]
@@ -130,7 +130,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_wither"
+              "minecraft:entity_type": "withered_lands:skull_crawler_wither"
             }
           }
         ]
@@ -144,7 +144,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_zombie"
+              "minecraft:entity_type": "withered_lands:skull_crawler_zombie"
             }
           }
         ]
@@ -158,7 +158,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_husk"
+              "minecraft:entity_type": "withered_lands:skull_crawler_husk"
             }
           }
         ]
@@ -172,7 +172,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_drowned"
+              "minecraft:entity_type": "withered_lands:skull_crawler_drowned"
             }
           }
         ]
@@ -186,7 +186,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:skull_crawler_piglin"
+              "minecraft:entity_type": "withered_lands:skull_crawler_piglin"
             }
           }
         ]
@@ -200,7 +200,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:possessed_armor"
+              "minecraft:entity_type": "withered_lands:possessed_armor"
             }
           }
         ]
@@ -214,7 +214,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:hollow_stalker"
+              "minecraft:entity_type": "withered_lands:hollow_stalker"
             }
           }
         ]
@@ -228,7 +228,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:barghest"
+              "minecraft:entity_type": "withered_lands:barghest"
             }
           }
         ]
@@ -242,7 +242,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:mimic"
+              "minecraft:entity_type": "withered_lands:mimic"
             }
           }
         ]

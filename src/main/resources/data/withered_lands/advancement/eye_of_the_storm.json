@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:thunderstorm"
+              "minecraft:entity_type": "withered_lands:thunderstorm"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:blizzard"
+              "minecraft:entity_type": "withered_lands:blizzard"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:sand_devil"
+              "minecraft:entity_type": "withered_lands:sand_devil"
             }
           }
         ]
@@ -60,7 +60,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:dirge_gale"
+              "minecraft:entity_type": "withered_lands:dirge_gale"
             }
           }
         ]

@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:phantom_diver"
+              "minecraft:entity_type": "withered_lands:phantom_diver"
             }
           }
         ]

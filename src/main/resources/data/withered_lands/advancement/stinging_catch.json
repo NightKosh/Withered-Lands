@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jellyfish_white"
+              "minecraft:entity_type": "withered_lands:jellyfish_white"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jellyfish_blue"
+              "minecraft:entity_type": "withered_lands:jellyfish_blue"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jellyfish_green"
+              "minecraft:entity_type": "withered_lands:jellyfish_green"
             }
           }
         ]
@@ -60,7 +60,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jellyfish_yellow"
+              "minecraft:entity_type": "withered_lands:jellyfish_yellow"
             }
           }
         ]
@@ -74,7 +74,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jellyfish_red"
+              "minecraft:entity_type": "withered_lands:jellyfish_red"
             }
           }
         ]
@@ -88,7 +88,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jellyfish_pink"
+              "minecraft:entity_type": "withered_lands:jellyfish_pink"
             }
           }
         ]
@@ -102,7 +102,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:jellyfish_purple"
+              "minecraft:entity_type": "withered_lands:jellyfish_purple"
             }
           }
         ]

@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_toxic_sludge"
+              "minecraft:entity_type": "withered_lands:slime_toxic_sludge"
             }
           }
         ]

@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_cave"
+              "minecraft:entity_type": "withered_lands:bat_cave"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_vampire"
+              "minecraft:entity_type": "withered_lands:bat_vampire"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_ice"
+              "minecraft:entity_type": "withered_lands:bat_ice"
             }
           }
         ]
@@ -60,7 +60,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_flying_fox"
+              "minecraft:entity_type": "withered_lands:bat_flying_fox"
             }
           }
         ]
@@ -74,7 +74,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_blazing"
+              "minecraft:entity_type": "withered_lands:bat_blazing"
             }
           }
         ]
@@ -88,7 +88,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_withered"
+              "minecraft:entity_type": "withered_lands:bat_withered"
             }
           }
         ]
@@ -102,7 +102,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_volatile"
+              "minecraft:entity_type": "withered_lands:bat_volatile"
             }
           }
         ]
@@ -116,7 +116,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:bat_chorus"
+              "minecraft:entity_type": "withered_lands:bat_chorus"
             }
           }
         ]

@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:mimic"
+              "minecraft:entity_type": "withered_lands:mimic"
             }
           }
         ]

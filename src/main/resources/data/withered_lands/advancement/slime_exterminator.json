@@ -18,7 +18,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_verdant"
+              "minecraft:entity_type": "withered_lands:slime_verdant"
             }
           }
         ]
@@ -32,7 +32,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_sandy"
+              "minecraft:entity_type": "withered_lands:slime_sandy"
             }
           }
         ]
@@ -46,7 +46,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_frozen"
+              "minecraft:entity_type": "withered_lands:slime_frozen"
             }
           }
         ]
@@ -60,7 +60,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_mud"
+              "minecraft:entity_type": "withered_lands:slime_mud"
             }
           }
         ]
@@ -74,7 +74,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_jungle"
+              "minecraft:entity_type": "withered_lands:slime_jungle"
             }
           }
         ]
@@ -88,7 +88,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_cave"
+              "minecraft:entity_type": "withered_lands:slime_cave"
             }
           }
         ]
@@ -102,7 +102,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_abyssal"
+              "minecraft:entity_type": "withered_lands:slime_abyssal"
             }
           }
         ]
@@ -116,7 +116,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_toxic_sludge"
+              "minecraft:entity_type": "withered_lands:slime_toxic_sludge"
             }
           }
         ]
@@ -130,7 +130,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "withered_lands:slime_molten"
+              "minecraft:entity_type": "withered_lands:slime_molten"
             }
           }
         ]
